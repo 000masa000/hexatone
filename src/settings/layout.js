@@ -9,7 +9,6 @@ const Layout = (props) => (
       <input name="rSteps" type="number"
              value={props.settings.rSteps}
              min="-1220" max="1220"
-
              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
     </label>
     <label>
@@ -33,7 +32,6 @@ const Layout = (props) => (
              step="any" min="-360" max="360"
              onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
     </label>
-
   </fieldset>
 );
 

@@ -4,15 +4,15 @@ body {
 	background-repeat: repeat;
 	background-position: top left;
 	background-attachment: fixed;
-    overflow: scroll;
-    font-family: Helvetica,Arial,Roboto,"Open Sans",sans-serif;
+    overflow: hidden;
+    font-family: Arial Nova Condensed, Arial Narrow, Roboto, Helvetica,Arial,"Open Sans",sans-serif;
 }
 
 #sidebar {
     background-color: white;
     transition: transform 0.3s ease-in-out;
     z-index: 10;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #sidebar-button {
@@ -34,7 +34,7 @@ a {
     }
 
     #sidebar-button {
-        height: 4em;
+        height: 5em;
         top: 0;
         left: 50vw;
         transform: translate(-50%, 0);
@@ -52,11 +52,11 @@ a {
     }
 
     .hide #sidebar-button {
-        width: 5em;
+        width: 2.5em;
     }
 
     .show #sidebar-button {
-        width: 100vw;
+        width: 50vw;
     }
 
     .hide #sidebar-button div {
@@ -72,13 +72,13 @@ a {
 @media (min-width: 460px) {
     #sidebar {
         height: 100vh;
-        max-width: 30em;
-        padding-left: 5.5em;
-        padding-right: 0.5em;
+        max-width: 40em;
+        padding-left: 3.5em;
+        padding-right: 1em;
     }
 
     #sidebar-button {
-        width: 5em;
+        width: 2.5em;
         top: 50vh;
         left: 0;
         transform: translate(0, -50%);
@@ -96,11 +96,11 @@ a {
     }
 
     .hide #sidebar-button {
-        height: 5em;
+        height: 2.5em;
     }
 
     .show #sidebar-button {
-        height: 100vh;
+        height: 35vh;
     }
 
     .hide #sidebar-button div {

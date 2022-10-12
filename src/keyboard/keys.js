@@ -88,12 +88,12 @@ class Keys {
       clearInterval(this.interval);
     }
   }
-
+  
   hexOn(coords) {
-    const [cents, pressed_interval, steps, octaves] = this.hexCoordsToCents(coords);
+    const [cents, pressed_interval, steps, octaves, equivSteps] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, octaves);
+    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, octaves, equivSteps);
     hex.noteOn();
     return hex;
   }
@@ -533,12 +533,13 @@ class Keys {
     var distance = coords.x * this.settings.rSteps + coords.y * this.settings.urSteps;
     var octs = this.roundTowardZero(distance / this.settings.scale.length);
     var reducedSteps = distance % this.settings.scale.length;
+    var equivSteps = this.settings.equivSteps;
     if (reducedSteps < 0) {
       reducedSteps += this.settings.scale.length;
       octs -= 1;
     }
     var cents = octs * this.settings.equivInterval + this.settings.scale[reducedSteps];
-    return [cents, reducedSteps, distance, octs];
+    return [cents, reducedSteps, distance, octs, equivSteps];
   }
 
   getHexCoordsAt(coords) {
