@@ -52,11 +52,11 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 3,
         "urSteps": 2,
-        "hexSize": 50,
+        "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "sawtooth",
+        "instrument": "rhodes",
         "short_description": "12-ed2 B-System Chromatic Button"
       },
       {
@@ -70,11 +70,11 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 3,
         "urSteps": 1,
-        "hexSize": 50,
+        "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "sawtooth",
+        "instrument": "rhodes",
         "short_description": "12-ed2 C-System Chromatic Button"       
       },
     ]
@@ -191,7 +191,7 @@ export const presets = [
         "rotation": 340.897886248,
         "output": "sample",
         "fundamental": 272.2044155,
-        "instrument": "qanun",
+        "instrument": "lute",
         "short_description": "22-JI-5L-Indian Bosanquet / Wilson / Terpstra"
       },
       {
@@ -249,7 +249,7 @@ export const presets = [
         "short_description": "53-RI-3L Bosanquet / Wilson / Terpstra"
       },      
       {
-        "name": "53-RI-3L Mirrored Bosanquet/Wilson / Terpstra",
+        "name": "53-RI-3L Mirrored Bosanquet / Wilson / Terpstra",
         "description": "53-RI-3L Bosanquet / Wilson / Terpstra: 53-tone Rational Intonation 3-Limit scale, consisting of 53 rational divisions per frequency halving/doubling with sonic distances derived solely from the harmonics 2 and 3 of both ascending and descending harmonic series, mapped on a Bosanquet / Wilson / Terpstra Female (Eastern) layout.",
         "scale": parseScale(scale_53_ri_3l_mirrored).scale,
         "names": ["2⁰|3⁰", "2¹⁹|3¹²", "2³⁸|3²⁴", "3¹⁷|2²⁷", "3⁵|2⁸", "2¹¹|3⁷", "2³⁰|3¹⁹", "3²²|2³⁵", "3¹⁰|2¹⁶", "2³|3²", "2²²|3¹⁴", "2⁴¹|3²⁶", "3¹⁵|2²⁴", "3³|2⁵", "2¹⁴|3⁹", "2³³|3²¹", "3²⁰|2³²", "3⁸|2¹³", "2⁶|3⁴", "2²⁵|3¹⁶", "3²⁵|2⁴⁰", "3¹³|2²¹", "3¹|2²", "2¹⁷|3¹¹", "2³⁶|3²³", "3¹⁸|2²⁹", "3⁶|2¹⁰", "2⁹|3⁶", "2²⁸|3¹⁸", "3²³|2³⁷", "3¹¹|2¹⁸", "2¹|3¹", "2²⁰|3¹³", "2³⁹|3²⁵", "3¹⁶|2²⁶", "3⁴|2⁷", "2¹²|3⁸", "2³¹|3²⁰", "3²¹|2³⁴", "3⁹|2¹⁵", "2⁴|3³", "2²³|3¹⁵", "3²⁶|2⁴²", "3¹⁴|2²³", "3²|2⁴", "2¹⁵|3¹⁰", "2³⁴|3²²", "3¹⁹|2³¹", "3⁷|2¹²", "2⁷|3⁵", "2²⁶|3¹⁷", "3²⁴|2³⁹", "3¹²|2²⁰", "3⁰|2¹"],
@@ -340,7 +340,7 @@ export const presets = [
         "rotation": 343.897886248,
         "output": "sample",
         "fundamental": 260.5221364,
-        "instrument": "rhodes",
+        "instrument": "lute",
         "short_description": "41-ed2 Bosanquet / Wilson / Terpstra"  
       },
       {
