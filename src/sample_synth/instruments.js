@@ -25,7 +25,8 @@ const instruments = [
     fade: 0.1
   }, {
     fileName: "WMRI5LST",
-    fade: 0.1gi
+    fade: 0.1
+  }, {  
     fileName: "WMRI13LST",
     fade: 0.1
   }, {
