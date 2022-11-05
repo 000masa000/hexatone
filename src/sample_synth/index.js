@@ -108,7 +108,7 @@ const findFadeout = (fileName) => {
 // TODO use url from webpack file-loader instead of filename
 export const instruments = [
   {
-    name: "Regular",
+    name: "Acoustic Instruments",
     instruments: [
       {
         fileName: "piano",
