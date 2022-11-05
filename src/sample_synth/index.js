@@ -115,28 +115,20 @@ export const instruments = [
         name: "Piano",
         fade: 0.1
       }, {
-        fileName: "harpsichord",
-        name: "Harpsichord",
-        fade: 0.2
-      }, {
         fileName: "rhodes",
         name: "Rhodes",
         fade: 0.1
       }, {
-        fileName: "harp",
-        name: "Harp",
+        fileName: "harpsichord",
+        name: "Harpsichord",
         fade: 0.2
       }, {
-        fileName: "choir",
-        name: "Choir",
-        fade: 0.5
+        fileName: "lute",
+        name: "Lute-Stop",
+        fade: 0.2
       }, {
-        fileName: "strings",
-        name: "Strings",
-        fade: 0.9
-      }, {
-        fileName: "sawtooth",
-        name: "Sawtooth",
+        fileName: "harp",
+        name: "Harp",
         fade: 0.2
       }, {
         fileName: "gayageum",
@@ -146,27 +138,11 @@ export const instruments = [
         fileName: "qanun",
         name: "Qanun",
         fade: 1
-      }, {
-        fileName: "organ",
-        name: "Organ",
-        fade: 0.1
-      }, {
-        fileName: "organleslie",
-        name: "Organ + Leslie",
-        fade: 0.1
-      }, {
-        fileName: "marimba",
-        name: "Marimba",
-        fade: 0.1
-      }, {
-        fileName: "musicbox",
-        name: "Music Box",
-        fade: 0.1
-      },
+      }
     ],
   },
   {
-    name: "«What Music Really İs» Study Tones",
+    name: "Additive Synthesis Tones",
     instruments: [
       {
         fileName: "WMRI3LST",

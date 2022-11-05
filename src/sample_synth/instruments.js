@@ -3,22 +3,16 @@ const instruments = [
     fileName: "piano",
     fade: 0.1
   }, {
-    fileName: "harpsichord",
-    fade: 0.2
-  }, {
     fileName: "rhodes",
     fade: 0.1
   }, {
-    fileName: "harp",
+    fileName: "harpsichord",
     fade: 0.2
   }, {
-    fileName: "choir",
-    fade: 0.5
+    fileName: "lute",
+    fade: 0.1
   }, {
-    fileName: "strings",
-    fade: 0.9
-  }, {
-    fileName: "sawtooth",
+    fileName: "harp",
     fade: 0.2
   }, {
     fileName: "gayageum",
@@ -27,33 +21,11 @@ const instruments = [
     fileName: "qanun",
     fade: 1
   }, {
-    fileName: "organ",
-    fade: 0.1
-  }, {
-    fileName: "organleslie",
-    fade: 0.1
-  }, {
-    fileName: "marimba",
-    fade: 0.1
-  }, {
-    fileName: "musicbox",
-    fade: 0.1
-  }, {
     fileName: "WMRI3LST",
     fade: 0.1
   }, {
     fileName: "WMRI5LST",
-    fade: 0.1
-  }, {
-    fileName: "WMRI5Lpike",
-    fade: 0.1
-  }, {
-    fileName: "WMRI7LST",
-    fade: 0.1
-  }, {
-    fileName: "WMRI11LST",
-    fade: 0.1
-  }, {
+    fade: 0.1gi
     fileName: "WMRI13LST",
     fade: 0.1
   }, {
