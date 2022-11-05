@@ -146,35 +146,35 @@ export const instruments = [
     instruments: [
       {
         fileName: "WMRI3LST",
-        name: "WMRİ 3-Limit (4 Harmonics) ST",
+        name: "3-Limit (4 Harmonics)",
         fade: 0.1
       },{
         fileName: "WMRI5LST",
-        name: "WMRİ 5-Limit (6 Harmonics) ST",
+        name: "5-Limit (6 Harmonics)",
         fade: 0.1
       },{
         fileName: "WMRI5Lpike",
-        name: "WMRİ 5-Limit (6 Harmonics) Pk",
+        name: "5-Limit (6 Harmonics) Pluck",
         fade: 0.1
       },{
         fileName: "WMRI7LST",
-        name: "WMRİ 7-Limit (10 Harmonics) ST",
+        name: "7-Limit (10 Harmonics)",
         fade: 0.1
       },{
         fileName: "WMRI11LST",
-        name: "WMRİ 11-Limit (12 Harmonics) ST",
+        name: "11-Limit (12 Harmonics)",
         fade: 0.1
       },{
         fileName: "WMRI13LST",
-        name: "WMRİ 13-Limit (16 Harmonics) ST",
+        name: "13-Limit (16 Harmonics)",
         fade: 0.1
       },{
         fileName: "WMRInLST",
-        name: "WMRİ n-Limit (\"sawtooth wave\") ST",
+        name: "n-Limit (\"sawtooth wave\")",
         fade: 0.1
       },{
         fileName: "WMRIByzantineST",
-        name:"WMRİ Byzantine (9 Harmonics) ST",
+        name:"Byzantine (9 Harmonics)",
         fade: 0.1
       },
     ]
