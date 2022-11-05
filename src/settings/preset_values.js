@@ -84,7 +84,7 @@ export const presets = [
     settings: [
       {
         "name": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout",
-        "description": "31-Extended-Meantone Vicentino alternate tuning to 31-edo with Bosanquet / Wilson / Terpstra layout.",
+        "description": "31-Extended-Meantone Vicentino alternate tuning to 31-edo with Bosanquet / Wilson / Terpstra layout (Gbb - A##)",
         "scale": parseScale(scale_31_mt_vicentino_alt).scale,
         "names": ["C", "D♭♭", "C♯", "D♭", "C×", "D", "E♭♭", "D♯", "E♭", "D×", "E", "F♭", "E♯", "F", "G♭♭", "F♯", "G♭", "F×", "G", "A♭♭", "G♯", "A♭", "G×", "A", "B♭♭", "A♯", "B♭", "A×", "B", "C♭", "B♯"],
         "note_colors": ["#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff"],
@@ -98,7 +98,7 @@ export const presets = [
         "output": "sample",
         "fundamental": 264,        
         "instrument": "harpsichord",
-        "short_description": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout"
+        "short_description": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout (Gbb - A##)"
       }
     ]
   },
