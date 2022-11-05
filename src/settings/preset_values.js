@@ -1,5 +1,6 @@
 import scale_12_ed2 from 'scales/12-ed2.scl';
 import scale_12_ji_7l from 'scales/12-JI-7L.scl';
+import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
 import scale_7_ji_rast_maqam from 'scales/7-JI Rast Maqam (Arabic) —  Eight Echos (Fourth Plagal, Byzantine).scl';
 import scale_17_ji_5l from 'scales/17-JI-5L-Arabic-theoretical.scl';
 import scale_17_ji_11l_wilson from 'scales/17-JI-11L-Wilson.scl';
@@ -41,168 +42,6 @@ export const presets = [
         "short_description": "12-ed2 Jankó / 6-6/Balanced/Symmetric/Bilinear/Uniform Keyboard / ~Halberstadt"
       },
       {
-        "name": "Harmonic Table / Sonome / Tonnetz / 5-L Lattice / Matrix Model",
-        "description": "12-ed2 Harmonic Table / Sonome / Tonnetz / 5-Limit Tuning Lattice / Tri-Axial Matrix Model (of Musical Harmony): 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on the Harmonic Table layout, also known as Sonome: a tonal array topologically equivalent to Euler's Tonnetz, which is a conceptual lattice diagram representing tonal space, also known as 5-Limit Tuning Lattice or Tri-Axial Matrix Model (of Musical Harmony).",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 4,
-        "urSteps": -3,
-        "hexSize": 30,
-        "rotation": -30.0,
-        "output": "sample",
-        "fundamental": 261.6255653,
-        "instrument": "harpsichord",
-        "short_description": "12-ed2 Harmonic Table / Sonome / Tonnetz / 5-Limit Tuning Lattice / Tri-Axial Matrix Model (of Musical Harmony)"
-      },
-      {
-        "name": "Gerhard",
-        "description": "12-ed2 Gerhard: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on Gerhard layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 3,
-        "urSteps": -1,
-        "hexSize": 40,
-        "rotation": 30.0,
-        "output": "sample",
-        "fundamental": 261.6255653,
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Gerhard"     
-      },
-      {
-        "name": "Inverted Gerhard",
-        "description": "12-ed2 Inverted Gerhard: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on an inverted Gerhard layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 4,
-        "urSteps": 1,
-        "hexSize": 40,
-        "rotation": -60.0,
-        "output": "sample",
-        "fundamental": 261.6255653,
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Inverted Gerhard"
-      },
-      {
-        "name": "Guitar-like",
-        "description": "12-ed2 Guitar-like: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on a guitar-like layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#e3abff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff", "#ffffff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 1,
-        "urSteps": -4,
-        "hexSize": 30,
-        "rotation": 0.0,
-        "output": "sample",
-        "fundamental": 261.6255653,
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Guitar-like"
-      },
-      {
-        "name": "Guitar-like 2",
-        "description": "12-ed2 Guitar-like: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on a guitar-like layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#e3abff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff", "#ffffff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff", "#cfcfcf", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 1,
-        "urSteps": -5,
-        "hexSize": 30,
-        "rotation": 0.0,        
-        "output": "sample",
-        "fundamental": 261.6255653,        
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Guitar-like"
-      },
-      {
-        "name": "Park",
-        "description": "12-ed2 Park: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on Park layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 2,
-        "urSteps": -3,
-        "hexSize": 50,
-        "rotation": 30.0,
-        "output": "sample",
-        "fundamental": 261.6255653,       
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Park"
-      },
-      {
-        "name": "Wesley",
-        "description": "12-ed2 Wesley: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on a Wesley layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": -5,
-        "urSteps": -12,
-        "hexSize": 50,
-        "rotation": 30.0,
-        "output": "sample",
-        "fundamental": 261.6255653,        
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Wesley"        
-      },
-      {
-        "name": "Fernandez",
-        "description": "12-ed2 Fernandez: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on an offset Fernandez layout.",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,
-        "note_colors": ["#ffffff", "#bababa", "#8ef4fb", "#bababa", "#ffffff", "#ffffff", "#bababa", "#ffffff", "#49aded", "#ffffff", "#bababa", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 1,
-        "urSteps": -6,
-        "hexSize": 50,
-        "rotation": 30.0,
-        "output": "sample",
-        "fundamental": 261.6255653,        
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Fernandez"
-      },
-      {
-        "name": "Wicki-Hayden",
-        "description": "12-ed2 Wicki-Hayden: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on the Wicki-Hayden layout, originally devised for the bandoneon and concertina (free-reed aerophones of the harmonica/accordion family).",
-        "scale": scale_12_ed2_parsed,
-        "names": scale_12_ed2_names,           
-        "note_colors": ["#ffffff", "#ff9f40", "#ffffff", "#ff9f40", "#ffffff", "#ffffff", "#ff9f40", "#ffffff", "#ff9f40", "#ffffff", "#ff9f40", "#ffffff"],
-        "equivSteps": 12,
-        "key_labels": "names",
-        "spectrum_colors": false,
-        "rSteps": 2,
-        "urSteps": 7,
-        "hexSize": 50,
-        "rotation": 343.897886248,
-        "output": "sample",
-        "fundamental": 261.6255653,        
-        "instrument": "rhodes",
-        "short_description": "12-ed2 Wicki-Hayden"        
-      },
-      {
         "name": "B-System Chromatic Button",
         "description": "12-ed2 B-System Chromatic Button: 12-tone equal tempered scale consisting of 12 sonically equal divisions per frequency halving/doubling, mapped on a (hexagonal) tilted Chromatic Button System Type-B used on some button accordions.",
         "scale": scale_12_ed2_parsed,
@@ -241,6 +80,29 @@ export const presets = [
     ]
   },
   {
+    "name": "Meantone",
+    settings: [
+      {
+        "name": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout",
+        "description": "31-Extended-Meantone Vicentino alternate tuning to 31-edo with Bosanquet / Wilson / Terpstra layout.",
+        "scale": parseScale(scale_31_mt_vicentino_alt).scale,
+        "names": ["C", "D♭♭", "C♯", "D♭", "C×", "D", "E♭♭", "D♯", "E♭", "D×", "E", "F♭", "E♯", "F", "G♭♭", "F♯", "G♭", "F×", "G", "A♭♭", "G♯", "A♭", "G×", "A", "B♭♭", "A♯", "B♭", "A×", "B", "C♭", "B♯"],
+        "note_colors": ["#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff"],
+        "equivSteps": 31,
+        "key_labels": "names",
+        "spectrum_colors": false,
+        "rSteps": 5,
+        "urSteps": 3,
+        "hexSize": 40,
+        "rotation": 343.897886248,
+        "output": "sample",
+        "fundamental": 264,        
+        "instrument": "harpsichord",
+        "short_description": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout"
+      }
+    ]
+  },
+  {
     "name": "Just Intonation",
     settings: [
       {
@@ -260,7 +122,6 @@ export const presets = [
         "fundamental": 256,       
         "instrument": "qanun"
       },
-
       {
         "name": "12-JI-7L Jankó / 6-6/Balanced/Symmetric/Bilinear/Uniform",
         "description": "12-JI-7L Jankó / 6-6/Balanced/Symmetric/Bilinear/Uniform Keyboard / ~Halberstadt: 12-tone Just Intonation classic 7-Limit scale, consisting of 12 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 7, mapped on a (hexagonal) tilted Jankó layout which can be regarded as a stacked 6-6/Balanced/Symmetric/Bilinear/Uniform Keyboard, and which approximates the 7-white/5-black Halberstadt organ layout (the classic piano keyboard).",
@@ -279,7 +140,6 @@ export const presets = [
         "instrument": "piano",
         "short_description": "12 - JI - 7L Jankó / 6 - 6 / Balanced / Symmetric / Bilinear / Uniform Keyboard / ~Halberstadt"
       },
-
       {
         "name": "17-JI-5L-Arabic-theoretical Bosanquet / Wilson / Terpstra",
         "description": "17-JI-5L-Arabic-theoretical Bosanquet / Wilson / Terpstra: 17-tone Arabic theoretical scale: 5-Limit Just Intonation which is schismatic equivalent to a 17-tone 3-Limit scale generated from 12 steps descending and 4 ascending plus the fundamental, consisting of 17 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 5, presumably used until the 8th century, mapped on a Bosanquet / Wilson / Terpstra layout.",
@@ -298,7 +158,6 @@ export const presets = [
         "instrument": "qanun",
         "short_description": "17-JI-5L-Arabic-theoretical Bosanquet / Wilson / Terpstra"       
       },
-
       {
         "name": "17-JI-11L-Wilson Bosanquet / Wilson / Terpstra",
         "description": "17-JI-11L-Wilson Bosanquet / Wilson / Terpstra: 17-tone Just Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout.",
@@ -317,7 +176,6 @@ export const presets = [
         "instrument": "harp",
         "short_description": "17-JI-11L-Wilson Bosanquet / Wilson / Terpstra"
       },
-
       {
         "name": "22-JI-5L-Indian Bosanquet / Wilson / Terpstra",
         "description": "22-JI-5L-Indian Bosanquet / Wilson / Terpstra: 22-tone Indian scale: 5-Limit Just Intonation which is schismatic equivalent to a 22-tone 3-Limit scale generated from 11 steps ascending and 10 descending plus the fundamental, consisting of 22 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 5, notated after Alain Daniélou, having as reference frequency the Earth's year transposed 33 octaves higher, mapped on a Bosanquet / Wilson / Terpstra layout.",        
@@ -336,7 +194,6 @@ export const presets = [
         "instrument": "qanun",
         "short_description": "22-JI-5L-Indian Bosanquet / Wilson / Terpstra"
       },
-
       {
         "name": "31-JI-7L-Fokker Bosanquet / Wilson / Terpstra",
         "description": "31-JI-7L-Fokker Bosanquet / Wilson / Terpstra: 31-tone Just Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 7, mapped on a Bosanquet / Wilson / Terpstra layout.",
@@ -429,7 +286,6 @@ export const presets = [
       },  
     ]
   },
-
   {
     "name": "Equal Temperaments",
     settings: [
