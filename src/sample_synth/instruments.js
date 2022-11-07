@@ -6,6 +6,9 @@ const instruments = [
     fileName: "rhodes",
     fade: 0.1
   }, {
+    fileName: "Hammond",
+    fade: 0.1
+  }, {
     fileName: "harpsichord",
     fade: 0.2
   }, {
@@ -34,12 +37,6 @@ const instruments = [
     fade: 0.1
   }, {
     fileName: "WMRIByzantineST",
-    fade: 0.1
-  }, {
-    fileName: "WMRI-in6-har7-",
-    fade: 0.1
-  }, {
-    fileName: "WMRI-in7-har6-",
     fade: 0.1
   }
 ];

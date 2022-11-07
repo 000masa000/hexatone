@@ -119,6 +119,10 @@ export const instruments = [
         name: "Rhodes",
         fade: 0.1
       }, {
+        fileName: "Hammond",
+        name: "Hammond",
+        fade: 0.1
+      }, {
         fileName: "harpsichord",
         name: "Harpsichord",
         fade: 0.2
@@ -148,35 +152,35 @@ export const instruments = [
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRI5Lpike",
         name: "5-Limit (6 Harmonics) Pluck",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRInLST",
         name: "n-Limit (\"sawtooth wave\")",
         fade: 0.1
-      },{
+      }, {
         fileName: "WMRIByzantineST",
         name:"Byzantine (9 Harmonics)",
         fade: 0.1
-      },
+      }
     ]
   }
 ]
