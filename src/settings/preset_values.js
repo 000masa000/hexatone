@@ -1,19 +1,21 @@
 import scale_12_ed2 from 'scales/12-ed2.scl';
-import scale_12_ji_7l from 'scales/12-JI-7L.scl';
 import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
+import scale_12_ji_7l from 'scales/12-JI-7L.scl';
 import scale_7_ji_rast_maqam from 'scales/7-JI Rast Maqam (Arabic) —  Eight Echos (Fourth Plagal, Byzantine).scl';
 import scale_17_ji_5l from 'scales/17-JI-5L-Arabic-theoretical.scl';
 import scale_17_ji_11l_wilson from 'scales/17-JI-11L-Wilson.scl';
 import scale_22_ji_5l from 'scales/22-JI-5L-Indian.scl';
 import scale_31_ji_7l_fokker from 'scales/31-JI-7L-Fokker.scl';
+import scale_43_ji_11l_partch from 'scales/43-JI-11L-Partch.scl';
+import scale_43_ji_11l_partchG from 'scales/43-JI-11L-Partch_on_G.scl';
 import scale_53_ri_3l from 'scales/53-RI-3L.scl';
 import scale_53_ri_3l_mirrored from 'scales/53-RI-3L-mirrored.scl';
 import scale_19_ed2 from 'scales/19-ed2.scl';
 import scale_31_ed2 from 'scales/31-ed2.scl';
 import scale_41_ed2 from 'scales/41-ed2.scl';
-import scale_43_ji_11l_partch from 'scales/43-JI-11L-Partch.scl';
-import scale_43_ji_11l_partchG from 'scales/43-JI-11L-Partch_on_G.scl';
+import scale_43_ed2 from 'scales/43-ed2.scl';
 import scale_53_ed2 from 'scales/53-ed2.scl';
+import scale_55_ed2 from 'scales/55-ed2.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 
 import { parseScale } from './scale/parse-scale';
@@ -214,7 +216,7 @@ export const presets = [
         "short_description": "31-JI-7L-Fokker Bosanquet / Wilson / Terpstra"
       },
       {
-        "name": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra",
+        "name": "43-JI-11L-Partch Transposed (C = 1/1) Bosanquet / Wilson / Terpstra",
         "description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra: 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "names": ["1/1", "81/80", "33/32", "21/20", "16/15", "12/11", "11/10", "10/9", "9/8", "8/7", "7/6", "32/27", "6/5", "11/9", "5/4", "14/11", "9/7", "21/16", "4/3", "27/20", "11/8", "7/5", "10/7", "16/11", "40/27", "3/2", "32/21", "14/9", "11/7", "8/5", "18/11", "5/3", "27/16", "12/7", "7/4", "16/9", "9/5", "20/11", "11/6", "15/8", "40/21", "64/33", "160/81"],
@@ -232,7 +234,7 @@ export const presets = [
         "short_description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra"        
       },
       {
-        "name": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra",
+        "name": "43-JI-11L-Partch Original (G = 1/1) Bosanquet / Wilson / Terpstra",
         "description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra: 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based on 1/1 = G (392 Hz), and this scala file uses the standard reference C. Partch's ratios have therefore each been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
         "names": ["4/3", "27/20", "11/8", "7/5", "10/7", "16/11", "40/27", "3/2", "32/21", "14/9", "11/7", "8/5", "18/11", "5/3", "27/16", "12/7", "7/4", "16/9", "9/5", "20/11", "11/6", "15/8", "40/21", "64/33", "160/81", "1/1", "81/80", "33/32", "21/20", "16/15", "12/11", "11/10", "10/9", "9/8", "8/7", "7/6", "32/27", "6/5", "11/9", "5/4", "14/11", "9/7", "21/16"],
@@ -328,7 +330,7 @@ export const presets = [
       },
       {
         "name": "31-ed2 Bosanquet / Wilson / Terpstra",
-        "description": "31-ed2 Bosanquet / Wilson / Terpstra: 31-tone equal tempered scale consisting of 31 sonically equal divisions per frequency halving/doubling in standard meantone notation, mapped on a Bosanquet / Wilson / Terpstra layout.",
+        "description": "31-ed2 Bosanquet / Wilson / Terpstra: 31-tone equal tempered scale consisting of 31 sonically equal divisions per frequency halving/doubling in standard meantone notation, mapped on a Bosanquet / Wilson / Terpstra layout. Similar to 1/4-comma meantone.",
         "scale": parseScale(scale_31_ed2).scale,
         "names": ["C", "D♭♭", "C♯", "D♭", "C×", "D", "E♭♭", "D♯", "E♭", "D×", "E", "F♭", "E♯", "F", "G♭♭", "F♯", "G♭", "F×", "G", "A♭♭", "G♯", "A♭", "G×", "A", "B♭♭", "A♯", "B♭", "A×", "B", "C♭", "B♯"],
         "note_colors": ["#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#ff9f41", "#cfcfcf", "#bbaa93", "#7b7b7b", "#ffffff", "#bbaa93", "#cfcfcf", "#ffffff"],
@@ -363,11 +365,29 @@ export const presets = [
         "short_description": "41-ed2 Bosanquet / Wilson / Terpstra"  
       },
       {
+        "name": "43-ed2 Bosanquet / Wilson / Terpstra",
+        "description": "43-ed2 Bosanquet / Wilson / Terpstra: 41-tone equal tempered scale consisting of 43 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout. Similar to 1/5-comma Meantone.",
+        "scale": parseScale(scale_43_ed2).scale,
+        "names": ["0/43", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42"],
+        "note_colors": ["#ffffff", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#abb7c3"],
+        "equivSteps": 43,
+        "key_labels": "names",
+        "spectrum_colors": false,
+        "rSteps": 7,
+        "urSteps": 4,
+        "hexSize": 40,
+        "rotation": 343.897886248,
+        "output": "sample",
+        "fundamental": 262.682024,
+        "instrument": "lute",
+        "short_description": "43-ed2 Bosanquet / Wilson / Terpstra"  
+      },
+      {
         "name": "53-ed2 Bosanquet / Wilson / Terpstra",
         "description": "53-ed2 Bosanquet / Wilson / Terpstra: 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout.",
         "scale": parseScale(scale_53_ed2).scale,
         "names": ["0/53", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52"],
-        "note_colors": ["#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#abb7c3"],       
+        "note_colors": ["#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#878787", "#ff9f40", "#878787", "#ff9f40", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#abb7c3"],       
         "equivSteps": 53,
         "key_labels": "names",
         "spectrum_colors": false,
@@ -380,6 +400,24 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "53-ed2 Bosanquet / Wilson / Terpstra"  
       },
+      {
+        "name": "55-ed2 Bosanquet / Wilson / Terpstra",
+        "description": "55-ed2 Bosanquet / Wilson / Terpstra: 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout. Similar to 1/6-comma meantone (Telemann / Mozart).",
+        "scale": parseScale(scale_55_ed2).scale,
+        "names": ["0/55", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54"],
+        "note_colors": ["#ffffff", "#c3b7ab", "#e7e7e7", "#ff9f40", "#878787", "#ff9f40", "#878787", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#ff9f40", "#878787", "#ff9f40", "#878787", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#ff9f40", "#878787", "#ff9f40", "#878787", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#ff9f40", "#878787", "#ff9f40", "#878787", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#ff9f40", "#878787", "#ff9f40", "#878787", "#f2d2de", "#abb7c3", "#ffffff", "#c3b7ab", "#e7e7e7", "#f2d2de","#abb7c3"],       
+        "equivSteps": 5,
+        "key_labels": "names",
+        "spectrum_colors": false,
+        "rSteps": 9,
+        "urSteps": 5,
+        "hexSize": 40,
+        "rotation": 343.897886248,
+        "output": "sample",
+        "fundamental": 262.451161,
+        "instrument": "rhodes",
+        "short_description": "55-ed2 Bosanquet / Wilson / Terpstra"  
+      }
     ]},
 ];
 
