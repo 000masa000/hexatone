@@ -12,6 +12,7 @@ import scale_19_ed2 from 'scales/19-ed2.scl';
 import scale_31_ed2 from 'scales/31-ed2.scl';
 import scale_41_ed2 from 'scales/41-ed2.scl';
 import scale_43_ji_11l_partch from 'scales/43-JI-11L-Partch.scl';
+import scale_43_ji_11l_partchG from 'scales/43-JI-11L-Partch_on_G.scl';
 import scale_53_ed2 from 'scales/53-ed2.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 
@@ -96,7 +97,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 264,        
+        "fundamental": 263.1813855,        
         "instrument": "harpsichord",
         "short_description": "31-Extended-Meantone Vicentino alternate with Bosanquet / Wilson / Terpstra layout (Gbb - A##)"
       }
@@ -119,7 +120,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 256,       
+        "fundamental": 260.740740,       
         "instrument": "qanun"
       },
       {
@@ -136,7 +137,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,        
         "output": "sample",
-        "fundamental": 256,        
+        "fundamental": 264,        
         "instrument": "piano",
         "short_description": "12 - JI - 7L Jankó / 6 - 6 / Balanced / Symmetric / Bilinear / Uniform Keyboard / ~Halberstadt"
       },
@@ -154,7 +155,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 256,       
+        "fundamental": 260.740740,       
         "instrument": "qanun",
         "short_description": "17-JI-5L-Arabic-theoretical Bosanquet / Wilson / Terpstra"       
       },
@@ -172,7 +173,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 256,
+        "fundamental": 264,
         "instrument": "harp",
         "short_description": "17-JI-11L-Wilson Bosanquet / Wilson / Terpstra"
       },
@@ -190,7 +191,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 340.897886248,
         "output": "sample",
-        "fundamental": 272.2044155,
+        "fundamental": 260.740740,
         "instrument": "lute",
         "short_description": "22-JI-5L-Indian Bosanquet / Wilson / Terpstra"
       },
@@ -214,7 +215,7 @@ export const presets = [
       },
       {
         "name": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra",
-        "description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra: 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout.",
+        "description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra: 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "names": ["1/1", "81/80", "33/32", "21/20", "16/15", "12/11", "11/10", "10/9", "9/8", "8/7", "7/6", "32/27", "6/5", "11/9", "5/4", "14/11", "9/7", "21/16", "4/3", "27/20", "11/8", "7/5", "10/7", "16/11", "40/27", "3/2", "32/21", "14/9", "11/7", "8/5", "18/11", "5/3", "27/16", "12/7", "7/4", "16/9", "9/5", "20/11", "11/6", "15/8", "40/21", "64/33", "160/81"],
         "note_colors": ["#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#abb7c3"],
@@ -227,6 +228,24 @@ export const presets = [
         "rotation": 343.897886248,
         "output": "sample",
         "fundamental": 260.74074074,        
+        "instrument": "gayageum",
+        "short_description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra"        
+      },
+      {
+        "name": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra",
+        "description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra: 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based on 1/1 = G (392 Hz), and this scala file uses the standard reference C. Partch's ratios have therefore each been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
+        "scale": parseScale(scale_43_ji_11l_partchG).scale,
+        "names": ["4/3", "27/20", "11/8", "7/5", "10/7", "16/11", "40/27", "3/2", "32/21", "14/9", "11/7", "8/5", "18/11", "5/3", "27/16", "12/7", "7/4", "16/9", "9/5", "20/11", "11/6", "15/8", "40/21", "64/33", "160/81", "1/1", "81/80", "33/32", "21/20", "16/15", "12/11", "11/10", "10/9", "9/8", "8/7", "7/6", "32/27", "6/5", "11/9", "5/4", "14/11", "9/7", "21/16"],
+        "note_colors": ["#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3", "#ffffff", "#c3b7ab", "#878787", "#abb7c3"],
+        "equivSteps": 43,
+        "key_labels": "names",
+        "spectrum_colors": false,
+        "rSteps": 7,
+        "urSteps": 4,
+        "hexSize": 40,
+        "rotation": 343.897886248,
+        "output": "sample",
+        "fundamental": 261.333333,        
         "instrument": "gayageum",
         "short_description": "43-JI-11L-Partch Bosanquet / Wilson / Terpstra"        
       },
@@ -303,7 +322,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 254.5642522,
+        "fundamental": 264.022598,
         "instrument": "harp",
         "short_description": "19-ed2 Bosanquet / Wilson / Terpstra"       
       },
@@ -321,7 +340,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 263.09212,
+        "fundamental": 263.0921203,
         "instrument": "harpsichord",
         "short_description": "31-ed2 Bosanquet / Wilson / Terpstra"
       },
@@ -357,7 +376,7 @@ export const presets = [
         "hexSize": 40,
         "rotation": 343.897886248,
         "output": "sample",
-        "fundamental": 260.5221364,
+        "fundamental": 260.771561,
         "instrument": "rhodes",
         "short_description": "53-ed2 Bosanquet / Wilson / Terpstra"  
       },
