@@ -14,7 +14,7 @@ label {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 0.25em;
+    margin-top: 0.125em;
 }
 
 table {
