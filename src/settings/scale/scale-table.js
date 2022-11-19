@@ -46,7 +46,7 @@ const ScaleTable = (props) => {
   return (
     <table>
       <thead>
-        <th>Frequency</th>
+        <th>Cents or Frequency Ratio</th>
         <th>Name</th>
         <th>Color</th>
       </thead>

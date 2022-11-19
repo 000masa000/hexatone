@@ -12,7 +12,7 @@ const Blurb = () => (
       Credits to Scott Thompson and <a href="http://ozanyarman.com/" target="new">Dr. Ozan Yarman</a> for contributing samples.
     </p>
     <p>
-      Current version 2.0 (Jan. 2015 &mdash; Oct. 2022), released as Free/Libre and Open Source Software under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="new">GPL-3.0</a>. Download, fork, and get your name down here by fixing issues and implementing features via <a href="https://github.com/yashton/terpstrakeyboard/" target="new">GitHub</a>!
+      Current version 2.1 (Nov. 2022), released as Free/Libre and Open Source Software under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="new">GPL-3.0</a>. Code can be found on <a href="https://github.com/000masa000/terpstrakeyboard" target="new">GitHub</a>.
     </p>
   </div>);
 export default Blurb;

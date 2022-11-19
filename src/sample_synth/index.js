@@ -86,11 +86,11 @@ ActiveHex.prototype.noteOff = function() {
     this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime,
                                        this.sampleFadeout);
   }
-  if (this.source) {
+  /*if (this.source) {
     // This is a terrible fudge. Please forgive me - it's late, I'm tired, I
     // have a deadline, I've got other shit to do
     this.source.stop(fadeout + 4);
-  }
+  }*/
 };
 
 const findFadeout = (fileName) => {

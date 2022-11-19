@@ -5,7 +5,7 @@ body {
 	background-position: top left;
 	background-attachment: fixed;
     overflow: hidden;
-    font-family: Arial Nova Condensed, Arial Narrow, Roboto, Helvetica,Arial,"Open Sans",sans-serif;
+    font-family: Arial Nova Condensed, Arial Narrow, Roboto Condensed, Roboto, Helvetica, Arial, "Open Sans", sans-serif;
 }
 
 #sidebar {
