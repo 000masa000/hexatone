@@ -8,10 +8,11 @@ import './settings.css';
 
 const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, instruments}) => (
   <form>
-    <label>
-      Presets
-      <Presets onChange={presetChanged} presets={presets} />
-    </label>
+    <fieldset><legend>Isomorphic Keyboard Layouts</legend>
+     <label>   
+        <Presets onChange={presetChanged} presets={presets} />
+      </label>
+    </fieldset>
     <Info onChange={onChange} settings={settings} />
     <Scale onChange={onChange} settings={settings} onImport={onImport}/>
     <Layout onChange={onChange} settings={settings} />

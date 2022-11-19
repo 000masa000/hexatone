@@ -6,13 +6,12 @@ const ScaleTable = (props) => {
   const equiv_interval = scale.length ? scale.pop() : 0;
   scale.unshift(0);
 
-  let names;
-  if (props.settings.key_labels === "enumerate") {
-    names = [...Array(scale.length).keys()];
-  } else if (props.settings.key_labels === "names") {
+  let degrees; {
+    degrees = [...Array(scale.length).keys()];
+   }
+    
+    let names;{
     names = props.settings.names || [];
-  } else {
-    names = Array(scale.length).fill("");
   }
 
   let colors;
@@ -21,7 +20,7 @@ const ScaleTable = (props) => {
   } else {
     colors = props.settings.note_colors || [];
   }
-  const rows = scale.map((x, i) => [x, names[i], colors[i]]);
+  const rows = scale.map((x, i) => [x, degrees[i], names[i], colors[i]]);
 
   const scaleChange = e => {
     const next = [... (props.settings.scale || [])];
@@ -47,12 +46,19 @@ const ScaleTable = (props) => {
     <table>
       <thead>
         <th>Cents or Frequency Ratio</th>
+        <th>Degree</th>
         <th>Name</th>
         <th>Color</th>
       </thead>
       <tbody>
         <tr>
           <td><em>0</em></td>
+          <td>
+            <input type="text" disabled={editable_labels}
+                   name="degree0" value={degrees[0]} onChange={nameChange}
+                   aria-label="pitch degree 0"
+            />
+          </td>
           <td>
             <input type="text" disabled={editable_labels}
                    name="name0" value={names[0]} onChange={nameChange}
@@ -66,7 +72,7 @@ const ScaleTable = (props) => {
             />
           </td>
         </tr>
-        {rows.slice(1).map(([freq, name, color], i) => (
+        {rows.slice(1).map(([freq, degree, name, color], i) => (
           <tr>
             <td>
               <input type="text" name={`scale${i}`}
@@ -75,12 +81,17 @@ const ScaleTable = (props) => {
               />
             </td>
             <td>
+              <input type="text"
+                     name={`degree${i + 1}}`} value={degree}
+                     aria-label={`pitch degree ${i}`}
+              />
+            </td>
+            <td>
               <input type="text" disabled={editable_labels}
                      name={`name${i+1}`} value={name}
                      onChange={nameChange}
                      aria-label={`pitch name ${i}`}
               />
-
             </td>
             <td>
               <input type="color" disabled={editable_colors}
@@ -90,19 +101,24 @@ const ScaleTable = (props) => {
               />
             </td>
           </tr>
-        ))}
-        <tr>
-          <td>
-            <input type="text"
-                   name={`scale${scale.length - 1}`}
-                   value={equiv_interval} onChange={scaleChange}
-                   aria-label={`pitch ${scale.length - 1}`}
+          ))}
+          <tr>
+            <td>
+              <input type="text"
+                    name={`scale${scale.length - 1}`}
+                    value={equiv_interval} onChange={scaleChange}
+                    aria-label={`pitch ${scale.length - 1}`}
               />
-          </td>
-          <td><em>{names[0]}</em></td>
-          <td><input type="color" disabled={true} value={colors[0]} aria-label={`pitch color 0`}/></td>
-        </tr>
-      </tbody>
+            </td>
+            <td>
+              <input type="text"
+                  value={scale.length}
+              />
+            </td>
+            <td><em>{names[0]}</em></td>
+            <td><input type="color" disabled={true} value={colors[0]} aria-label={`pitch color 0`}/></td>
+          </tr>
+        </tbody>
     </table>
   );
 };

@@ -4,13 +4,6 @@ import PropTypes from 'prop-types';
 
 const Sample = (props) => (
   <>
-    <label >
-      Fundamental (Hz)
-      <input name="fundamental" type="number"
-             value={props.settings.fundamental}
-             step="any" min="0.015625" max="16384"
-             onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
-    </label>
     <label>
       Instrument
       <Instruments value={props.settings.instrument}
@@ -24,7 +17,6 @@ Sample.propTypes = {
   onChange: PropTypes.func.isRequired,
   instruments: PropTypes.array,
   settings: PropTypes.shape({
-    fundamental: PropTypes.number,
     instrument: PropTypes.string,
   }),
 };

@@ -25,14 +25,23 @@ const Scale = (props) => {
                       onImport={doImport}
                       onCancel={cancelImport}/>)
        :(<>
-          <ScaleTable {...props} />
-           <button type="button" onClick={startImporting}>
+            <button type="button" onClick={startImporting}>
             Import
           </button>
+          <br /><br />
+          <ScaleTable {...props} />       
         </>)
       }
-    <KeyLabels {...props}/>
-    <Colors {...props}/>
+      <br />
+      <Colors {...props} />
+      <label >
+      Fundamental (Hz)
+      <input name="fundamental" type="number"
+             value={props.settings.fundamental}
+             step="any" min="0.015625" max="16384"
+             onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
+      </label>
+      <KeyLabels {...props} />
   </fieldset>
   );
 };

@@ -6,12 +6,12 @@ import Midi from './midi';
 
 const Output = (props) => (
   <fieldset>
-    <legend>Output</legend>
+    <legend>Sound Synthesis / MIDI</legend>
     <label>
       Output
       <select value={props.settings.output}
               name="output"
-             onChange={(e) => props.onChange(e.target.name, e.target.value)}>
+              onChange={(e) => props.onChange(e.target.name, e.target.value)}>
         <option>Choose output</option>
         {props.midi && (<option value="midi">MIDI</option>)}
         <option value="sample">Sample Synthesis</option>

@@ -24,6 +24,8 @@ table {
 
 table td, table th, table {
     padding: 0;
+    height: 1.5em;
+    box-sizing: border-box;
 }
 
 table td > em {
@@ -32,13 +34,15 @@ table td > em {
 
 textarea {
     width: 100%;
-    height: auto;
+    height: 6.25em;
+    box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
 }
 
 select, input[type="text"], input[type="number"] {
-    width: 12em;
+    width: 24em;
     height: 1.5em;
+    box-sizing: border-box;
 }
 
 table input[type="text"] {
