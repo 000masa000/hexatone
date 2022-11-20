@@ -5,14 +5,14 @@ const Layout = (props) => (
   <fieldset>
     <legend>Layout</legend>
     <label>
-      Right Facing Steps
+      Right-Facing Steps
       <input name="rSteps" type="number"
              value={props.settings.rSteps}
              min="-1220" max="1220"
              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
     </label>
     <label>
-      Up/Right Facing Steps
+      Right-Downward-Facing Steps
       <input name="urSteps" type="number"
              value={props.settings.urSteps}
              min="-1220" max="1220"
@@ -26,7 +26,7 @@ const Layout = (props) => (
              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
     </label>
     <label>
-      Rotation (degrees)
+      Rotation (degrees clockwise)
       <input name="rotation" type="number"
              value={props.settings.rotation}
              step="any" min="-360" max="360"

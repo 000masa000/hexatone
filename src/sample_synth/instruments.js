@@ -6,7 +6,7 @@ const instruments = [
     fileName: "rhodes",
     fade: 0.1
   }, {
-    fileName: "Hammond",
+    fileName: "hammond",
     fade: 0.1
   }, {
     fileName: "harpsichord",

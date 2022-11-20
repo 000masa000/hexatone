@@ -119,7 +119,7 @@ export const instruments = [
         name: "Rhodes",
         fade: 0.1
       }, {
-        fileName: "Hammond",
+        fileName: "hammond",
         name: "Hammond",
         fade: 0.1
       }, {
