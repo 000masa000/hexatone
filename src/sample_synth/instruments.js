@@ -5,7 +5,7 @@ const instruments = [
   }, {
     fileName: "rhodes",
     fade: 0.1
-  }, {
+  }, {g
     fileName: "hammond",
     fade: 0.1
   }, {
