@@ -29,11 +29,14 @@ const instruments = [
   }, {
     fileName: "WMRI5LST",
     fade: 0.1
-  }, {  
-    fileName: "WMRI13LST",
+  }, {
+    fileName: "WMRI7LST",
     fade: 0.1
   }, {
-    fileName: "WMRInLST",
+    fileName: "WMRI11LST",
+    fade: 0.1
+  }, {  
+    fileName: "WMRI13LST",
     fade: 0.1
   }, {
     fileName: "WMRIByzantineST",

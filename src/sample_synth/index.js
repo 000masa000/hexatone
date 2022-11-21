@@ -157,10 +157,6 @@ export const instruments = [
         name: "5-Limit (6 Harmonics)",
         fade: 0.1
       }, {
-        fileName: "WMRI5Lpike",
-        name: "5-Limit (6 Harmonics) Pluck",
-        fade: 0.1
-      }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         fade: 0.1
@@ -171,10 +167,6 @@ export const instruments = [
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
-        fade: 0.1
-      }, {
-        fileName: "WMRInLST",
-        name: "n-Limit (\"sawtooth wave\")",
         fade: 0.1
       }, {
         fileName: "WMRIByzantineST",
