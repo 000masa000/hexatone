@@ -1,3 +1,24 @@
+@font-face {
+  font-family: HEJI;
+  src: "https://www.plainsound.org/fonts/HEJI2Text.woff";
+  font-family: Roboto;
+  src: "https://fonts.googleapis.com/css2?Roboto+Condensed";
+}
+
+span.heji {
+  font-family: HEJI;
+   font-weight: regular;   
+   margin-bottom: 0px;
+   vertical-align: middle;
+}
+
+span.roboto {
+font-family: Roboto;
+   font-weight: regular;
+   margin-bottom: 0px;
+   vertical-align: middle;
+}
+
 body {
 	background-image: url("Pattern3D_06.png");
     transition: transform .3s ease-in-out;
@@ -5,7 +26,7 @@ body {
 	background-position: top left;
 	background-attachment: fixed;
     overflow: hidden;
-    font-family: Arial Nova Condensed, Arial Narrow, Roboto Condensed, Roboto, Helvetica, Arial, "Open Sans", sans-serif;
+    font-family: Roboto, Arial Nova Condensed, Arial Narrow, Helvetica, Arial, "Open Sans", sans-serif;
 }
 
 #sidebar {

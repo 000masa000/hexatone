@@ -9,6 +9,7 @@ export function HSVtoRGB(h, s, v) {
   p = v * (1 - s);
   q = v * (1 - f * s);
   t = v * (1 - (1 - f) * s);
+
   switch (i % 6) {
     case 0:
       r = v; g = t; b = p;
@@ -29,6 +30,7 @@ export function HSVtoRGB(h, s, v) {
       r = v; g = p; b = q;
       break;
   }
+
   return rgb(Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255));
 }
 
@@ -39,6 +41,7 @@ export function HSVtoRGB2(h, s, v) {
   p = v * (1 - s);
   q = v * (1 - f * s);
   t = v * (1 - (1 - f) * s);
+
   switch (i % 6) {
     case 0:
       r = v; g = t; b = p;
@@ -66,8 +69,6 @@ export function HSVtoRGB2(h, s, v) {
     blue: Math.floor(b * 255)
   };
 }
-
-
 
 export function nameToHex(colour) {
   var colours = {
@@ -221,13 +222,12 @@ export function nameToHex(colour) {
     return "#" + colour;
   }
 
-
   return "#EDEDE4"; //default button color!
-
 }
 
 export function hex2rgb(col) {
   var r, g, b;
+
   if (col.charAt(0) == '#') {
     col = col.substr(1);
   }
@@ -286,6 +286,7 @@ export function getContrastYIQ(hexcolor) {
   var g = parseInt(hexcolor.substr(2, 2), 16);
   var b = parseInt(hexcolor.substr(4, 2), 16);
   var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  
   return (yiq >= 128) ? 'black' : 'white';
 }
 
