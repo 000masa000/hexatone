@@ -529,13 +529,13 @@ export const presets = [
           "31", "32", "33", "34", "35", "36", "37",
           "38", "39", "40"],
         "note_colors": [
-          "#fafafa", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#878787", "#ff9f40", "#878787", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#abb7c3"],
+          "#fafafa", "#ffe5e5", "#ffe5e5", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#ffe5e5", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#ffe5e5",
+          "#fafafa", "#fff8db", "#d0d6e1", "#e1e1e0", "#e1e1e0", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#ffe5e5", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#ffe5e5", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#ffe5e5"],
         "equivSteps": 41,
         "key_labels": "names",
         "spectrum_colors": false,
@@ -561,13 +561,13 @@ export const presets = [
           "32", "33", "34", "35", "36", "37", "38",
           "39", "40", "41", "42"],
         "note_colors": [
-          "#fafafa", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#ff9f40", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#ff9f40", "#878787", "#ff9f40", "#878787", "#abb7c3",
-          "#fafafa", "#c3b7ab", "#878787", "#abb7c3"],
+          "#fafafa", "#ffe5e5", "#fff8db", "#c8d0c8", "#c8c8d0", "#dce1d0", "#fff8db",
+          "#fafafa", "#ffe5e5", "#f8ffeb", "#c8d0c8", "#c8c8d0", "#ffe5e5", "#fff8db",
+          "#fafafa", "#c8c8d0", "#f8ffeb", "#c8d0c8",
+          "#fafafa", "#ffe5e5", "#fff8db", "#c8d0c8", "#c8c8d0", "#dce1d0", "#fff8db",
+          "#fafafa", "#ffe5e5", "#f8ffeb", "#c8d0c8", "#c8c8d0", "#dce1d0", "#fff8db",
+          "#fafafa", "#ffe5e5", "#f8ffeb", "#c8d0c8", "#c8c8d0", "#ffe5e5", "#fff8db",
+          "#fafafa", "#c8c8d0", "#dce1d0", "#c8d0c8"],
         "equivSteps": 43,
         "key_labels": "names",
         "spectrum_colors": false,
@@ -581,7 +581,7 @@ export const presets = [
         "short_description": "43-edo (Sauveur)"  
       },
       {
-        "name": "53-edo",
+        "name": "53-edo (Mercator/Newton)",
         "description": "53-edo: 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout.",
         "scale": parseScale(scale_53_ed2).scale,
         "names": [
@@ -610,10 +610,10 @@ export const presets = [
         "output": "sample",
         "fundamental": 260.771561,
         "instrument": "rhodes",
-        "short_description": "53-edo"  
+        "short_description": "53-edo (Mercator/Newton)"  
       },
       {
-        "name": "55-edo (Telemann)",
+        "name": "55-edo (Telemann)", 
         "description": "55-edo: 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout. Similar to 1/6-comma meantone (Telemann / Mozart).",
         "scale": parseScale(scale_55_ed2).scale,
         "names": [
