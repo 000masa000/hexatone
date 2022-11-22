@@ -17,6 +17,7 @@ import scale_43_ed2 from 'scales/43-ed2.scl';
 import scale_53_ed2 from 'scales/53-ed2.scl';
 import scale_55_ed2 from 'scales/55-ed2.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
+import scale_1cent from 'scales/1cent.scl';
 
 import { parseScale } from './scale/parse-scale';
 
@@ -658,7 +659,107 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "55-edo (Telemann)"  
       }
-    ]},
+    ]
+  },
+  {
+    "name": "Interval Testing",
+    settings: [
+      {
+        "name": "Interval Tester by Syntonic Commas (22 cents)", 
+        "description": "One step = 1 cent, right-up in commas, right-down in cents.",
+        "scale": parseScale(scale_1cent).scale,
+        "names": [],
+        "note_colors": [],
+        "fundamental_color": "#dbffdf",
+        "equivSteps": 1,
+        "key_labels": "none",
+        "spectrum_colors": true,
+        "rSteps": 22,
+        "urSteps": 1,
+        "hexSize": 30,
+        "rotation": -29.3577535,
+        "output": "sample",
+        "fundamental": 261.6255653,
+        "instrument": "hammond",
+        "short_description": "Interval Tester by Syntonic Commas (22 cents)" 
+      },
+      {
+        "name": "Interval Tester by 31-edo Diesis (39 cents)", 
+        "description": "One step = 1 cent, right-up in dieses, right-down in cents.",
+        "scale": parseScale(scale_1cent).scale,
+        "names": [],
+        "note_colors": [],
+        "fundamental_color": "#dbffdf",
+        "equivSteps": 1,
+        "key_labels": "none",
+        "spectrum_colors": true,
+        "rSteps": 39,
+        "urSteps": 1,
+        "hexSize": 30,
+        "rotation": -29.3577535,
+        "output": "sample",
+        "fundamental": 261.6255653,
+        "instrument": "hammond",
+        "short_description": "Interval Tester by 31-edo Diesis (39 cents)" 
+      },
+      {
+        "name": "Interval Tester by 24-edo Quarter-Tones (50 cents)", 
+        "description": "One step = 1 cent, right-up in quarter-tones, right-down in cents.",
+        "scale": parseScale(scale_1cent).scale,
+        "names": [],
+        "note_colors": [],
+        "fundamental_color": "#dbffdf",
+        "equivSteps": 1,
+        "key_labels": "none",
+        "spectrum_colors": true,
+        "rSteps": 50,
+        "urSteps": 1,
+        "hexSize": 30,
+        "rotation": -29.3577535,
+        "output": "sample",
+        "fundamental": 261.6255653,
+        "instrument": "hammond",
+        "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)" 
+      }      
+    ]
+  }/*,
+  {
+    "name": "MIDI",
+    settings: [
+      {
+        "name": "53-edo (Mercator/Newton)",
+        "description": "53-edo: 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout.",
+        "scale": parseScale(scale_53_ed2).scale,
+        "names": [
+          "0", "^12", "^24", "^27", "^-5", "^7", "^19", "^-22", "^-10",
+          "^2", "^14", "^26", "^-15", "^-3", "^9", "^21", "^-20", "^-8",
+          "^4", "^16", "^-25", "^-13",
+          "^-1", "^11", "^23", "^-18", "^-6", "^6", "^18", "^-23", "^-11",
+          "^1", "^13", "^25", "^-16", "-4", "^8", "^20", "^-21", "-9",
+          "^3", "^15", "-26", "^-14", "^-2", "^10", "^22", "^-19", "^-7",
+          "^5", "^17", "^-24", "-12"],
+        "note_colors": [
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#e1d0e1", "#f8ffeb", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#e1d0e1", "#f8ffeb", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#d0c8c8", "#e1e1e0", "#e1e1e0", "#e1d0e1", "#f8ffeb", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#e1d0e1", "#f8ffeb", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0d6e1", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#e1d0e1", "#f8ffeb", "#fff8db",
+          "#fafafa", "#ffe5e5", "#f8ffeb", "#fff8db"],
+        "equivSteps": 53,
+        "key_labels": "names",
+        "spectrum_colors": false,
+        "rSteps": 9,
+        "urSteps": 4,
+        "hexSize": 40,
+        "rotation": -16.102113751,
+        "output": "midi",
+        "midi_channel": 5,
+        "midi_velocity": 64,
+        "short_description": "53-edo (Mercator/Newton)"
+      }
+    ]
+  }*/
 ];
 
 export default presets;

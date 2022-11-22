@@ -14,7 +14,7 @@ const MidiSelect = (props) => (
 const Midi = (props) => (
   <>
     <label>
-      MIDI
+      Ports
       <MidiSelect value={props.settings.midi}
                   midi={props.midi}
                   onChange={props.onChange}/>
@@ -25,7 +25,7 @@ const Midi = (props) => (
               name="midi_channel"
               onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}>
         <option></option>
-        {[...Array(16).keys()].map(i => <option value={i}>{i+1}</option>)}
+        {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
     <label>

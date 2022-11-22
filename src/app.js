@@ -172,7 +172,7 @@ export const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          <a href="http:terpstrakeyboard.com/">Terpstra Keyboard</a>
+          <a href="https://www.plainsound.org/hex">Terpstra Keyboard</a>
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}
