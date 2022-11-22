@@ -45,14 +45,14 @@ const ScaleTable = (props) => {
   return (
     <table>
       <thead>
-        <th>Cents or Frequency Ratio</th>
+        <th>Frequency Ratio | Cents</th>
         <th>Degree</th>
         <th>Name</th>
         <th>Color</th>
       </thead>
       <tbody>
         <tr>
-          <td><em>0</em></td>
+          <td><em>1/1</em> = <em>0 cents</em></td>
           <td>
             <input type="text" disabled={editable_labels}
                    name="degree0" value={degrees[0]} onChange={nameChange}

@@ -7,16 +7,16 @@ const instruments = [
     fade: 0.1
   }, {g
     fileName: "hammond",
-    fade: 0.1
+    fade: 1
   }, {
     fileName: "harpsichord",
-    fade: 0.2
+    fade: 1
   }, {
     fileName: "lute",
-    fade: 0.1
+    fade: 1
   }, {
     fileName: "harp",
-    fade: 0.2
+    fade: 1
   }, {
     fileName: "gayageum",
     fade: 1

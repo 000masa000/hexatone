@@ -95,7 +95,7 @@ ActiveHex.prototype.noteOff = function() {
 
 const findFadeout = (fileName) => {
   for (let g of instruments) {
-    for (let i of g.instruments) {
+    for (let i of g.instruments) { 
       if (i.fileName === fileName) {
         return i.fade;
       }

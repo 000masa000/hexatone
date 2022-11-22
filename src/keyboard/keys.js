@@ -1,6 +1,6 @@
 import { calculateRotationMatrix, applyMatrixToPoint } from './matrix';
 import Point from '../point';
-import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, rgbToHex } from './color_utils';
+import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 
 class Keys {
   constructor(canvas, settings, synth, typing) {
@@ -405,7 +405,7 @@ class Keys {
       context.lineTo(x2[i], y2[i]);
     }
     context.closePath();
-    context.strokeStyle = 'black';
+    context.strokeStyle = 'darkgray';
     context.lineWidth = 5;
     context.shadowBlur = 15;
     context.shadowColor = 'black';
@@ -422,9 +422,9 @@ class Keys {
       context.lineTo(x[i], y[i]);
     }
     context.closePath();
-    context.lineWidth = 2;
+    context.lineWidth = 1;
     context.lineJoin = 'round';
-    context.strokeStyle = 'black';
+    context.strokeStyle = 'slategray';
     context.stroke();
 
     // Add note name and equivalence interval multiple
@@ -434,9 +434,8 @@ class Keys {
     context.rotate(-this.settings.rotation);
     // hexcoords = p and screenCoords = hexCenter
 
-    //context.fillStyle = "black"; //bdl_04062016
     context.fillStyle = getContrastYIQ(current_text_color);
-    context.font = "22pt Arial";
+    context.font = "22pt Roboto";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -463,8 +462,8 @@ class Keys {
       var scaleFactor = this.settings.hexSize / 50;
       context.scale(scaleFactor, scaleFactor);
       context.translate(10, -25);
-      context.fillStyle = "white";
-      context.font = "12pt Arial";
+      context.fillStyle = getContrastYIQ_2(current_text_color);
+      context.font = "12pt Roboto";
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(equivMultiple, 0, 0);

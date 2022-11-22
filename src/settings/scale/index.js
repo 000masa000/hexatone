@@ -26,7 +26,7 @@ const Scale = (props) => {
                       onCancel={cancelImport}/>)
        :(<>
             <button type="button" onClick={startImporting}>
-            Import
+            Import a Scala File
           </button>
           <br /><br />
           <ScaleTable {...props} />       
