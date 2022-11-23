@@ -74,17 +74,16 @@ ActiveHex.prototype.noteOn = function() {
   // Connect the gain node to the destination.
   gainNode.connect(this.audioContext.destination);
   source.connect(gainNode); // connect the source to the context's destination (the speakers)
-  gainNode.gain.value = 0.3;
+  gainNode.gain.value = 0;
   source.start(0); // play the source now
+  gainNode.gain.setTargetAtTime(0.3, this.audioContext.currentTime, 0.001)
   this.source = source;
   this.gainNode = gainNode;
 };
 
 ActiveHex.prototype.noteOff = function() {
-  var fadeout = this.audioContext.currentTime + this.sampleFadeout;
   if (this.gainNode) {
-    this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime,
-                                       this.sampleFadeout);
+    this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleFadeout);
   }
   /*if (this.source) {
     // This is a terrible fudge. Please forgive me - it's late, I'm tired, I
@@ -117,23 +116,23 @@ export const instruments = [
       }, {
         fileName: "rhodes",
         name: "Rhodes",
-        fade: 0.1
+        fade: 0.01
       }, {
         fileName: "hammond",
         name: "Hammond",
-        fade: 0.1
+        fade: 0.005
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
-        fade: 0.2
+        fade: 0.5
       }, {
         fileName: "lute",
         name: "Lute-Stop",
-        fade: 0.2
+        fade: 0.5
       }, {
         fileName: "harp",
         name: "Harp",
-        fade: 0.2
+        fade: 0.5
       }, {
         fileName: "gayageum",
         name: "Gayageum",
@@ -151,27 +150,27 @@ export const instruments = [
       {
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }, {
         fileName: "WMRIByzantineST",
         name:"Byzantine (9 Harmonics)",
-        fade: 0.1
+        fade: 0.04
       }
     ]
   }
