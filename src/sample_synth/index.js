@@ -86,15 +86,14 @@ ActiveHex.prototype.noteOn = function() {
   this.gainNode = gainNode;
 };
 
-ActiveHex.prototype.noteOff = function() {
+ActiveHex.prototype.noteOff = function () {
+  var fadeout = this.audioContext.currentTime + this.sampleRelease;
   if (this.gainNode) {
     this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleRelease);
   }
-  /*if (this.source) {
-    // This is a terrible fudge. Please forgive me - it's late, I'm tired, I
-    // have a deadline, I've got other shit to do
+  if (this.source) {
     this.source.stop(fadeout + 4);
-  }*/
+  }
 };
 
 const findAttack = (fileName) => {
