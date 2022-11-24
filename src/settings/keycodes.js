@@ -1,22 +1,7 @@
 import Point from '../point';
 
 const keyCodeToCoords = {
-  Escape: new Point(-5, -3),
-  F1: new Point(-4, -3),
-  F2: new Point(-3, -3),
-  F3: new Point(-2, -3),
-  F4: new Point(-1, -3),
-  F5: new Point(0, -3),
-  F6: new Point(1, -3),
-  F7: new Point(2, -3),
-  F8: new Point(3, -3),
-  F9: new Point(4, -3),
-  F10: new Point(5, -3),
-  F11: new Point(6, -3),
-  F12: new Point(7, -3),
-  Delete: new Point(8, -3),
-
-  Backquote : new Point(-6, -2),
+  
   Digit1 : new Point(-5, -2),
   Digit2 : new Point(-4, -2),
   Digit3 : new Point(-3, -2),
@@ -28,10 +13,9 @@ const keyCodeToCoords = {
   Digit9 : new Point(3, -2),
   Digit0 : new Point(4, -2),
   Minus : new Point(5, -2),
-  Equal : new Point(6, -2),
+  Equal: new Point(6, -2),
   Backspace : new Point(7, -2),
 
-  Tab : new Point(-6, -1),
   KeyQ : new Point(-5, -1),
   KeyW : new Point(-4, -1),
   KeyE : new Point(-3, -1),
@@ -44,9 +28,7 @@ const keyCodeToCoords = {
   KeyP : new Point(4, -1),
   BracketLeft : new Point(5, -1),
   BracketRight : new Point(6, -1),
-  Backslash: new Point(7, -1),
 
-  CapsLock : new Point(-6, 0),
   KeyA : new Point(-5, 0),
   KeyS : new Point(-4, 0),
   KeyD : new Point(-3, 0),
@@ -58,9 +40,8 @@ const keyCodeToCoords = {
   KeyL : new Point(3, 0),
   Semicolon : new Point(4, 0),
   Quote : new Point(5, 0),
-  Enter : new Point(6, 0),
+  Backslash : new Point(6, 0),
 
-  ShiftLeft: new Point(-6, 1),
   KeyZ : new Point(-5, 1),
   KeyX : new Point(-4, 1),
   KeyC : new Point(-3, 1),
@@ -72,17 +53,6 @@ const keyCodeToCoords = {
   Period : new Point(3, 1),
   Slash : new Point(4, 1),
   ShiftRight : new Point(5, 1),
-  ArrowUp: new Point(6, 1),
-
-  ControlLeft: new Point(-7, 2),
-  AltLeft: new Point(-6, 2),
-  MetaLeft: new Point(-5, 2),
-  ContextMenu: new Point(1, 2),
-  AltRight: new Point(2, 2),
-  ControlRight: new Point(3, 2),
-  ArrowLeft: new Point(4, 2),
-  ArrowDown: new Point(5, 2),
-  ArrowRight: new Point(6, 2),
 };
 
 export default keyCodeToCoords;

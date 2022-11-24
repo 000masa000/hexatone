@@ -262,12 +262,12 @@ export const presets = [
         "key_labels": "names",
         "spectrum_colors": false,
         "rSteps": 4,
-        "urSteps": 3,
+        "urSteps": 1,
         "hexSize": 40,
-        "rotation": -52.5,
+        "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.740740,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "22-JI-5L Indian (Sambamurthy/Daniélou)"
       },
       {
