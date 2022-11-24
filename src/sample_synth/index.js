@@ -154,13 +154,13 @@ export const instruments = [
         attack: 0,
         release: 1.5
       }, {
-        fileName: "gayageum",
-        name: "Gayageum",
+        fileName: "qanun",
+        name: "Qanun",
         attack: 0,
         release: 1.5
       }, {
-        fileName: "qanun",
-        name: "Qanun",
+        fileName: "gayageum",
+        name: "Gayageum",
         attack: 0,
         release: 1.5
       }
@@ -172,32 +172,32 @@ export const instruments = [
       {
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }, {
         fileName: "WMRIByzantineST",
         name:"Byzantine (9 Harmonics)",
-        attack: 0.025,
+        attack: 0.04,
         release: 0.05
       }
     ]
