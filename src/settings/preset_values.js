@@ -684,7 +684,7 @@ export const presets = [
         "short_description": "Interval Tester by Syntonic Commas (22 cents)" 
       },
       {
-        "name": "Interval Tester by 31-edo Diesis (39 cents)", 
+        "name": "Interval Tester by Diesis (41 cents)", 
         "description": "One step = 1 cent, right-up in dieses, right-down in cents.",
         "scale": parseScale(scale_1cent).scale,
         "names": [],
@@ -693,14 +693,14 @@ export const presets = [
         "equivSteps": 1,
         "key_labels": "none",
         "spectrum_colors": true,
-        "rSteps": 39,
+        "rSteps": 41,
         "urSteps": 1,
         "hexSize": 30,
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
         "instrument": "hammond",
-        "short_description": "Interval Tester by 31-edo Diesis (39 cents)" 
+        "short_description": "Interval Tester by Diesis (41 cents)" 
       },
       {
         "name": "Interval Tester by 24-edo Quarter-Tones (50 cents)", 

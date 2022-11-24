@@ -6,6 +6,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
   try {
     const sampleAttack = findAttack(fileName);
     const sampleRelease = findRelease(fileName);
+    const sampleLoop = findLoop(fileName);
     const audioContext = new AudioContext();
     const s110 = await loadSample(audioContext, fileName, "110");
     const s220 = await loadSample(audioContext, fileName, "220");
@@ -17,7 +18,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const samples = [s110, s220, s440, s880];
     return {
       makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, samples, audioContext);
+        return new ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleLoop, samples, audioContext);
       },
     };
   } catch (e) {
@@ -31,7 +32,7 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleLoop, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
@@ -39,6 +40,7 @@ function ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, samp
   this.fundamental = fundamental;
   this.sampleAttack = sampleAttack;
   this.sampleRelease = sampleRelease;
+  this.sampleLoop = sampleLoop;
   this.sampleBuffer = sampleBuffer;
   this.audioContext = audioContext;
 }
@@ -68,6 +70,7 @@ ActiveHex.prototype.noteOn = function() {
   if (!(this.sampleBuffer[sampleNumber])) return; // Sample not yet loaded
 
   source.buffer = this.sampleBuffer[sampleNumber]; // tell the source which sound to play
+  source.loop = this.sampleLoop; // tell it lo loop if needed
   source.playbackRate.value = freq / sampleFreq;
   // Create a gain node.
   var gainNode = this.audioContext.createGain();
@@ -118,6 +121,18 @@ const findRelease = (fileName) => {
   return 0.1;
 };
 
+const findLoop = (fileName) => {
+  for (let g of instruments) {
+    for (let i of g.instruments) { 
+      if (i.fileName === fileName) {
+        return i.loop;
+      }
+    }
+  }
+  console.error("Unable to find configured instrument");
+  return 0.1;
+};
+
 // TODO use url from webpack file-loader instead of filename
 export const instruments = [
   {
@@ -127,42 +142,50 @@ export const instruments = [
         fileName: "piano",
         name: "Piano",
         attack: 0,
-        release: 0.1
+        release: 0.1,
+        loop: false
       }, {
         fileName: "rhodes",
         name: "Rhodes",
         attack: 0,
-        release: 0.001
+        release: 0.001,
+        loop: false
       }, {
         fileName: "hammond",
         name: "Hammond",
         attack: 0,
-        release: 0.001
+        release: 0.001,
+        loop: true
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
         attack: 0,
-        release: 0.2
+        release: 0.2,
+        loop: false
       }, {
         fileName: "lute",
         name: "Lute-Stop",
         attack: 0,
-        release: 0.2
+        release: 0.2,
+        loop: false
       }, {
         fileName: "harp",
         name: "Harp",
         attack: 0,
-        release: 1.5
+        release: 1.5,
+        loop: false
       }, {
         fileName: "qanun",
         name: "Qanun",
         attack: 0,
-        release: 1.5
+        release: 1.5,
+        loop: false
       }, {
         fileName: "gayageum",
         name: "Gayageum",
         attack: 0,
-        release: 1.5
+        release: 1.5,
+        loop: false
       }
     ],
   },
@@ -173,32 +196,38 @@ export const instruments = [
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }, {
         fileName: "WMRIByzantineST",
         name:"Byzantine (9 Harmonics)",
         attack: 0.04,
-        release: 0.05
+        release: 0.05,
+        loop: true
       }
     ]
   }
