@@ -152,8 +152,8 @@ export const instruments = [
       }, {
         fileName: "hammond",
         name: "Hammond",
-        attack: 0,
-        release: 0.001,
+        attack: 0.002,
+        release: 0.002,
         loop: true
       }, {
         fileName: "harpsichord",
