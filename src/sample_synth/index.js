@@ -4,7 +4,8 @@ import axios from 'axios';
 // Coordinates -> Scale degree -> Pitch/midi
 export const create_sample_synth = async (fileName, fundamental) => {
   try {
-    const sampleFadeout = findFadeout(fileName);
+    const sampleAttack = findAttack(fileName);
+    const sampleRelease = findRelease(fileName);
     const audioContext = new AudioContext();
     const s110 = await loadSample(audioContext, fileName, "110");
     const s220 = await loadSample(audioContext, fileName, "220");
@@ -16,7 +17,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const samples = [s110, s220, s440, s880];
     return {
       makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, sampleFadeout, samples, audioContext);
+        return new ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, samples, audioContext);
       },
     };
   } catch (e) {
@@ -30,13 +31,14 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, sampleFadeout, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
   this.cents = cents;
   this.fundamental = fundamental;
-  this.sampleFadeout = sampleFadeout;
+  this.sampleAttack = sampleAttack;
+  this.sampleRelease = sampleRelease;
   this.sampleBuffer = sampleBuffer;
   this.audioContext = audioContext;
 }
@@ -76,14 +78,14 @@ ActiveHex.prototype.noteOn = function() {
   source.connect(gainNode); // connect the source to the context's destination (the speakers)
   gainNode.gain.value = 0;
   source.start(0); // play the source now
-  gainNode.gain.setTargetAtTime(0.3, this.audioContext.currentTime, 0.001)
+  gainNode.gain.setTargetAtTime(0.3, this.audioContext.currentTime, this.sampleAttack);
   this.source = source;
   this.gainNode = gainNode;
 };
 
 ActiveHex.prototype.noteOff = function() {
   if (this.gainNode) {
-    this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleFadeout);
+    this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleRelease);
   }
   /*if (this.source) {
     // This is a terrible fudge. Please forgive me - it's late, I'm tired, I
@@ -92,11 +94,23 @@ ActiveHex.prototype.noteOff = function() {
   }*/
 };
 
-const findFadeout = (fileName) => {
+const findAttack = (fileName) => {
   for (let g of instruments) {
     for (let i of g.instruments) { 
       if (i.fileName === fileName) {
-        return i.fade;
+        return i.attack;
+      }
+    }
+  }
+  console.error("Unable to find configured instrument");
+  return 0;
+};
+
+const findRelease = (fileName) => {
+  for (let g of instruments) {
+    for (let i of g.instruments) { 
+      if (i.fileName === fileName) {
+        return i.release;
       }
     }
   }
@@ -112,35 +126,43 @@ export const instruments = [
       {
         fileName: "piano",
         name: "Piano",
-        fade: 0.1
+        attack: 0,
+        release: 0.1
       }, {
         fileName: "rhodes",
         name: "Rhodes",
-        fade: 0.01
+        attack: 0,
+        release: 0.001
       }, {
         fileName: "hammond",
         name: "Hammond",
-        fade: 0.005
+        attack: 0,
+        release: 0.001
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
-        fade: 0.5
+        attack: 0,
+        release: 0.2
       }, {
         fileName: "lute",
         name: "Lute-Stop",
-        fade: 0.5
+        attack: 0,
+        release: 0.2
       }, {
         fileName: "harp",
         name: "Harp",
-        fade: 0.5
+        attack: 0,
+        release: 1.5
       }, {
         fileName: "gayageum",
         name: "Gayageum",
-        fade: 1
+        attack: 0,
+        release: 1.5
       }, {
         fileName: "qanun",
         name: "Qanun",
-        fade: 1
+        attack: 0,
+        release: 1.5
       }
     ],
   },
@@ -150,27 +172,33 @@ export const instruments = [
       {
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }, {
         fileName: "WMRIByzantineST",
         name:"Byzantine (9 Harmonics)",
-        fade: 0.04
+        attack: 0.025,
+        release: 0.05
       }
     ]
   }

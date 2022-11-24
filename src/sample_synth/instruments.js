@@ -1,28 +1,28 @@
-const instruments = [
+/*const instruments = [
   {
     fileName: "piano",
-    fade: 0.1
+    fade: 0.08
   }, {
     fileName: "rhodes",
-    fade: 0.1
+    fade: 0.08
   }, {g
     fileName: "hammond",
-    fade: 1
+    fade: 0.01
   }, {
     fileName: "harpsichord",
-    fade: 1
+    fade: 0.1
   }, {
     fileName: "lute",
-    fade: 1
+    fade: 0.1
   }, {
     fileName: "harp",
-    fade: 1
+    fade: 1.5
   }, {
     fileName: "gayageum",
-    fade: 1
+    fade: 1.5
   }, {
     fileName: "qanun",
-    fade: 1
+    fade: 1.5
   }, {
     fileName: "WMRI3LST",
     fade: 0.1
