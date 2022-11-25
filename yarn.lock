@@ -1178,6 +1178,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.17.9":
+  version: 7.20.1
+  resolution: "@babel/runtime@npm:7.20.1"
+  dependencies:
+    regenerator-runtime: ^0.13.10
+  checksum: 00567a333d3357925742a6f5e39394dcc0af6e6029103fe188158bf7ae8b0b3ee3c6c0f68fccc217f0a6cfa455f6be252298baf56b3f5ff37b34313b170cd9f6
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.1.0, @babel/template@npm:^7.4.0, @babel/template@npm:^7.4.4, @babel/template@npm:^7.6.0":
   version: 7.6.0
   resolution: "@babel/template@npm:7.6.0"
@@ -1742,6 +1751,13 @@ __metadata:
   version: 1.0.1
   resolution: "@types/stack-utils@npm:1.0.1"
   checksum: 9dc052b575acfeca3f165fb19d87b7b2989d54ed7d64a7eeb0b7587bc5795ef1f2c2b1511a44dcf0831ef35b8ce3486f97fcbfdd50c01f68aa297de31502c9d9
+  languageName: node
+  linkType: hard
+
+"@types/webmidi@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@types/webmidi@npm:2.0.6"
+  checksum: a6dfb35dc848888bb552a2d66be4f98915c3580d3d3c8f9eaf8af6eae7ac007857be1a6f10b9bf7f4f371c1a21771c7b03be9f8680005027d13b6cb73da27f7f
   languageName: node
   linkType: hard
 
@@ -2401,13 +2417,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.19.0":
-  version: 0.19.0
-  resolution: "axios@npm:0.19.0"
+"axios@npm:0.21.2":
+  version: 0.21.2
+  resolution: "axios@npm:0.21.2"
   dependencies:
-    follow-redirects: 1.5.10
-    is-buffer: ^2.0.2
-  checksum: c234bf1e209f2e089b6d973c9302daeb512bd061013e8f2817ce5d68b74d681f49e2b4049fda93628b1c1cefaf0eb617919742eb17565793f8324cb25d2b05a8
+    follow-redirects: ^1.14.0
+  checksum: 41299c21f77323e7c56ea49d2d5ed25407d24bb145a4ce3441a8db17359ae56554f9495dca6e15d343a9530e106212a684c75a4db3bedfbe19f6414a8d94378e
   languageName: node
   linkType: hard
 
@@ -3872,15 +3887,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:=3.1.0":
-  version: 3.1.0
-  resolution: "debug@npm:3.1.0"
-  dependencies:
-    ms: 2.0.0
-  checksum: 0b52718ab957254a5b3ca07fc34543bc778f358620c206a08452251eb7fc193c3ea3505072acbf4350219c14e2d71ceb7bdaa0d3370aa630b50da790458d08b3
-  languageName: node
-  linkType: hard
-
 "debug@npm:^3.0.0, debug@npm:^3.2.5, debug@npm:^3.2.6":
   version: 3.2.6
   resolution: "debug@npm:3.2.6"
@@ -4102,6 +4108,15 @@ __metadata:
   version: 1.0.0
   resolution: "discontinuous-range@npm:1.0.0"
   checksum: 8ee88d7082445b6eadc7c03bebe6dc978f96760c45e9f65d16ca66174d9e086a9e3855ee16acf65625e1a07a846a17de674f02a5964a6aebe5963662baf8b5c8
+  languageName: node
+  linkType: hard
+
+"djipevents@npm:^2.0.5":
+  version: 2.0.6
+  resolution: "djipevents@npm:2.0.6"
+  dependencies:
+    "@babel/runtime": ^7.17.9
+  checksum: 2438334da5dcf2a1221bcb8529c9a2b9f5ac4f861c48ed46d1e47e8c5b88f30c3c6816281a554f73311094a6e3ccb85f48458243e9223c3aa66ed47a3fedf63c
   languageName: node
   linkType: hard
 
@@ -4900,21 +4915,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:1.5.10":
-  version: 1.5.10
-  resolution: "follow-redirects@npm:1.5.10"
-  dependencies:
-    debug: =3.1.0
-  checksum: 0edc4b74e37e7b88ee716188a8f2a790238877c1d954f00c7b78d560f3bef40061c130536d13bee8e47b4e8e71edf1175a2de2729e51ab8206e4646b2370e484
-  languageName: node
-  linkType: hard
-
 "follow-redirects@npm:^1.0.0":
   version: 1.9.0
   resolution: "follow-redirects@npm:1.9.0"
   dependencies:
     debug: ^3.0.0
   checksum: 485f5a7ea54fbf3d3ed6775f2eb29bf7e7763f0bd01c56a8494fe44050a25c5c3fc9c047dc31d8aa3690a49c805e751a5f50cec40caf2e2cf190baeb27a62eb2
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
   languageName: node
   linkType: hard
 
@@ -6010,13 +6026,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^2.0.2":
-  version: 2.0.3
-  resolution: "is-buffer@npm:2.0.3"
-  checksum: 558fa33018fb8bcd55e2dbd785e2a2a381439ea3790834f99fc4a23ab3936d88e98fa131ba018848de04fd21cdfe27c8268177897c7ea6aa4c759655d832ef32
-  languageName: node
-  linkType: hard
-
 "is-callable@npm:^1.1.4":
   version: 1.1.4
   resolution: "is-callable@npm:1.1.4"
@@ -6417,6 +6426,13 @@ __metadata:
   dependencies:
     handlebars: ^4.1.2
   checksum: 4a19bec5eefac40688f1247ef27cc5cef4f56412b4ae67871c8f736e0100de333a040abc5c9f64981308968d8a6b8c076481e05b4bf4f2f37689dceac05f3cda
+  languageName: node
+  linkType: hard
+
+"jazz-midi@npm:^1.7.6":
+  version: 1.7.6
+  resolution: "jazz-midi@npm:1.7.6"
+  checksum: 3bc458ad0dab8517f4d832b03688583cdb610e13b4f033c09e7146b3f0efadb854293470606db258c709aab97b9057a00d61623ba327ed93e01685969720d7d4
   languageName: node
   linkType: hard
 
@@ -7031,6 +7047,16 @@ __metadata:
     json-schema: 0.2.3
     verror: 1.10.0
   checksum: 6bcb20ec265ae18bb48e540a6da2c65f9c844f7522712d6dfcb01039527a49414816f4869000493363f1e1ea96cbad00e46188d5ecc78257a19f152467587373
+  languageName: node
+  linkType: hard
+
+"jzz@npm:^1.4.5":
+  version: 1.5.5
+  resolution: "jzz@npm:1.5.5"
+  dependencies:
+    "@types/webmidi": ^2.0.6
+    jazz-midi: ^1.7.6
+  checksum: 75f296a3a4457f923caeeb8ccd73705f9f32c13edf0749afb70b55e61725d8161e899981cfab3bf839339c9a9bf2798dd4976e637283dc6e40cd604818da355d
   languageName: node
   linkType: hard
 
@@ -9711,6 +9737,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regenerator-runtime@npm:^0.13.10":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
+  languageName: node
+  linkType: hard
+
 "regenerator-runtime@npm:^0.13.2, regenerator-runtime@npm:^0.13.3":
   version: 0.13.3
   resolution: "regenerator-runtime@npm:0.13.3"
@@ -11028,7 +11061,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.3.0
     "@babel/preset-env": ^7.6.0
     "@svgr/webpack": ^4.1.0
-    axios: ^0.19.0
+    axios: 0.21.2
     babel-jest: ^24.9.0
     babel-loader: ^8.0.6
     babel-plugin-transform-react-remove-prop-types: ^0.4.24
@@ -11050,6 +11083,7 @@ __metadata:
     terser-webpack-plugin: ^2.1.0
     url-loader: ^2.1.0
     web-audio-test-api: ^0.5.2
+    webmidi: ^3.0.22
     webpack: ^4.39.3
     webpack-cli: ^3.3.8
     webpack-dev-server: ^3.8.0
@@ -11692,6 +11726,19 @@ __metadata:
   version: 4.0.2
   resolution: "webidl-conversions@npm:4.0.2"
   checksum: c93d8dfe908a0140a4ae9c0ebc87a33805b416a33ee638a605b551523eec94a9632165e54632f6d57a39c5f948c4bab10e0e066525e9a4b87a79f0d04fbca374
+  languageName: node
+  linkType: hard
+
+"webmidi@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "webmidi@npm:3.0.22"
+  dependencies:
+    djipevents: ^2.0.5
+    jzz: ^1.4.5
+  dependenciesMeta:
+    jzz:
+      optional: true
+  checksum: 5abb895a6ff6b83d30c5792aa7491b781911c6eceeb919bb8f0f2e804c5035b33aca2d1b9c45328722050557b5e354b2a5d7179ab34ed439342a3d125cc6828c
   languageName: node
   linkType: hard
 
