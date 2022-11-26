@@ -13,8 +13,6 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const s440 = await loadSample(audioContext, fileName, "440");
     const s880 = await loadSample(audioContext, fileName, "880");
 
-    // It seems audioContext doesn't cope with simultaneous decodeAudioData calls ):
-    // TODO test this statement later
     const samples = [s110, s220, s440, s880];
     return {
       makeHex: (coords, cents) => {

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const ScalaImport = (props) => (
   <>
     <label>
-      copy/paste or type using the Scala file format:<br />
+      copy/paste or type using the Scala file format: <a href="http://www.huygens-fokker.org/scala/scl_format.html" target="new">[ Scala format ]</a> <a href="https://sevish.com/scaleworkshop" target="new">[ Scale Workshop ]</a><br />
       first line: scale-name or leave blank / second line: scale length<br />
-      followed by a list of ratios (b/a) or cents (floats)<br />
-      <a href="http://www.huygens-fokker.org/scala/scl_format.html" target="new">[ Scala format ]</a>
+      followed by a list of ratios (b/a) or cents (floats)<br /><br />
+      
       <textarea name="scale_import" onChange={(e) => props.onChange(e.target.name, e.target.value)}
                 rows="12" value={props.settings.scale_import}
       />
