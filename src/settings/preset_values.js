@@ -60,7 +60,7 @@ export const presets = [
         "rotation": 0,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "12-edo B-System Chromatic Button"
       },
       {
@@ -78,7 +78,7 @@ export const presets = [
         "rotation": 0,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "12-edo C-System Chromatic Button"       
       },
     ]
@@ -115,7 +115,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 263.1813855,        
-        "instrument": "harpsichord",
+        "instrument": "hammond",
         "short_description": "31-Extended-Meantone Vicentino (Gbb - A##)"
       }
     ]
@@ -299,7 +299,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 264,        
-        "instrument": "harpsichord",
+        "instrument": "hammond",
         "short_description": "31-JI-7L Fokker"
       },
       {
@@ -395,7 +395,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.74074074,
-        "instrument": "rhodes",
+        "instrument": "hammond",
         "short_description": "53-RI-3L Extended Pythagorean"
       },      
       {
@@ -427,7 +427,7 @@ export const presets = [
         "rotation": 16.102113751,
         "output": "sample",
         "fundamental": 260.74074074,
-        "instrument": "rhodes",
+        "instrument": "hammond",
         "short_description": "53-RI-3L Mirrored"        
       },
       {
@@ -459,7 +459,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.74074074,
-        "instrument": "rhodes",
+        "instrument": "hammond",
         "short_description": "53-RI-13L Cam Taylor"
       },  
     ]
@@ -496,7 +496,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 264.022598,
-        "instrument": "harp",
+        "instrument": "hammond",
         "short_description": "19-edo (Salinas)"       
       },
       {
@@ -528,7 +528,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 263.0921203,
-        "instrument": "harpsichord",
+        "instrument": "hammond",
         "short_description": "31-edo (Vicentino)"
       },
       {
@@ -560,7 +560,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.5221364,
-        "instrument": "lute",
+        "instrument": "hammond",
         "short_description": "41-edo"  
       },
       {
@@ -592,7 +592,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 262.682024,
-        "instrument": "lute",
+        "instrument": "hammond",
         "short_description": "43-edo (Sauveur)"  
       },
       {
@@ -624,7 +624,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.771561,
-        "instrument": "rhodes",
+        "instrument": "hammond",
         "short_description": "53-edo (Mercator/Newton)"  
       },
       {
@@ -656,7 +656,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 262.451161,
-        "instrument": "rhodes",
+        "instrument": "hammond",
         "short_description": "55-edo (Telemann)"  
       }
     ]
@@ -680,7 +680,7 @@ export const presets = [
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "Interval Tester by Syntonic Commas (22 cents)" 
       },
       {
@@ -699,7 +699,7 @@ export const presets = [
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "Interval Tester by Diesis (41 cents)" 
       },
       {
@@ -718,7 +718,7 @@ export const presets = [
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "hammond",
+        "instrument": "WMRI3LST",
         "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)" 
       }      
     ]
