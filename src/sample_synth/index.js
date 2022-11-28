@@ -153,7 +153,7 @@ export const instruments = [
         attack: 0,
         release: 2.0,
         loop: false
-      }, , {
+      }, {
         fileName: "hammond",
         name: "Hammond",
         attack: 0.002,
