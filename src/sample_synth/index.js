@@ -4,6 +4,7 @@ import axios from 'axios';
 // Coordinates -> Scale degree -> Pitch/midi
 export const create_sample_synth = async (fileName, fundamental) => {
   try {
+    const sampleGain = findGain(fileName);
     const sampleAttack = findAttack(fileName);
     const sampleRelease = findRelease(fileName);
     const sampleLoop = findLoop(fileName);
@@ -16,7 +17,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const samples = [s110, s220, s440, s880];
     return {
       makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleLoop, samples, audioContext);
+        return new ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, samples, audioContext);
       },
     };
   } catch (e) {
@@ -30,12 +31,13 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, sampleAttack, sampleRelease, sampleLoop, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
   this.cents = cents;
   this.fundamental = fundamental;
+  this.sampleGain = sampleGain;
   this.sampleAttack = sampleAttack;
   this.sampleRelease = sampleRelease;
   this.sampleLoop = sampleLoop;
@@ -79,7 +81,7 @@ ActiveHex.prototype.noteOn = function() {
   source.connect(gainNode); // connect the source to the context's destination (the speakers)
   gainNode.gain.value = 0;
   source.start(0); // play the source now
-  gainNode.gain.setTargetAtTime(0.3, this.audioContext.currentTime, this.sampleAttack);
+  gainNode.gain.setTargetAtTime(this.sampleGain, this.audioContext.currentTime, this.sampleAttack);
   this.source = source;
   this.gainNode = gainNode;
 };
@@ -92,6 +94,18 @@ ActiveHex.prototype.noteOff = function () {
   if (this.source) {
     this.source.stop(fadeout + 4);
   }
+};
+
+const findGain = (fileName) => {
+  for (let g of instruments) {
+    for (let i of g.instruments) { 
+      if (i.fileName === fileName) {
+        return i.gain;
+      }
+    }
+  }
+  console.error("Unable to find configured instrument");
+  return 0;
 };
 
 const findAttack = (fileName) => {
@@ -138,60 +152,70 @@ export const instruments = [
       {
         fileName: "piano",
         name: "Piano",
+        gain: 0.36,
         attack: 0,
         release: 0.1,
         loop: false
       }, {
         fileName: "rhodes",
         name: "Rhodes",
+        gain: 0.38,
         attack: 0,
         release: 0.001,
         loop: false
       }, {
         fileName: "vibes",
         name: "Vibraphone",
+        gain: 0.34,
         attack: 0,
-        release: 2.0,
+        release: 1.5,
         loop: false
       }, {
         fileName: "hammond",
         name: "Hammond",
+        gain: 0.5,
         attack: 0.002,
         release: 0.002,
         loop: true
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
+        gain: 0.25,
         attack: 0,
         release: 0.2,
         loop: false
       }, {
         fileName: "lute",
         name: "Lute-Stop",
+        gain: 0.26,
         attack: 0,
         release: 0.2,
         loop: false
       }, {
         fileName: "harp",
         name: "Harp",
+        gain: 0.33,
         attack: 0,
         release: 1.5,
         loop: false
       }, {
         fileName: "cello-viola",
         name: "Pizzicato",
+        gain: 0.35,
         attack: 0,
         release: 1.5,
         loop: false
       }, {
         fileName: "qanun",
         name: "Qanun",
+        gain: 0.27,
         attack: 0,
         release: 1.5,
         loop: false
       }, {
         fileName: "gayageum",
         name: "Gayageum",
+        gain: 0.22,
         attack: 0,
         release: 1.5,
         loop: false
@@ -204,38 +228,44 @@ export const instruments = [
       {
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        gain: 0.69,
+        attack: 0.1,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        gain: 0.68,
+        attack: 0.12,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        gain: 0.66,
+        attack: 0.12,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        gain: 0.635,
+        attack: 0.14,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        gain: 0.62,
+        attack: 0.16,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRIByzantineST",
-        name:"Byzantine (9 Harmonics)",
-        attack: 0.04,
-        release: 0.05,
+        name: "Byzantine (9 Harmonics)",
+        gain: 0.67,
+        attack: 0.12,
+        release: 0.08,
         loop: true
       }
     ]
