@@ -148,6 +148,12 @@ export const instruments = [
         release: 0.001,
         loop: false
       }, {
+        fileName: "vibes",
+        name: "Vibraphone",
+        attack: 0,
+        release: 2.0,
+        loop: false
+      }, , {
         fileName: "hammond",
         name: "Hammond",
         attack: 0.002,
