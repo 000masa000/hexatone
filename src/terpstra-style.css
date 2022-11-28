@@ -1,8 +1,9 @@
 @font-face {
   font-family: HEJI;
   src: "https://www.plainsound.org/fonts/HEJI2Text.otf";
-  font-family: Roboto;
-  src: "https://fonts.googleapis.com/css2?family=Roboto+Condensed";
+  font-family: 'Roboto Condensed';
+  src: url("https://www.plainsound.org/fonts/RobotoCondensed-Regular.woff2") format("woff2"),
+  url("https://www.plainsound.org/fonts/RobotoCondensed-Regular.ttf") format ("truetype");
 }
 
 span.heji {
@@ -13,7 +14,7 @@ span.heji {
 }
 
 span.roboto {
-font-family: Roboto;
+font-family: 'Roboto Condensed';
    font-weight: regular;
    margin-bottom: 0px;
    vertical-align: middle;
@@ -26,7 +27,7 @@ body {
 	background-position: top left;
 	background-attachment: fixed;
     overflow: hidden;
-    font-family: Roboto, Arial Nova Condensed, Arial Narrow, Helvetica, Arial, "Open Sans", sans-serif;
+    font-family: 'Roboto Condensed', 'Arial Nova Condensed', 'Arial Narrow', Helvetica, Arial, 'Open Sans', sans-serif;
 }
 
 #sidebar {
