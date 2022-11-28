@@ -172,6 +172,12 @@ export const instruments = [
         release: 1.5,
         loop: false
       }, {
+        fileName: "cello-viola",
+        name: "Pizzicato",
+        attack: 0,
+        release: 1.5,
+        loop: false
+      }, {
         fileName: "qanun",
         name: "Qanun",
         attack: 0,

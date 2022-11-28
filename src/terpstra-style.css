@@ -47,7 +47,7 @@ a {
     color: #157FFF;
 }
 /* Sidebar is attached to top and fills viewport for small screens */
-@media (max-width: 460px) {
+@media (max-width: 480px) {
     #sidebar {
         height: 100vh;
         width: 100vw;
@@ -55,7 +55,7 @@ a {
     }
 
     #sidebar-button {
-        height: 5em;
+        height: 2.5em;
         top: 0;
         left: 50vw;
         transform: translate(-50%, 0);
@@ -90,7 +90,7 @@ a {
 }
 
 /* Sidebar is attached to left side for larger screens */
-@media (min-width: 460px) {
+@media (min-width: 480px) {
     #sidebar {
         height: 100vh;
         max-width: 40em;
