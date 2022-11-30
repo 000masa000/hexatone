@@ -287,7 +287,7 @@ export function getContrastYIQ(hexcolor) {
   var b = parseInt(hexcolor.substr(4, 2), 16);
   var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
   
-  return (yiq >= 128) ? 'black' : 'white';
+  return (yiq >= 132) ? '#442C2C' : 'white';
 }
 
 export function getContrastYIQ_2(hexcolor) {
@@ -297,7 +297,7 @@ export function getContrastYIQ_2(hexcolor) {
   var b = parseInt(hexcolor.substr(4, 2), 16);
   var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
   
-return (yiq >= 207) ? 'slategray' : 'snow';
+return (yiq >= 205) ? '#5e6d73' : 'snow';
 }
 
 export function rgbToHex(r, g, b) {

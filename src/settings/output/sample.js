@@ -23,11 +23,11 @@ Sample.propTypes = {
 
 const Instruments = (props) => (
   <select name="instrument"
-          value={props.value}
-          onChange={(e) => props.onChange(e.target.name, e.target.value)} >
+    value={props.value}
+    onChange={(e) => props.onChange(e.target.name, e.target.value)} >
     {props.groups.map(group => (
       <optgroup label={group.name}>
-        { group.instruments.map(instrument => (
+        {group.instruments.map(instrument => (
           <option value={instrument.fileName}>{instrument.name}</option>
         ))}
       </optgroup>

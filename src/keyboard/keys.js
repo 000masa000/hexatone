@@ -435,7 +435,7 @@ class Keys {
     // hexcoords = p and screenCoords = hexCenter
 
     context.fillStyle = getContrastYIQ(current_text_color);
-    context.font = "22pt Roboto Condensed";
+    context.font = "24pt Roboto HEJI2";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -452,8 +452,8 @@ class Keys {
       var name = this.settings.number_or_name ? "" + reducedNote : this.settings.names[reducedNote];
       if (name) {
         context.save();
-        var scaleFactor = name.length > 3 ? 3 / name.length : 1;
-        scaleFactor *= this.settings.hexSize / 50;
+        var scaleFactor = name.length > 3 ? 4 / name.length : 1;
+        scaleFactor *= this.settings.hexSize / 48;
         context.scale(scaleFactor, scaleFactor);
         context.fillText(name, 0, 0);
         context.restore();
@@ -461,9 +461,9 @@ class Keys {
 
       var scaleFactor = this.settings.hexSize / 50;
       context.scale(scaleFactor, scaleFactor);
-      context.translate(10, -25);
+      context.translate(8, -28);
       context.fillStyle = getContrastYIQ_2(current_text_color);
-      context.font = "12pt Roboto Condensed";
+      context.font = "13pt Roboto HEJI2";
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(equivMultiple, 0, 0);

@@ -45,22 +45,22 @@ const ScaleTable = (props) => {
   return (
     <table>
       <thead>
-        <th>Frequency Ratio | Cents</th>
+        <th class="wide" id="leftaligned">Frequency Ratio&nbsp;&nbsp;|&nbsp;&nbsp;Cents&nbsp;&nbsp;|&nbsp;&nbsp;EDO-steps</th>
         <th>Degree</th>
         <th>Name</th>
         <th>Color</th>
       </thead>
       <tbody>
         <tr>
-          <td><em>1/1</em> = <em>0 cents</em></td>
+          <td><em>1/1</em>&nbsp;&nbsp;&nbsp;=&nbsp;<em>0 cents</em>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;0\n</td>
           <td>
-            <input type="text" disabled={editable_labels}
+            <input id="centered" type="text" disabled={editable_labels}
                    name="degree0" value={degrees[0]} onChange={nameChange}
                    aria-label="pitch degree 0"
             />
           </td>
           <td>
-            <input type="text" disabled={editable_labels}
+            <input id="centered" type="text" disabled={editable_labels}
                    name="name0" value={names[0]} onChange={nameChange}
                    aria-label="pitch name 0"
             />
@@ -81,13 +81,13 @@ const ScaleTable = (props) => {
               />
             </td>
             <td>
-              <input type="text"
+              <input id="centered" type="text"
                      name={`degree${i + 1}}`} value={degree}
                      aria-label={`pitch degree ${i}`}
               />
             </td>
             <td>
-              <input type="text" disabled={editable_labels}
+              <input id="centered" type="text" disabled={editable_labels}
                      name={`name${i+1}`} value={name}
                      onChange={nameChange}
                      aria-label={`pitch name ${i}`}
@@ -111,11 +111,11 @@ const ScaleTable = (props) => {
               />
             </td>
             <td>
-              <input type="text"
+              <input id="centered" type="text"
                   value={scale.length}
               />
             </td>
-            <td><em>{names[0]}</em></td>
+            <td id="centered"><em>{names[0]}&nbsp;&nbsp;&nbsp;</em></td>
             <td><input type="color" disabled={true} value={colors[0]} aria-label={`pitch color 0`}/></td>
           </tr>
         </tbody>

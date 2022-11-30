@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { instruments } from './instruments';
 
 // Three concepts:
 // Coordinates -> Scale degree -> Pitch/midi
@@ -81,7 +82,7 @@ ActiveHex.prototype.noteOn = function() {
   source.connect(gainNode); // connect the source to the context's destination (the speakers)
   gainNode.gain.value = 0;
   source.start(0); // play the source now
-  gainNode.gain.setTargetAtTime(this.sampleGain, this.audioContext.currentTime, this.sampleAttack);
+  gainNode.gain.setTargetAtTime(this.sampleGain * 0.5, this.audioContext.currentTime, this.sampleAttack);
   this.source = source;
   this.gainNode = gainNode;
 };
@@ -92,7 +93,7 @@ ActiveHex.prototype.noteOff = function () {
     this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleRelease);
   }
   if (this.source) {
-    this.source.stop(fadeout + 4);
+    this.source.stop(fadeout + 1);
   }
 };
 
@@ -143,133 +144,5 @@ const findLoop = (fileName) => {
   console.error("Unable to find configured instrument");
   return 0.1;
 };
-
-// TODO use url from webpack file-loader instead of filename
-export const instruments = [
-  {
-    name: "Acoustic Instruments",
-    instruments: [
-      {
-        fileName: "piano",
-        name: "Piano",
-        gain: 0.36,
-        attack: 0,
-        release: 0.1,
-        loop: false
-      }, {
-        fileName: "rhodes",
-        name: "Rhodes",
-        gain: 0.38,
-        attack: 0,
-        release: 0.001,
-        loop: false
-      }, {
-        fileName: "vibes",
-        name: "Vibraphone",
-        gain: 0.34,
-        attack: 0,
-        release: 1.5,
-        loop: false
-      }, {
-        fileName: "hammond",
-        name: "Hammond",
-        gain: 0.5,
-        attack: 0.002,
-        release: 0.002,
-        loop: true
-      }, {
-        fileName: "harpsichord",
-        name: "Harpsichord",
-        gain: 0.25,
-        attack: 0,
-        release: 0.2,
-        loop: false
-      }, {
-        fileName: "lute",
-        name: "Lute-Stop",
-        gain: 0.26,
-        attack: 0,
-        release: 0.2,
-        loop: false
-      }, {
-        fileName: "harp",
-        name: "Harp",
-        gain: 0.33,
-        attack: 0,
-        release: 1.5,
-        loop: false
-      }, {
-        fileName: "cello-viola",
-        name: "Pizzicato",
-        gain: 0.35,
-        attack: 0,
-        release: 1.5,
-        loop: false
-      }, {
-        fileName: "qanun",
-        name: "Qanun",
-        gain: 0.27,
-        attack: 0,
-        release: 1.5,
-        loop: false
-      }, {
-        fileName: "gayageum",
-        name: "Gayageum",
-        gain: 0.22,
-        attack: 0,
-        release: 1.5,
-        loop: false
-      }
-    ],
-  },
-  {
-    name: "Additive Synthesis Tones",
-    instruments: [
-      {
-        fileName: "WMRI3LST",
-        name: "3-Limit (4 Harmonics)",
-        gain: 0.69,
-        attack: 0.1,
-        release: 0.08,
-        loop: true
-      }, {
-        fileName: "WMRI5LST",
-        name: "5-Limit (6 Harmonics)",
-        gain: 0.68,
-        attack: 0.12,
-        release: 0.08,
-        loop: true
-      }, {
-        fileName: "WMRI7LST",
-        name: "7-Limit (10 Harmonics)",
-        gain: 0.66,
-        attack: 0.12,
-        release: 0.08,
-        loop: true
-      }, {
-        fileName: "WMRI11LST",
-        name: "11-Limit (12 Harmonics)",
-        gain: 0.635,
-        attack: 0.14,
-        release: 0.08,
-        loop: true
-      }, {
-        fileName: "WMRI13LST",
-        name: "13-Limit (16 Harmonics)",
-        gain: 0.62,
-        attack: 0.16,
-        release: 0.08,
-        loop: true
-      }, {
-        fileName: "WMRIByzantineST",
-        name: "Byzantine (9 Harmonics)",
-        gain: 0.67,
-        attack: 0.12,
-        release: 0.08,
-        loop: true
-      }
-    ]
-  }
-]
 
 export default create_sample_synth;

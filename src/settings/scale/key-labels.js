@@ -12,6 +12,7 @@ const KeyLabels = (props) => (
         <option value="no_labels">Blank Keys (No Labels)</option>
         <option value="enumerate">Enumerate Scale</option>
         <option value="names">Note Names</option>
+        <option value="scale">Ratios/Cents</option>
       </select>
     </label>
     {props.settings.key_labels === "enumerate" && (
