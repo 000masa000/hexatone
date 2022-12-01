@@ -7,6 +7,7 @@ import KeyLabels from './key-labels';
 import ScaleTable from './scale-table';
 import ScalaImport from './scala-import';
 
+// import a file with scala data and optionally key labels and colors
 const Scale = (props) => {
   const [importing, setImporting] = useState(false);
 

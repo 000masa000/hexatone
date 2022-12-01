@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import PropTypes from 'prop-types';
 
+// sidebar display of the scala file, degrees, note names, colors in an html table format
 const ScaleTable = (props) => {
   const scale = [...(props.settings.scale || [])];
   const equiv_interval = scale.length ? scale.pop() : 0;
@@ -10,7 +11,7 @@ const ScaleTable = (props) => {
     degrees = [...Array(scale.length).keys()];
    }
     
-    let note_names;{
+  let note_names;{
     note_names = props.settings.note_names || [];
   }
 
@@ -20,6 +21,7 @@ const ScaleTable = (props) => {
   } else {
     colors = props.settings.note_colors || [];
   }
+
   const rows = scale.map((x, i) => [x, degrees[i], note_names[i], colors[i]]);
 
   const scaleChange = e => {
@@ -131,7 +133,7 @@ ScaleTable.propTypes = {
     spectrum_colors: PropTypes.bool,
     fundamental_color: PropTypes.number,
     note_colors: PropTypes.arrayOf(colorProp),
-    note_names: PropTypes.arrayOf(PropTypes.string),
+    note_names: PropTypes.arrayOf(PropTypes.string)
   }),
 };
 

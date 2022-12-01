@@ -1,5 +1,5 @@
 {
-  "description": "Virtual Terpstra isomorphic microtonal musical keyboard.",
+  "description": "Virtual Bosanquet / Wilson / Terpstra isomorphic microtonal musical keyboard.",
   "display": "fullscreen",
   "theme_color": "#2973CC",
   "background_color": "#2973CC",
@@ -25,7 +25,7 @@
       "type": "image/png"
     }
   ],
-  "name": "Virtual Terpstra isomorphic microtonal musical keyboard",
-  "short_name": "Terpstra Keyboard",
+  "name": "Virtual Bosanquet / Wilson / Terpstra isomorphic microtonal musical keyboard",
+  "short_name": "Bosanquet / Wilson / Terpstra Keyboard",
   "start_url": "index.html"
 }

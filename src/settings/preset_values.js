@@ -21,12 +21,12 @@ import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 import scale_1cent from 'scales/1cent.scl';
 
 //import the Scala file parser, which can output scale: [], colors: [], labels: [], errors: [],
-import { parseScale } from './scale/parse-scale';
-import { scalaToLabels } from './scale/parse-scale';
+import { parseScale, parsedScaleToLabels } from './scale/parse-scale';
 
 //define the standard 12-edo equal tempered scale and its names
 const scale_12_ed2_names = ["C", "C♯ D♭", "D", "D♯ E♭", "E", "F", "F♯ G♭", "G", "G♯ A♭", "A", "A♯ B♭", "B"];
 const scale_12_ed2_parsed = parseScale(scale_12_ed2).scale;
+const scale_12_ed2_scala = parsedScaleToLabels(scale_12_ed2_parsed);
 
 //define the presets which appear in the sidebar menu
 //TO DO eliminate equivSteps where they should be parsed from Scala file
@@ -39,7 +39,6 @@ export const presets = [
         "description": "12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a tilted Paul Jankó layout, which approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
         "scale": scale_12_ed2_parsed,        
         "equivSteps": 12,
-       // TO DO write for real: "scala_names": for (i) scalaToLabels(scale[i])
         "note_names": scale_12_ed2_names,
         "key_labels": "note_names",
         "note_colors": ["#fafafa", "#cdcdcb", "#fafafa", "#cdcdcb", "#fafafa", "#fafafa", "#cdcdcb", "#fafafa", "#cdcdcb", "#fafafa", "#cdcdcb", "#fafafa"],
@@ -107,7 +106,7 @@ export const presets = [
           "G", "A♭♭", "G♯", "A♭", "G♯♯",
           "A", "B♭♭", "A♯", "B♭", "A♯♯",
           "B", "C♭", "B♯"],
-        "key_labels": "scale",
+        "key_labels": "note_names",
         "note_colors": [
           "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
           "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
@@ -475,14 +474,14 @@ export const presets = [
         "description": "53-tone Rational Intonation 3-Limit scale, consisting of 53 rational divisions per octave derived solely from partials 2 and 3 by tuning a chain of 53 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Tones are mapped on a mirrored Bosanquet / Wilson / Terpstra layout.",
         "scale": parseScale(scale_53_ri_3l_mirrored).scale,
         "equivSteps": 53,
-        /*"powers_of_3": [
+        "scala_names": [
           "0", "^12", "^24", "^-17", "^-5", "^7", "^19", "^-22", "^-10",
           "^2", "^14", "^26", "^-15", "^-3", "^9", "^21", "^-20", "^-8",
           "^4", "^16", "^-25", "^-13",
           "^-1", "^11", "^23", "^-18", "^-6", "^6", "^18", "^-23", "^-11",
           "^1", "^13", "^25", "^-16", "-4", "^8", "^20", "^-21", "-9",
           "^3", "^15", "-26", "^-14", "^-2", "^10", "^22", "^-19", "^-7",
-          "^5", "^17", "^-24", "-12"],*/
+          "^5", "^17", "^-24", "-12"],
         "note_names": [
           "C", "C", "C", "C", "C", "D", "D", "D", "D",
           "D", "D", "D", "D", "D", "E", "E", "E", "E",
@@ -515,14 +514,14 @@ export const presets = [
         "description": "Cam Taylor's 53-tone Just Intonation 13-Limit scale, consisting of 53 symmetrically derived rational divisions per octave.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
-       /*"ratios": [
+        "scala_names": [
           "1/1", "81/80", "33/32", "28/27", "256/243", "16/15", "13/12", "12/11", "10/9",
           "9/8", "8/7", "15/13", "7/6", "32/27", "6/5", "39/32", "16/13", "5/4",
           "81/64", "9/7", "13/10", "21/16",
           "4/3", "27/20", "11/8", "18/13", "45/32", "64/45", "13/9", "16/11", "40/27",
           "3/2", "32/21", "20/13", "14/9", "128/81", "8/5", "13/8", "64/39", "5/3",
           "27/16", "12/7", "26/15", "7/4", "16/9", "9/5", "11/6", "24/13", "15/8",
-          "243/128", "27/14", "64/33", "160/81"],*/
+          "243/128", "27/14", "64/33", "160/81"],
         "note_names": [
           "C", "C", "C", "D", "D", "D", "D", "D", "D",
           "D", "D", "D", "E", "E", "E", "E", "E", "E",
@@ -761,10 +760,10 @@ export const presets = [
         "key_labels": "none",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#dbffdf",
+        "fundamental_color": "#f0fcff",
         "rSteps": 22,
         "urSteps": 1,
-        "hexSize": 30,
+        "hexSize": 20,
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
@@ -780,10 +779,10 @@ export const presets = [
         "key_labels": "none",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#dbffdf",
+        "fundamental_color": "#f0fcff",
         "rSteps": 41,
         "urSteps": 1,
-        "hexSize": 30,
+        "hexSize": 20,
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
@@ -802,7 +801,7 @@ export const presets = [
         "fundamental_color": "#dbffdf",        
         "rSteps": 50,
         "urSteps": 1,
-        "hexSize": 30,
+        "hexSize": 20,
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,

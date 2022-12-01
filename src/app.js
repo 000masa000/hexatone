@@ -3,7 +3,7 @@ import { useState, useEffect } from 'preact/hooks';
 import "regenerator-runtime/runtime";
 import Keyboard from './keyboard';
 import { presets, default_settings } from './settings/preset_values';
-import { scalaToCents, parseScale } from './settings/scale/parse-scale.js';
+import { parseScale, scalaToCents, scalaToLabels, parsedScaleToLabels } from './settings/scale/parse-scale.js';
 import { create_sample_synth } from './sample_synth';
 import { instruments } from './sample_synth/instruments';
 import { create_midi_synth} from './midi_synth';
@@ -38,18 +38,23 @@ const normalize = (settings) => {
   const rotation = settings.rotation * Math.PI / 180.0; // convert to radians
   const result = {...settings, fundamental_color, keyCodeToCoords, note_colors, rotation};
   if (settings.key_labels === "enumerate") {
-   // result["enumerate_scale"] = true;
-    result["number_or_name"] = true;
-  } /*else if (settings.key_labels === "scale") {
-    result["show_scale"] = true;
-  }*/ else if (settings.key_labels === "no_labels") {
+    result["degree"] = true; // if true label scale with degree numbers, else use names
+  } else if (settings.key_labels === "note_names") {
+    result["note"] = true;
+  } else if (settings.key_labels === "scala_names") {
+    result["scala"] = true;
+  } else if (settings.key_labels === "no_labels") {
     result["no_labels"] = true;
   }
 
   if (settings.scale) {
-    const scale = settings.scale.map(i => scalaToCents(i));
-    const equivInterval = scale.pop();
-    scale.unshift(0);
+    const scala_names = settings.scale.map(i => scalaToLabels(i)); // convert Scala file data to possible key labels
+    const scale = settings.scale.map(i => scalaToCents(i)); // convert Scala file to cents
+    const equivInterval = scale.pop(); // determine equave
+    scale.unshift(0); // add the implicit fundamental to the scale
+    scala_names.pop(); // drop equave
+    scala_names.unshift("1/1"); // add implicit fundamental
+    result["scala_names"] = scala_names;
     result["scale"] = scale;
     result["equivInterval"] = equivInterval;
   }
@@ -78,7 +83,6 @@ export const App = () => {
     // Scale
     scale: ExtractJoinedString,
     key_labels: ExtractString,
-    // TODO consistent snake case ... should equivSteps simply be pulled out of the scale?
     equivSteps: ExtractInt,
     note_names: ExtractJoinedString,
     spectrum_colors: ExtractBool,
@@ -141,8 +145,9 @@ export const App = () => {
   const onImport = () => {
     setSettings(s => {
       if (s.scale_import) {
-        const { equivSteps, scale, labels, colors } = parseScale(s.scale_import);
-        return {...s, equivSteps, scale, note_colors: colors, note_names: labels };
+        const { equivSteps, description, scale, labels, colors } = parseScale(s.scale_import);
+        const scala_names = parsedScaleToLabels(scale);
+        return {...s, description, equivSteps, scale, scala_names, note_names: labels, note_colors: colors };
       } else {
         return s;
       }
@@ -153,9 +158,9 @@ export const App = () => {
     ((s.output === "midi" && s.midi_device && typeof s.midi_channel === "number" && typeof s.midi_velocity === "number") ||
      (s.output === "sample" && s.fundamental && s.instrument)) &&
       s.rSteps && s.urSteps &&
-      s.hexSize && s.hexSize >= 30 && typeof s.rotation === "number" &&
+      s.hexSize && s.hexSize >= 20 && typeof s.rotation === "number" &&
       s.scale && s.equivSteps &&
-      (s.no_labels || s.number_or_name && s.note_names || !s.number_or_name) &&
+      (s.no_labels || s.degree && s.note_names || !s.degree) &&
       ((s.spectrum_colors && s.fundamental_color) || s.note_colors)
   );
 

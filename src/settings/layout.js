@@ -21,7 +21,7 @@ const Layout = (props) => (
     <label>
       Hex Size (pixels)
       <input name="hexSize" type="number"
-             step="any" min="30" max="1000"
+             step="any" min="20" max="1000"
              value={props.settings.hexSize}
              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
     </label>

@@ -443,7 +443,7 @@ class Keys {
 
     var note = p.x * this.settings.rSteps + p.y * this.settings.urSteps;
     // TODO this should be parsed already
-    var equivSteps = this.settings.number_or_name ? parseInt(this.settings.equivSteps) : this.settings.scale.length;
+    var equivSteps = this.settings.scale.length;
     var equivMultiple = Math.floor(note / equivSteps);
     var reducedNote = note % equivSteps;
     if (reducedNote < 0) {
@@ -451,7 +451,14 @@ class Keys {
     }
 
     if (!this.settings.no_labels) {
-      var name = this.settings.number_or_name ? "" + reducedNote : this.settings.note_names[reducedNote];
+      var name;
+      if (this.settings.degree) {
+        name = "" + reducedNote
+      } else if (this.settings.note) {
+        name = this.settings.note_names[reducedNote];
+      } else if (this.settings.scala) {
+        name = this.settings.scala_names[reducedNote];
+      };
       if (name) {
         context.save();
         var scaleFactor = name.length > 3 ? 4 / name.length : 1;

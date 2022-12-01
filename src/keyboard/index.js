@@ -24,7 +24,9 @@ const Keyboard = (props) => {
 Keyboard.propTypes = {
   settings: PropTypes.shape({
     keyCodeToCoords: PropTypes.object,
-    number_or_name: PropTypes.bool,
+    degree: PropTypes.bool,
+    note: PropTypes.bool,
+    scala: PropTypes.bool,
     no_labels: PropTypes.bool,
 
     // Output
@@ -42,10 +44,11 @@ Keyboard.propTypes = {
     scale: PropTypes.arrayOf(PropTypes.number),
     equivInterval: PropTypes.number,
     equivSteps: PropTypes.number,
+    scala_names: PropTypes.arrayOf(PropTypes.string),
     note_names: PropTypes.arrayOf(PropTypes.string),
-    spectrum_colors: PropTypes.bool,
-    fundamental_color: PropTypes.string,
     note_colors: PropTypes.arrayOf(PropTypes.string),
+    spectrum_colors: PropTypes.bool,
+    fundamental_color: PropTypes.string,    
   }).isRequired,
   synth: PropTypes.object.isRequired,
   onQuit: PropTypes.func.isRequired,

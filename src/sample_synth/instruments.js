@@ -103,21 +103,21 @@ export const instruments = [
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         gain: 0.61,
-        attack: 0.5,
+        attack: 0.3,
         release: 0.13,
         loop: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         gain: 0.56,
-        attack: 0.5,
+        attack: 0.3,
         release: 0.13,
         loop: true
       }, {
         fileName: "WMRIByzantineST",
         name: "Byzantine (9 Harmonics)",
         gain: 0.58,
-        attack: 0.08,
+        attack: 0.07,
         release: 0.02,
         loop: true
       }
