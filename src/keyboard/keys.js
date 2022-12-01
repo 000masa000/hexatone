@@ -9,9 +9,10 @@ class Keys {
       hexVert: settings.hexSize * 3 / 2,
       hexWidth: Math.sqrt(3) * settings.hexSize,
       ...settings,
-    };
-    this.typing = typing;
+    };   
     this.synth = synth;
+    this.typing = typing;
+
     this.state = {
       canvas,
       context: canvas.getContext('2d'),
@@ -35,6 +36,7 @@ class Keys {
         z2: 0,
       }
     };
+    
     // Set up resize handler
     window.addEventListener('resize', this.resizeHandler, false);
     window.addEventListener('orientationchange', this.resizeHandler, false);
@@ -449,7 +451,7 @@ class Keys {
     }
 
     if (!this.settings.no_labels) {
-      var name = this.settings.number_or_name ? "" + reducedNote : this.settings.names[reducedNote];
+      var name = this.settings.number_or_name ? "" + reducedNote : this.settings.note_names[reducedNote];
       if (name) {
         context.save();
         var scaleFactor = name.length > 3 ? 4 / name.length : 1;

@@ -10,8 +10,8 @@ const ScaleTable = (props) => {
     degrees = [...Array(scale.length).keys()];
    }
     
-    let names;{
-    names = props.settings.names || [];
+    let note_names;{
+    note_names = props.settings.note_names || [];
   }
 
   let colors;
@@ -20,7 +20,7 @@ const ScaleTable = (props) => {
   } else {
     colors = props.settings.note_colors || [];
   }
-  const rows = scale.map((x, i) => [x, degrees[i], names[i], colors[i]]);
+  const rows = scale.map((x, i) => [x, degrees[i], note_names[i], colors[i]]);
 
   const scaleChange = e => {
     const next = [... (props.settings.scale || [])];
@@ -35,12 +35,12 @@ const ScaleTable = (props) => {
   };
 
   const nameChange = e => {
-    const next = [...(props.settings.names || [])];
+    const next = [...(props.settings.note_names || [])];
     next[parseInt(e.target.name.replace(/name/, ""))] = e.target.value;
-    props.onChange("names", next);
+    props.onChange("note_names", next);
   };
 
-  const editable_labels = props.settings.key_labels !== "names";
+  const editable_labels = props.settings.key_labels !== "note_names";
   const editable_colors = props.settings.spectrum_colors;
   return (
     <table>
@@ -61,7 +61,7 @@ const ScaleTable = (props) => {
           </td>
           <td>
             <input id="centered" type="text" disabled={editable_labels}
-                   name="name0" value={names[0]} onChange={nameChange}
+                   name="name0" value={note_names[0]} onChange={nameChange}
                    aria-label="pitch name 0"
             />
           </td>
@@ -115,7 +115,7 @@ const ScaleTable = (props) => {
                   value={scale.length}
               />
             </td>
-            <td id="centered"><em>{names[0]}&nbsp;&nbsp;&nbsp;</em></td>
+            <td id="centered"><em>{note_names[0]}&nbsp;&nbsp;&nbsp;</em></td>
             <td><input type="color" disabled={true} value={colors[0]} aria-label={`pitch color 0`}/></td>
           </tr>
         </tbody>
@@ -131,7 +131,7 @@ ScaleTable.propTypes = {
     spectrum_colors: PropTypes.bool,
     fundamental_color: PropTypes.number,
     note_colors: PropTypes.arrayOf(colorProp),
-    names: PropTypes.arrayOf(PropTypes.string),
+    note_names: PropTypes.arrayOf(PropTypes.string),
   }),
 };
 

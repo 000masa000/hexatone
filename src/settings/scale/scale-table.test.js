@@ -40,8 +40,8 @@ describe("The scale table", () => {
     describe("Using explicit key labels", () => {
       const settings = {
         scale: scale_values,
-        key_labels: "names",
-        names: scale_labels,
+        key_labels: "note_names",
+        note_names: scale_labels,
         spectrum_colors: true,
         fundamental_color: "#abcdef",
       };
@@ -62,7 +62,7 @@ describe("The scale table", () => {
         expected[3] = 'X';
 
         expect(mockChange.mock.calls.length).toBe(1);
-        expect(mockChange.mock.calls[0][0]).toBe("names");
+        expect(mockChange.mock.calls[0][0]).toBe("note_names");
         expect(mockChange.mock.calls[0][1]).toStrictEqual(expected);
       });
     });
@@ -128,8 +128,8 @@ describe("The scale table", () => {
   describe("The scale steps.", () => {
     const settings = {
       scale: scale_values,
-      key_labels: "names",
-      names: scale_labels,
+      key_labels: "note_names",
+      note_names: scale_labels,
       spectrum_colors: false,
       note_colors: scale_colors,
     };

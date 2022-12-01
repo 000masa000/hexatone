@@ -18,7 +18,7 @@ import "./terpstra-style.css";
 import LoadingIcon from './hex.svg';
 import './loader.css';
 
-export const Loading = () => <LoadingIcon width="50vw" height="50vh"/>;
+export const Loading = () => <LoadingIcon width="30vw" height="30vh"/>;
 
 const findPreset = (preset) => {
   for (let g of presets) {
@@ -32,15 +32,17 @@ const findPreset = (preset) => {
   return default_settings;
 };
 
-// TODO eliminate the need for this.
 const normalize = (settings) => {
   const fundamental_color = (settings.fundamental_color || "").replace(/#/, '');
   const note_colors = settings.note_colors.map(c => c ? c.replace(/#/, '') : "fafafa");
   const rotation = settings.rotation * Math.PI / 180.0; // convert to radians
   const result = {...settings, fundamental_color, keyCodeToCoords, note_colors, rotation};
   if (settings.key_labels === "enumerate") {
+   // result["enumerate_scale"] = true;
     result["number_or_name"] = true;
-  } else if (settings.key_labels === "no_labels") {
+  } /*else if (settings.key_labels === "scale") {
+    result["show_scale"] = true;
+  }*/ else if (settings.key_labels === "no_labels") {
     result["no_labels"] = true;
   }
 
@@ -56,9 +58,7 @@ const normalize = (settings) => {
 
 export const App = () => {
   const [loading, setLoading] = useState(0);
-  /*
-  const [settings, setSettings] = useState(default_settings);
-  */
+
   const [settings, setSettings] = useQuery({
     name: ExtractString,
     description: ExtractString,
@@ -78,10 +78,9 @@ export const App = () => {
     // Scale
     scale: ExtractJoinedString,
     key_labels: ExtractString,
-    // TODO consistent snake case
+    // TODO consistent snake case ... should equivSteps simply be pulled out of the scale?
     equivSteps: ExtractInt,
-    // TODO rename to note_names
-    names: ExtractJoinedString,
+    note_names: ExtractJoinedString,
     spectrum_colors: ExtractBool,
     fundamental_color: ExtractString,
     note_colors: ExtractJoinedString
@@ -143,7 +142,7 @@ export const App = () => {
     setSettings(s => {
       if (s.scale_import) {
         const { equivSteps, scale, labels, colors } = parseScale(s.scale_import);
-        return {...s, equivSteps, scale, note_colors: colors, names: labels };
+        return {...s, equivSteps, scale, note_colors: colors, note_names: labels };
       } else {
         return s;
       }
@@ -156,7 +155,7 @@ export const App = () => {
       s.rSteps && s.urSteps &&
       s.hexSize && s.hexSize >= 30 && typeof s.rotation === "number" &&
       s.scale && s.equivSteps &&
-      (s.no_labels || s.number_or_name && s.names || !s.number_or_name) &&
+      (s.no_labels || s.number_or_name && s.note_names || !s.number_or_name) &&
       ((s.spectrum_colors && s.fundamental_color) || s.note_colors)
   );
 
@@ -173,7 +172,7 @@ export const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          <a href="https://www.plainsound.org/hex">Terpstra Keyboard</a>
+          <a href="https://www.plainsound.org/hex">Bosanquet / Wilson / Terpstra Keyboard</a>
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}

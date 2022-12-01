@@ -42,7 +42,7 @@ Keyboard.propTypes = {
     scale: PropTypes.arrayOf(PropTypes.number),
     equivInterval: PropTypes.number,
     equivSteps: PropTypes.number,
-    names: PropTypes.arrayOf(PropTypes.string),
+    note_names: PropTypes.arrayOf(PropTypes.string),
     spectrum_colors: PropTypes.bool,
     fundamental_color: PropTypes.string,
     note_colors: PropTypes.arrayOf(PropTypes.string),

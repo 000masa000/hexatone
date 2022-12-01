@@ -81,22 +81,22 @@ export const instruments = [
       {
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
-        gain: 0.76,
-        attack: 0.5,
+        gain: 0.72,
+        attack: 0.3,
         release: 0.13,
         loop: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
-        gain: 0.69,
-        attack: 0.5,
+        gain: 0.68,
+        attack: 0.3,
         release: 0.13,
         loop: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         gain: 0.65,
-        attack: 0.5,
+        attack: 0.3,
         release: 0.13,
         loop: true
       }, {

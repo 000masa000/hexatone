@@ -1,6 +1,8 @@
 /*
   Parsing scale information encoded in the Scala .scl format.
   http://www.huygens-fokker.org/scala/scl_format.html
+
+  Note: this parser also allows encoding of key labels and key colors (hex format, i.e. #ffffff)
 */
 
 export const parseScale = (scala) => {
@@ -18,29 +20,29 @@ export const parseScale = (scala) => {
       // ignore blank lines
       continue;
     } else if (line.match(/^\s*!/)) {
-      // ignore comments, but capture the first; which by convention is a filename.
+      // ignore comments, indicated by a "!" symbol, but capture the first; which by convention is a filename.
       if (!out.filename) {
         out.filename = line.split("!", 2)[1].trim();
       }
       continue;
     } else if (!out.description) {
-      // The first non-comment line is a description
+      // the first non-comment line is a description
       out.description = line.trim();
     } else if (!out.equivSteps && line.match(/^\s*[0-9]+\s*$/)) {
-      // The first number is number of lines in the file.
+      // The first number is the number of lines in the file to come, containing scale data.
       out.equivSteps = parseInt(line.trim());
     } else if (match = line.match(/^\s*(-?[0-9]+\.[0-9]*|[0-9]+\/[0-9]*|[0-9]+\\[0-9]*|[0-9]+)\s*$/)) {
-      // only a pitch value
+      // only a pitch value (positive or negative float; positive ratio; edo step in backslash format)
       out.scale.push(match[1]);
       out.labels.push(null);
       out.colors.push(null);
     } else if (match = line.match(/^\s*(-?[0-9]+\.[0-9]*|[0-9]+\/[0-9]*|[0-9]+\\[0-9]*|[0-9]+)\s+(#[a-fA-F0-9]{6})$/)) {
-      // pitch value with only a color
+      // pitch value with only a color in hex format (#ffffff)
       out.scale.push(match[1]);
       out.labels.push(null);
       out.colors.push(match[2].toLowerCase());
     } else if (match = line.match(/^\s*(-?[0-9]+\.[0-9]*|[0-9]+\/[0-9]*|[0-9]+\\[0-9]*|[0-9]+)\s+(.*)\s+(#[a-fA-F0-9]{6})$/)) {
-      // pitch value with a label and a color
+      // pitch value with a label (any text string) and a color
       out.scale.push(match[1]);
       out.labels.push(match[2].trim());
       out.colors.push(match[3].toLowerCase());
@@ -61,6 +63,7 @@ export const parseScale = (scala) => {
   return out;
 };
 
+// convert scale data from string to cents
 export const scalaToCents = (line) => {
   if (line.match(/\//) !== null) {
     // ratio
@@ -76,5 +79,21 @@ export const scalaToCents = (line) => {
   } else {
     // integer implicit ratio
     return 1200 * Math.log(parseInt(line)) / Math.log(2);
+  }
+};
+
+// convert scale data from string to label
+export const scalaToLabels = (line) => {
+  if (line.match(/\/|\\/) !== null) {
+    // return ratio or edo
+    return line;
+  } else if (line.match(/\./) !== null) {
+    // decimal cents : round and return string
+    var cents = parseFloat(line);
+    cents = Math.round(cents).toString();
+    return cents;
+  } else {
+    // integer implicit ratio
+    return line + "/1";
   }
 };
