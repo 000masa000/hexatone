@@ -50,7 +50,7 @@ function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleR
 ActiveHex.prototype.noteOn = function() {
   var freq = this.fundamental * Math.pow(2, this.cents / 1200);
   var source = this.audioContext.createBufferSource(); // creates a sound source
-  // Choose sample
+  // choose sample
   var sampleFreq = 110;
   var sampleNumber = 0;
   if (freq > 155) {

@@ -71,6 +71,7 @@ export const App = () => {
     output: ExtractString,
     instrument: ExtractString,
     fundamental: ExtractFloat,
+    midi_mapping: ExtractString,
     midi_device: ExtractString,
     midi_channel: ExtractInt,
     midi_velocity: ExtractInt,
@@ -117,21 +118,22 @@ export const App = () => {
           setSynth(s);
         }); // todo error handling
     }
-    if (midi && settings.output === "midi" && settings.midi_device &&
-        typeof settings.midi_channel === "number" &&
+    if (midi && settings.output === "midi" && settings.midi_device && 
+        typeof settings.midi_channel === "number" && settings.midi_mapping &&
         typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(midi.outputs.get(settings.midi_device),
+      create_midi_synth(midi.outputs.get(settings.midi_device),                        
                         settings.midi_channel,
+                        settings.midi_mapping,
                         settings.midi_velocity)
-        .then(s => {
+        .then(s => { 
           setLoading(signal);
           setSynth(s);
         }); // todo error handling
     }
-  }, [settings.instrument, settings.fundamental,
-      settings.midi_device, settings.midi_channel,
+  }, [settings.instrument, settings.fundamental, 
+      settings.midi_device, settings.midi_channel, settings.midi_mapping,
       settings.midi_velocity, settings.output, midi]);
 
   const onChange = (key, value) => {
@@ -155,7 +157,8 @@ export const App = () => {
   };
 
   const valid = s => (
-    ((s.output === "midi" && s.midi_device && typeof s.midi_channel === "number" && typeof s.midi_velocity === "number") ||
+    ((s.output === "midi" && s.midi_device && typeof s.midi_channel === "number" && s.midi_mapping &&
+      typeof s.midi_velocity === "number") ||
      (s.output === "sample" && s.fundamental && s.instrument)) &&
       s.rSteps && s.urSteps &&
       s.hexSize && s.hexSize >= 20 && typeof s.rotation === "number" &&

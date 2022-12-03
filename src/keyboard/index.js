@@ -35,6 +35,7 @@ Keyboard.propTypes = {
     fundamental: PropTypes.number,
     midi: PropTypes.string,
     midi_channel: PropTypes.number,
+    midi_mapping: PropTypes.string,
     // Layout
     rSteps: PropTypes.number,
     urSteps: PropTypes.number,
