@@ -89,7 +89,7 @@ export const scalaToLabels = (line) => {
     if (line.length > 7) {
       var nd = line.split("/");
       var cents = 1200 * Math.log(parseInt(nd[0]) / parseInt(nd[1])) / Math.log(2);
-      cents = " "+Math.round(cents).toString()+" c";
+      cents = " "+Math.round(cents).toString()+".";
       return cents;
     } else { // return ratio
       return line;
@@ -97,12 +97,12 @@ export const scalaToLabels = (line) => {
   } else if (line.match(/\\/) !== null) {
     var edo = line.split("\\");
     var cents = parseFloat(edo[0]) * 1200 / parseFloat(edo[1]);
-    cents = " "+Math.round(cents).toString()+" c";
+    cents = " "+Math.round(cents).toString()+".";
     return cents;
   } else if (line.match(/\./) !== null) {
     // decimal cents : round and return string
     var cents = parseFloat(line);
-    cents = " "+Math.round(cents).toString()+" c";
+    cents = " "+Math.round(cents).toString()+".";
     return cents;
   } else {
     // integer implicit ratio

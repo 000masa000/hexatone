@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { Fragment } from 'preact/compat';
 import PropTypes from 'prop-types';
 
-const MidiSelect = (props) => (
+const MidiOutSelect = (props) => (
   <select name="midi_device" onChange={(e) => props.onChange(e.target.name, e.target.value)}>
     <option>Output Devices:</option>
     {Array.from(props.midi.outputs.values()).map(m => (
@@ -11,11 +11,11 @@ const MidiSelect = (props) => (
   </select>
 );
 
-const Midi = (props) => (
+const MidiOut = (props) => (
   <>
     <label>
       Port
-      <MidiSelect value={props.settings.midi}
+      <MidiOutSelect value={props.settings.midi}
                   midi={props.midi}
                   onChange={props.onChange}/>
     </label>
@@ -48,7 +48,7 @@ const Midi = (props) => (
   </>
 );
 
-Midi.propTypes = {
+MidiOut.propTypes = {
   settings: PropTypes.shape({  
     midi_device: PropTypes.string,
     midi_channel: PropTypes.number,
@@ -59,4 +59,4 @@ Midi.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default Midi;
+export default MidiOut;
