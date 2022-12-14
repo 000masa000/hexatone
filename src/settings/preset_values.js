@@ -94,18 +94,18 @@ export const presets = [
     "name": "Meantone",
     settings: [
       {
-        "name": "31-Extended-Meantone (G♭♭-A♯♯)",
-        "description": "31-tone scale in extended 1/4 comma meantone: an alternate tuning for Nicola Vicentino’s Archicembalo or Arciorgano. Each fifth in the range G♭♭-A♯♯ is narrowed from its just intonation ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third with ratio 5/4. Standard 12-tone meantone ranges from E♭ to G♯, ending in a wolf-fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing note C♭♭ may be replaced by the enharmonically nearly-equivalent pitch A♯♯.",
+        "name": "31-Extended-Meantone (G♭-A♯♯♯) in Vicentino Notation",
+        "description": "31-tone scale in extended 1/4 comma meantone (alternate tuning for Nicola Vicentino’s instruments). Each fifth in the range G♭-A♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing C may be replaced by the enharmonically nearly-equivalent pitch B.",
         "scale": parseScale(scale_31_mt_vicentino_alt).scale,
         "equivSteps": 31,
         "note_names": [
-          "C", "D♭♭", "C♯", "D♭", "C♯♯",
-          "D", "E♭♭", "D♯", "E♭", "D♯♯",
-          "E", "F♭", "E♯",
-          "F", "G♭♭", "F♯", "G♭", "F♯♯",
-          "G", "A♭♭", "G♯", "A♭", "G♯♯",
-          "A", "B♭♭", "A♯", "B♭", "A♯♯",
-          "B", "C♭", "B♯"],
+          "C", "C", "C", "D", "D",
+          "D", "D", "D", "E", "E",
+          "E", "E", "E",
+          "F", "F", "F", "G", "G",
+          "G", "G", "G", "A", "A",
+          "A", "A", "A", "B", "B",
+          "B", "B", "B"],
         "key_labels": "note_names",
         "note_colors": [
           "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
@@ -122,8 +122,8 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 263.1813855,        
-        "instrument": "harpsichord",
-        "short_description": "31-Extended-Meantone (G♭♭-A♯♯)"
+        "instrument": "WMRI5LST",
+        "short_description": "31-Extended-Meantone (G♭-A♯♯♯)"
       }
     ]
   },
@@ -135,7 +135,6 @@ export const presets = [
         "description": "7-tone Just Intonation 11-Limit mode combining two disjunct Rast tetrachords according to Mansour Zalzal’s lute tuning as described by al-Farabi, where the ratios including prime number 11 are alterations of 3-Limit versions, coinciding with the Eight Echos or Fourth Plagal of Byzantine Psaltic Chant.",
         "scale": parseScale(scale_7_ji_rast_maqam).scale,
         "equivSteps": 7,
-        //"ratios": ["1/1", "9/8", "27/22", "4/3", "3/2", "27/16", "81/44"],
         "note_names": ["C", "D", "E", "F", "G", "A", "B"],
         "key_labels": "note_names",
         "note_colors": ["#fafafa", "#fafafa", "#d0d6e1", "#fafafa", "#fafafa", "#fafafa", "#d0d6e1"],
@@ -154,14 +153,6 @@ export const presets = [
         "description": "12-tone Just Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
-        /*"ratios": [
-          "1/1", "16/15",
-          "9/8", "6/5",
-          "5/4",
-          "4/3", "7/5",
-          "3/2", "8/5",
-          "5/3", "7/4",
-          "15/8"],*/
         "note_names": [
           "C", "D",
           "D", "E",
@@ -194,14 +185,6 @@ export const presets = [
         "description": "17-tone Just Intonation 5-Limit Arabic theoretical gamut, which is schismatically equivalent to a 17-tone 3-Limit scale generated from 12 perfect fifths descending and 4 ascending plus the fundamental, producing 17 rational divisions per octave derived from the harmonic series up to a prime limit of 5.",
         "scale": parseScale(scale_17_ji_5l).scale,
         "equivSteps": 17,
-       /* "ratios": [
-          "1/1", "256/243", "10/9",
-          "9/8", "32/27",
-          "5/4", "81/64",
-          "4/3", "45/32", "40/27",
-          "3/2", "128/81",
-          "5/3", "27/16", "16/9",
-          "15/8", "160/81"],*/
         "note_names": [
           "C", "D", "D",
           "D", "E",
@@ -306,7 +289,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 260.740740,
-        "instrument": "WMRI5LST",
+        "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Indian (Sambamurthy/Daniélou)"
       },
       {
@@ -314,14 +297,6 @@ export const presets = [
         "description": "31-tone Just Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
-        /*"ratios": [
-          "1/1", "64/63", "135/128", "15/14", "35/32",
-          "9/8", "8/7", "7/6", "135/112", "315/256",
-          "5/4", "9/7", "21/16",
-          "4/3", "175/128", "45/32", "10/7", "35/24",
-          "3/2", "32/21", "14/9", "45/28", "105/64",
-          "5/3", "12/7", "7/4", "16/9", "945/512",
-          "15/8", "40/21", "63/32"],*/
         "note_names": [
           "C", "C", "C", "C", "D",
           "D", "D", "E", "D", "E",
@@ -346,7 +321,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 264,        
-        "instrument": "hammond",
+        "instrument": "WMRI7LST",
         "short_description": "31-JI-7L Fokker"
       },
       {
@@ -587,8 +562,48 @@ export const presets = [
         "short_description": "19-edo (Salinas)"       
       },
       {
+        "name": "31-edo (G♭♭-A♯♯)",
+        "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave in standard meantone notation. Similar to 1/4-comma meantone. Notated with traditional double flats and double sharps.",
+        "scale": parseScale(scale_31_ed2).scale,
+        "equivSteps": 31,
+        "note_names": [
+          "C", "D♭♭", "C♯", "D♭", "C♯♯",
+          "D", "E♭♭", "D♯", "E♭", "D♯♯",
+          "E", "F♭", "E♯",
+          "F", "G♭♭", "F♯", "G♭", "F♯♯",
+          "G", "A♭♭", "G♯", "A♭", "G♯♯",
+          "A", "B♭♭", "A♯", "B♭", "A♯♯",
+          "B", "C♭", "B♯"],
+        "note_names": [
+          "C", "C", "C", "D", "D",
+          "D", "D", "D", "E", "E",
+          "E", "E", "E",
+          "F", "F", "F", "G", "G",
+          "G", "G", "G", "A", "A",
+          "A", "A", "A", "B", "B",
+          "B", "B", "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8"],
+        "spectrum_colors": false,
+        "rSteps": 5,
+        "urSteps": 3,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 263.0921203,
+        "instrument": "hammond",
+        "short_description": "31-edo (Vicentino)"
+      },
+      {
         "name": "31-edo (Vicentino)",
-        "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave in standard meantone notation. Similar to 1/4-comma meantone.",
+        "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave in standard meantone notation. Similar to 1/4-comma meantone. Using a notation invented by Nicola Vicentino.",
         "scale": parseScale(scale_31_ed2).scale,
         "equivSteps": 31,
         "note_names": [
@@ -616,7 +631,7 @@ export const presets = [
         "output": "sample",
         "fundamental": 263.0921203,
         "instrument": "harpsichord",
-        "short_description": "31-edo (Vicentino)"
+        "short_description": "31-edo (G♭♭-A♯♯)"
       },
       {
         "name": "19 from 31-edo + P5s (Vicentino II)",
@@ -846,7 +861,7 @@ export const presets = [
         "rotation": -29.3577535,
         "output": "sample",
         "fundamental": 261.6255653,
-        "instrument": "WMRI7LST",
+        "instrument": "WMRI11LST",
         "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)" 
       }      
     ]
