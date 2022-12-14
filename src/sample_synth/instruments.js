@@ -14,7 +14,7 @@ export const instruments = [
         name: "Rhodes",
         gain: 0.36,
         attack: 0,
-        release: 0.001,
+        release: 0.002,
         loop: false
       }, {
         fileName: "vibes",
@@ -82,43 +82,43 @@ export const instruments = [
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
         gain: 0.72,
-        attack: 0.3,
-        release: 0.13,
+        attack: 0.32,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
         gain: 0.68,
-        attack: 0.3,
-        release: 0.13,
+        attack: 0.32,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         gain: 0.65,
-        attack: 0.3,
-        release: 0.13,
+        attack: 0.32,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         gain: 0.61,
-        attack: 0.3,
-        release: 0.13,
+        attack: 0.32,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         gain: 0.56,
-        attack: 0.3,
-        release: 0.13,
+        attack: 0.32,
+        release: 0.08,
         loop: true
       }, {
         fileName: "WMRIByzantineST",
         name: "Byzantine (9 Harmonics)",
         gain: 0.58,
-        attack: 0.07,
-        release: 0.02,
+        attack: 0.084,
+        release: 0.012,
         loop: true
       }
     ]

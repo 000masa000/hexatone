@@ -8,9 +8,9 @@ const KeyLabels = (props) => (
     <label>
       Key Labels
       <select name="key_labels" value={props.settings.key_labels} onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option>Only Octaves</option>
-        <option value="no_labels">Blank Keys (No Labels)</option>
-        <option value="enumerate">Enumerate Scale</option>
+        <option>Octaves/Equaves</option>
+        <option value="no_labels">Blank Keys</option>
+        <option value="enumerate">Scale Degrees</option>
         <option value="note_names">Note Names</option>
         <option value="scala_names">Ratios/Cents</option>
       </select>

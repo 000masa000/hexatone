@@ -1,7 +1,8 @@
 import { h } from 'preact';
 import Scale from './scale';
+import SampleSynth from './sample';
+import MIDIio from './midi';
 import Layout from './layout';
-import IO from './io';
 import Presets from './presets';
 import Info from './info';
 import './settings.css';
@@ -16,8 +17,10 @@ const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, i
     <Info onChange={onChange} settings={settings} />
     <Scale onChange={onChange} settings={settings} onImport={onImport}/>
     <Layout onChange={onChange} settings={settings} />
-    <IO onChange={onChange} settings={settings}
-            instruments={instruments} midi={midi} />
+    <SampleSynth onChange={onChange} settings={settings}
+      instruments={instruments} />
+    <MIDIio onChange={onChange} settings={settings}
+                    midi={midi} />
   </form>
 );
 

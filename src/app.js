@@ -67,6 +67,9 @@ export const App = () => {
   const [settings, setSettings] = useQuery({
     name: ExtractString,
     description: ExtractString,
+    // Input
+    midiin_device: ExtractString,
+
     // Output
     output: ExtractString,
     instrument: ExtractString,
@@ -93,7 +96,7 @@ export const App = () => {
 
   const [active, setActive] = useState(false);
   const [synth, setSynth] = useState(null);
-  const [midi, setMidi] = useState(null);
+  const [midi, setMidi] = useState(null); // global const "midi" will store MIDIAccess
   const wait = l => l + 1;
   const signal = l => l - 1;
 
@@ -102,7 +105,8 @@ export const App = () => {
       setLoading(wait);
       navigator.requestMIDIAccess().then(m => {
         setLoading(signal);
-        setMidi(m);
+        setMidi(m); // MIDIAccess stored
+        console.log("MIDI ready!");
       }); // todo error handling
     }
   }, []);

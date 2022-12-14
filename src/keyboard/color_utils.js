@@ -280,7 +280,7 @@ export function rgb2hsv(r1, g1, b1) {
   };
 }
 
-export function getContrastYIQ(hexcolor) {
+export function getContrastYIQ(hexcolor) { // for note names cents ratios
   hexcolor = hexcolor.replace("#", "");
   var r = parseInt(hexcolor.substr(0, 2), 16);
   var g = parseInt(hexcolor.substr(2, 2), 16);
@@ -290,14 +290,14 @@ export function getContrastYIQ(hexcolor) {
   return (yiq >= 132) ? '#442C2C' : 'white';
 }
 
-export function getContrastYIQ_2(hexcolor) {
+export function getContrastYIQ_2(hexcolor) { // for octaves
   hexcolor = hexcolor.replace("#", "");
   var r = parseInt(hexcolor.substr(0, 2), 16);
   var g = parseInt(hexcolor.substr(2, 2), 16);
   var b = parseInt(hexcolor.substr(4, 2), 16);
   var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
   
-return (yiq >= 205) ? '#5e6d73' : 'snow';
+return (yiq >= 220) ? '#5e6d73' : 'snow';
 }
 
 export function rgbToHex(r, g, b) {

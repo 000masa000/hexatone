@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const MidiOutSelect = (props) => (
   <select name="midi_device" onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-    <option>Output Devices:</option>
+    <option></option>
     {Array.from(props.midi.outputs.values()).map(m => (
       <option value={m.id}>{m.name}</option>
     ))}
@@ -14,13 +14,13 @@ const MidiOutSelect = (props) => (
 const MidiOut = (props) => (
   <>
     <label>
-      Port
+      Output Port
       <MidiOutSelect value={props.settings.midi}
                   midi={props.midi}
                   onChange={props.onChange}/>
     </label>
     <label>
-      MIDI Channel
+      Output Channel
       <select value={props.settings.midi_channel}
               name="midi_channel"
               onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}>
@@ -39,7 +39,7 @@ const MidiOut = (props) => (
       </select>
     </label>
     <label>
-      Velocity
+      Fixed Velocity
       <input name="midi_velocity" type="number"
              value={props.settings.midi_velocity}
              step="1" min="0" max="127"

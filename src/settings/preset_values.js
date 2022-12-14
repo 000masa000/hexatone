@@ -177,7 +177,7 @@ export const presets = [
           "#fff8db",
           "#fafafa", "#d0e1e1",
           "#fafafa", "#c8d0c8",
-          "#fff8db", "#ffe5e5",
+          "#fff8db", "#d0c8c8",
           "#fff8db"],
         "spectrum_colors": false,
         "rSteps": 2,
