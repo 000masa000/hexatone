@@ -1,6 +1,7 @@
 //import the built-in Scala files
 import scale_12_ed2 from 'scales/12-ed2.scl';
 import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
+import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
 import scale_12_ji_7l from 'scales/12-JI-7L.scl';
 import scale_7_ji_rast_maqam from 'scales/7-JI Rast Maqam (Arabic) —  Eight Echos (Fourth Plagal, Byzantine).scl';
 import scale_17_ji_5l from 'scales/17-JI-5L-Arabic-theoretical.scl';
@@ -123,6 +124,38 @@ export const presets = [
         "fundamental": 263.1813855,        
         "instrument": "WMRI5LST",
         "short_description": "31-Extended-Meantone (G♭-A♯♯♯)"
+      },
+      {
+        "name": "19 from Extended Meantone (G♭-B♯) + P5s (Vicentino II)",
+        "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (G♭-B♯) and the same 19 notes raised by 1/4 Syntonic Comma. An example of \"adaptive\" just intonation, allowing vertical triadic sonorities to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
+        "scale": parseScale(scale_19_19P5_amt_vicentino).scale,
+        "equivSteps": 38,
+        "note_names": [
+          "C", "C", "C", "C", "D", "D",
+          "D", "D", "D", "D", "E", "E",
+          "E", "E", "E", "E",
+          "F", "F", "F", "F", "G", "G",
+          "G", "G", "G", "G", "A", "A",
+          "A", "A", "A", "A", "B", "B",
+          "B", "B", "B", "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db", "#c8c8d0", "#f8ffeb",
+          "#fafafa", "#ffe5e5", "#c8d0c8", "#fff8db"],
+        "spectrum_colors": false,
+        "rSteps": 6,
+        "urSteps": 5,
+        "hexSize": 42,
+        "rotation": -34.5,
+        "output": "sample",
+        "fundamental": 263.0921203,
+        "instrument": "WMRI5LST",
+        "short_description": "19 from Extended Meantone + P5s (Vicentino II)"
       }
     ]
   },
