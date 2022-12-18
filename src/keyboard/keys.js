@@ -3,7 +3,7 @@ import Point from '../point';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 
 class Keys {
-  constructor(canvas, settings, synth, typing) {
+  constructor(canvas, settings, synth, typing,) {
     this.settings = {
       hexHeight: settings.hexSize * 2,
       hexVert: settings.hexSize * 3 / 2,
@@ -437,7 +437,7 @@ class Keys {
     // hexcoords = p and screenCoords = hexCenter
 
     context.fillStyle = getContrastYIQ(current_text_color);
-    context.font = "23pt Roboto HEJI2";
+    context.font = "28pt Roboto HEJI2";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -470,9 +470,9 @@ class Keys {
 
       var scaleFactor = this.settings.hexSize / 50;
       context.scale(scaleFactor, scaleFactor);
-      context.translate(17, -24);
+      context.translate(12, -30);
       context.fillStyle = getContrastYIQ_2(current_text_color);
-      context.font = "13pt Roboto HEJI2";
+      context.font = "14pt Roboto HEJI2";
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(equivMultiple, 0, 0);

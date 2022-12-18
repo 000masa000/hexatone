@@ -9,7 +9,7 @@ const ScalaImport = (props) => (
       followed by a list of ratios (b/a) or cents (floats)<br /><br />
       
       <textarea name="scale_import" onChange={(e) => props.onChange(e.target.name, e.target.value)}
-                rows="12" value={props.settings.scale_import}
+                value={props.settings.scale_import}
       />
     </label>
     <br />

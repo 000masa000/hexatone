@@ -113,6 +113,4 @@ export const scalaToLabels = (line) => {
 // convert parsed scale data to labels
 export const parsedScaleToLabels = (scale) => {
   scale.map(i => scalaToLabels(i));
-  scale.pop();
-  scale.unshift("1/1");
 }

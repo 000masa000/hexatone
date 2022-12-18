@@ -1,9 +1,11 @@
 import { h, render } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import "regenerator-runtime/runtime";
+
 import Keyboard from './keyboard';
 import { presets, default_settings } from './settings/preset_values';
 import { parseScale, scalaToCents, scalaToLabels, parsedScaleToLabels } from './settings/scale/parse-scale.js';
+import { parseMIDIin } from './midi_input';
 import { create_sample_synth } from './sample_synth';
 import { instruments } from './sample_synth/instruments';
 import { create_midi_synth} from './midi_synth';
@@ -11,6 +13,7 @@ import keyCodeToCoords from './settings/keycodes';
 import { useQuery, Extract, ExtractInt, ExtractString, ExtractFloat, ExtractBool, ExtractJoinedString } from './use-query';
 import Settings from './settings';
 import Blurb from './blurb';
+
 import PropTypes from 'prop-types';
 
 import "normalize.css";
@@ -103,13 +106,23 @@ export const App = () => {
   useEffect(() => {
     if (navigator.requestMIDIAccess) {
       setLoading(wait);
-      navigator.requestMIDIAccess().then(m => {
+      navigator.requestMIDIAccess().then
+        (m => {
         setLoading(signal);
         setMidi(m); // MIDIAccess stored
-        console.log("MIDI ready!");
-      }); // todo error handling
+        onMIDISuccess(m);
+      }, onMIDIFailure); 
     }
   }, []);
+
+  function onMIDISuccess(midiAccess) {
+    console.log("MIDI ready!"); // post success
+  //  parseMIDIin(midiAccess);   // do stuff (from ./midi_input)
+  }
+
+  function onMIDIFailure() {
+    console.log('Could not access your MIDI devices.');
+  } // MIDI failure error
 
   useEffect(() => {
     if (settings.output === "sample"
