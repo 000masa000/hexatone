@@ -1,9 +1,6 @@
-! 17-JI-11L-Wilson Bosanquet Wilson Terpstra.scl
-! 17-tone Just Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout.
-! Fokblock([64/63, 56/55, 968/945, 36/35], [5, 6, 11, 6]) =
-! Fokblock([64/63, 56/55, 36/35, 704/675], [5, 3, 6, 11]) ": "
-! Fokblock([64/63, 968/945, 36/35, 704/675], [5, 13, 6, 6]) wakalix
-Terpstra Keyboard WebApp | 17-JI-11L-Wilson Bosanquet / Wilson / Terpstra
+! 17-JI-11L-Wilson.scl
+! 17-tone Just Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per octave derived from the harmonic series up to a prime limit of 11.
+17-JI-11L-Wilson
 17
 !
 22/21

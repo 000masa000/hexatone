@@ -3,7 +3,6 @@ import scale_12_ed2 from 'scales/12-ed2.scl';
 import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
 import scale_12_ji_7l from 'scales/12-JI-7L.scl';
-import scale_7_ji_rast_maqam from 'scales/7-JI_Rast-Maqam_Eight-Echos.scl';
 import scale_17_ji_3l from 'scales/17-JI-3L-Ormavi.scl';
 import scale_17_ji_13l from 'scales/17-JI-13L-Sina.scl';
 import scale_22_ji_17l from 'scales/22-JI-17L-Farabi.scl';
@@ -11,6 +10,7 @@ import scale_22_ji_5l from 'scales/22-JI-5L-Indian.scl';
 import scale_43_ji_11l_partch from 'scales/43-JI-11L-Partch.scl';
 import scale_43_ji_11l_partchG from 'scales/43-JI-11L-Partch_on_G.scl';
 import scale_31_ji_7l_fokker from 'scales/31-JI-7L-Fokker.scl';
+import scale_41_ji_7l from 'scales/41-JI-7L-Sabat-Young.scl';
 import scale_17_ji_11l_wilson from 'scales/17-JI-11L-Wilson.scl';
 import scale_53_ri_3l from 'scales/53-RI-3L.scl';
 import scale_53_ri_3l_mirrored from 'scales/53-RI-3L-mirrored.scl';
@@ -96,7 +96,7 @@ export const presets = [
     settings: [
       {
         "name": "12-JI-7L Piano",
-        "description": "12-tone Just Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
+        "description": "12-tone Rational Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -224,7 +224,7 @@ export const presets = [
       },
       {
         "name": "22-JI-5L Śrutis (Sambamurthy/Daniélou)",
-        "description": "Indian 22-tone Just Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
+        "description": "Indian 22-tone Rational Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
         "note_names": [
@@ -256,7 +256,7 @@ export const presets = [
       },
       {
         "name": "22-JI-5L Śrutis (HEJI Notation)",
-        "description": "Indian 22-tone Just Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
+        "description": "Indian 22-tone Rational Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
         "note_names": [
@@ -288,7 +288,7 @@ export const presets = [
       },
       {
         "name": "43-JI-11L Partch (C = 1/1, HEJI)",
-        "description": "43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
+        "description": "43-tone Rational Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "equivSteps": 43,
         "note_names": [
@@ -320,7 +320,7 @@ export const presets = [
       },
       {
         "name": "43-JI-11L Partch (G = 1/1, Partch Ratios)",
-        "description": "43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch's ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
+        "description": "43-tone Rational Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch's ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
         "equivSteps": 43,
         "note_names": [
@@ -352,7 +352,7 @@ export const presets = [
       },
       {
         "name": "31-JI-7L Fokker",
-        "description": "31-tone Just Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.",
+        "description": "31-tone Rational Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
         "note_names": [
@@ -384,7 +384,7 @@ export const presets = [
       },
       {
         "name": "17-JI-11L Wilson",
-        "description": "17-tone Just Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per octave derived from the harmonic series up to a prime limit of 11.",
+        "description": "17-tone Rational Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per octave derived from the harmonic series up to a prime limit of 11.",
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
         "equivSteps": 17,
         "note_names": [
@@ -413,6 +413,38 @@ export const presets = [
         "fundamental": 264,
         "instrument": "harp",
         "short_description": "17-JI-11L Wilson"
+      },
+      {
+        "name": "41-JI-7L Sabat-Young",
+        "description": "41-tone Rational Intonation 7-Limit scale, based on La Monte Young's Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals: 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48's (35c), and 24 Septimal Commas (27c).",
+        "scale": parseScale(scale_41_ji_7l).scale,
+        "equivSteps": 41,
+        "note_names": [
+          "C", "C", "D", "D", "C", "C", "D",
+          "D", "D", "E", "E", "D", "D", "E",
+          "E", "E", "F",
+          "F", "F", "G", "G", "F", "F", "G",
+          "G", "G", "A", "A", "G", "G", "A",
+          "A", "A", "B", "B", "A", "A", "B",
+          "B", "B", "C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#fafafa", "#ffe5e5", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#d0c8c8", "#c8c8d0", "#c8d0c8", "#d0d6e1", "#fff8db",
+          "#fafafa", "#ffe5e5", "#fff8db"],
+        "spectrum_colors": false,
+        "rSteps": 5,
+        "urSteps": 3,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 260.740740,        
+        "instrument": "WMRI7LST",
+        "short_description": "41-JI-7L Sabat-Young"
       },
       {
         "name": "53-RI-3L Extended Pythagorean",
@@ -488,7 +520,7 @@ export const presets = [
       },
       {
         "name": "53-JI-13L Cam Taylor",
-        "description": "Cam Taylor's 53-tone Just Intonation 13-Limit scale, consisting of 53 symmetrically derived rational divisions per octave.",
+        "description": "Cam Taylor's 53-tone Rational Intonation 13-Limit scale, consisting of 53 symmetrically derived rational divisions per octave.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
         "scala_names": [
@@ -565,7 +597,7 @@ export const presets = [
       },
       {
         "name": "19 from Extended Meantone (G♭-B♯) + P5s (Vicentino II)",
-        "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (G♭-B♯) and the same 19 notes raised by 1/4 Syntonic Comma. An example of \"adaptive\" just intonation, allowing vertical triadic sonorities to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
+        "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (G♭-B♯) and the same 19 notes raised by 1/4 Syntonic Comma. An example of \"adaptive\" Rational Intonation, allowing vertical triadic sonorities to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
         "scale": parseScale(scale_19_19P5_amt_vicentino).scale,
         "equivSteps": 38,
         "note_names": [
