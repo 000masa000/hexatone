@@ -14,11 +14,13 @@ function onEnabled() {
   // Outputs
   WebMidi.outputs.forEach(output => console.log(output.manufacturer, output.name, output.id));
 
-  /*const myInput = WebMidi.getInputByName("UCX Midi Port 1");
+  //const myInput = WebMidi.getInputByName("UCX Midi Port 1");
 
-  myInput.addListener("noteon", e => {
-    console.log(e.note.number, e.note.rawAttack);
-  });*/
+  WebMidi.inputs.forEach(input => {
+    input.addListener("noteon", e => {
+      console.log(e.note.number, e.note.rawAttack)
+    });
+  });
 };
 
 function parseMIDIin() { };

@@ -1,0 +1,28 @@
+! 22-JI-17L-Farabi.scl
+! 22-tone 17-Limit gamut, proposed by Abu Nasr Farabi (872-950), also known as al-Farabi, in his book Kitab al-Musiqa al-Kabir ("The Great Book of Music"). This is as a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, 11, and 17. The chain of 9 subharmonic perfect fifths tuned below the fundamental also ends in four pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3).
+!
+22-JI-17L-Farabi
+22
+!
+256/243
+18/17
+12/11
+9/8
+32/27
+27/22
+8192/6561
+81/64
+4/3
+1024/729
+24/17
+16/11
+3/2
+128/81
+18/11
+32768/19683
+27/16
+16/9
+4096/2187
+32/17
+64/33
+2/1
