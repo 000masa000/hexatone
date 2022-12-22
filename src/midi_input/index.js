@@ -14,8 +14,6 @@ function onEnabled() {
   // Outputs
   WebMidi.outputs.forEach(output => console.log(output.manufacturer, output.name, output.id));
 
-  //const myInput = WebMidi.getInputByName("UCX Midi Port 1");
-
   WebMidi.inputs.forEach(input => {
     input.addListener("noteon", e => {
       console.log(e.note.number, e.note.rawAttack)
@@ -23,4 +21,3 @@ function onEnabled() {
   });
 };
 
-function parseMIDIin() { };

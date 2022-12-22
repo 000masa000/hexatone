@@ -1,7 +1,7 @@
-! 22-JI-5L-Indian Bosanquet Wilson Terpstra.scl
-! 22-tone Indian scale: 5-Limit Just Intonation which is schismatic equivalent to a 22-tone 3-Limit scale generated from 11 steps ascending and 10 descending plus the fundamental, consisting of 22 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 5, notated after Alain Daniélou, having as reference frequency the Earth's year transposed 33 octaves higher, mapped on a Bosanquet / Wilson / Terpstra layout.
+! 22-JI-5L-Indian.scl
+! Indian 22-tone Rational Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.
 !
-Terpstra Keyboard WebApp | 22-JI-5L-Indian Bosanquet / Wilson / Terpstra
+22-JI-5L-Indian
 22
 !
 256/243

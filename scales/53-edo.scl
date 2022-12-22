@@ -1,7 +1,7 @@
-! 53-ed2 Bosanquet Wilson Terpstra.scl
-! 53-tone equal tempered scale consisting of 53 sonically equal divisions per frequency halving/doubling, mapped on a Bosanquet / Wilson / Terpstra layout.
+! 53-edo.scl
+! 53-tone equal tempered scale consisting of 53 sonically equal divisions per octave. Step-size is 22.6 cents (Holdrian Comma).
 !
-Terpstra Keyboard WebApp | 53-ed2 Bosanquet / Wilson / Terpstra
+53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)
 53
 !
 1\53

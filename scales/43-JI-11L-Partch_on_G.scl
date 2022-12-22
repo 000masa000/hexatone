@@ -1,7 +1,7 @@
-! 43-JI-11L-Partch Bosanquet Wilson Terpstra.scl
+! 43-JI-11L-Partch.scl
 ! 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based on 1/1 = G (392 Hz), and this scala file uses the standard reference C. Partch's ratios have therefore each been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.
 !
-Terpstra Keyboard WebApp | 43-JI-11L-Partch Bosanquet / Wilson / Terpstra
+43-JI-11L-Partch
 43
 !
 81/80

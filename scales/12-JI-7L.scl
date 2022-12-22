@@ -1,7 +1,7 @@
-! just intonation.scl
-! 12-tone Just Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7
+! Just Intonation.scl
+! 12-tone Rational Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7.
 !
-12-JI-7L
+12-JI-7L Just Intonation 12-tone scale
 12
 !
 16/15

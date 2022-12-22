@@ -1,7 +1,7 @@
-! 53-RI-3L Bosanquet Wilson Terpstra Male (Western).scl
-! 53-tone Rational Intonation 3-Limit scale, consisting of 53 rational divisions per frequency halving/doubling with sonic distances derived solely from the harmonics 2 and 3 of both ascending and descending harmonic series, mapped on a Bosanquet / Wilson / Terpstra Male (Western) layout.
+! 53-RI-3L.scl
+! 53-tone Rational Intonation 3-Limit scale, consisting of 53 rational divisions per octave derived solely from partials 2 and 3 by tuning a chain of 53 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C).
 !
-Terpstra Keyboard WebApp | 53-RI-3L Bosanquet / Wilson / Terpstra Male (Western)
+53-RI-3L
 53
 !
 531441/524288

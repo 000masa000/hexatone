@@ -1,7 +1,7 @@
-! 31-JI-7L-Fokker Bosanquet Wilson Terpstra.scl
-! 31-tone Just Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per frequency halving/doubling with sonic distances derived from the harmonic series up to a prime limit of 7, mapped on a Bosanquet / Wilson / Terpstra layout.
+! 31-JI-7L-Fokker.scl
+! 31-tone Rational Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.
 !
-Terpstra Keyboard WebApp | 31-JI-7L-Fokker Bosanquet / Wilson / Terpstra
+31-JI-7L-Fokker
 31
 !
 64/63
