@@ -1,6 +1,8 @@
 import { calculateRotationMatrix, applyMatrixToPoint } from './matrix';
-import Point from '../point';
+import Point from './point';
+import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
+import { midi_in } from '../midi_input';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -8,8 +10,9 @@ class Keys {
       hexHeight: settings.hexSize * 2,
       hexVert: settings.hexSize * 3 / 2,
       hexWidth: Math.sqrt(3) * settings.hexSize,
+      gcd: Euclid(settings.rSteps, settings.urSteps), // calculates a array with 3 values: the GCD of the layout tiling (smallest step available); Bézout Coefficients to be applied to rSteps and urSteps to obtain GCD
       ...settings,
-    };   
+    };
     this.synth = synth;
     this.typing = typing;
 
@@ -19,6 +22,7 @@ class Keys {
       sustain: false,
       sustainedNotes: [],
       pressedKeys: new Set(),
+      midinotesOn: new Map(),
       activeHexObjects: [],
       isTouchDown: false,
       isMouseDown: false,
@@ -48,7 +52,7 @@ class Keys {
     if (this.typing) {
       window.addEventListener("keydown", this.onKeyDown, false);
       window.addEventListener("keyup", this.onKeyUp, false);
-    }
+    };
     this.state.canvas.addEventListener("touchstart", this.handleTouch, false);
     this.state.canvas.addEventListener("touchend", this.handleTouch, false);
     this.state.canvas.addEventListener("touchmove", this.handleTouch, false);
@@ -60,16 +64,32 @@ class Keys {
       // Periodically check the position and fire
       // if the change is greater than the sensitivity
       this.interval = setInterval(this.motionScan, 300);
-    }
-  }
+    };
+
+    // Set up MIDI input handler (webmidi.js), see also ./midi_input
+
+    midi_in.forEach(input => {
+      input.addListener("noteon", e => {
+        console.log(e.note.number, e.note.rawAttack);
+        this.midinoteOn(e);
+      });
+    });
+
+    midi_in.forEach(input => {
+      input.addListener("noteoff", e => {
+        console.log(e.note.number, e.note.rawAttack);
+        this.midinoteOff(e);
+      });
+    });
+  };
 
   deconstruct = () => {
     for (let hex of this.state.activeHexObjects) {
       hex.noteOff();
-    }
+    };
     for (let hex of this.state.sustainedNotes) {
       hex.noteOff();
-    }
+    };
 
     window.removeEventListener('resize', this.resizeHandler, false);
     window.removeEventListener('orientationchange', this.resizeHandler, false);
@@ -78,7 +98,7 @@ class Keys {
     if (this.typing) {
       window.removeEventListener("keydown", this.onKeyDown, false);
       window.removeEventListener("keyup", this.onKeyUp, false);
-    }
+    };
     this.state.canvas.removeEventListener("touchstart", this.handleTouch, false);
     this.state.canvas.removeEventListener("touchend", this.handleTouch, false);
     this.state.canvas.removeEventListener("touchmove", this.handleTouch, false);
@@ -88,8 +108,60 @@ class Keys {
     if (typeof window.DeviceMotionEvent != 'undefined') {
       window.removeEventListener('devicemotion', this.deviceMotion, false);
       clearInterval(this.interval);
-    }
-  }
+    };
+
+    // Set up MIDI input handler
+
+    midi_in.forEach(input => {
+      input.removeListener("noteon");
+    });
+
+    midi_in.forEach(input => {
+      input.removeListener("noteoff");
+    });
+  };
+
+  midinoteOn = (e) => {
+
+    this.state.midinotesOn.set(e.note.number, e.note.rawAttack);
+    var steps = e.note.number - 60;
+    var rSteps_count = Math.round(steps / this.settings.rSteps);
+    var rSteps_to_steps = this.settings.rSteps * rSteps_count;
+    var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
+    var urSteps_to_steps = this.settings.urSteps * urSteps_count;
+    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
+    var gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+    var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
+    if (remainder == 0) {
+      var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
+      var hex = this.hexOn(coords);
+      this.state.activeHexObjects.push(hex);
+    };
+  };
+
+  midinoteOff = (e) => {
+
+    this.state.midinotesOn.delete(e.note.number);
+    var steps = e.note.number - 60;
+    var rSteps_count = Math.round(steps / this.settings.rSteps);
+    var rSteps_to_steps = this.settings.rSteps * rSteps_count;
+    var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
+    var urSteps_to_steps = this.settings.urSteps * urSteps_count;
+    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
+    var gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+    var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
+    if (remainder == 0) {
+      var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
+      this.hexOff(coords);
+      var hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
+        return coords.equals(hex.coords);
+      });
+      if (hexIndex != -1) {
+        this.noteOff(this.state.activeHexObjects[hexIndex]);
+        this.state.activeHexObjects.splice(hexIndex, 1);
+      };
+    };
+  };
   
   hexOn(coords) {
     const [cents, pressed_interval, steps, octaves, equivSteps] = this.hexCoordsToCents(coords);
@@ -98,13 +170,13 @@ class Keys {
     const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, octaves, equivSteps);
     hex.noteOn();
     return hex;
-  }
+  };
 
   hexOff(coords) {
     const [cents, pressed_interval] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, false, pressed_interval);
     this.drawHex(coords, color, text_color);
-  }
+  };
 
   noteOff(hex) {
     if (this.state.sustain) {
@@ -112,7 +184,7 @@ class Keys {
     } else {
       hex.noteOff();
     }
-  }
+  };
 
   sustainOff() {
     this.state.sustain = false;
@@ -121,7 +193,7 @@ class Keys {
     }
     this.state.sustainedNotes = [];
     // tempAlert('Sustain Off', 900);
-  }
+  };
 
   sustainOn() {
     this.state.sustain = true;
@@ -133,7 +205,7 @@ class Keys {
     this.state.shake.x1 = e.accelerationIncludingGravity.x;
     this.state.shake.y1 = e.accelerationIncludingGravity.y;
     this.state.shake.z1 = e.accelerationIncludingGravity.z;
-  }
+  };
 
   motionScan = () => {
     const { x1, x2, y1, y2, z1, z2, lastShakeCount, lastShakeCheck } = this.state.shake;
@@ -148,13 +220,13 @@ class Keys {
           this.sustainOn();
         }
       }
-    }
+    };
 
     // Update new position
     this.state.shake.x2 = x1;
     this.state.shake.y2 = y1;
     this.state.shake.z2 = z1;
-  }
+  };
 
   resizeHandler = () => {
     // Resize Inner and outer coordinates of canvas to preserve aspect ratio
@@ -193,7 +265,7 @@ class Keys {
     // Redraw Grid
 
     this.drawGrid();
-  }
+  };
 
   onKeyDown = (e) => {
     e.preventDefault();
@@ -203,25 +275,25 @@ class Keys {
     } else if (e.code == "Space") {
       this.sustainOn();
     } else if (!this.state.isMouseDown && !this.state.isTouchDown
-               && (e.code in this.settings.keyCodeToCoords)
-               && !this.state.pressedKeys.has(e.code)) {
+      && (e.code in this.settings.keyCodeToCoords)
+      && !this.state.pressedKeys.has(e.code)) {
       this.state.pressedKeys.add(e.code);
       var coords = this.settings.keyCodeToCoords[e.code];
       var hex = this.hexOn(coords);
       this.state.activeHexObjects.push(hex);
     }
-  }
+  };
 
   onKeyUp = (e) => {
     if (e.code == "Space") {
       this.sustainOff();
     } else if (!this.state.isMouseDown && !this.state.isTouchDown
-               && (e.code in this.settings.keyCodeToCoords)) {
+      && (e.code in this.settings.keyCodeToCoords)) {
       if (this.state.pressedKeys.has(e.code)) {
         this.state.pressedKeys.delete(e.code);
         var coords = this.settings.keyCodeToCoords[e.code];
         this.hexOff(coords);
-        var hexIndex = this.state.activeHexObjects.findIndex(function(hex) {
+        var hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
           return coords.equals(hex.coords);
         });
         if (hexIndex != -1) {
@@ -230,7 +302,7 @@ class Keys {
         }
       }
     }
-  }
+  };
 
   mouseUp = (e) => {
     this.state.isMouseDown = false;
@@ -243,7 +315,7 @@ class Keys {
       this.noteOff(this.state.activeHexObjects[0]);
       this.state.activeHexObjects.pop();
     }
-  }
+  };
 
   mouseDown = (e) => {
     if (this.state.pressedKeys.size != 0 || this.state.isTouchDown) {
@@ -252,7 +324,7 @@ class Keys {
     this.state.isMouseDown = true;
     this.state.canvas.addEventListener("mousemove", this.mouseActive, false);
     this.mouseActive(e);
-  }
+  };
 
   mouseActive = (e) => {
     var coords = this.getPointerPosition(e);
@@ -269,14 +341,14 @@ class Keys {
         this.state.activeHexObjects[0] = this.hexOn(coords);
       }
     }
-  }
+  };
 
   getPointerPosition(e) {
     var parentPosition = this.getPosition(e.currentTarget);
     var xPosition = e.clientX - parentPosition.x;
     var yPosition = e.clientY - parentPosition.y;
     return new Point(xPosition, yPosition);
-  }
+  };
 
   getPosition(element) {
     var xPosition = 0;
@@ -291,7 +363,7 @@ class Keys {
       x: xPosition,
       y: yPosition
     };
-  }
+  };
 
   handleTouch = (e) => {
     e.preventDefault();
@@ -303,11 +375,11 @@ class Keys {
 
     for (var i = 0; i < this.state.activeHexObjects.length; i++) {
       this.state.activeHexObjects[i].release = true;
-    }
+    };
 
     for (var i = 0; i < e.targetTouches.length; i++) {
       var coords = this.getHexCoordsAt(new Point(e.targetTouches[i].pageX - this.state.canvas.offsetLeft,
-                                                 e.targetTouches[i].pageY - this.state.canvas.offsetTop));
+        e.targetTouches[i].pageY - this.state.canvas.offsetTop));
       var found = false;
 
       for (var j = 0; j < this.state.activeHexObjects.length; j++) {
@@ -320,7 +392,7 @@ class Keys {
         var newHex = this.hexOn(coords);
         this.state.activeHexObjects.push(newHex);
       }
-    }
+    };
 
     for (var i = this.state.activeHexObjects.length - 1; i >= 0; i--) {
       if (this.state.activeHexObjects[i].release) {
@@ -330,7 +402,7 @@ class Keys {
         this.state.activeHexObjects.splice(i, 1);
       }
     }
-  }
+  };
 
   /**************** Rendering ****************/
   drawGrid() {
@@ -344,13 +416,13 @@ class Keys {
         this.hexOff(coords);
       }
     }
-  }
+  };
 
   hexCoordsToScreen(hex) { /* Point */
     var screenX = this.state.centerpoint.x + hex.x * this.settings.hexWidth + hex.y * this.settings.hexWidth / 2;
     var screenY = this.state.centerpoint.y + hex.y * this.settings.hexVert;
     return (new Point(screenX, screenY));
-  }
+  };
 
   drawHex(p, c, current_text_color) { /* Point, color */
     var context = this.state.context;
@@ -364,7 +436,7 @@ class Keys {
       var angle = 2 * Math.PI / 6 * (i + 0.5);
       x[i] = hexCenter.x + this.settings.hexSize * Math.cos(angle);
       y[i] = hexCenter.y + this.settings.hexSize * Math.sin(angle);
-    }
+    };
 
     // Draw filled hex
 
@@ -397,7 +469,7 @@ class Keys {
       // TODO hexSize should already be a number
       x2[i] = hexCenter.x + (parseFloat(this.settings.hexSize) + 3) * Math.cos(angle);
       y2[i] = hexCenter.y + (parseFloat(this.settings.hexSize) + 3) * Math.sin(angle);
-    }
+    };
 
     // Draw shadowed stroke outside clip to create pseudo-3d effect
 
@@ -448,7 +520,7 @@ class Keys {
     var reducedNote = note % equivSteps;
     if (reducedNote < 0) {
       reducedNote = equivSteps + reducedNote;
-    }
+    };
 
     if (!this.settings.no_labels) {
       var name;
@@ -476,7 +548,7 @@ class Keys {
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(equivMultiple, 0, 0);
-    }
+    };
 
     context.restore();
   }
@@ -506,8 +578,7 @@ class Keys {
       }
 
       return [rgb(returnColor[0], returnColor[1], returnColor[2]), current_text_color];
-
-    }
+    };
 
     var fcolor = hex2rgb("#" + this.settings.fundamental_color);
     fcolor = rgb2hsv(fcolor[0], fcolor[1], fcolor[2]);
@@ -528,14 +599,14 @@ class Keys {
     var tcolor = HSVtoRGB2(h, s, v);
     const current_text_color = rgbToHex(tcolor.red, tcolor.green, tcolor.blue);
     return [returnColor, current_text_color];
-  }
+  };
 
   roundTowardZero(val) {
     if (val < 0) {
     return Math.ceil(val);
     }
     return Math.floor(val);
-  }
+  };
 
   hexCoordsToCents(coords) {
     var distance = coords.x * this.settings.rSteps + coords.y * this.settings.urSteps;
@@ -548,7 +619,7 @@ class Keys {
     }
     var cents = octs * this.settings.equivInterval + this.settings.scale[reducedSteps];
     return [cents, reducedSteps, distance, octs, equivSteps];
-  }
+  };
 
   getHexCoordsAt(coords) {
     coords = applyMatrixToPoint(this.state.rotationMatrix, coords);
@@ -577,10 +648,10 @@ class Keys {
           closestHex = neighbour;
         }
       }
-    }
+    };
 
     return (closestHex);
   }
-}
+};
 
 export default Keys;

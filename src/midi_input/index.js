@@ -1,6 +1,6 @@
 import { WebMidi } from "webmidi";
 
-WebMidi
+export let midi_in = WebMidi
   .enable()
   .then(onEnabled)
   .catch(err => alert(err));
@@ -14,10 +14,7 @@ function onEnabled() {
   // Outputs
   WebMidi.outputs.forEach(output => console.log(output.manufacturer, output.name, output.id));
 
-  WebMidi.inputs.forEach(input => {
-    input.addListener("noteon", e => {
-      console.log(e.note.number, e.note.rawAttack)
-    });
-  });
+  // create the global midi_in stream from all inputs, to be processed in ./keyboard/keys.js
+  // TODO connect to MIDI-INPUT selector
+  midi_in = WebMidi.inputs;
 };
-

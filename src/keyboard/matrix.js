@@ -1,4 +1,4 @@
-import Point from '../point';
+import Point from './point';
 
 export function calculateRotationMatrix(rotation, center) {
   var m = [];

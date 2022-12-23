@@ -5,7 +5,6 @@ import "regenerator-runtime/runtime";
 import Keyboard from './keyboard';
 import { presets, default_settings } from './settings/preset_values';
 import { parseScale, scalaToCents, scalaToLabels, parsedScaleToLabels } from './settings/scale/parse-scale.js';
-import { parseMIDIin } from './midi_input';
 import { create_sample_synth } from './sample_synth';
 import { instruments } from './sample_synth/instruments';
 import { create_midi_synth} from './midi_synth';
