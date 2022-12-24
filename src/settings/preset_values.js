@@ -14,9 +14,13 @@ import scale_53_ri_3l from 'scales/53-RI-3L.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 import scale_41_ji_7l from 'scales/41-JI-7L-Sabat-Young.scl';
 import scale_55_ji_5l from 'scales/55-JI-5L-Sabat-Euler.scl';
+import scale_112_hs_16to128 from 'scales/112-HS-16to128.scl';
+import scale_96_hss_16to64 from 'scales/96-HSS-16to64.scl';
+import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
 
 import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
+import scale_35_mt_sabat_helmholtz from 'scales/35-MT-Sabat-Helmholtz.scl'
 
 import scale_19_edo from 'scales/19-edo.scl';
 import scale_31_edo from 'scales/31-edo.scl';
@@ -100,7 +104,7 @@ export const presets = [
     settings: [
       {
         "name": "12-JI-7L Just Intonation Piano",
-        "description": "12-tone Rational Intonation 7-Limit scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
+        "description": "12-tone 7-Limit Rational Intonation scale, consisting of 12 rational divisions per octave derived from the harmonic series up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black Halberstadt organ layout or the classic piano keyboard.",
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -132,7 +136,7 @@ export const presets = [
       },
       {
         "name": "22-JI-17L al-Farabi",
-        "description": "22-tone 17-Limit gamut, proposed by Abu Nasr Farabi (872-950), also known as al-Farabi, in his book Kitab al-Musiqa al-Kabir (\"The Great Book of Music\"). This is as a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, 11, and 17. The chain of 9 subharmonic perfect fifths tuned below the fundamental also ends in four pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3).",        
+        "description": "22-tone 17-Limit Rational Intonation gamut, proposed by Abu Nasr Farabi (872-950), also known as al-Farabi, in his book Kitab al-Musiqa al-Kabir (\"The Great Book of Music\"). This is as a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, 11, and 17. The chain of 9 subharmonic perfect fifths tuned below the fundamental also ends in four pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3).",        
         "scale": parseScale(scale_22_ji_17l).scale,
         "equivSteps": 22,
         "note_names": [
@@ -164,7 +168,7 @@ export const presets = [
       },
       {
         "name": "17-JI-13L Ibn Sina",
-        "description": "17-tone 13-Limit gamut, proposed by Ibn Sina (980-1037), also known as Avicenna, in the encyclopaedia Kitab al-Shifa, as a fretting of the oud as used in his time. The gamut combines divisions (intervals) derived by combining primes 2, 3, 7, and 13.",
+        "description": "17-tone 13-Limit Rational Intonation gamut, proposed by Ibn Sina (980-1037), also known as Avicenna, in the encyclopaedia Kitab al-Shifa, as a fretting of the oud as used in his time. The gamut combines divisions (intervals) derived by combining primes 2, 3, 7, and 13.",
         "scale": parseScale(scale_17_ji_13l).scale,
         "equivSteps": 17,
         "note_names": [
@@ -196,7 +200,7 @@ export const presets = [
       },
       {
         "name": "17-JI-3L Safiaddin Ormavi",
-        "description": "17-tone 3-Limit gamut, proposed by Safiaddin Ormavi (1216-1294), generated from 12 perfect fifths descending and 4 ascending plus the fundamental, producing 17 rational divisions per octave derived from the harmonic series up to a prime limit of 3 (Pythagorean tuning).",
+        "description": "17-tone 3-Limit Rational Intonation gamut, proposed by Safiaddin Ormavi (1216-1294), generated from 12 perfect fifths descending and 4 ascending plus the fundamental, producing 17 rational divisions per octave derived from the harmonic series up to a prime limit of 3 (Pythagorean tuning).",
         "scale": parseScale(scale_17_ji_3l).scale,
         "equivSteps": 17,
         "note_names": [
@@ -228,7 +232,7 @@ export const presets = [
       },
       {
         "name": "22-JI-5L Śruti (Sambamurthy/Daniélou)",
-        "description": "Indian 22-tone Rational Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
+        "description": "Indian 22-tone 5-Limit Rational Intonation śruti gamut, consisting of 22 divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
         "note_names": [
@@ -260,7 +264,7 @@ export const presets = [
       },
       {
         "name": "22-JI-5L Śruti (HEJI Notation)",
-        "description": "Indian 22-tone Rational Intonation 5-Limit śruti gamut, consisting of 22 rational divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
+        "description": "Indian 22-tone 5-Limit Rational Intonation śruti gamut, consisting of 22 divisions per octave derived from the harmonic series up to a prime limit of 5, which is schismatically equivalent to a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",        
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
         "note_names": [
@@ -292,7 +296,7 @@ export const presets = [
       },
       {
         "name": "43-JI-11L Partch (C = 1/1, HEJI)",
-        "description": "43-tone Rational Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
+        "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "equivSteps": 43,
         "note_names": [
@@ -324,7 +328,7 @@ export const presets = [
       },
       {
         "name": "43-JI-11L Partch (G = 1/1, Partch Ratios)",
-        "description": "43-tone Rational Intonation 11-Limit scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch's ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
+        "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch's original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch's ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.",
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
         "equivSteps": 43,
         "note_names": [
@@ -356,7 +360,7 @@ export const presets = [
       },
       {
         "name": "31-JI-7L Fokker",
-        "description": "31-tone Rational Intonation 7-Limit scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.",
+        "description": "31-tone 7-Limit Rational Intonation scale by Adriaan Fokker, consisting of 31 rational divisions per octave derived from the harmonic series up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
         "note_names": [
@@ -388,7 +392,7 @@ export const presets = [
       },
       {
         "name": "17-JI-11L Wilson",
-        "description": "17-tone Rational Intonation 11-Limit scale by Erv Wilson, consisting of 17 rational divisions per octave derived from the harmonic series up to a prime limit of 11.",
+        "description": "17-tone 11-Limit Rational Intonation scale by Erv Wilson, consisting of 17 rational divisions per octave derived from the harmonic series up to a prime limit of 11.",
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
         "equivSteps": 17,
         "note_names": [
@@ -419,8 +423,8 @@ export const presets = [
         "short_description": "17-JI-11L Wilson"
       },
       {
-        "name": "53-RI-3L Extended Pythagorean",
-        "description": "53-tone Rational Intonation 3-Limit scale, consisting of 53 rational divisions per octave derived solely from partials 2 and 3 by tuning a chain of 53 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C).",
+        "name": "53-JI-3L Extended Pythagorean",
+        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 rational divisions per octave derived solely from partials 2 and 3 by tuning a chain of 53 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C).",
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
         "note_names": [
@@ -448,11 +452,11 @@ export const presets = [
         "output": "sample",
         "fundamental": 260.74074074,
         "instrument": "rhodes",
-        "short_description": "53-RI-3L Extended Pythagorean"
+        "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
         "name": "55-JI-5L Sabat-Euler Lattice", 
-        "description": "55-tone Rational Intonation 5-Limit scale, based on Marc Sabat's \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". For example, take the interval C-D. Add two notes above C 1/1: 81/80 and 25/24; then, add two more notes one syntonic comma above each of these. Similarly, add two notes below D 9/8: 10/9 and 27/25; then, add two more notes a syntonic comma *below* each of these. The diatonic limmas E-F and B-C are divided by adding two successive syntonic commas upward from the lower note and two commas downward from the higher, reaching an enharmonic near-equivalence.",
+        "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat's \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". For example, take the interval C-D. Add two notes above C 1/1: 81/80 and 25/24; then, add two more notes one syntonic comma above each of these. Similarly, add two notes below D 9/8: 10/9 and 27/25; then, add two more notes a syntonic comma *below* each of these. The diatonic limmas E-F and B-C are divided by adding two successive syntonic commas upward from the lower note and two commas downward from the higher, reaching an enharmonic near-equivalence.",
         "scale": parseScale(scale_55_ji_5l).scale,
         "equivSteps": 55,
         "note_names": [
@@ -484,7 +488,7 @@ export const presets = [
       },
       {
         "name": "41-JI-7L Sabat-Young",
-        "description": "41-tone Rational Intonation 7-Limit scale, based on La Monte Young's Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals: 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48's (35c), and 24 Septimal Commas (27c).",
+        "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young's Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals: 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48's (35c), and 24 Septimal Commas (27c).",
         "scale": parseScale(scale_41_ji_7l).scale,
         "equivSteps": 41,
         "note_names": [
@@ -516,17 +520,9 @@ export const presets = [
       },
       {
         "name": "53-JI-13L Cam Taylor",
-        "description": "Cam Taylor's 53-tone Rational Intonation 13-Limit scale, consisting of 53 symmetrically derived rational divisions per octave.",
+        "description": "Cam Taylor's 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived rational divisions per octave.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
-        "scala_names": [
-          "1/1", "81/80", "33/32", "28/27", "256/243", "16/15", "13/12", "12/11", "10/9",
-          "9/8", "8/7", "15/13", "7/6", "32/27", "6/5", "39/32", "16/13", "5/4",
-          "81/64", "9/7", "13/10", "21/16",
-          "4/3", "27/20", "11/8", "18/13", "45/32", "64/45", "13/9", "16/11", "40/27",
-          "3/2", "32/21", "20/13", "14/9", "128/81", "8/5", "13/8", "64/39", "5/3",
-          "27/16", "12/7", "26/15", "7/4", "16/9", "9/5", "11/6", "24/13", "15/8",
-          "243/128", "27/14", "64/33", "160/81"],
         "note_names": [
           "C", "C", "C", "D", "D", "D", "D", "D", "D",
           "D", "D", "D", "E", "E", "E", "E", "E", "E",
@@ -553,6 +549,69 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "WMRI13LST",
         "short_description": "53-RI-13L Cam Taylor"
+      },
+      {
+        "name": "112-HS 16 to 128",
+        "description": "Harmonic Series 16 to 128.",
+        "scale": parseScale(scale_112_hs_16to128).scale,
+        "equivSteps": 112,
+        "note_names": [
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°", "64°", "65°", "66°", "67°", "68°", "69°", "70°", "71°", "72°", "73°", "74°", "75°", "76°", "77°", "78°", "79°", "80°", "81°", "82°", "83°", "84°", "85°", "86°", "87°", "88°", "89°", "90°", "91°", "92°", "93°", "94°", "95°", "96°", "97°", "98°", "99°", "100°", "101°", "102°", "103°", "104°", "105°", "106°", "107°", "108°", "109°", "110°", "111°", "112°", "113°", "114°", "115°", "116°", "117°", "118°", "119°", "120°", "121°", "122°", "123°", "124°", "125°", "126°", "127°", "128°"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 8,
+        "urSteps": 1,
+        "hexSize": 34,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 260.74074074,
+        "instrument": "WMRI13LST",
+        "short_description": "112-HS 16 to 128"
+      },
+      {
+        "name": "96-HSS 16 to 64",
+        "description": "Harmonic and Subharmonic Series 16 to 64.",
+        "scale": parseScale(scale_96_hss_16to64).scale,
+        "equivSteps": 96,
+        "note_names": [
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°", "64°", "u63", "u62", "u61", "u60", "u59", "u58", "u57", "u56", "u55", "u54", "u53", "u52", "u51", "u50", "u49", "u48", "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16",
+        ],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 8,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 260.74074074,
+        "instrument": "WMRI5LST",
+        "short_description": "96-HSS 16 to 64"
+      },
+      {
+        "name": "19-HS 34 to 51",
+        "description": "Harmonic Series partials 34 to 51, repeating at the perfect fifth over a new fundamental, with added harmonics 33 and 52.",
+        "scale": parseScale(scale_19_hs_34to51).scale,
+        "equivSteps": 19,
+        "note_names": [
+          "34°51°", "52°", "35°", "36°", "37°", "38°", "39°", "40°", "41°",
+          "42°", "43°", "44°", "45°", "46°", "47°", "32°48°", "49°", "33°",
+          "50°"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 3,
+        "urSteps": 2,
+        "hexSize": 40,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 260.74074074,
+        "instrument": "hammond",
+        "short_description": "19-HS 34 to 51"
       }
     ]
   },
@@ -622,6 +681,38 @@ export const presets = [
         "fundamental": 263.0921203,
         "instrument": "WMRI5LST",
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
+      },
+      {
+        "name": "35-MT Sabat-Helmholtz",
+        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 schisma (the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4) so that 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz's 24-note harmonium tuning and Gioseffo Zarlino's 2/7 Syntonic Comma Meantone. ",
+        "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
+        "equivSteps": 35,
+        "note_names": [
+            "C", "C", "C", "C", "D", "D",
+            "D", "D", "D", "D", "E", "E",
+            "E", "E", "F",
+            "F", "F", "F", "F", "G", "G",
+            "G", "G", "G", "G", "A", "A",
+            "A", "A", "A", "A", "B", "B",
+            "B", "B", "C"],          
+        "key_labels": "note_names",
+        "note_colors": [
+            "#fafafa", "#ffe5e5", "#d0c8c8", "#c8d0c8", "#c8c8d0", "#fff8db",
+            "#fafafa", "#ffe5e5", "#d0c8c8", "#c8d0c8", "#c8c8d0", "#fff8db",
+            "#fafafa", "#ffe5e5", "#fff8db",
+            "#fafafa", "#ffe5e5", "#d0c8c8", "#c8d0c8", "#c8c8d0", "#fff8db",
+            "#fafafa", "#ffe5e5", "#d0c8c8", "#c8d0c8", "#c8c8d0", "#fff8db",
+            "#fafafa", "#ffe5e5", "#d0c8c8", "#c8d0c8", "#c8c8d0", "#fff8db",
+            "#fafafa", "#ffe5e5", "#fff8db"],
+        "spectrum_colors": false,
+        "rSteps": 6,
+        "urSteps": 5,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 260.740740,        
+        "instrument": "WMRI5LST",
+        "short_description": "35-MT Sabat-Helmholtz"
       }
     ]
   },
