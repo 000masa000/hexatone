@@ -1,0 +1,18 @@
+! Pythagorean Intonation.scl
+! 12-tone Pythagorean Intonation: a 3-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 3.
+!
+12-JI-3L Pythagorean Intonation 12-tone scale in C
+12
+!
+256/243
+9/8
+32/27
+81/64
+4/3
+729/512
+3/2
+128/81
+27/16
+16/9
+243/128
+2/1

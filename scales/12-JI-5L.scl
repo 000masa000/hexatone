@@ -1,0 +1,18 @@
+! 5-limit Just Intonation.scl
+! 12-tone Just Intonation: a 5-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 5.
+!
+12-JI-7L 5-limit Just Intonation 12-tone scale in C
+12
+!
+16/15
+9/8
+6/5
+5/4
+4/3
+45/32
+3/2
+8/5
+5/3
+9/5
+15/8
+2/1
