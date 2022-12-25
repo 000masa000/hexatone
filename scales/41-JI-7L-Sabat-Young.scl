@@ -1,5 +1,5 @@
 ! 41-JI-7L-Sabat-Young.scl
-! 41-tone Rational Intonation 7-Limit scale, based on La Monte Young's Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals: 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48's (35c), and 24 Septimal Commas (27c).
+! 41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).
 !
 41
 !

@@ -1,4 +1,5 @@
 ! 31-MT-Vicentino_alt.scl
+! 31-tone scale in extended 1/4 comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range G♭-A♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing C may be replaced by the enharmonically nearly-equivalent pitch B. Note that B *is* equivalent to C!
 !
 Archicembalo tuning in extended Meantone (Gb-A###)
 31

@@ -1,5 +1,5 @@
 ! 43-JI-11L-Partch.scl
-! 43-tone Just Intonation 11-Limit scale by Harry Partch, consisting of 43 rational divisions per frequency halving/doubling with sonic distances derived symmetrically from both ascending and descending harmonic series (otonalities and utonalities) up to a prime limit of 11, mapped on a Bosanquet / Wilson / Terpstra layout. Note that Partch's original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.
+! 43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.
 !
 43-JI-11L-Partch
 43
