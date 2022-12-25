@@ -1017,7 +1017,7 @@ export const presets = [
           "#fafafa", "#ffe5e5", "#d0e1e1", "#fafafa",
           "#d0c8c8", "#c8c8d0", "#d0d6e1", "#c8d0c8",
 
-          "#fff8db", "ffe5e5", "#d0e1e1", "#fafafa",
+          "#fff8db", "#ffe5e5", "#d0e1e1", "#fafafa",
           "#c8c8d0", "#d0d6e1", "#d0c8c8", "#c8d0c8",
 
           "#fff8db", "#ffe5e5", "#d0e1e1", "#fafafa",
