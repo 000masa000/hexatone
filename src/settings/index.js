@@ -9,7 +9,7 @@ import './settings.css';
 
 const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, instruments}) => (
   <form>
-    <fieldset><legend>Isomorphic Keyboard Layouts</legend>
+    <fieldset><legend>Tuning</legend>
      <label>   
         <Presets onChange={presetChanged} presets={presets} />
       </label>

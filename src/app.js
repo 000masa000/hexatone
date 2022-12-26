@@ -196,7 +196,7 @@ export const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          <a href="https://www.plainsound.org/hex">Bosanquet / Wilson / Terpstra Keyboard</a>
+          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra&nbsp;&nbsp;Isomorphic&nbsp;&nbsp;Keyboard
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}
