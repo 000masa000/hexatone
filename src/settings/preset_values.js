@@ -1,5 +1,6 @@
 //import the built-in Scala files
 import scale_12_edo from 'scales/12-edo.scl';
+import scale_12_mt_1_4_SC from 'scales/12-MT-1_4-SC.scl';
 import scale_12_ji_3l from 'scales/12-JI-3L.scl';
 import scale_12_ji_5l from 'scales/12-JI-5L.scl';
 import scale_12_ji_7l from 'scales/12-JI-7L.scl';
@@ -37,11 +38,11 @@ import scale_1cent from 'scales/1cent.scl';
 //import the Scala file parser, which can output scale: [], colors: [], labels: [], errors: [],
 import { parseScale } from './scale/parse-scale';
 
-//define the standard 12-edo equal tempered scale and its names
+//define the standard 12-edo equal tempered scale 
 const scale_12_edo_parsed = parseScale(scale_12_edo).scale;
 
 //define the presets which appear in the sidebar menu
-//TO DO eliminate equivSteps where they should be parsed from Scala file
+
 export const presets = [
   {
     "name": "12-tone",
@@ -106,41 +107,41 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,        
         "output": "sample",
-        "fundamental": 264,        
+        "fundamental": 260.740740,        
         "instrument": "hammond",
         "short_description": "12-RI-3L"
       },
       {
         "name": "Quarter-Comma Meantone",
-        "description": "12-tone 3-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
-        "scale": parseScale(scale_12_ji_3l).scale,
+        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "scale": parseScale(scale_12_mt_1_4_SC).scale,
         "equivSteps": 12,
         "note_names": [
-          "C", "D",
-          "D", "E",
-          "E",
-          "F", "F",
-          "G", "A",
-          "A", "B",
-          "B"],
+          "C", "C♯",
+          "D", "E♭",
+          "E",
+          "F", "F♯",
+          "G", "G♯",
+          "A", "B♭",
+          "B"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#d0d0d7",
-          "#ffffff", "#d0d0d7",
-          "#ffffff",
-          "#ffffff", "#d0d0d7",
-          "#ffffff", "#d0d0d7",
-          "#ffffff", "#d0d0d7",
-          "#ffffff"],
+          "#ffe5e5", "#e2caca",
+          "#ffe5e5", "#e2caca",
+          "#ffe5e5",
+          "#ffe5e5", "#e2caca",
+          "#ffe5e5", "#e2caca",
+          "#ffe5e5", "#e2caca",
+          "#ffe5e5"],
         "spectrum_colors": false,
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
         "output": "sample",
-        "fundamental": 264,        
+        "fundamental": 263.181385,        
         "instrument": "hammond",
-        "short_description": "12-RI-3L"
+        "short_description": "12-MT"
       },
       {
         "name": "5-limit Just Intonation",
