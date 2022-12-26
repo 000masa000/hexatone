@@ -534,7 +534,7 @@ class Keys {
       if (name) {
         context.save();
         var scaleFactor = name.length > 3 ? 4 / name.length : 1;
-        scaleFactor *= this.settings.hexSize / 48;
+        scaleFactor *= this.settings.hexSize / 46;
         context.scale(scaleFactor, scaleFactor);
         context.fillText(name, 0, 0);
         context.restore();

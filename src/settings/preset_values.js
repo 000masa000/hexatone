@@ -113,17 +113,17 @@ export const presets = [
       },
       {
         "name": "Quarter-Comma Meantone",
-        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard. Using small letter-names to distinguish that the fifths are tempered.",
         "scale": parseScale(scale_12_mt_1_4_SC).scale,
         "equivSteps": 12,
         "note_names": [
-          "C", "C♯",
-          "D", "E♭",
-          "E",
-          "F", "F♯",
-          "G", "G♯",
-          "A", "B♭",
-          "B"],
+          "c", "♯c",
+          "d", "♭e",
+          "e",
+          "f", "♯f",
+          "g", "♯g",
+          "a", "♭b",
+          "b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffe5e5", "#e2caca",
@@ -214,21 +214,21 @@ export const presets = [
         "equivSteps": 48,
         "note_names": [
           "c", "C", "C", "C",
-          "c", "D", "C D", "D",
+          "♯c", "D", "C D", "D",
 
           "D", "d", "D", "D",
-          "E", "D E", "e", "E",
+          "E", "D E", "♭e", "E",
 
           "e", "E", "E", "E",
 
           "F", "F", "F", "f",
-          "f", "F", "F G", "F",
+          "♯f", "F", "F G", "F",
 
           "g", "G", "G", "G",
-          "g", "A", "G A", "A",
+          "♯g", "A", "G A", "A",
 
           "A", "a", "A", "A",
-          "B", "A B", "b", "B",
+          "B", "A B", "♭b", "B",
 
           "b", "B", "B", "B"],
         
@@ -752,18 +752,18 @@ export const presets = [
     "name": "Extended Meantone Temperaments",
     settings: [
       {
-        "name": "Vicentino I (1555) 31-tone Extended Meantone (G♭-A♯♯♯)",
-        "description": "31-tone scale in extended 1/4 comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range G♭-A♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing C may be replaced by the enharmonically nearly-equivalent pitch B. Note that B *is* equivalent to C!",
+        "name": "Vicentino I (1555) 31-tone Extended Meantone (g♭-a♯♯♯)",
+        "description": "31-tone scale in extended 1/4 comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range g♭-a♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from e♭ to g♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing c may be replaced by the enharmonically nearly-equivalent pitch b. Note that b *is* equivalent to c!",
         "scale": parseScale(scale_31_mt_vicentino_alt).scale,
         "equivSteps": 31,
         "note_names": [
-          "C", "C", "C", "D", "D",
-          "D", "D", "D", "E", "E",
-          "E", "E", "E",
-          "F", "F", "F", "G", "G",
-          "G", "G", "G", "A", "A",
-          "A", "A", "A", "B", "B",
-          "B", "B", "B"],
+          "c", "c", "c", "d", "d",
+          "d", "d", "d", "e", "e",
+          "e", "e", "e",
+          "f", "f", "f", "g", "g",
+          "g", "g", "g", "a", "a",
+          "a", "a", "a", "b", "b",
+          "b", "b", "b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#dee2da", "#d0d0d7", "#f8ffeb",
@@ -781,21 +781,21 @@ export const presets = [
         "output": "sample",
         "fundamental": 263.1813855,        
         "instrument": "WMRI5LST",
-        "short_description": "31-Extended-Meantone (G♭-A♯♯♯) - Vicentino I"
+        "short_description": "31-Extended-Meantone (g♭-a♯♯♯) - Vicentino I"
       },
       {
         "name": "Vicentino II (1555) 38-tone Adaptive Just Intonation",
-        "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (G♭-B♯) combined with another tuning of the same 19 notes, raised by 1/4 of a Syntonic Comma, to produce perfect fifths. An example of \"adaptive\" Rational Intonation, this tuning allows triads to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
+        "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (g♭-b♯) combined with another tuning of the same 19 notes, raised by 1/4 of a Syntonic Comma, to produce perfect fifths. An example of \"adaptive\" Rational Intonation, this tuning allows triads to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
         "scale": parseScale(scale_19_19P5_amt_vicentino).scale,
         "equivSteps": 38,
         "note_names": [
-          "C", "C", "C", "C", "D", "D",
-          "D", "D", "D", "D", "E", "E",
-          "E", "E", "E", "E",
-          "F", "F", "F", "F", "G", "G",
-          "G", "G", "G", "G", "A", "A",
-          "A", "A", "A", "A", "B", "B",
-          "B", "B", "B", "B"],
+          "c", "c", "c", "c", "d", "d",
+          "d", "d", "d", "d", "e", "e",
+          "e", "e", "e", "e",
+          "f", "f", "f", "f", "g", "g",
+          "g", "g", "g", "g", "a", "a",
+          "a", "a", "a", "a", "b", "b",
+          "b", "b", "b", "b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#dee2da", "#fffae5", "#d0d0d7", "#f8ffeb",
@@ -817,7 +817,7 @@ export const presets = [
       },
       {
         "name": "Helmholtz-Sabat 2/17 Schisma Extended Meantone",
-        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
+        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic comma Meantone.",
         "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
         "equivSteps": 35,
         "note_names": [
@@ -827,7 +827,7 @@ export const presets = [
             "F", "F", "F", "F", "G", "G",
             "G", "G", "G", "G", "A", "A",
             "A", "A", "A", "A", "B", "B",
-            "B", "B", "C"],          
+            "B", "B", "c"],          
         "key_labels": "note_names",
         "note_colors": [
             "#ffffff", "#ffe5e5", "#e2caca", "#dee2da", "#d0d0d7", "#fffae5",
@@ -858,13 +858,13 @@ export const presets = [
         "scale": parseScale(scale_19_edo).scale,
         "equivSteps": 19,
         "note_names": [
-          "C", "C♯", "D♭",
-          "D", "D♯", "E♭",
-          "E", "E♯ F♭",
-          "F", "F♯", "G♭",
-          "G", "G♯", "A♭",
-          "A", "A♯", "B♭",
-          "B", "B♯ C♭"],
+          "c", "♯c", "♭d",
+          "d", "♯d", "♭e",
+          "e", "♯e ♭f",
+          "f", "♯f", "♭g",
+          "g", "♯g", "♭a",
+          "a", "♯a", "♭b",
+          "b", "♯b ♭c"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da", "#d0d0d7",
@@ -886,17 +886,17 @@ export const presets = [
       },
       {
         "name": "19-edo (in enharmonic Septimal notation)",
-        "description": "19-tone equal tempered scale consisting of 19 sonically equal divisions per octave, similar to 1/3-Syntonic Comma meantone. System was first described by Francisco de Salinas in 1577. Step-size is 63.2 cents.",
+        "description": "19-tone equal tempered scale consisting of 19 sonically equal divisions per octave, similar to 1/3-Syntonic Comma meantone. System was first described by francisco de Salinas in 1577. Step-size is 63.2 cents.",
         "scale": parseScale(scale_19_edo).scale,
         "equivSteps": 19,
         "note_names": [
-          "C", "C D", "C D",
-          "D", "D E", "D E",
-          "E", "E F",
-          "F", "F G", "F G",
-          "G", "G A", "G A",
-          "A", "A B", "A B",
-          "B", "B C"],
+          "c", "c d", "c d",
+          "d", "d e", "d e",
+          "e", "e f",
+          "f", "f g", "f g",
+          "g", "g a", "g a",
+          "a", "a b", "a b",
+          "b", "b c"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da", "#d0d0d7",
@@ -917,18 +917,18 @@ export const presets = [
         "short_description": "19-edo (Salinas, Septimal Notation)"       
       },
       {
-        "name": "31-edo (G♭♭-A♯♯)",
+        "name": "31-edo (g♭♭-a♯♯)",
         "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Syntonic Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Step-size is 38.7 cents.",
         "scale": parseScale(scale_31_edo).scale,
         "equivSteps": 31,
         "note_names": [
-          "C", "D♭♭", "C♯", "D♭", "C♯♯",
-          "D", "E♭♭", "D♯", "E♭", "D♯♯",
-          "E", "F♭", "E♯",
-          "F", "G♭♭", "F♯", "G♭", "F♯♯",
-          "G", "A♭♭", "G♯", "A♭", "G♯♯",
-          "A", "B♭♭", "A♯", "B♭", "A♯♯",
-          "B", "C♭", "B♯"],
+          "c", "♭♭d", "♯c", "♭d", "♯♯c",
+          "d", "♭♭e", "♯d", "♭e", "♯♯d",
+          "e", "♭f", "♯e",
+          "f", "♭♭g", "♯f", "♭g", "♯♯f",
+          "g", "♭♭a", "♯g", "♭a", "♯♯g",
+          "a", "♭♭b", "♯a", "♭b", "♯♯a",
+          "b", "♭c", "♯b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#dee2da", "#d0d0d7", "#f8ffeb",
@@ -946,7 +946,7 @@ export const presets = [
         "output": "sample",
         "fundamental": 263.0921203,
         "instrument": "hammond",
-        "short_description": "31-edo (G♭♭-A♯♯)"
+        "short_description": "31-edo (g♭♭-a♯♯)"
       },
       {
         "name": "31-edo (in Vicentino’s Notation, 1555)",
@@ -954,13 +954,13 @@ export const presets = [
         "scale": parseScale(scale_31_edo).scale,
         "equivSteps": 31,
         "note_names": [
-          "C", "C", "C", "D", "D",
-          "D", "D", "D", "E", "E",
-          "E", "E", "E",
-          "F", "F", "F", "G", "G",
-          "G", "G", "G", "A", "A",
-          "A", "A", "A", "B", "B",
-          "B", "B", "B"],
+          "c", "c", "c", "d", "d",
+          "d", "d", "d", "e", "e",
+          "e", "e", "e",
+          "f", "f", "f", "g", "g",
+          "g", "g", "g", "a", "a",
+          "a", "a", "a", "b", "b",
+          "b", "b", "b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#dee2da", "#d0d0d7", "#f8ffeb",
@@ -1013,18 +1013,18 @@ export const presets = [
         "short_description": "41-edo (Septimal-Pythagorean Notation)"  
       },
       {
-        "name": "43-edo (Sauveur 1696, D♭♭♭-D♯♯♯)",
+        "name": "43-edo (Sauveur 1696, d♭♭♭-d♯♯♯)",
         "description": "43-tone equal tempered scale consisting of 43 sonically equal divisions per octave. Similar to 1/5-Syntonic Comma Meantone, the system was described by Joseph Sauveur in 1696. Step-size (named méride by Sauveur) is 27.9 cents.",
         "scale": parseScale(scale_43_edo).scale,
         "equivSteps": 43,
         "note_names": [
-          "C", "D♭♭", "B♯♯", "C♯", "D♭", "E♭♭♭", "C♯♯",
-          "D", "E♭♭", "C♯♯♯", "D♯", "E♭", "F♭♭", "D♯♯",
-          "E", "F♭", "D♯♯♯", "E♯",
-          "F", "G♭♭", "E♯♯", "F♯", "G♭", "A♭♭♭", "F♯♯",
-          "G", "A♭♭", "F♯♯♯", "G♯", "A♭", "B♭♭♭", "G♯♯",
-          "A", "B♭♭", "G♯♯♯", "A♯", "B♭", "C♭♭", "A♯♯",
-          "B", "C♭", "D♭♭♭", "B♯"],
+          "c", "♭♭d", "♯♯b", "♯c", "♭d", "♭♭♭e", "♯♯c",
+          "d", "♭♭e", "♯♯♯c", "♯d", "♭e", "♭♭f", "♯♯d",
+          "e", "♭f", "♯♯♯d", "♯e",
+          "f", "♭♭g", "♯♯e", "♯f", "♭g", "♭♭♭a", "♯♯f",
+          "g", "♭♭a", "♯♯♯f", "♯g", "♭a", "♭♭♭b", "♯♯g",
+          "a", "♭♭b", "♯♯♯g", "♯a", "♭b", "♭♭c", "♯♯a",
+          "b", "♭c", "♭♭♭d", "♯b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#fffae5", "#dee2da", "#d0d0d7", "#cee3e2", "#fffae5",
@@ -1077,18 +1077,18 @@ export const presets = [
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)"  
       },
       {
-        "name": "55-edo (Telemann 1767, A♭♭♭♭-G♯♯♯♯)", 
+        "name": "55-edo (Telemann 1767, a♭♭♭♭-g♯♯♯♯)", 
         "description": "55-tone equal tempered scale consisting of 55 sonically equal divisions per octave. Similar to 1/6-Pythagorean Comma meantone. Step-size is 21.8 cents.",
         "scale": parseScale(scale_55_edo).scale,
         "equivSteps": 55,
         "note_names": [
-          "C", "D♭♭", "E♭♭♭♭", "B♯♯", "C♯", "D♭", "E♭♭♭", "B♯♯♯", "C♯♯",
-          "D", "E♭♭", "F♭♭♭", "C♯♯♯", "D♯", "E♭", "F♭♭", "C♯♯♯♯", "D♯♯",
-          "E", "F♭", "G♭♭♭", "D♯♯♯", "E♯",
-          "F", "G♭♭", "A♭♭♭♭", "E♯♯", "F♯", "G♭", "A♭♭♭", "E♯♯♯", "F♯♯",
-          "G", "A♭♭", "B♭♭♭♭", "F♯♯♯", "G♯", "A♭", "B♭♭♭", "F♯♯♯♯", "G♯♯",
-          "A", "B♭♭", "C♭♭♭", "G♯♯♯", "A♯", "B♭", "C♭♭", "G♯♯♯♯", "A♯♯",
-          "B", "C♭", "D♭♭♭", "A♯♯♯", "B♯"],
+          "c", "♭♭d", "♭♭♭♭e", "♯♯b", "♯c", "♭d", "♭♭♭e", "♯♯♯b", "♯♯c",
+          "d", "♭♭e", "♭♭♭f", "♯♯♯c", "♯d", "♭e", "♭♭f", "♯♯♯♯c", "♯♯d",
+          "e", "♭f", "♭♭♭g", "♯♯♯d", "♯e",
+          "f", "♭♭g", "♭♭♭♭a", "♯♯e", "♯f", "♭g", "♭♭♭a", "♯♯♯e", "♯♯f",
+          "g", "♭♭a", "♭♭♭♭b", "♯♯♯f", "♯g", "♭a", "♭♭♭b", "♯♯♯♯f", "♯♯g",
+          "a", "♭♭b", "♭♭♭c", "♯♯♯g", "♯a", "♭b", "♭♭c", "♯♯♯♯g", "♯♯a",
+          "b", "♭c", "♭♭♭d", "♯♯♯a", "♯b"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#ffe5e5", "#e4fbe6", "#fffae5", "#dee2da", "#d0d0d7", "#dce1d0", "#f8ffeb", "#fffae5",
@@ -1106,7 +1106,7 @@ export const presets = [
         "output": "sample",
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
-        "short_description": "55-edo (Telemann, A♭♭♭♭-G♯♯♯♯)"  
+        "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)"  
       }
     ]
   },
