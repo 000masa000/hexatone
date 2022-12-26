@@ -1114,8 +1114,8 @@ export const presets = [
     "name": "Harmonic and Subharmonic Series",
     settings: [
       {
-        "name": "3 Octaves of Harmonic Series partials from 16° to 128°",
-        "description": "Harmonic Series partials 16° to 128°.",
+        "name": "Harmonic Series partials from 16° to 128°",
+        "description": "A three octave cycle comprising Harmonic Series partials 16° to 128°.",
         "scale": parseScale(scale_112_hs_16to128).scale,
         "equivSteps": 112,
         "note_names": [
@@ -1134,8 +1134,8 @@ export const presets = [
         "short_description": "112-HS 16° to 128°"
       },
       {
-        "name": "Harmonic and Subharmonic Series 16 to 64 combined across 4 octaves",
-        "description": "Alternating sequences of Harmonic and Subharmonic Series partials from 16 to 64.",
+        "name": "Harmonic and Subharmonic Series 16 to 64 combined",
+        "description": "Harmonic and Subharmonic Series partials from 16 to 64 mapped onto a four octave cycle.",
         "scale": parseScale(scale_96_hss_16to64).scale,
         "equivSteps": 96,
         "note_names": [
@@ -1156,7 +1156,7 @@ export const presets = [
       },
       {
         "name": "19-tone modulating pattern of harmonic partials from 32° to 52°",
-        "description": "Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth.",
+        "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth.",
         "scale": parseScale(scale_19_hs_34to51).scale,
         "equivSteps": 19,
         "note_names": [
