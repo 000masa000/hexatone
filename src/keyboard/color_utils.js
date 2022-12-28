@@ -290,7 +290,7 @@ export function getContrastYIQ(hexcolor) { // for note names cents ratios
   return (yiq >= 132) ? '#442C2C' : 'white';
 }
 
-export function getContrastYIQ_2(hexcolor) { // for octaves
+export function getContrastYIQ_2(hexcolor) { // for equaves
   hexcolor = hexcolor.replace("#", "");
   var r = parseInt(hexcolor.substr(0, 2), 16);
   var g = parseInt(hexcolor.substr(2, 2), 16);

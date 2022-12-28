@@ -5,27 +5,6 @@
           url("https://www.plainsound.org/fonts/RobotoCondensed-HEJI2.ttf") format("ttf");
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src:  url("https://www.plainsound.org/fonts/RobotoCondensed-Regular.woff2") format("woff2"),
-        url("https://www.plainsound.org/fonts/RobotoCondensed-Regular.woff") format("woff"),
-        url("https://www.plainsound.org/fonts/RobotoCondensed-Regular.ttf") format("ttf"),;
-}
-
-span.heji {
-    font-family: 'Roboto HEJI2';
-    font-weight: regular;   
-    margin-bottom: 0px;
-    vertical-align: middle;
-}
-
-span.roboto {
-    font-family: 'Roboto HEJI2';
-    font-weight: regular;
-    margin-bottom: 0px;
-    vertical-align: middle;
-}
-
 body {
 	  background-image: url("Pattern3D_06.png");
     transition: transform .3s ease-in-out;

@@ -11,7 +11,7 @@ const MIDIio = (props) => (
       <select value={props.settings.midiin_device}
               name="midiin_device"
               onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option></option>
+        <option value="-1">OFF</option>
         {props.midi && Array.from(props.midi.inputs.values()).map(m => (
       <option value={m.id}>{m.name}</option>
     ))}

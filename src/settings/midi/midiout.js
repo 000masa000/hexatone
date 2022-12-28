@@ -20,11 +20,11 @@ const MidiOut = (props) => (
                   onChange={props.onChange}/>
     </label>
     <label>
-      Output Channel
+      Central Output Channel
       <select value={props.settings.midi_channel}
               name="midi_channel"
               onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}>
-        <option>Location of the scale fundamental (1/1 = C4 = note 60):</option>
+        <option>place the scale fundamental (1/1 = C4 = note 60):</option>
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
@@ -33,9 +33,10 @@ const MidiOut = (props) => (
       <select value={props.settings.midi_mapping}
               name="midi_mapping"
         onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option>Scale layout across 16 MIDI channels:</option>
-        <option value="multichannel">multichannel: one cycle/channel, starting on note 60</option>
-        <option value="sequential">sequential: using all notes 0-127</option>
+        <option>choose how the notes are sent</option>
+        <option value="multichannel">one cycle + equave per channel</option>
+        <option value="sequential">using all notes 0-127 across all channels</option>
+        <option value="MTS">notes and MTS data on selected channel</option>
       </select>
     </label>
     <label>

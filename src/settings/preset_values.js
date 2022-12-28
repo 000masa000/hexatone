@@ -551,8 +551,7 @@ export const presets = [
         "rotation": -16.102113751,
         "output": "sample",
         "fundamental": 261.333333,        
-        "instrument": "gayageum",
-        "short_description": "43-JI-11L Partch (G)"        
+        "instrument": "gayageum"
       },
       {
         "name": "Adriaan Fokker",

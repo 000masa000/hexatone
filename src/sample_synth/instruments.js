@@ -14,7 +14,7 @@ export const instruments = [
         name: "Rhodes",
         gain: 0.36,
         attack: 0,
-        release: 0.002,
+        release: 0.005,
         loop: false
       }, {
         fileName: "vibes",
@@ -27,7 +27,7 @@ export const instruments = [
         fileName: "hammond",
         name: "Hammond",
         gain: 0.53,
-        attack: 0.002,
+        attack: 0.005,
         release: 0.002,
         loop: true
       }, {

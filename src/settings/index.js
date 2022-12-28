@@ -1,16 +1,19 @@
 import { h } from 'preact';
-import Scale from './scale';
-import SampleSynth from './sample';
-import MIDIio from './midi';
-import Layout from './layout';
+
 import Presets from './presets';
 import Info from './info';
+import Scale from './scale';
+import Layout from './layout';
+import SampleSynth from './sample';
+import MIDIio from './midi';
+
 import './settings.css';
 
+// set up the fieldset to enter the app settings 
 const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, instruments}) => (
   <form>
     <fieldset><legend>Tuning</legend>
-     <label>   
+      <label>   
         <Presets onChange={presetChanged} presets={presets} />
       </label>
     </fieldset>

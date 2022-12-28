@@ -2,7 +2,7 @@ import { calculateRotationMatrix, applyMatrixToPoint } from './matrix';
 import Point from './point';
 import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
-import { midi_in } from '../midi_input';
+import { midi_in } from '../settings/midi/midiin';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -26,7 +26,7 @@ class Keys {
       activeHexObjects: [],
       isTouchDown: false,
       isMouseDown: false,
-      shake: {
+      /*shake: {
         lastShakeCheck: 0,
         lastShakeCount: 0,
         // Shake sensitivity (a lower number is more)
@@ -38,7 +38,7 @@ class Keys {
         x2: 0,
         y2: 0,
         z2: 0,
-      }
+      }*/
     };
     
     // Set up resize handler
@@ -58,29 +58,28 @@ class Keys {
     this.state.canvas.addEventListener("touchmove", this.handleTouch, false);
     this.state.canvas.addEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.addEventListener("mouseup", this.mouseUp, false);
-    // iPad Shake to toggle sustain
+    /* iPad Shake to toggle sustain
     if (typeof window.DeviceMotionEvent != 'undefined') {
       window.addEventListener('devicemotion', this.deviceMotion, false);
       // Periodically check the position and fire
       // if the change is greater than the sensitivity
       this.interval = setInterval(this.motionScan, 300);
-    };
+    };*/
 
-    // Set up MIDI input handler (webmidi.js), see also ./midi_input
+    // Set up MIDI input handler (webmidi.js), see also ./settings/midi/midiin.js
 
-    midi_in.forEach(input => {
-      input.addListener("noteon", e => {
+  if (midi_in[0]) {
+
+      midi_in[0].addListener("noteon", e => {
         console.log(e.note.number, e.note.rawAttack);
         this.midinoteOn(e);
       });
-    });
 
-    midi_in.forEach(input => {
-      input.addListener("noteoff", e => {
+      midi_in[0].addListener("noteoff", e => {
         console.log(e.note.number, e.note.rawAttack);
         this.midinoteOff(e);
       });
-    });
+    };
   };
 
   deconstruct = () => {
@@ -94,7 +93,7 @@ class Keys {
     window.removeEventListener('resize', this.resizeHandler, false);
     window.removeEventListener('orientationchange', this.resizeHandler, false);
 
-    // Set up keyboard, touch and mouse event handlers
+    // Keyboard, touch and mouse event handlers
     if (this.typing) {
       window.removeEventListener("keydown", this.onKeyDown, false);
       window.removeEventListener("keyup", this.onKeyUp, false);
@@ -105,24 +104,20 @@ class Keys {
     this.state.canvas.removeEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.removeEventListener("mouseup", this.mouseUp, false);
     this.state.canvas.removeEventListener("mousemove", this.mouseActive, false);
-    if (typeof window.DeviceMotionEvent != 'undefined') {
+    /*if (typeof window.DeviceMotionEvent != 'undefined') {
       window.removeEventListener('devicemotion', this.deviceMotion, false);
       clearInterval(this.interval);
-    };
+    };*/
 
     // Set up MIDI input handler
 
-    midi_in.forEach(input => {
-      input.removeListener("noteon");
-    });
-
-    midi_in.forEach(input => {
-      input.removeListener("noteoff");
-    });
+   if (midi_in[0]) {
+      midi_in[0].removeListener("noteon");
+      midi_in[0].removeListener("noteoff");
+    };
   };
 
   midinoteOn = (e) => {
-
     this.state.midinotesOn.set(e.note.number, e.note.rawAttack);
     var steps = e.note.number - 60;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
@@ -140,7 +135,6 @@ class Keys {
   };
 
   midinoteOff = (e) => {
-
     this.state.midinotesOn.delete(e.note.number);
     var steps = e.note.number - 60;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
@@ -164,10 +158,10 @@ class Keys {
   };
   
   hexOn(coords) {
-    const [cents, pressed_interval, steps, octaves, equivSteps] = this.hexCoordsToCents(coords);
+    const [cents, pressed_interval, steps, equaves, equivSteps] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, octaves, equivSteps);
+    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps);
     hex.noteOn();
     return hex;
   };
@@ -201,11 +195,11 @@ class Keys {
   }
 
   /**************** Event Handlers ****************/
-  deviceMotion = (e) => {
+ /* deviceMotion = (e) => {
     this.state.shake.x1 = e.accelerationIncludingGravity.x;
     this.state.shake.y1 = e.accelerationIncludingGravity.y;
     this.state.shake.z1 = e.accelerationIncludingGravity.z;
-  };
+  };*/
 
   motionScan = () => {
     const { x1, x2, y1, y2, z1, z2, lastShakeCount, lastShakeCheck } = this.state.shake;

@@ -20,7 +20,7 @@ import "./terpstra-style.css";
 import LoadingIcon from './hex.svg';
 import './loader.css';
 
-export const Loading = () => <LoadingIcon width="30vw" height="30vh"/>;
+export const Loading = () => <LoadingIcon />;
 
 const findPreset = (preset) => {
   for (let g of presets) {
@@ -69,8 +69,6 @@ export const App = () => {
   const [settings, setSettings] = useQuery({
     name: ExtractString,
     description: ExtractString,
-    // Input
-    midiin_device: ExtractString,
 
     // Output
     output: ExtractString,
@@ -105,7 +103,7 @@ export const App = () => {
   useEffect(() => {
     if (navigator.requestMIDIAccess) {
       setLoading(wait);
-      navigator.requestMIDIAccess().then
+      navigator.requestMIDIAccess( /*{ sysex: true }*/).then   // TODO make this work across browsers!
         (m => {
         setLoading(signal);
         setMidi(m); // MIDIAccess stored
@@ -115,12 +113,11 @@ export const App = () => {
   }, []);
 
   function onMIDISuccess(midiAccess) {
-    console.log("MIDI ready!"); // post success
-  //  parseMIDIin(midiAccess);   // do stuff (from ./midi_input)
+    console.log("Web MIDI API for output without sysex MTS messages is ready!"); // post success ... iTODO include sysex
   }
 
   function onMIDIFailure() {
-    console.log('Could not access your MIDI devices.');
+    console.log('Web MIDI API could not initialise!');
   } // MIDI failure error
 
   useEffect(() => {
@@ -196,7 +193,7 @@ export const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra&nbsp;&nbsp;Isomorphic&nbsp;&nbsp;Keyboard
+          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra<br />Isomorphic&nbsp;&nbsp;Keyboard
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}
