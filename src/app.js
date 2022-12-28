@@ -22,6 +22,10 @@ import './loader.css';
 
 export const Loading = () => <LoadingIcon />;
 
+let notChrome = !/Chrome/.test(navigator.userAgent);
+let alertMessage = "Please use a desktop version of Google Chrome or Microsoft Edge to fully access this site.\nSome key features of the Web MIDI API do not currently work on phones or in other browsers."
+if (notChrome) alert(alertMessage);
+
 const findPreset = (preset) => {
   for (let g of presets) {
     for (let p of g.settings) {
