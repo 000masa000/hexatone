@@ -30,7 +30,6 @@ import scale_55_mt from 'scales/55-MT-1_6-Comma.scl';
 
 import scale_19_edo from 'scales/19-edo.scl';
 import scale_31_edo from 'scales/31-edo.scl';
-import scale_36_edo from 'scales/36-edo.scl';
 import scale_41_edo from 'scales/41-edo.scl';
 import scale_43_edo from 'scales/43-edo.scl';
 import scale_53_edo from 'scales/53-edo.scl';
