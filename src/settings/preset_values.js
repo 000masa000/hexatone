@@ -22,16 +22,20 @@ import scale_112_hs_16to128 from 'scales/112-HS-16to128.scl';
 import scale_96_hss_16to64 from 'scales/96-HSS-16to64.scl';
 import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
 
-import scale_31_mt_vicentino_alt from 'scales/31-MT-Vicentino_alt.scl';
+import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
-import scale_35_mt_sabat_helmholtz from 'scales/35-MT-Sabat-Helmholtz.scl'
+import scale_35_mt_sabat_helmholtz from 'scales/35-MT-Sabat-Helmholtz.scl';
+import scale_43_mt from 'scales/43-MT-1_5-Comma.scl';
+import scale_55_mt from 'scales/55-MT-1_6-Comma.scl';
 
 import scale_19_edo from 'scales/19-edo.scl';
 import scale_31_edo from 'scales/31-edo.scl';
+import scale_36_edo from 'scales/36-edo.scl';
 import scale_41_edo from 'scales/41-edo.scl';
 import scale_43_edo from 'scales/43-edo.scl';
 import scale_53_edo from 'scales/53-edo.scl';
 import scale_55_edo from 'scales/55-edo.scl';
+import scale_72_edo from 'scales/72-edo.scl';
 
 import scale_1cent from 'scales/1cent.scl';
 
@@ -490,7 +494,7 @@ export const presets = [
     "name": "Rational Intonation",
     settings: [
       {
-        "name": "Harry Partch (C = 1/1, HEJI)",
+        "name": "Harry Partch 43-tone 11-limit (C = 1/1, HEJI)",
         "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "equivSteps": 43,
@@ -554,7 +558,7 @@ export const presets = [
         "instrument": "gayageum"
       },
       {
-        "name": "Adriaan Fokker",
+        "name": "Adriaan Fokker 31-tone 7-limit",
         "description": "31-tone 7-Limit Rational Intonation scale by Adriaan Fokker, consisting of 31 notes per octave derived from harmonic series intervals up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
@@ -586,7 +590,7 @@ export const presets = [
         "short_description": "31-JI-7L Fokker"
       },
       {
-        "name": "Erv Wilson",
+        "name": "Erv Wilson 17-tone 11-limit",
         "description": "17-tone 11-Limit Rational Intonation scale by Erv Wilson, consisting of 17 notes per octave derived from harmonic series intervals up to a prime limit of 11.",
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
         "equivSteps": 17,
@@ -617,8 +621,9 @@ export const presets = [
         "instrument": "harp",
         "short_description": "17-JI-11L Wilson"
       },
+      // ADD a version in flats and sharps!
       {
-        "name": "Extended Pythagorean",
+        "name": "53-tone Extended Pythagorean",
         "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma.",
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
@@ -650,7 +655,7 @@ export const presets = [
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
-        "name": "Sabat-Euler Lattice", 
+        "name": "Marc Sabat-Euler Lattice 53-tone Ptolemaic", 
         "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one syntonic comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a syntonic comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive syntonic commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence between E and F.",
         "scale": parseScale(scale_55_ji_5l).scale,
         "equivSteps": 55,
@@ -682,7 +687,7 @@ export const presets = [
         "short_description": "55-JI-5L Sabat-Euler Lattice"  
       },
       {
-        "name": "Sabat-Young",
+        "name": "Marc Sabat-La Monte Young 41-tone Septimal-Pythagorean",
         "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).",
         "scale": parseScale(scale_41_ji_7l).scale,
         "equivSteps": 41,
@@ -714,7 +719,7 @@ export const presets = [
         "short_description": "41-JI-7L Sabat-Young"
       },
       {
-        "name": "Cam Taylor",
+        "name": "Cam Taylor 53-tone 13-limit",
         "description": "Cam Taylor’s 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived notes per octave derived from harmonic series intervals up to a prime limit of 13.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
@@ -747,13 +752,14 @@ export const presets = [
       }
     ]
   },
+  // add 1/5 and 1/6 comma extended MT
   {
     "name": "Extended Meantone Temperaments",
     settings: [
       {
         "name": "Vicentino I (1555) 31-tone Extended Meantone (g♭-a♯♯♯)",
         "description": "31-tone scale in extended 1/4 comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range g♭-a♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from e♭ to g♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing c may be replaced by the enharmonically nearly-equivalent pitch b. Note that b *is* equivalent to c!",
-        "scale": parseScale(scale_31_mt_vicentino_alt).scale,
+        "scale": parseScale(scale_31_mt_vicentino).scale,
         "equivSteps": 31,
         "note_names": [
           "c", "c", "c", "d", "d",
@@ -815,8 +821,8 @@ export const presets = [
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
       },
       {
-        "name": "Helmholtz-Sabat 2/17 Schisma Extended Meantone",
-        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic comma Meantone.",
+        "name": "Helmholtz-Sabat 2/17-Schisma Extended Meantone",
+        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic comma Meantone.",
         "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
         "equivSteps": 35,
         "note_names": [
@@ -826,7 +832,7 @@ export const presets = [
             "F", "F", "F", "F", "G", "G",
             "G", "G", "G", "G", "A", "A",
             "A", "A", "A", "A", "B", "B",
-            "B", "B", "c"],          
+            "B", "B", "C"],          
         "key_labels": "note_names",
         "note_colors": [
             "#ffffff", "#ffe5e5", "#e2caca", "#dee2da", "#d0d0d7", "#fffae5",
@@ -845,11 +851,75 @@ export const presets = [
         "fundamental": 260.740740,        
         "instrument": "WMRI5LST",
         "short_description": "35-MT Sabat-Helmholtz"
+      },
+      {
+        "name": "43-tone Extended 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
+        "description": "43-tone scale in extended 1/5 Syntonic Comma meantone. Each fifth in the range d♭♭♭-d♯♯♯ is narrowed from its JI ratio (3/2) by 1/5 of a Syntonic Comma (81/80 = ca. 21.5c), so that five successive fifths produce a major seventh (15/8). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 43 notes, a circulating well-temperament is produced.",
+        "scale": parseScale(scale_43_mt).scale,
+        "equivSteps": 43,
+        "note_names": [
+          "c", "♭♭d", "♯♯b", "♯c", "♭d", "♭♭♭e", "♯♯c",
+          "d", "♭♭e", "♯♯♯c", "♯d", "♭e", "♭♭f", "♯♯d",
+          "e", "♭f", "♯♯♯d", "♯e",
+          "f", "♭♭g", "♯♯e", "♯f", "♭g", "♭♭♭a", "♯♯f",
+          "g", "♭♭a", "♯♯♯f", "♯g", "♭a", "♭♭♭b", "♯♯g",
+          "a", "♭♭b", "♯♯♯g", "♯a", "♭b", "♭♭c", "♯♯a",
+          "b", "♭c", "♭♭♭d", "♯b"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#ffe5e5", "#fffae5", "#dee2da", "#d0d0d7", "#cee3e2", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d0d7", "#ffe5e5", "#fffae5",
+          "#ffffff", "#d0d0d7", "#e4fbe6", "#dee2da",
+          "#ffffff", "#ffe5e5", "#fffae5", "#dee2da", "#d0d0d7", "#cee3e2", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d0d7", "#cee3e2", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d0d7", "#ffe5e5", "#fffae5",
+          "#ffffff", "#d0d0d7", "#cee3e2", "#dee2da"],
+        "spectrum_colors": false,
+        "rSteps": 7,
+        "urSteps": 4,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 262.682024,
+        "instrument": "rhodes",
+        "short_description": "43-mt, D♭♭♭-D♯♯♯"  
+      },
+      {
+        "name": "55-tone Extended 1/6-Pythagorean Comma Meantone (a♭♭♭♭-g♯♯♯♯)", 
+        "description": "55-tone scale in extended 1/6 Pythagorean Comma meantone. Each fifth in the range A♭♭♭♭-G♯♯♯♯ is narrowed from its JI ratio (3/2) by 1/6 of a Pythagorean Comma (531441/524288 = ca. 23.5c), so that six successive fifths produce a Pythagorean tritone (729/512). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 55 notes, a circulating well-temperament is produced.",
+        "scale": parseScale(scale_55_mt).scale,
+        "equivSteps": 55,
+        "note_names": [
+          "c", "♭♭d", "♭♭♭♭e", "♯♯b", "♯c", "♭d", "♭♭♭e", "♯♯♯b", "♯♯c",
+          "d", "♭♭e", "♭♭♭f", "♯♯♯c", "♯d", "♭e", "♭♭f", "♯♯♯♯c", "♯♯d",
+          "e", "♭f", "♭♭♭g", "♯♯♯d", "♯e",
+          "f", "♭♭g", "♭♭♭♭a", "♯♯e", "♯f", "♭g", "♭♭♭a", "♯♯♯e", "♯♯f",
+          "g", "♭♭a", "♭♭♭♭b", "♯♯♯f", "♯g", "♭a", "♭♭♭b", "♯♯♯♯f", "♯♯g",
+          "a", "♭♭b", "♭♭♭c", "♯♯♯g", "♯a", "♭b", "♭♭c", "♯♯♯♯g", "♯♯a",
+          "b", "♭c", "♭♭♭d", "♯♯♯a", "♯b"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#fffae5", "#dee2da", "#d0d0d7", "#dce1d0", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#dce1d0", "#f8ffeb", "#dee2da", "#d0d0d7", "#ffe5e5", "#cee3e2", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dce1d0", "#f8ffeb", "#dee2da",
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#fffae5", "#dee2da", "#d0d0d7", "#dce1d0", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e4fbe6", "#f8ffeb", "#dee2da", "#d0d0d7", "#dce1d0", "#cee3e2", "#fffae5",
+          "#ffffff", "#ffe5e5", "#dce1d0", "#f8ffeb", "#dee2da", "#d0d0d7", "#ffe5e5", "#cee3e2", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dce1d0", "#f8ffeb", "#dee2da"],
+        "spectrum_colors": false,
+        "rSteps": 9,
+        "urSteps": 5,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 262.451161,
+        "instrument": "WMRIByzantineST",
+        "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯"  
       }
     ]
   },
   {
-    "name": "Equal Division Temperaments close to Meantone, Pythagorean, or JI",
+    "name": "Equal Division Temperaments",
     settings: [
       {
         "name": "19-edo (Salinas 1577)",
@@ -1043,6 +1113,7 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)"  
       },
+      // add more info about early version of 53?
       {
         "name": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)",
         "description": "53-tone equal tempered scale consisting of 53 sonically equal divisions per octave. Step-size is 22.6 cents (Holdrian or Mercator Comma).",
@@ -1106,6 +1177,52 @@ export const presets = [
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
         "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)"  
+      },
+      {
+        "name": "72-edo (Sims/Tenney)", 
+        "description": "72-tone equal tempered scale consisting of 72 sonically equal divisions per octave, multiple of 12-edo closely approximating 11-limit JI. Step-size is 16 2/3 cents.",
+        "scale": parseScale(scale_72_edo).scale,
+        "equivSteps": 72,
+        "note_names": [
+          "C", "C", "C", "C", "C", "C",
+          "C D", "D", "D", "D", "D", "D",
+          "D", "D", "D", "D", "D", "D",
+          "D E", "E", "E", "E", "E", "E",
+          "E", "E", "E", "E F", "F", "F",
+          "F", "F", "F", "F", "F", "F",
+          "F G", "G", "G", "G", "G", "G", 
+          "G", "G", "G", "G", "G", "G",
+          "G A", "A", "A", "A", "A", "A",
+          "A", "A", "A", "A", "A", "A",
+          "A B", "B", "B", "B", "B", "B",
+          "B", "B", "B", "B C", "C", "C"
+        ],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#d0d6e1", "#e7e7ca",
+          "#d0d0d7", "#dee2da", "#e2caca", "#cee3e2", "#e1d0e1", "#f8ffeb",
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#d0d6e1", "#e7e7ca",
+          "#d0d0d7", "#dee2da", "#e2caca", "#cee3e2", "#e1d0e1", "#f8ffeb",
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#e1d0e1", "#f8ffeb", 
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#d0d6e1", "#e7e7ca",
+          "#d0d0d7", "#dee2da", "#e2caca", "#cee3e2", "#e1d0e1", "#f8ffeb",
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#d0d6e1", "#e7e7ca",
+          "#d0d0d7", "#dee2da", "#e2caca", "#cee3e2", "#e1d0e1", "#f8ffeb",
+          "#ffffff", "#fffae5", "#ffe5e5", "#e4fbe6", "#d0d6e1", "#e7e7ca",
+          "#d0d0d7", "#dee2da", "#e2caca", "#cee3e2", "#e1d0e1", "#f8ffeb",
+          "#ffffff", "#fffae5", "#ffe5e5", "#cee3e2", "#e1d0e1", "#f8ffeb",
+        
+        
+        ],
+        "spectrum_colors": false,
+        "rSteps": 12,
+        "urSteps": 5,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "output": "sample",
+        "fundamental": 262.451161,
+        "instrument": "WMRIByzantineST",
+        "short_description": "72-edo (Sims/Tenney)"  
       }
     ]
   },
@@ -1118,7 +1235,13 @@ export const presets = [
         "scale": parseScale(scale_112_hs_16to128).scale,
         "equivSteps": 112,
         "note_names": [
-          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°", "64°", "65°", "66°", "67°", "68°", "69°", "70°", "71°", "72°", "73°", "74°", "75°", "76°", "77°", "78°", "79°", "80°", "81°", "82°", "83°", "84°", "85°", "86°", "87°", "88°", "89°", "90°", "91°", "92°", "93°", "94°", "95°", "96°", "97°", "98°", "99°", "100°", "101°", "102°", "103°", "104°", "105°", "106°", "107°", "108°", "109°", "110°", "111°", "112°", "113°", "114°", "115°", "116°", "117°", "118°", "119°", "120°", "121°", "122°", "123°", "124°", "125°", "126°", "127°", "128°"],
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°",
+          "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°",
+          "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°",
+          "64°", "65°", "66°", "67°", "68°", "69°", "70°", "71°", "72°", "73°", "74°", "75°", "76°", "77°", "78°", "79°",
+          "80°", "81°", "82°", "83°", "84°", "85°", "86°", "87°", "88°", "89°", "90°", "91°", "92°", "93°", "94°", "95°",
+          "96°", "97°", "98°", "99°", "100°", "101°", "102°", "103°", "104°", "105°", "106°", "107°", "108°", "109°", "110°", "111°",
+          "112°", "113°", "114°", "115°", "116°", "117°", "118°", "119°", "120°", "121°", "122°", "123°", "124°", "125°", "126°", "127°", "128°"],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,

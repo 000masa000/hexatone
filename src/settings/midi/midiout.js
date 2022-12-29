@@ -34,9 +34,9 @@ const MidiOut = (props) => (
               name="midi_mapping"
         onChange={(e) => props.onChange(e.target.name, e.target.value)}>
         <option>choose how the notes are sent</option>
-        <option value="multichannel">one cycle + equave per channel</option>
-        <option value="sequential">using all notes 0-127 across all channels</option>
-        <option value="MTS">notes and MTS data on selected channel</option>
+        <option value="multichannel">one cycle per channel, starting from MIDI note 0</option>
+        <option value="sequential">all notes on selected channel, around MIDI note 60</option>
+        <option value="MTS">notes and MTS tuning data on selected channel</option>
       </select>
     </label>
     <label>

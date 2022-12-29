@@ -120,6 +120,7 @@ class Keys {
   midinoteOn = (e) => {
     this.state.midinotesOn.set(e.note.number, e.note.rawAttack);
     var steps = e.note.number - 60;
+    var velocity_played = e.note.rawAttack;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
     var rSteps_to_steps = this.settings.rSteps * rSteps_count;
     var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
@@ -129,7 +130,7 @@ class Keys {
     var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
     if (remainder == 0) {
       var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
-      var hex = this.hexOn(coords);
+      var hex = this.hexOn(coords, velocity_played);
       this.state.activeHexObjects.push(hex);
     };
   };
@@ -157,11 +158,11 @@ class Keys {
     };
   };
   
-  hexOn(coords) {
+  hexOn(coords, velocity_played) {
     const [cents, pressed_interval, steps, equaves, equivSteps] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps);
+    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps, velocity_played);
     hex.noteOn();
     return hex;
   };
@@ -273,7 +274,7 @@ class Keys {
       && !this.state.pressedKeys.has(e.code)) {
       this.state.pressedKeys.add(e.code);
       var coords = this.settings.keyCodeToCoords[e.code];
-      var hex = this.hexOn(coords);
+      var hex = this.hexOn(coords, 0);
       this.state.activeHexObjects.push(hex);
     }
   };
@@ -326,13 +327,13 @@ class Keys {
     coords = this.getHexCoordsAt(coords);
 
     if (this.state.activeHexObjects.length == 0) {
-      this.state.activeHexObjects[0] = this.hexOn(coords);
+      this.state.activeHexObjects[0] = this.hexOn(coords, 0);
     } else {
       var first = this.state.activeHexObjects[0];
       if (!(coords.equals(first.coords))) {
         this.hexOff(first.coords);
         this.noteOff(first);
-        this.state.activeHexObjects[0] = this.hexOn(coords);
+        this.state.activeHexObjects[0] = this.hexOn(coords, 0);
       }
     }
   };
@@ -383,7 +384,7 @@ class Keys {
         }
       }
       if (!(found)) {
-        var newHex = this.hexOn(coords);
+        var newHex = this.hexOn(coords, 0);
         this.state.activeHexObjects.push(newHex);
       }
     };

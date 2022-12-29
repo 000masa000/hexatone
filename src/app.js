@@ -107,7 +107,7 @@ export const App = () => {
   useEffect(() => {
     if (navigator.requestMIDIAccess) {
       setLoading(wait);
-      navigator.requestMIDIAccess( /*{ sysex: true }*/).then   // TODO make this work across browsers!
+      navigator.requestMIDIAccess( { sysex: true } ).then   // TODO make this work across browsers!
         (m => {
         setLoading(signal);
         setMidi(m); // MIDIAccess stored
