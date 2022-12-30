@@ -81,7 +81,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "hammond",
         "short_description": "12-edo",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Pythagorean",
@@ -114,7 +114,7 @@ export const presets = [
         "fundamental": 260.740740,        
         "instrument": "hammond",
         "short_description": "12-RI-3L",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Quarter-Comma Meantone",
@@ -147,7 +147,7 @@ export const presets = [
         "fundamental": 263.181385,        
         "instrument": "hammond",
         "short_description": "12-MT",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "5-limit Just Intonation",
@@ -180,7 +180,7 @@ export const presets = [
         "fundamental": 264,        
         "instrument": "hammond",
         "short_description": "12-RI-5L",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "7-limit Just Intonation",
@@ -213,7 +213,7 @@ export const presets = [
         "fundamental": 264,        
         "instrument": "hammond",
         "short_description": "12-RI-7L",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Equal, Pythagorean, Meantone, and 5-limit JI combined",
@@ -271,7 +271,7 @@ export const presets = [
         "fundamental": 260.74074074,        
         "instrument": "hammond",
         "short_description": "12-tone-combined",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "B-System Button Layout",
@@ -297,7 +297,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "WMRI3LST",
         "short_description": "12-edo B-System Chromatic Button",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "C-System Button Layout",
@@ -323,7 +323,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "WMRI7LST",
         "short_description": "12-edo C-System Chromatic Button"      ,
-        "midiin_device": "OFF" 
+        "midiin_device": "input-0" 
       }
     ]
   },
@@ -361,7 +361,7 @@ export const presets = [
         "fundamental": 260.740740,
         "instrument": "qanun",
         "short_description": "22-JI-17L Farabi",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Ibn Sina",
@@ -394,7 +394,7 @@ export const presets = [
         "fundamental": 260.740740,       
         "instrument": "qanun",
         "short_description": "17-JI-13L Ibn Sina",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Safiaddin Ormavi",
@@ -427,7 +427,7 @@ export const presets = [
         "fundamental": 260.740740,       
         "instrument": "qanun",
         "short_description": "17-JI-3L Ormavi",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }  
     ]
   },
@@ -465,7 +465,7 @@ export const presets = [
         "fundamental": 260.740740,
         "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Śruti (HEJI Notation)",
@@ -498,7 +498,7 @@ export const presets = [
         "fundamental": 260.740740,
         "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }      
     ]
   },
@@ -537,7 +537,7 @@ export const presets = [
         "fundamental": 260.74074074,        
         "instrument": "WMRI11LST",
         "short_description": "43-JI-11L Partch (C)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Harry Partch (G = 1/1, in Partch’s original ratio notation)",
@@ -569,7 +569,7 @@ export const presets = [
         "output": "sample",
         "fundamental": 261.333333,        
         "instrument": "gayageum",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Adriaan Fokker 31-tone 7-limit",
@@ -602,7 +602,7 @@ export const presets = [
         "fundamental": 264,        
         "instrument": "WMRI7LST",
         "short_description": "31-JI-7L Fokker",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Erv Wilson 17-tone 11-limit",
@@ -635,7 +635,7 @@ export const presets = [
         "fundamental": 264,
         "instrument": "harp",
         "short_description": "17-JI-11L Wilson",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       // ADD a version in flats and sharps!
       {
@@ -669,7 +669,7 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "rhodes",
         "short_description": "53-JI-3L Extended Pythagorean",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Marc Sabat-Euler Lattice 53-tone Ptolemaic", 
@@ -702,7 +702,7 @@ export const presets = [
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
         "short_description": "55-JI-5L Sabat-Euler Lattice",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Marc Sabat-La Monte Young 41-tone Septimal-Pythagorean",
@@ -735,7 +735,7 @@ export const presets = [
         "fundamental": 260.740740,        
         "instrument": "WMRI7LST",
         "short_description": "41-JI-7L Sabat-Young",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Cam Taylor 53-tone 13-limit",
@@ -768,7 +768,7 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "WMRI13LST",
         "short_description": "53-RI-13L Cam Taylor",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }
     ]
   },
@@ -807,7 +807,7 @@ export const presets = [
         "fundamental": 263.1813855,        
         "instrument": "WMRI5LST",
         "short_description": "31-Extended-Meantone (g♭-a♯♯♯) - Vicentino I",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Vicentino II (1555) 38-tone Adaptive Just Intonation",
@@ -840,7 +840,7 @@ export const presets = [
         "fundamental": 263.0921203,
         "instrument": "WMRI5LST",
         "short_description": "19 from Extended Meantone with P5s - Vicentino II",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Helmholtz-Sabat 2/17-Schisma Extended Meantone",
@@ -873,7 +873,7 @@ export const presets = [
         "fundamental": 260.740740,        
         "instrument": "WMRI5LST",
         "short_description": "35-MT Sabat-Helmholtz",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "43-tone Extended 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
@@ -906,7 +906,7 @@ export const presets = [
         "fundamental": 262.682024,
         "instrument": "rhodes",
         "short_description": "43-mt, D♭♭♭-D♯♯♯",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "55-tone Extended 1/6-Pythagorean Comma Meantone (a♭♭♭♭-g♯♯♯♯)", 
@@ -939,7 +939,7 @@ export const presets = [
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
         "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }
     ]
   },
@@ -977,7 +977,7 @@ export const presets = [
         "fundamental": 264.022598,
         "instrument": "lute",
         "short_description": "19-edo (Salinas)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "19-edo (in enharmonic Septimal notation)",
@@ -1010,7 +1010,7 @@ export const presets = [
         "fundamental": 264.022598,
         "instrument": "lute",
         "short_description": "19-edo (Salinas, Septimal Notation)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "31-edo (g♭♭-a♯♯)",
@@ -1043,7 +1043,7 @@ export const presets = [
         "fundamental": 263.0921203,
         "instrument": "hammond",
         "short_description": "31-edo (g♭♭-a♯♯)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "31-edo (in Vicentino’s Notation, 1555)",
@@ -1076,7 +1076,7 @@ export const presets = [
         "fundamental": 263.0921203,
         "instrument": "harpsichord",
         "short_description": "31-edo (Vicentino Notation)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "41-edo (Septimal-Pythagorean Notation)",
@@ -1109,7 +1109,7 @@ export const presets = [
         "fundamental": 260.5221364,
         "instrument": "hammond",
         "short_description": "41-edo (Septimal-Pythagorean Notation)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "43-edo (Sauveur 1696, d♭♭♭-d♯♯♯)",
@@ -1142,7 +1142,7 @@ export const presets = [
         "fundamental": 262.682024,
         "instrument": "rhodes",
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       // add more info about early version of 53?
       {
@@ -1176,7 +1176,7 @@ export const presets = [
         "fundamental": 260.771561,
         "instrument": "hammond",
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "55-edo (Telemann 1767, a♭♭♭♭-g♯♯♯♯)", 
@@ -1209,7 +1209,7 @@ export const presets = [
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
         "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "72-edo (Sims/Tenney)", 
@@ -1254,7 +1254,7 @@ export const presets = [
         "fundamental": 262.451161,
         "instrument": "WMRIByzantineST",
         "short_description": "72-edo (Sims/Tenney)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }
     ]
   },
@@ -1286,7 +1286,7 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "WMRI13LST",
         "short_description": "112-HS 16° to 128°",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "Harmonic and Subharmonic Series 16 to 64 combined",
@@ -1308,7 +1308,7 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "WMRI5LST",
         "short_description": "96-HSS 16 to 64",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "19-tone modulating pattern of harmonic partials from 32° to 52°",
@@ -1331,7 +1331,7 @@ export const presets = [
         "fundamental": 260.74074074,
         "instrument": "hammond",
         "short_description": "19-HS 34 to 51",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       }
     ]
   },
@@ -1356,7 +1356,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "WMRI3LST",
         "short_description": "Interval Tester by Syntonic Commas (22 cents)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "By Lesser Dieses (41 cents)", 
@@ -1376,7 +1376,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "WMRI5LST",
         "short_description": "Interval Tester by Diesis (41 cents)",
-        "midiin_device": "OFF"
+        "midiin_device": "input-0"
       },
       {
         "name": "By 24-edo Quarter-Tones (50 cents)", 
@@ -1396,7 +1396,7 @@ export const presets = [
         "fundamental": 261.6255653,
         "instrument": "WMRI11LST",
         "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)",
-        "midiin_device": "OFF",
+        "midiin_device": "input-0",
       }      
     ]
   }
