@@ -80,7 +80,8 @@ export const presets = [
         "output": "sample",
         "fundamental": 261.6255653,
         "instrument": "hammond",
-        "short_description": "12-edo"
+        "short_description": "12-edo",
+        "midiin_device": "input-1"
       },
       {
         "name": "Pythagorean",

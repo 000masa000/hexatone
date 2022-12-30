@@ -74,6 +74,9 @@ export const App = () => {
     name: ExtractString,
     description: ExtractString,
 
+    // Input
+    midiin_device: ExtractString,
+
     // Output
     output: ExtractString,
     instrument: ExtractString,
@@ -117,7 +120,7 @@ export const App = () => {
   }, []);
 
   function onMIDISuccess(midiAccess) {
-    console.log("Web MIDI API for output without sysex MTS messages is ready!"); // post success ... iTODO include sysex
+    console.log("Web MIDI API with sysex for MTS messages is ready!"); // post success ... iTODO include sysex
   }
 
   function onMIDIFailure() {
@@ -149,7 +152,7 @@ export const App = () => {
           setSynth(s);
         }); // todo error handling
     }
-  }, [settings.instrument, settings.fundamental, 
+  }, [settings.instrument, settings.fundamental, settings.midiin_device,
       settings.midi_device, settings.midi_channel, settings.midi_mapping,
       settings.midi_velocity, settings.output, midi]);
 

@@ -3,6 +3,7 @@ import Point from './point';
 import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 import { midi_in } from '../settings/midi/midiin';
+import { WebMidi } from 'webmidi';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -68,7 +69,7 @@ class Keys {
 
     // Set up MIDI input handler (webmidi.js), see also ./settings/midi/midiin.js
 
-  if (midi_in[0]) {
+    /*if (midi_in[0]) {
 
       midi_in[0].addListener("noteon", e => {
         console.log(e.note.number, e.note.rawAttack);
@@ -79,6 +80,21 @@ class Keys {
         console.log(e.note.number, e.note.rawAttack);
         this.midinoteOff(e);
       });
+    };*/
+
+    console.log("midiin_device:", this.settings.midiin_device);
+
+   if (this.settings.midiin_device != "OFF") {
+    
+      WebMidi.getInputById(this.settings.midiin_device).addListener("noteon", e => {
+        console.log(e.note.number, e.note.rawAttack);
+        this.midinoteOn(e);
+      });
+
+      WebMidi.getInputById(this.settings.midiin_device).addListener("noteoff", e => {
+        console.log(e.note.number, e.note.rawAttack);
+        this.midinoteOff(e);
+      });     
     };
   };
 
@@ -111,9 +127,14 @@ class Keys {
 
     // Set up MIDI input handler
 
-   if (midi_in[0]) {
+  /* if (midi_in[0]) {
       midi_in[0].removeListener("noteon");
       midi_in[0].removeListener("noteoff");
+    };*/
+
+  if (this.settings.midiin_device != "OFF") {
+      WebMidi.getInputById(this.settings.midiin_device).removeListener("noteon");
+      WebMidi.getInputById(this.settings.midiin_device).removeListener("noteoff");
     };
   };
 

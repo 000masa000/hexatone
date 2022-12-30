@@ -29,6 +29,9 @@ Keyboard.propTypes = {
     scala: PropTypes.bool,
     no_labels: PropTypes.bool,
 
+    // Input
+    midiin_device: PropTypes.string,
+
     // Output
     output: PropTypes.string,
     instrument: PropTypes.string,

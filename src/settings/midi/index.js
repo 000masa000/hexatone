@@ -9,9 +9,9 @@ const MIDIio = (props) => (
     <label>
       Input Port
       <select value={props.settings.midiin_device}
-              name="midiin_device"
-              onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option value="-1">OFF</option>
+        name="midiin_device"
+        onChange={(e) =>  props.onChange(e.target.name, e.target.value)}>
+        <option value="OFF">OFF</option>
         {props.midi && Array.from(props.midi.inputs.values()).map(m => (
       <option value={m.id}>{m.name}</option>
     ))}
@@ -33,8 +33,9 @@ const MIDIio = (props) => (
 );
 
 MIDIio.propTypes = {
-  settings: PropTypes.shape({
-    output: PropTypes.string,
+  settings: PropTypes.shape({    
+    midiin_device: PropTypes.string,
+    output: PropTypes.string
   }).isRequired,
   midi: PropTypes.object,
   onChange: PropTypes.func.isRequired,
