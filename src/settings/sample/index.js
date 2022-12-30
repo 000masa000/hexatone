@@ -11,7 +11,7 @@ const SampleSynth = (props) => (
       <select value={props.settings.output}
               name="output"
               onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option>OFF</option>
+        <option value = "OFF">OFF</option>
         <option value="sample">Sample Synth ON</option>
       </select>
     </label>
