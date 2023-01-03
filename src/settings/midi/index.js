@@ -22,7 +22,7 @@ const MIDIio = (props) => (
       <select value={props.settings.output}
               name="output"
               onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-        <option value="sample">OFF</option>
+        <option value="OFF">OFF</option>
         {props.midi && (<option value="midi">MIDI Synth ON</option>)}
       </select>
     </label>

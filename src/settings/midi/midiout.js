@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const MidiOutSelect = (props) => (
   <select name="midi_device" onChange={(e) => props.onChange(e.target.name, e.target.value)}>
-    <option></option>
+    <option value="OFF">OFF</option>
     {Array.from(props.midi.outputs.values()).map(m => (
       <option value={m.id}>{m.name}</option>
     ))}
