@@ -23,7 +23,6 @@ class Keys {
       sustain: false,
       sustainedNotes: [],
       pressedKeys: new Set(),
-      midinotesOn: new Map(),
       activeHexObjects: [],
       isTouchDown: false,
       isMouseDown: false
@@ -48,8 +47,9 @@ class Keys {
     this.state.canvas.addEventListener("mouseup", this.mouseUp, false);
    
     console.log("midiin_device:", this.settings.midiin_device);
+    console.log("midiin_channel:", this.settings.midiin_channel);
 
-   if (this.settings.midiin_device !== "OFF") {
+    if (this.settings.midiin_device !== "OFF") {
     
       WebMidi.getInputById(this.settings.midiin_device).addListener("noteon", e => {
         this.midinoteOn(e);
@@ -59,7 +59,12 @@ class Keys {
         this.midinoteOff(e);
       });     
     };
+
+
+
   };
+
+
 
   deconstruct = () => {
     for (let hex of this.state.activeHexObjects) {
@@ -90,9 +95,11 @@ class Keys {
     };
   };
 
-  midinoteOn = (e) => {
-    this.state.midinotesOn.set(e.note.number, e.note.rawAttack);
+  midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
     var steps = e.note.number - 60;
+    var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    var steps_offset = channel_offset * this.settings.equivSteps;
+    steps = steps + steps_offset;
     var velocity_played = e.note.rawAttack;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
     var rSteps_to_steps = this.settings.rSteps * rSteps_count;
@@ -109,8 +116,10 @@ class Keys {
   };
 
   midinoteOff = (e) => {
-    this.state.midinotesOn.delete(e.note.number);
     var steps = e.note.number - 60;
+    var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    var steps_offset = channel_offset * this.settings.equivSteps;
+    steps = steps + steps_offset;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
     var rSteps_to_steps = this.settings.rSteps * rSteps_count;
     var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);

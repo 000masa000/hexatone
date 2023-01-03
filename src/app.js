@@ -76,6 +76,7 @@ export const App = () => {
 
     // Input
     midiin_device: ExtractString,
+    midiin_channel: ExtractInt,
 
     // Output
     output: ExtractString,

@@ -18,6 +18,15 @@ const MIDIio = (props) => (
       </select>
     </label>
     <label>
+    Central Input Channel
+      <select value={props.settings.midiin_channel}
+              name="midiin_channel"
+              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}>
+        <option>choose a channel on which input is untransposed:</option>
+        {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
+      </select>
+    </label>
+    <label>
       Output
       <select value={props.settings.output}
               name="output"
@@ -35,6 +44,7 @@ const MIDIio = (props) => (
 MIDIio.propTypes = {
   settings: PropTypes.shape({    
     midiin_device: PropTypes.string,
+    midiin_channel: PropTypes.number,
     output: PropTypes.string
   }).isRequired,
   midi: PropTypes.object,

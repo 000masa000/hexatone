@@ -31,6 +31,7 @@ Keyboard.propTypes = {
 
     // Input
     midiin_device: PropTypes.string,
+    midiin_channel: PropTypes.number,
 
     // Output
     output: PropTypes.string,

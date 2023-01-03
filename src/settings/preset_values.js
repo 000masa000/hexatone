@@ -1422,7 +1422,7 @@ export const presets = [
         "midi_velocity": 64
       },
       {
-        "name": "19-tone modulating pattern of harmonic partials from 32° to 52°",
+        "name": "19-tone modulating pattern (harmonic partials 32°-52°)",
         "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth.",
         "scale": parseScale(scale_19_hs_34to51).scale,
         "equivSteps": 19,

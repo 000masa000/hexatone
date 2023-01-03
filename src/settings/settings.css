@@ -15,6 +15,7 @@ label {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 0.125em;
+    line-height: 1.5em;
 }
 
 table {
