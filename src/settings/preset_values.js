@@ -82,7 +82,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-edo",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -118,7 +118,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-RI-3L",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -154,7 +154,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-MT",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -190,7 +190,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-RI-5L",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -226,7 +226,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-RI-7L",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -287,7 +287,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "12-tone-combined",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -316,7 +316,7 @@ export const presets = [
         "instrument": "WMRI3LST",
         "short_description": "12-edo B-System Chromatic Button",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -345,7 +345,7 @@ export const presets = [
         "instrument": "WMRI7LST",
         "short_description": "12-edo C-System Chromatic Button"      ,
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64 
       }
@@ -386,7 +386,7 @@ export const presets = [
         "instrument": "qanun",
         "short_description": "22-JI-17L Farabi",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -422,7 +422,7 @@ export const presets = [
         "instrument": "qanun",
         "short_description": "17-JI-13L Ibn Sina",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -458,7 +458,7 @@ export const presets = [
         "instrument": "qanun",
         "short_description": "17-JI-3L Ormavi",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }  
@@ -499,7 +499,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -535,7 +535,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }      
@@ -577,7 +577,7 @@ export const presets = [
         "instrument": "WMRI11LST",
         "short_description": "43-JI-11L Partch (C)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -612,7 +612,7 @@ export const presets = [
         "fundamental": 261.333333,        
         "instrument": "gayageum",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -648,7 +648,7 @@ export const presets = [
         "instrument": "WMRI7LST",
         "short_description": "31-JI-7L Fokker",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -684,7 +684,7 @@ export const presets = [
         "instrument": "harp",
         "short_description": "17-JI-11L Wilson",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -721,7 +721,7 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "53-JI-3L Extended Pythagorean",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -757,7 +757,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "55-JI-5L Sabat-Euler Lattice",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -793,7 +793,7 @@ export const presets = [
         "instrument": "WMRI7LST",
         "short_description": "41-JI-7L Sabat-Young",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -829,7 +829,7 @@ export const presets = [
         "instrument": "WMRI13LST",
         "short_description": "53-RI-13L Cam Taylor",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }
@@ -871,7 +871,7 @@ export const presets = [
         "instrument": "WMRI5LST",
         "short_description": "31-Extended-Meantone (g♭-a♯♯♯) - Vicentino I",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -907,7 +907,7 @@ export const presets = [
         "instrument": "WMRI5LST",
         "short_description": "19 from Extended Meantone with P5s - Vicentino II",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -943,7 +943,7 @@ export const presets = [
         "instrument": "WMRI5LST",
         "short_description": "35-MT Sabat-Helmholtz",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -979,7 +979,7 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "43-mt, D♭♭♭-D♯♯♯",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1015,7 +1015,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }
@@ -1056,7 +1056,7 @@ export const presets = [
         "instrument": "lute",
         "short_description": "19-edo (Salinas)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1092,7 +1092,7 @@ export const presets = [
         "instrument": "lute",
         "short_description": "19-edo (Salinas, Septimal Notation)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1128,7 +1128,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "31-edo (g♭♭-a♯♯)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1164,7 +1164,7 @@ export const presets = [
         "instrument": "harpsichord",
         "short_description": "31-edo (Vicentino Notation)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1200,7 +1200,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "41-edo (Septimal-Pythagorean Notation)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1236,7 +1236,7 @@ export const presets = [
         "instrument": "rhodes",
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1273,7 +1273,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1309,7 +1309,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1357,7 +1357,7 @@ export const presets = [
         "instrument": "WMRIByzantineST",
         "short_description": "72-edo (Sims/Tenney)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }
@@ -1392,7 +1392,7 @@ export const presets = [
         "instrument": "WMRI13LST",
         "short_description": "112-HS 16° to 128°",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1417,7 +1417,7 @@ export const presets = [
         "instrument": "WMRI5LST",
         "short_description": "96-HSS 16 to 64",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1443,7 +1443,7 @@ export const presets = [
         "instrument": "hammond",
         "short_description": "19-HS 34 to 51",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }
@@ -1471,7 +1471,7 @@ export const presets = [
         "instrument": "WMRI3LST",
         "short_description": "Interval Tester by Syntonic Commas (22 cents)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1494,7 +1494,7 @@ export const presets = [
         "instrument": "WMRI5LST",
         "short_description": "Interval Tester by Diesis (41 cents)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       },
@@ -1517,7 +1517,7 @@ export const presets = [
         "instrument": "WMRI11LST",
         "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)",
         "midiin_device": "OFF",
-        "midi_mapping": "multichannel",
+        "midi_mapping": "sequential",
         "midi_channel": 0,
         "midi_velocity": 64
       }      

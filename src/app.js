@@ -138,7 +138,7 @@ export const App = () => {
           setSynth(s);
         }); // todo error handling
     }
-    if (midi && settings.output === "midi" && settings.midi_device && 
+    if (midi && settings.output === "midi" && (settings.midi_device !== "OFF") && 
         typeof settings.midi_channel === "number" && settings.midi_mapping &&
         typeof settings.midi_velocity === "number") {
       setLoading(wait);

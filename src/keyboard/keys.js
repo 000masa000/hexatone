@@ -26,20 +26,7 @@ class Keys {
       midinotesOn: new Map(),
       activeHexObjects: [],
       isTouchDown: false,
-      isMouseDown: false,
-      /*shake: {
-        lastShakeCheck: 0,
-        lastShakeCount: 0,
-        // Shake sensitivity (a lower number is more)
-        sensitivity: 5,
-        // Position variables
-        x1: 0,
-        y1: 0,
-        z1: 0,
-        x2: 0,
-        y2: 0,
-        z2: 0,
-      }*/
+      isMouseDown: false
     };
     
     // Set up resize handler
@@ -59,40 +46,16 @@ class Keys {
     this.state.canvas.addEventListener("touchmove", this.handleTouch, false);
     this.state.canvas.addEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.addEventListener("mouseup", this.mouseUp, false);
-    /* iPad Shake to toggle sustain
-    if (typeof window.DeviceMotionEvent != 'undefined') {
-      window.addEventListener('devicemotion', this.deviceMotion, false);
-      // Periodically check the position and fire
-      // if the change is greater than the sensitivity
-      this.interval = setInterval(this.motionScan, 300);
-    };*/
-
-    // Set up MIDI input handler (webmidi.js), see also ./settings/midi/midiin.js
-
-    /*if (midi_in[0]) {
-
-      midi_in[0].addListener("noteon", e => {
-        console.log(e.note.number, e.note.rawAttack);
-        this.midinoteOn(e);
-      });
-
-      midi_in[0].addListener("noteoff", e => {
-        console.log(e.note.number, e.note.rawAttack);
-        this.midinoteOff(e);
-      });
-    };*/
-
+   
     console.log("midiin_device:", this.settings.midiin_device);
 
-   if (this.settings.midiin_device != "OFF") {
+   if (this.settings.midiin_device !== "OFF") {
     
       WebMidi.getInputById(this.settings.midiin_device).addListener("noteon", e => {
-        console.log(e.note.number, e.note.rawAttack);
         this.midinoteOn(e);
       });
 
       WebMidi.getInputById(this.settings.midiin_device).addListener("noteoff", e => {
-        console.log(e.note.number, e.note.rawAttack);
         this.midinoteOff(e);
       });     
     };
@@ -120,19 +83,8 @@ class Keys {
     this.state.canvas.removeEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.removeEventListener("mouseup", this.mouseUp, false);
     this.state.canvas.removeEventListener("mousemove", this.mouseActive, false);
-    /*if (typeof window.DeviceMotionEvent != 'undefined') {
-      window.removeEventListener('devicemotion', this.deviceMotion, false);
-      clearInterval(this.interval);
-    };*/
 
-    // Set up MIDI input handler
-
-  /* if (midi_in[0]) {
-      midi_in[0].removeListener("noteon");
-      midi_in[0].removeListener("noteoff");
-    };*/
-
-  if (this.settings.midiin_device != "OFF") {
+  if (this.settings.midiin_device !== "OFF") {
       WebMidi.getInputById(this.settings.midiin_device).removeListener("noteon");
       WebMidi.getInputById(this.settings.midiin_device).removeListener("noteoff");
     };

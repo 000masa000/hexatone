@@ -57,13 +57,14 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, mid
 MidiHex.prototype.noteOn = function () {
   if (this.mts.length > 0) {
     this.midi_output.send([240, 127, 0, 8, 2, 0, 1, note_count, this.mts[0], this.mts[1], this.mts[2], 247]);
-    console.log("MTS sysex: target note, retuned value", note_count, this.mts[0] + (this.mts[1]/128) + (this.mts[2]/16384));
+    console.log("MTS target note and tuning:", note_count, this.mts[0] + (this.mts[1]/128) + (this.mts[2]/16384));
   };
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);
   note_count = (note_count + 1) % 128;
-  console.log("noteoon:", this.channel+1,this.steps, this.velocity);
+  console.log("note_on:", this.channel+1,this.steps, this.velocity);
 };
 
 MidiHex.prototype.noteOff = function () {
   this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
+  console.log("note_off:", this.channel+1,this.steps, this.velocity);
 };
