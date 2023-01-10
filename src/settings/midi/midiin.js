@@ -16,5 +16,5 @@ function onEnabled() {
   // Outputs
   WebMidi.outputs.forEach(output => console.log(output.manufacturer, output.name, output.id));
 
- midi_in = WebMidi.inputs;
+  midi_in = WebMidi.inputs;
 };

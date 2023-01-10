@@ -9,10 +9,15 @@ const SampleSynth = (props) => (
     <label>
       Sample Synth
       <select value={props.settings.output}
-              name="output"
-              onChange={(e) => props.onChange(e.target.name, e.target.value)}>
+        name="output"
+        onChange={(e) => {
+          props.onChange(e.target.name, e.target.value);
+          localStorage.setItem(e.target.name, e.target.value);
+        }
+        }>
         <option value = "OFF">OFF</option>
         <option value="sample">Sample Synth ON</option>
+        <option value="midi">(midi-synth)</option>
       </select>
     </label>
     {props.settings.output === "sample" && (

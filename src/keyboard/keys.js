@@ -2,8 +2,8 @@ import { calculateRotationMatrix, applyMatrixToPoint } from './matrix';
 import Point from './point';
 import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
-import { midi_in } from '../settings/midi/midiin';
 import { WebMidi } from 'webmidi';
+import { midi_in } from '../settings/midi/midiin';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -48,23 +48,23 @@ class Keys {
    
     console.log("midiin_device:", this.settings.midiin_device);
     console.log("midiin_channel:", this.settings.midiin_channel);
+    console.log("midi_device:", this.settings.midi_device);
+    console.log("midi_channel:", this.settings.midi_channel);
+    console.log("midi_mapping:", this.settings.midi_mapping);
 
     if (this.settings.midiin_device !== "OFF") {
+
+      this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
     
-      WebMidi.getInputById(this.settings.midiin_device).addListener("noteon", e => {
+      this.midiin_data.addListener("noteon", e => {
         this.midinoteOn(e);
       });
 
-      WebMidi.getInputById(this.settings.midiin_device).addListener("noteoff", e => {
+      this.midiin_data.addListener("noteoff", e => {
         this.midinoteOff(e);
-      });     
+      });
     };
-
-
-
   };
-
-
 
   deconstruct = () => {
     for (let hex of this.state.activeHexObjects) {
@@ -90,8 +90,9 @@ class Keys {
     this.state.canvas.removeEventListener("mousemove", this.mouseActive, false);
 
   if (this.settings.midiin_device !== "OFF") {
-      WebMidi.getInputById(this.settings.midiin_device).removeListener("noteon");
-      WebMidi.getInputById(this.settings.midiin_device).removeListener("noteoff");
+    this.midiin_data.removeListener("noteon");
+    this.midiin_data.removeListener("noteoff");
+    this.midin_data = null;
     };
   };
 

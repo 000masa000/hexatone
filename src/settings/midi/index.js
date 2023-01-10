@@ -10,7 +10,11 @@ const MIDIio = (props) => (
       Input Port
       <select value={props.settings.midiin_device}
         name="midiin_device"
-        onChange={(e) =>  props.onChange(e.target.name, e.target.value)}>
+        onChange={(e) => {
+          props.onChange(e.target.name, e.target.value);
+          localStorage.setItem(e.target.name, e.target.value);
+        }
+        }>
         <option value="OFF">OFF</option>
         {props.midi && Array.from(props.midi.inputs.values()).map(m => (
       <option value={m.id}>{m.name}</option>
@@ -20,8 +24,12 @@ const MIDIio = (props) => (
     <label>
     Central Input Channel
       <select value={props.settings.midiin_channel}
-              name="midiin_channel"
-              onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}>
+        name="midiin_channel"
+        onChange={(e) => {
+          props.onChange(e.target.name, parseInt(e.target.value));
+          localStorage.setItem(e.target.name, e.target.value);
+        }
+        }>
         <option>choose a channel on which input is untransposed:</option>
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
@@ -30,9 +38,14 @@ const MIDIio = (props) => (
       Output
       <select value={props.settings.output}
               name="output"
-              onChange={(e) => props.onChange(e.target.name, e.target.value)}>
+        onChange={(e) => {
+          props.onChange(e.target.name, e.target.value);
+          localStorage.setItem(e.target.name, e.target.value);
+        }
+        }>
         <option value="OFF">OFF</option>
         {props.midi && (<option value="midi">MIDI Synth ON</option>)}
+        <option value="sample">(sample-synth)</option>
       </select>
     </label>
     {(props.settings.output === "midi" && props.midi) && (

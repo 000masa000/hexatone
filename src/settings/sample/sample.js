@@ -24,7 +24,11 @@ Sample.propTypes = {
 const Instruments = (props) => (
   <select name="instrument"
     value={props.value}
-    onChange={(e) => props.onChange(e.target.name, e.target.value)} >
+    onChange={(e) => {
+      props.onChange(e.target.name, e.target.value);
+      localStorage.setItem(e.target.name, e.target.value);
+    }
+    } >
     {props.groups.map(group => (
       <optgroup label={group.name}>
         {group.instruments.map(instrument => (

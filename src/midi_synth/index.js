@@ -66,5 +66,5 @@ MidiHex.prototype.noteOn = function () {
 
 MidiHex.prototype.noteOff = function () {
   this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
-  console.log("note_off:", this.channel+1,this.steps, this.velocity);
+  console.log("note_off:", this.channel+1,this.steps, 0);
 };

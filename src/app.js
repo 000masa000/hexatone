@@ -40,9 +40,10 @@ const findPreset = (preset) => {
 
 const normalize = (settings) => {
   const fundamental_color = (settings.fundamental_color || "").replace(/#/, '');
-  const note_colors = settings.note_colors.map(c => c ? c.replace(/#/, '') : "fafafa");
+  const note_colors = settings.note_colors.map(c => c ? c.replace(/#/, '') : "ffffff");
   const rotation = settings.rotation * Math.PI / 180.0; // convert to radians
-  const result = {...settings, fundamental_color, keyCodeToCoords, note_colors, rotation};
+  const result = { ...settings, fundamental_color, keyCodeToCoords, note_colors, rotation };
+  
   if (settings.key_labels === "enumerate") {
     result["degree"] = true; // if true label scale with degree numbers, else use names
   } else if (settings.key_labels === "note_names") {
@@ -51,7 +52,7 @@ const normalize = (settings) => {
     result["scala"] = true;
   } else if (settings.key_labels === "no_labels") {
     result["no_labels"] = true;
-  }
+  };
 
   if (settings.scale) {
     const scala_names = settings.scale.map(i => scalaToLabels(i)); // convert Scala file data to possible key labels
@@ -67,7 +68,7 @@ const normalize = (settings) => {
   return result;
 };
 
-export const App = () => {
+const App = () => {
   const [loading, setLoading] = useState(0);
 
   const [settings, setSettings] = useQuery({
@@ -111,22 +112,80 @@ export const App = () => {
   useEffect(() => {
     if (navigator.requestMIDIAccess) {
       setLoading(wait);
-      navigator.requestMIDIAccess( { sysex: true } ).then   // TODO make this work across browsers!
+      navigator.requestMIDIAccess( { sysex: true } ).then 
         (m => {
         setLoading(signal);
-        setMidi(m); // MIDIAccess stored
-        onMIDISuccess(m);
+          onMIDISuccess(m);
       }, onMIDIFailure); 
     }
   }, []);
 
   function onMIDISuccess(midiAccess) {
-    console.log("Web MIDI API with sysex for MTS messages is ready!"); // post success ... iTODO include sysex
+    console.log("Web MIDI API with sysex for MTS messages is ready!"); // post success    
+    setMidi(midiAccess); // MIDIAccess stored
   }
 
   function onMIDIFailure() {
     console.log('Web MIDI API could not initialise!');
   } // MIDI failure error
+
+  // if localStorage values have been set for preferred output (sample/MIDI) and settings, use them
+
+  if (localStorage.getItem("output")) {
+    console.log("localstorage output", localStorage.getItem("output"))
+    settings.output = localStorage.getItem("output");
+  } else {
+    settings.output = "sample";
+  };
+
+  if (localStorage.getItem("instrument")) {
+    console.log("localstorage instrument", localStorage.getItem("instrument"))
+    settings.instrument = localStorage.getItem("instrument");
+  } else {
+    settings.instrument = "hammond";
+  };
+  
+  if (localStorage.getItem("midiin_device")) {
+    console.log("localstorage midiin_device", localStorage.getItem("midiin_device"))
+    settings.midiin_device = localStorage.getItem("midiin_device");
+  } else {
+    settings.midiin_device = "OFF";
+  };
+
+  if (localStorage.getItem("midiin_channel")) {
+    console.log("localstorage midiin_channel", localStorage.getItem("midiin_channel"))
+    settings.midiin_channel = parseInt(localStorage.getItem("midiin_channel"));
+  } else {
+    settings.midiin_channel = 0;
+  };
+
+  if (localStorage.getItem("midi_device")) {
+    console.log("localstorage midi_device", localStorage.getItem("midi_device"))
+    settings.midi_device = localStorage.getItem("midi_device");
+  } else {
+    settings.midi_device = "OFF";
+  };
+
+  if (localStorage.getItem("midi_channel")) {
+    console.log("localstorage midi_channel", localStorage.getItem("midi_channel"))
+    settings.midi_channel = parseInt(localStorage.getItem("midi_channel"));
+  } else {
+    settings.midi_channel = 0;
+  };
+  
+  if (localStorage.getItem("midi_mapping")) {
+    console.log("localstorage midi_mapping", localStorage.getItem("midi_mapping"))
+    settings.midi_mapping = localStorage.getItem("midi_mapping");
+  } else {
+    settings.midi_mapping = "sequential";
+  };
+
+  if (localStorage.getItem("midi_velocity")) {
+    console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
+    settings.midi_velocity = parseInt(localStorage.getItem("midi_velocity"));
+  } else {
+    settings.midi_velocity = 64;
+  };
 
   useEffect(() => {
     if (settings.output === "sample"
@@ -153,7 +212,7 @@ export const App = () => {
           setSynth(s);
         }); // todo error handling
     }
-  }, [settings.instrument, settings.fundamental, settings.midiin_device,
+  }, [settings.instrument, settings.fundamental, settings.midiin_device, settings.midiin_device,
       settings.midi_device, settings.midi_channel, settings.midi_mapping,
       settings.midi_velocity, settings.output, midi]);
 
@@ -178,7 +237,7 @@ export const App = () => {
   };
 
   const valid = s => (
-    ((s.output === "midi" && s.midi_device && typeof s.midi_channel === "number" && s.midi_mapping &&
+    ((s.output === "midi" && (s.midi_device !== "OFF") && typeof s.midi_channel === "number" && s.midi_mapping &&
       typeof s.midi_velocity === "number") ||
      (s.output === "sample" && s.fundamental && s.instrument)) &&
       s.rSteps && s.urSteps &&
@@ -201,7 +260,7 @@ export const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra<br />Isomorphic&nbsp;&nbsp;Keyboard
+          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra<br />Isomorphic&nbsp;Keyboard
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}
