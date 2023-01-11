@@ -46,11 +46,11 @@ class Keys {
     this.state.canvas.addEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.addEventListener("mouseup", this.mouseUp, false);
    
-    console.log("midiin_device:", this.settings.midiin_device);
+   /* console.log("midiin_device:", this.settings.midiin_device);
     console.log("midiin_channel:", this.settings.midiin_channel);
     console.log("midi_device:", this.settings.midi_device);
     console.log("midi_channel:", this.settings.midi_channel);
-    console.log("midi_mapping:", this.settings.midi_mapping);
+    console.log("midi_mapping:", this.settings.midi_mapping);*/
 
     if (this.settings.midiin_device !== "OFF") {
 

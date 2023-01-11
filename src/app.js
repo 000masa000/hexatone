@@ -68,11 +68,11 @@ const normalize = (settings) => {
   return result;
 };
 
-var counter = 0;
+//var counter = 0; //TODO why is the App() called so many times?
 
 const App = () => {
-  counter += 1;
-  console.log("counter", counter);
+  //counter += 1;
+  //console.log("counter", counter);
   const [loading, setLoading] = useState(0);
 
   const [settings, setSettings] = useQuery({
@@ -136,56 +136,56 @@ const App = () => {
   // if localStorage values have been set for preferred output (sample/MIDI) and settings, use them
 
   if (localStorage.getItem("output")) {
-    console.log("localstorage output", localStorage.getItem("output"))
+   // console.log("localstorage output", localStorage.getItem("output"))
     settings.output = localStorage.getItem("output");
   } else {
     settings.output = "sample";
   };
 
   if (localStorage.getItem("instrument")) {
-    console.log("localstorage instrument", localStorage.getItem("instrument"))
+   // console.log("localstorage instrument", localStorage.getItem("instrument"))
     settings.instrument = localStorage.getItem("instrument");
   } else {
     settings.instrument = "hammond";
   };
   
   if (localStorage.getItem("midiin_device")) {
-    console.log("localstorage midiin_device", localStorage.getItem("midiin_device"))
+   // console.log("localstorage midiin_device", localStorage.getItem("midiin_device"))
     settings.midiin_device = localStorage.getItem("midiin_device");
   } else {
     settings.midiin_device = "OFF";
   };
 
   if (localStorage.getItem("midiin_channel")) {
-    console.log("localstorage midiin_channel", localStorage.getItem("midiin_channel"))
+   // console.log("localstorage midiin_channel", localStorage.getItem("midiin_channel"))
     settings.midiin_channel = parseInt(localStorage.getItem("midiin_channel"));
   } else {
     settings.midiin_channel = 0;
   };
 
   if (localStorage.getItem("midi_device")) {
-    console.log("localstorage midi_device", localStorage.getItem("midi_device"))
+   // console.log("localstorage midi_device", localStorage.getItem("midi_device"))
     settings.midi_device = localStorage.getItem("midi_device");
   } else {
     settings.midi_device = "OFF";
   };
 
   if (localStorage.getItem("midi_channel")) {
-    console.log("localstorage midi_channel", localStorage.getItem("midi_channel"))
+   // console.log("localstorage midi_channel", localStorage.getItem("midi_channel"))
     settings.midi_channel = parseInt(localStorage.getItem("midi_channel"));
   } else {
     settings.midi_channel = 0;
   };
   
   if (localStorage.getItem("midi_mapping")) {
-    console.log("localstorage midi_mapping", localStorage.getItem("midi_mapping"))
+   // console.log("localstorage midi_mapping", localStorage.getItem("midi_mapping"))
     settings.midi_mapping = localStorage.getItem("midi_mapping");
   } else {
     settings.midi_mapping = "sequential";
   };
 
   if (localStorage.getItem("midi_velocity")) {
-    console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
+  // console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
     settings.midi_velocity = parseInt(localStorage.getItem("midi_velocity"));
   } else {
     settings.midi_velocity = 64;
