@@ -19,8 +19,9 @@ import scale_53_ri_3l from 'scales/53-RI-3L.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 import scale_41_ji_7l from 'scales/41-JI-7L-Sabat-Young.scl';
 import scale_55_ji_5l from 'scales/55-JI-5L-Sabat-Euler.scl';
+import scale_36_hs_12to48 from 'scales/36-HS-12to48.scl';
 import scale_112_hs_16to128 from 'scales/112-HS-16to128.scl';
-import scale_96_hss_16to64 from 'scales/96-HSS-16to64.scl';
+import scale_72_hss_12to48 from 'scales/72-HSS-12to48.scl';
 import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
@@ -492,6 +493,97 @@ export const presets = [
         "fundamental": 260.740740,
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       }      
+    ]
+  },
+  {
+    "name": "Harmonic and Subharmonic Series",
+    settings: [
+      {
+        "name": "Harmonic Series partials from 12° to 48°",
+        "description": "A two octave cycle comprising Harmonic Series partials 12° to 48°. The first octave has 12 pitch-classes, and the second has 24, mapping onto 3 octaves of a conventional keyboard.",
+        "scale": parseScale(scale_36_hs_12to48).scale,
+        "equivSteps": 36,
+        "note_names": [
+          "12°", "13°", "14°", "15°",
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°",
+          "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°",
+          "48°"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": 16.102113751,
+        "fundamental": 260.74074074,
+        "short_description": "36-HS 12° to 24°"
+      },
+      {
+        "name": "Harmonic and Subharmonic Series 12 to 48 combined",
+        "description": "Harmonic and Subharmonic Series partials from 12 to 48 mapped onto a four octave cycle.",
+        "scale": parseScale(scale_72_hss_12to48).scale,
+        "equivSteps": 96,
+        "note_names": [
+          "48", "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16", "u15", "u14", "u13",
+          "12", "13°", "14°", "15°",
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48" 
+        ],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": 16.102113751,
+        "fundamental": 260.74074074,
+        "short_description": "72-HSS 12 to 48"
+      },
+      {
+        "name": "Harmonic Series partials from 16° to 128°",
+        "description": "A three octave cycle comprising Harmonic Series partials 16° to 128°.",
+        "scale": parseScale(scale_112_hs_16to128).scale,
+        "equivSteps": 112,
+        "note_names": [
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°",
+          "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°",
+          "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°",
+          "64°", "65°", "66°", "67°", "68°", "69°", "70°", "71°", "72°", "73°", "74°", "75°", "76°", "77°", "78°", "79°",
+          "80°", "81°", "82°", "83°", "84°", "85°", "86°", "87°", "88°", "89°", "90°", "91°", "92°", "93°", "94°", "95°",
+          "96°", "97°", "98°", "99°", "100°", "101°", "102°", "103°", "104°", "105°", "106°", "107°", "108°", "109°", "110°", "111°",
+          "112°", "113°", "114°", "115°", "116°", "117°", "118°", "119°", "120°", "121°", "122°", "123°", "124°", "125°", "126°", "127°", "128°"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 8,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": 23.45,
+        "fundamental": 260.74074074,
+        "short_description": "112-HS 16° to 128°"
+      },
+      {
+        "name": "19-tone modulating pattern (harmonic partials 32°-52°)",
+        "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth.",
+        "scale": parseScale(scale_19_hs_34to51).scale,
+        "equivSteps": 19,
+        "note_names": [
+          "34°51°", "52°", "35°", "36°", "37°", "38°", "39°", "40°", "41°",
+          "42°", "43°", "44°", "45°", "46°", "47°", "32°48°", "49°", "33°",
+          "50°"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 3,
+        "urSteps": 2,
+        "hexSize": 42,
+        "rotation": -10.89,
+        "fundamental": 260.74074074,
+        "short_description": "19-HS 34 to 51"
+      }
     ]
   },
   {
@@ -1239,74 +1331,6 @@ export const presets = [
         "rotation": -16.102113751,
         "fundamental": 262.451161,
         "short_description": "72-edo (Sims/Tenney)"
-      }
-    ]
-  },
-  {
-    "name": "Harmonic and Subharmonic Series",
-    settings: [
-      {
-        "name": "Harmonic Series partials from 16° to 128°",
-        "description": "A three octave cycle comprising Harmonic Series partials 16° to 128°.",
-        "scale": parseScale(scale_112_hs_16to128).scale,
-        "equivSteps": 112,
-        "note_names": [
-          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°",
-          "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°",
-          "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°",
-          "64°", "65°", "66°", "67°", "68°", "69°", "70°", "71°", "72°", "73°", "74°", "75°", "76°", "77°", "78°", "79°",
-          "80°", "81°", "82°", "83°", "84°", "85°", "86°", "87°", "88°", "89°", "90°", "91°", "92°", "93°", "94°", "95°",
-          "96°", "97°", "98°", "99°", "100°", "101°", "102°", "103°", "104°", "105°", "106°", "107°", "108°", "109°", "110°", "111°",
-          "112°", "113°", "114°", "115°", "116°", "117°", "118°", "119°", "120°", "121°", "122°", "123°", "124°", "125°", "126°", "127°", "128°"],
-        "key_labels": "note_names",
-        "note_colors": [],
-        "spectrum_colors": true,
-        "fundamental_color": "#f5fbff",
-        "rSteps": 8,
-        "urSteps": 1,
-        "hexSize": 34,
-        "rotation": -16.102113751,
-        "fundamental": 260.74074074,
-        "short_description": "112-HS 16° to 128°"
-      },
-      {
-        "name": "Harmonic and Subharmonic Series 16 to 64 combined",
-        "description": "Harmonic and Subharmonic Series partials from 16 to 64 mapped onto a four octave cycle.",
-        "scale": parseScale(scale_96_hss_16to64).scale,
-        "equivSteps": 96,
-        "note_names": [
-          "16", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48°", "49°", "50°", "51°", "52°", "53°", "54°", "55°", "56°", "57°", "58°", "59°", "60°", "61°", "62°", "63°", "64", "u63", "u62", "u61", "u60", "u59", "u58", "u57", "u56", "u55", "u54", "u53", "u52", "u51", "u50", "u49", "u48", "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "16",
-        ],
-        "key_labels": "note_names",
-        "note_colors": [],
-        "spectrum_colors": true,
-        "fundamental_color": "#f5fbff",
-        "rSteps": 8,
-        "urSteps": 1,
-        "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.74074074,
-        "short_description": "96-HSS 16 to 64"
-      },
-      {
-        "name": "19-tone modulating pattern (harmonic partials 32°-52°)",
-        "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth.",
-        "scale": parseScale(scale_19_hs_34to51).scale,
-        "equivSteps": 19,
-        "note_names": [
-          "34°51°", "52°", "35°", "36°", "37°", "38°", "39°", "40°", "41°",
-          "42°", "43°", "44°", "45°", "46°", "47°", "32°48°", "49°", "33°",
-          "50°"],
-        "key_labels": "note_names",
-        "note_colors": [],
-        "spectrum_colors": true,
-        "fundamental_color": "#f5fbff",
-        "rSteps": 3,
-        "urSteps": 2,
-        "hexSize": 40,
-        "rotation": -16.102113751,
-        "fundamental": 260.74074074,
-        "short_description": "19-HS 34 to 51"
       }
     ]
   },
