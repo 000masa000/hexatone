@@ -16,21 +16,21 @@ const Layout = (props) => (
       <input name="urSteps" type="number"
              value={props.settings.urSteps}
              min="-1220" max="1220"
-             onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
+             onChange={(e) => props.onChange(e.target.name, e.target.value = (e.target.value === "+" || e.target.value === "-") ? e.target.value : parseInt(e.target.value))}/>
     </label>
     <label>
       Hex Size (pixels)
       <input name="hexSize" type="number"
              step="any" min="20" max="1000"
              value={props.settings.hexSize}
-             onChange={(e) => props.onChange(e.target.name, parseInt(e.target.value))}/>
+             onChange={(e) => props.onChange(e.target.name, e.target.value = (e.target.value === "+" || e.target.value === "-") ? e.target.value : parseInt(e.target.value))}/>
     </label>
     <label>
       Rotation (degrees clockwise)
       <input name="rotation" type="number"
              value={props.settings.rotation}
              step="any" min="-360" max="360"
-             onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
+             onChange={(e) => props.onChange(e.target.name, e.target.value = (e.target.value === "+" || e.target.value === "-") ? e.target.value : parseFloat(e.target.value))}/>
     </label>
   </fieldset>
 );

@@ -587,7 +587,6 @@ export const presets = [
         "fundamental": 264,
         "short_description": "17-JI-11L Wilson"
       },
-      // ADD a version in flats and sharps!
       {
         "name": "53-tone Extended Pythagorean",
         "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a series of 53 just fifths is very nearly equal to 31 octaves.",
@@ -677,6 +676,36 @@ export const presets = [
         "rotation": -16.102113751,
         "fundamental": 260.740740,
         "short_description": "41-JI-7L Sabat-Young"
+      },
+      {
+        "name": "41-tone Septimal-Pythagorean (Lattice Layout)",
+        "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided Limma-Comma-Limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each Limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).",
+        "scale": parseScale(scale_41_ji_7l).scale,
+        "equivSteps": 41,
+        "note_names": [
+          "C", "C", "D", "D", "C", "C", "D",
+          "D", "D", "E", "E", "D", "D", "E",
+          "E", "E", "F",
+          "F", "F", "G", "G", "F", "F", "G",
+          "G", "G", "A", "A", "G", "G", "A",
+          "A", "A", "B", "B", "A", "A", "B",
+          "B", "B", "C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#ffe5e5", "#e2caca", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e2caca", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#ffe5e5", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e2caca", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e2caca", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#ffe5e5", "#e2caca", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#ffe5e5", "#fffae5"],
+        "spectrum_colors": false,
+        "rSteps": 17,
+        "urSteps": 8,
+        "hexSize": 42,
+        "rotation": -46,
+        "fundamental": 260.740740,
+        "short_description": "41-JI-7L Sabat-Young Lattice"
       },
       {
         "name": "53-tone 13-limit",
@@ -1048,7 +1077,6 @@ export const presets = [
         "fundamental": 262.682024,
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)"
       },
-      // add more info about early version of 53?
       {
         "name": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)",
         "description": "53-tone equal tempered scale consisting of 53 sonically equal divisions per octave. Step-size is 22.6 cents (Holdrian or Mercator Comma).",
@@ -1078,6 +1106,36 @@ export const presets = [
         "rotation": -16.102113751,
         "fundamental": 260.771561,
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)"
+      },
+      {
+        "name": "53-edo (Euler Lattice Layout)",
+        "description": "53-tone equal tempered scale consisting of 53 sonically equal divisions per octave. Step-size is 22.6 cents (Holdrian or Mercator Comma).",
+        "scale": parseScale(scale_53_edo).scale,
+        "equivSteps": 53,
+        "note_names": [
+          "C", "C", "C", "C", "C", "C D", "D", "D", "D",
+          "D", "D", "D", "D", "D", "E", "E", "E", "E",
+          "E", "E F", "E F", "E F",
+          "F", "F", "F", "F", "F", "F G", "G", "G", "G",
+          "G", "G", "G", "G", "G", "A", "A", "A", "A",
+          "A", "A", "A", "A", "A B", "B", "B", "B", "B",
+          "B", "B C", "B C", "B C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#ffe5e5", "#d0d6e1", "#e2caca", "#d0d0d7", "#dee2da", "#e1d0e1", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#d0d6e1", "#e2caca", "#d0d0d7", "#dee2da", "#e1d0e1", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#cee3e2", "#fffae5",
+          "#ffffff", "#ffe5e5", "#d0d6e1", "#e2caca", "#d0d0d7", "#dee2da", "#e1d0e1", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#d0d6e1", "#e2caca", "#d0d0d7", "#dee2da", "#e1d0e1", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#d0d6e1", "#e2caca", "#d0d0d7", "#dee2da", "#e1d0e1", "#f8ffeb", "#fffae5",
+          "#ffffff", "#ffe5e5", "#cee3e2", "#fffae5"],
+        "spectrum_colors": false,
+        "rSteps": 31,
+        "urSteps": 17,
+        "hexSize": 42,
+        "rotation": -6,
+        "fundamental": 260.771561,
+        "short_description": "53-edo (Euler Lattice Layout)"
       },
       {
         "name": "55-edo (Telemann 1767, a♭♭♭♭-g♯♯♯♯)", 
