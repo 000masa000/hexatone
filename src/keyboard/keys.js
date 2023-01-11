@@ -64,8 +64,9 @@ class Keys {
         this.midinoteOff(e);
       });
 
-      this.midi_forwarding = this.midiin_data.addForwarder(WebMidi.getOutputById(this.settings.midi_device), ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]);
-      console.log("forwarding:", this.midi_forwarding);
+      this.midiin_data.addForwarder(WebMidi.getOutputById(this.settings.midi_device), {types:
+        ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]}
+      );
     };
   };
 
@@ -92,7 +93,7 @@ class Keys {
     this.state.canvas.removeEventListener("mouseup", this.mouseUp, false);
     this.state.canvas.removeEventListener("mousemove", this.mouseActive, false);
 
-  if (this.settings.midiin_device !== "OFF") {
+  if (this.midiin_data) {
     this.midiin_data.removeListener("noteon");
     this.midiin_data.removeListener("noteoff");
     this.midiin_data.removeForwarder;
