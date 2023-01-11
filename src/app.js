@@ -261,7 +261,7 @@ const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          Bosanquet&nbsp;/&nbsp;Wilson&nbsp;/&nbsp;Terpstra<br />Isomorphic&nbsp;Keyboard
+          Hexatone
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}
