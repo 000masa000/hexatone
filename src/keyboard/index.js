@@ -38,6 +38,7 @@ Keyboard.propTypes = {
     instrument: PropTypes.string,
     fundamental: PropTypes.number,
     midi: PropTypes.string,
+    midi_device: PropTypes.string,
     midi_channel: PropTypes.number,
     midi_mapping: PropTypes.string,
     // Layout

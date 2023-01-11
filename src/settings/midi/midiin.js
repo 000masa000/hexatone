@@ -12,9 +12,8 @@ function onEnabled() {
 
   // Inputs
   WebMidi.inputs.forEach(input => console.log(input.manufacturer, input.name, input.id));
+  midi_in = WebMidi.inputs; // assign to global
   
   // Outputs
   WebMidi.outputs.forEach(output => console.log(output.manufacturer, output.name, output.id));
-
-  midi_in = WebMidi.inputs;
-};
+}

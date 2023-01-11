@@ -68,7 +68,11 @@ const normalize = (settings) => {
   return result;
 };
 
+var counter = 0;
+
 const App = () => {
+  counter += 1;
+  console.log("counter", counter);
   const [loading, setLoading] = useState(0);
 
   const [settings, setSettings] = useQuery({
@@ -198,21 +202,18 @@ const App = () => {
           setSynth(s);
         }); // todo error handling
     }
-    if (midi && settings.output === "midi" && (settings.midi_device !== "OFF") && 
-        typeof settings.midi_channel === "number" && settings.midi_mapping &&
-        typeof settings.midi_velocity === "number") {
+    if (midi && settings.output === "midi" && (settings.midi_device !== "OFF") &&
+      typeof settings.midi_channel === "number" && settings.midi_mapping &&
+      typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(midi.outputs.get(settings.midi_device),                        
-                        settings.midi_channel,
-                        settings.midi_mapping,
-                        settings.midi_velocity)
+      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity)
         .then(s => { 
           setLoading(signal);
           setSynth(s);
         }); // todo error handling
     }
-  }, [settings.instrument, settings.fundamental, settings.midiin_device, settings.midiin_device,
+  }, [settings.instrument, settings.fundamental, settings.midiin_device, settings.midiin_channel,
       settings.midi_device, settings.midi_channel, settings.midi_mapping,
       settings.midi_velocity, settings.output, midi]);
 
@@ -238,7 +239,7 @@ const App = () => {
 
   const valid = s => (
     ((s.output === "midi" && (s.midi_device !== "OFF") && typeof s.midi_channel === "number" && s.midi_mapping &&
-      typeof s.midi_velocity === "number") ||
+      typeof s.midi_velocity === "number" && s.midi_velocity > 0) ||
      (s.output === "sample" && s.fundamental && s.instrument)) &&
       s.rSteps && s.urSteps &&
       s.hexSize && s.hexSize >= 20 && typeof s.rotation === "number" &&

@@ -115,7 +115,7 @@ export const instruments = [
         loop: true
       }, {
         fileName: "WMRIByzantineST",
-        name: "Byzantine (9 Harmonics)",
+        name: "Reed (9 Harmonics)",
         gain: 0.58,
         attack: 0.096,
         release: 0.012,

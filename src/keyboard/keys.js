@@ -63,6 +63,9 @@ class Keys {
       this.midiin_data.addListener("noteoff", e => {
         this.midinoteOff(e);
       });
+
+      this.midi_forwarding = this.midiin_data.addForwarder(WebMidi.getOutputById(this.settings.midi_device), ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]);
+      console.log("forwarding:", this.midi_forwarding);
     };
   };
 
@@ -92,6 +95,7 @@ class Keys {
   if (this.settings.midiin_device !== "OFF") {
     this.midiin_data.removeListener("noteon");
     this.midiin_data.removeListener("noteoff");
+    this.midiin_data.removeForwarder;
     this.midin_data = null;
     };
   };

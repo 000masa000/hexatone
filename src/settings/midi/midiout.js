@@ -2,26 +2,21 @@ import { h } from 'preact';
 import { Fragment } from 'preact/compat';
 import PropTypes from 'prop-types';
 
-const MidiOutSelect = (props) => (
-  <select name="midi_device" onChange={(e) => {
-    props.onChange(e.target.name, e.target.value);
-    localStorage.setItem(e.target.name, e.target.value);
-  }
-  }>
-    <option value="OFF">OFF</option>
-    {Array.from(props.midi.outputs.values()).map(m => (
-      <option value={m.id}>{m.name}</option>
-    ))}
-  </select>
-);
-
 const MidiOut = (props) => (
   <>
     <label>
       Output Port
-      <MidiOutSelect value={props.settings.midi}
-        midi={props.midi}
-        onChange={props.onChange} />
+      <select value={props.settings.midi_device}
+        midi={props.midi} name="midi_device" onChange={(e) => {
+          props.onChange(e.target.name, e.target.value);
+          localStorage.setItem(e.target.name, e.target.value);
+        }
+        }>
+          <option value="OFF">OFF</option>
+          {Array.from(props.midi.outputs.values()).map(m => (
+            <option value={m.id}>{m.name}</option>
+          ))}
+        </select>
     </label>
     <label>
       Central Output Channel

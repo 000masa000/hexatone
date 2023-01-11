@@ -81,8 +81,8 @@ export const presets = [
         "short_description": "12-edo"
       },
       {
-        "name": "Pythagorean",
-        "description": "12-tone 3-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "name": "Pure Fifths: Pythagorean / Ancient Mesopotamian",
+        "description": "12-tone 3-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the 7-white/5-black piano keyboard. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A series of eleven perfect fifths - from D♭ through F♯ - are pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths - A-D♭, E-A♭, B-E♭, F♯-B♭ - are nearly pure - one schisma (ca. 2 cents) less than 5/4 ratios.",
         "scale": parseScale(scale_12_ji_3l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -107,13 +107,12 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740740,        
-        "instrument": "hammond",
+        "fundamental": 260.740740,   
         "short_description": "12-RI-3L"
       },
       {
-        "name": "Quarter-Comma Meantone",
-        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard. Using small letter-names to distinguish that the fifths are tempered.",
+        "name": "Pure Thirds: Quarter-Comma Meantone",
+        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard. Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
         "scale": parseScale(scale_12_mt_1_4_SC).scale,
         "equivSteps": 12,
         "note_names": [
@@ -138,13 +137,12 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 263.181385,        
-        "instrument": "hammond",
+        "fundamental": 263.181385,
         "short_description": "12-MT"
       },
       {
         "name": "5-limit Just Intonation",
-        "description": "12-tone 5-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "description": "12-tone 5-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the 7-white/5-black piano keyboard. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
         "scale": parseScale(scale_12_ji_5l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -169,13 +167,12 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 264,        
-        "instrument": "hammond",
+        "fundamental": 264,
         "short_description": "12-RI-5L"
       },
       {
         "name": "7-limit Just Intonation",
-        "description": "12-tone 7-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "description": "12-tone 7-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32 used in the previous scale.",
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -200,8 +197,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 264,        
-        "instrument": "hammond",
+        "fundamental": 264,
         "short_description": "12-RI-7L",
       },
       {
@@ -256,8 +252,7 @@ export const presets = [
         "urSteps": -1,
         "hexSize": 42,
         "rotation": 40.9,        
-        "fundamental": 260.74074074,        
-        "instrument": "hammond",
+        "fundamental": 260.74074074,
         "short_description": "12-tone-combined"
       },
       {
@@ -281,7 +276,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": 0,
         "fundamental": 261.6255653,
-        "instrument": "WMRI3LST",
         "short_description": "12-edo B-System Chromatic Button"
       },
       {
@@ -305,7 +299,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": 0,
         "fundamental": 261.6255653,
-        "instrument": "WMRI7LST",
         "short_description": "12-edo C-System Chromatic Button"       
       }
     ]
@@ -341,7 +334,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "instrument": "qanun",
         "short_description": "22-JI-17L Farabi"
       },
       {
@@ -371,8 +363,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,       
-        "instrument": "qanun",
+        "fundamental": 260.740740,
         "short_description": "17-JI-13L Ibn Sina"
       },
       {
@@ -402,8 +393,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,       
-        "instrument": "qanun",
+        "fundamental": 260.740740,
         "short_description": "17-JI-3L Ormavi"
       }  
     ]
@@ -439,7 +429,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       },
       {
@@ -470,7 +459,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "instrument": "WMRIByzantineST",
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       }      
     ]
@@ -506,8 +494,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.74074074,        
-        "instrument": "WMRI11LST",
+        "fundamental": 260.74074074,
         "short_description": "43-JI-11L Partch (C)"
       },
       {
@@ -537,11 +524,11 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 261.333333,        
-        "instrument": "gayageum"
+        "fundamental": 261.333333,
+        "short_description": "43-JI-11L Partch (G)"
       },
       {
-        "name": "Adriaan Fokker 31-tone 7-limit",
+        "name": "31-tone 7-limit",
         "description": "31-tone 7-Limit Rational Intonation scale by Adriaan Fokker, consisting of 31 notes per octave derived from harmonic series intervals up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
@@ -567,12 +554,11 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264,        
-        "instrument": "WMRI7LST",
+        "fundamental": 264,
         "short_description": "31-JI-7L Fokker"
       },
       {
-        "name": "Erv Wilson 17-tone 11-limit",
+        "name": "17-tone 11-limit",
         "description": "17-tone 11-Limit Rational Intonation scale by Erv Wilson, consisting of 17 notes per octave derived from harmonic series intervals up to a prime limit of 11.",
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
         "equivSteps": 17,
@@ -599,13 +585,12 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 264,
-        "instrument": "harp",
         "short_description": "17-JI-11L Wilson"
       },
       // ADD a version in flats and sharps!
       {
         "name": "53-tone Extended Pythagorean",
-        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma.",
+        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a series of 53 just fifths is very nearly equal to 31 octaves.",
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
         "note_names": [
@@ -631,12 +616,11 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.74074074,
-        "instrument": "rhodes",
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
-        "name": "Marc Sabat-Euler Lattice 53-tone Ptolemaic", 
-        "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one syntonic comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a syntonic comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive syntonic commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence between E and F.",
+        "name": "55-tone Ptolemaic Euler Lattice", 
+        "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one Syntonic Comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a Syntonic Comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive Syntonic Commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence between E and F.",
         "scale": parseScale(scale_55_ji_5l).scale,
         "equivSteps": 55,
         "note_names": [
@@ -662,12 +646,11 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.451161,
-        "instrument": "WMRIByzantineST",
-        "short_description": "55-JI-5L Sabat-Euler Lattice"
+        "short_description": "55-JI-5L Ptolemaic Euler Lattice"
       },
       {
-        "name": "Marc Sabat-La Monte Young 41-tone Septimal-Pythagorean",
-        "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided limma-comma-limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).",
+        "name": "41-tone Septimal-Pythagorean",
+        "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided Limma-Comma-Limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each Limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).",
         "scale": parseScale(scale_41_ji_7l).scale,
         "equivSteps": 41,
         "note_names": [
@@ -692,12 +675,11 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,        
-        "instrument": "WMRI7LST",
+        "fundamental": 260.740740,
         "short_description": "41-JI-7L Sabat-Young"
       },
       {
-        "name": "Cam Taylor 53-tone 13-limit",
+        "name": "53-tone 13-limit",
         "description": "Cam Taylor’s 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived notes per octave derived from harmonic series intervals up to a prime limit of 13.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
@@ -724,18 +706,16 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.74074074,
-        "instrument": "WMRI13LST",
         "short_description": "53-RI-13L Cam Taylor"
       }
     ]
   },
-  // add 1/5 and 1/6 comma extended MT
   {
     "name": "Extended Meantone Temperaments",
     settings: [
       {
         "name": "Vicentino I (1555) 31-tone Extended Meantone (g♭-a♯♯♯)",
-        "description": "31-tone scale in extended 1/4 comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range g♭-a♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a syntonic comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from e♭ to g♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing c may be replaced by the enharmonically nearly-equivalent pitch b. Note that b *is* equivalent to c!",
+        "description": "31-tone scale in extended 1/4 Comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range g♭-a♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a Syntonic Comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from e♭ to g♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing c may be replaced by the enharmonically nearly-equivalent pitch b. Note that b *is* equivalent to c!",
         "scale": parseScale(scale_31_mt_vicentino).scale,
         "equivSteps": 31,
         "note_names": [
@@ -760,8 +740,7 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 263.1813855,        
-        "instrument": "WMRI5LST",
+        "fundamental": 263.1813855, 
         "short_description": "31-Extended-Meantone (g♭-a♯♯♯) - Vicentino I"
       },
       {
@@ -792,12 +771,11 @@ export const presets = [
         "hexSize": 42,
         "rotation": -34.5,
         "fundamental": 263.0921203,
-        "instrument": "WMRI5LST",
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
       },
       {
-        "name": "Helmholtz-Sabat 2/17-Schisma Extended Meantone",
-        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic comma Meantone.",
+        "name": "2/17-Schisma Extended Meantone (Helmholtz)",
+        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
         "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
         "equivSteps": 35,
         "note_names": [
@@ -822,9 +800,8 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,        
-        "instrument": "WMRI5LST",
-        "short_description": "35-MT Sabat-Helmholtz"
+        "fundamental": 260.740740,
+        "short_description": "35-MT Helmholtz"
       },
       {
         "name": "43-tone Extended 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
@@ -854,7 +831,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.682024,
-        "instrument": "rhodes",
         "short_description": "43-mt, D♭♭♭-D♯♯♯"
       },
       {
@@ -885,7 +861,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.451161,
-        "instrument": "WMRIByzantineST",
         "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯"
       }
     ]
@@ -921,7 +896,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 264.022598,
-        "instrument": "lute",
         "short_description": "19-edo (Salinas)"
       },
       {
@@ -952,7 +926,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 264.022598,
-        "instrument": "lute",
         "short_description": "19-edo (Salinas, Septimal Notation)"
       },
       {
@@ -983,7 +956,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 263.0921203,
-        "instrument": "hammond",
         "short_description": "31-edo (g♭♭-a♯♯)"
       },
       {
@@ -1014,7 +986,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 263.0921203,
-        "instrument": "harpsichord",
         "short_description": "31-edo (Vicentino Notation)"
       },
       {
@@ -1045,7 +1016,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.5221364,
-        "instrument": "hammond",
         "short_description": "41-edo (Septimal-Pythagorean Notation)"
       },
       {
@@ -1076,7 +1046,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.682024,
-        "instrument": "rhodes",
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)"
       },
       // add more info about early version of 53?
@@ -1108,7 +1077,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.771561,
-        "instrument": "hammond",
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)"
       },
       {
@@ -1139,7 +1107,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.451161,
-        "instrument": "WMRIByzantineST",
         "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)"
       },
       {
@@ -1182,7 +1149,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 262.451161,
-        "instrument": "WMRIByzantineST",
         "short_description": "72-edo (Sims/Tenney)"
       }
     ]
@@ -1212,7 +1178,6 @@ export const presets = [
         "hexSize": 34,
         "rotation": -16.102113751,
         "fundamental": 260.74074074,
-        "instrument": "WMRI13LST",
         "short_description": "112-HS 16° to 128°"
       },
       {
@@ -1232,7 +1197,6 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.74074074,
-        "instrument": "WMRI5LST",
         "short_description": "96-HSS 16 to 64"
       },
       {
@@ -1253,7 +1217,6 @@ export const presets = [
         "hexSize": 40,
         "rotation": -16.102113751,
         "fundamental": 260.74074074,
-        "instrument": "hammond",
         "short_description": "19-HS 34 to 51"
       }
     ]
@@ -1276,7 +1239,6 @@ export const presets = [
         "hexSize": 28,
         "rotation": -29.3577535,
         "fundamental": 261.6255653,
-        "instrument": "WMRI3LST",
         "short_description": "Interval Tester by Syntonic Commas (22 cents)"
       },
       {
@@ -1294,7 +1256,6 @@ export const presets = [
         "hexSize": 28,
         "rotation": -29.3577535,
         "fundamental": 261.6255653,
-        "instrument": "WMRI5LST",
         "short_description": "Interval Tester by Diesis (41 cents)"
       },
       {
@@ -1312,7 +1273,6 @@ export const presets = [
         "hexSize": 28,
         "rotation": -29.3577535,
         "fundamental": 261.6255653,
-        "instrument": "WMRI11LST",
         "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)"
       }      
     ]
