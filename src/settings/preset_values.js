@@ -4,6 +4,7 @@ import scale_12_mt_1_4_SC from 'scales/12-MT-1_4-SC.scl';
 import scale_12_ji_3l from 'scales/12-JI-3L.scl';
 import scale_12_ji_5l from 'scales/12-JI-5L.scl';
 import scale_12_ji_7l from 'scales/12-JI-7L.scl';
+import scale_12_ji_blues_7l from 'scales/12-JI-blues-7L.scl';
 import scale_12_combined from 'scales/12-tone-combined.scl';
 
 import scale_17_ji_3l from 'scales/17-JI-3L-Ormavi.scl';
@@ -199,6 +200,36 @@ export const presets = [
         "rotation": -16.102113751,        
         "fundamental": 264,
         "short_description": "12-RI-7L",
+      },
+      {
+        "name": "Septimal Blues",
+        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, consisting of 12 notes per octave derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "scale": parseScale(scale_12_ji_blues_7l).scale,
+        "equivSteps": 12,
+        "note_names": [
+          "C", "D",
+          "D", "E",
+          "E",
+          "F", "G",
+          "G", "A",
+          "A", "B",
+          "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#e2caca",
+          "#ffffff", "#e2caca",
+          "#fffae5",
+          "#ffffff", "#e2caca",
+          "#ffffff", "#e2caca",
+          "#fffae5", "#e2caca",
+          "#fffae5"],
+        "spectrum_colors": false,
+        "rSteps": 2,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,        
+        "fundamental": 264,
+        "short_description": "12-RI-7L-blues",
       },
       {
         "name": "Equal, Pythagorean, Meantone, and 5-limit JI combined",
@@ -528,7 +559,7 @@ export const presets = [
         "short_description": "43-JI-11L Partch (G)"
       },
       {
-        "name": "31-tone 7-limit",
+        "name": "Adriaan Fokker 31-tone 7-limit",
         "description": "31-tone 7-Limit Rational Intonation scale by Adriaan Fokker, consisting of 31 notes per octave derived from harmonic series intervals up to a prime limit of 7.",
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
         "equivSteps": 31,
@@ -558,7 +589,7 @@ export const presets = [
         "short_description": "31-JI-7L Fokker"
       },
       {
-        "name": "17-tone 11-limit",
+        "name": "Erv Wilson 17-tone 11-limit",
         "description": "17-tone 11-Limit Rational Intonation scale by Erv Wilson, consisting of 17 notes per octave derived from harmonic series intervals up to a prime limit of 11.",
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
         "equivSteps": 17,
@@ -618,7 +649,7 @@ export const presets = [
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
-        "name": "55-tone Ptolemaic Euler Lattice", 
+        "name": "Marc Sabat 55-tone Ptolemaic Euler Lattice", 
         "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one Syntonic Comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a Syntonic Comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive Syntonic Commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence between E and F.",
         "scale": parseScale(scale_55_ji_5l).scale,
         "equivSteps": 55,
@@ -708,7 +739,7 @@ export const presets = [
         "short_description": "41-JI-7L Sabat-Young Lattice"
       },
       {
-        "name": "53-tone 13-limit",
+        "name": "Cam Taylor 53-tone 13-limit",
         "description": "Cam Taylor’s 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived notes per octave derived from harmonic series intervals up to a prime limit of 13.",
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
