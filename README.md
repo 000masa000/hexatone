@@ -1,4 +1,4 @@
-# Bosanquet / Wilson / Terpstra Isomorphic Keyboard
+# Hexatone
 
 [Terpstra Homepage](http://terpstrakeyboard.com/)
 

@@ -19,9 +19,12 @@ import scale_53_ri_3l from 'scales/53-RI-3L.scl';
 import scale_53_ji_13l_ct from 'scales/53-JI-13L-CT.scl';
 import scale_41_ji_7l from 'scales/41-JI-7L-Sabat-Young.scl';
 import scale_55_ji_5l from 'scales/55-JI-5L-Sabat-Euler.scl';
+import scale_13_ji_7l_P5 from 'scales/13-JI-7L-P5.scl';
+
 import scale_36_hs_12to48 from 'scales/36-HS-12to48.scl';
 import scale_112_hs_16to128 from 'scales/112-HS-16to128.scl';
 import scale_72_hss_12to48 from 'scales/72-HSS-12to48.scl';
+import scale_72_shs_12to48 from 'scales/72-SHS-12to48.scl';
 import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
@@ -514,8 +517,8 @@ export const presets = [
         "fundamental_color": "#f5fbff",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 42,
-        "rotation": 16.102113751,
+        "hexSize": 32,
+        "rotation": -26,
         "fundamental": 260.74074074,
         "short_description": "36-HS 12° to 24°"
       },
@@ -523,7 +526,29 @@ export const presets = [
         "name": "Harmonic and Subharmonic Series 12 to 48 combined",
         "description": "Harmonic and Subharmonic Series partials from 12 to 48 mapped onto a four octave cycle.",
         "scale": parseScale(scale_72_hss_12to48).scale,
-        "equivSteps": 96,
+        "equivSteps": 72,
+        "note_names": [
+          "12", "13°", "14°", "15°",
+          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°",
+          "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48",
+          "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16", "u15", "u14", "u13", "12"          
+        ],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f5fbff",
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 32,
+        "rotation": -26,
+        "fundamental": 260.74074074,
+        "short_description": "72-HSS 12 to 48"
+      },
+      {
+        "name": "Subharmonic and Harmonic Series 12 to 48 combined",
+        "description": "Subharmonic and Harmonic Series partials from 12 to 48 mapped onto a four octave cycle.",
+        "scale": parseScale(scale_72_shs_12to48).scale,
+        "equivSteps": 72,
         "note_names": [
           "48", "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16", "u15", "u14", "u13",
           "12", "13°", "14°", "15°",
@@ -535,10 +560,10 @@ export const presets = [
         "fundamental_color": "#f5fbff",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 42,
-        "rotation": 16.102113751,
+        "hexSize": 32,
+        "rotation": -26,
         "fundamental": 260.74074074,
-        "short_description": "72-HSS 12 to 48"
+        "short_description": "72-SHS 12 to 48"
       },
       {
         "name": "Harmonic Series partials from 16° to 128°",
@@ -559,8 +584,9 @@ export const presets = [
         "fundamental_color": "#f5fbff",
         "rSteps": 8,
         "urSteps": 1,
-        "hexSize": 42,
-        "rotation": 23.45,
+        "hexSize": 25,
+        "rotation": -23
+        ,
         "fundamental": 260.74074074,
         "short_description": "112-HS 16° to 128°"
       },
@@ -579,8 +605,8 @@ export const presets = [
         "fundamental_color": "#f5fbff",
         "rSteps": 3,
         "urSteps": 2,
-        "hexSize": 42,
-        "rotation": -10.89,
+        "hexSize": 36,
+        "rotation": -27,
         "fundamental": 260.74074074,
         "short_description": "19-HS 34 to 51"
       }
@@ -829,6 +855,38 @@ export const presets = [
         "rotation": -46,
         "fundamental": 260.740740,
         "short_description": "41-JI-7L Sabat-Young Lattice"
+      },
+      {
+        "name": "13-tone 7-limit Just Intonation repeating at the perfect fifth",
+        "description": "13-tone Septimal Just Intonation: a 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed.",
+        "scale": parseScale(scale_13_ji_7l_P5).scale,
+        "equivSteps": 13,
+        "note_names": [
+          "C",
+          "D", "C",
+          "D", "D",
+          "E", "E",
+          "E", "E",
+          "F", "F",
+          "G", "F",
+          "G",],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff",
+          "#dee2da", "#e7e7ca",
+          "#ffffff", "#ffe5e5",
+          "#e2caca", "#dee2da", 
+          "#fffae5", "#ffe5e5",
+          "#e2caca", "#ffffff",
+          "#ece6df", "#dee2da",
+          "ffffff"],
+        "spectrum_colors": false,
+        "rSteps": 2,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,        
+        "fundamental": 264,
+        "short_description": "13-RI-7L-P5",
       },
       {
         "name": "Cam Taylor 53-tone 13-limit",
