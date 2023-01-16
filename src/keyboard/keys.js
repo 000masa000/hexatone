@@ -52,8 +52,8 @@ class Keys {
     console.log("midi_channel:", this.settings.midi_channel);
     console.log("midi_mapping:", this.settings.midi_mapping);*/
 
-    if (this.settings.midiin_device !== "OFF") {
-
+    if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) {
+    
       this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
     
       this.midiin_data.addListener("noteon", e => {

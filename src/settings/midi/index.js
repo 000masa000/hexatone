@@ -30,7 +30,7 @@ const MIDIio = (props) => (
           localStorage.setItem(e.target.name, e.target.value);
         }
         }>
-        <option>choose a channel on which input is untransposed:</option>
+        <option value="-1">choose a channel on which input is untransposed:</option>
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>

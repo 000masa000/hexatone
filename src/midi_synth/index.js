@@ -10,48 +10,53 @@ export const create_midi_synth = async (midi_output, channel, midi_mapping, velo
 var note_count = 0;
 
 function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, midi_output, channel, midi_mapping, velocity) {
-  if (midi_mapping === "sequential") {
-    var steps_cycle = (steps + 60 + (16 * 128)) % 128;
-    var split = channel; // output on selected channel
-    var mts = [];
-  } else if (midi_mapping === "multichannel") {
-    var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
-    var mts = [];
-    var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
-  } if (midi_mapping === "MTS") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
-    var split = channel;
-    var steps_cycle = Math.floor(cents / 100.)
-    var mts = [];
-    mts[0] = steps_cycle + 60; // calculates the desired note and two bytes of tuning resolution
-    mts[1] = (cents * 0.01) - steps_cycle;
-    steps_cycle = note_count;
-    mts[1] = Math.round(16384 * mts[1]);
-    if (mts[1] == 16384) {
-      mts[1] = 16383;
-    };
-    mts[2] = mts[1] / 128;
-    mts[1] = Math.floor(mts[2]);
-    mts[2] = Math.round(128 * (mts[2] - mts[1]));
-    if (mts[2] == 128) {
-      mts[2] = 127;
-    };
-  }
-  this.coords = coords; // these end up being used by the keys class
-  this.cents = cents;
-  this.equaves = equaves;
 
-  this.release = false;
+  if (channel >= 0) {
+    if (midi_mapping === "sequential") {
+      var steps_cycle = (steps + 60 + (16 * 128)) % 128;
+      var split = channel; // output on selected channel
+      var mts = [];
+    } else if (midi_mapping === "multichannel") {
+      var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
+      var mts = [];
+      var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
+    } if (midi_mapping === "MTS") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
+      var split = channel;
+      var steps_cycle = Math.floor(cents / 100.)
+      var mts = [];
+      mts[0] = steps_cycle + 60; // calculates the desired note and two bytes of tuning resolution
+      mts[1] = (cents * 0.01) - steps_cycle;
+      steps_cycle = note_count;
+      mts[1] = Math.round(16384 * mts[1]);
+      if (mts[1] == 16384) {
+        mts[1] = 16383;
+      };
+      mts[2] = mts[1] / 128;
+      mts[1] = Math.floor(mts[2]);
+      mts[2] = Math.round(128 * (mts[2] - mts[1]));
+      if (mts[2] == 128) {
+        mts[2] = 127;
+      };
+    }
+    this.coords = coords; // these end up being used by the keys class
+    this.cents = cents;
+    this.equaves = equaves;
+
+    this.release = false;
  
-  if (velocity_played > 0) {
-    this.velocity = velocity_played;
-  } else {
-    this.velocity = velocity;
-  };
+    if (velocity_played > 0) {
+      this.velocity = velocity_played;
+    } else {
+      this.velocity = velocity;
+    };
 
-  this.midi_output = midi_output;
-  this.channel = split;
-  this.steps = steps_cycle;
-  this.mts = mts;
+    this.midi_output = midi_output;
+    this.channel = split;
+    this.steps = steps_cycle;
+    this.mts = mts;
+  } else {
+    console.log("Please choose an output channel!");
+  };
 }  
 
 MidiHex.prototype.noteOn = function () {

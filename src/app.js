@@ -203,7 +203,7 @@ const App = () => {
         }); // todo error handling
     }
     if (midi && settings.output === "midi" && (settings.midi_device !== "OFF") &&
-      typeof settings.midi_channel === "number" && settings.midi_mapping &&
+      (settings.midi_channel >= 0) && settings.midi_mapping &&
       typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
@@ -238,7 +238,7 @@ const App = () => {
   };
 
   const valid = s => (
-    ((s.output === "midi" && (s.midi_device !== "OFF") && typeof s.midi_channel === "number" && s.midi_mapping &&
+    ((s.output === "midi" && (s.midi_device !== "OFF") && (s.midi_channel >= 0) && s.midi_mapping &&
       typeof s.midi_velocity === "number" && s.midi_velocity > 0) ||
      (s.output === "sample" && s.fundamental && s.instrument)) &&
       s.rSteps && s.urSteps &&

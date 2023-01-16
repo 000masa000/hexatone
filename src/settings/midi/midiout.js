@@ -27,7 +27,7 @@ const MidiOut = (props) => (
           localStorage.setItem(e.target.name, parseInt(e.target.value));
         }
         }>
-        <option value>place the scale fundamental (1/1 = C4 = note 60):</option>
+        <option value="-1">place the scale fundamental (1/1 = C4 = note 60):</option>
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
