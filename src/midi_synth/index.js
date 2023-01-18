@@ -20,11 +20,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, mid
       var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
-    } if (midi_mapping === "MTS") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
+    } else if (midi_mapping === "MTS") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var split = channel;
       var steps_cycle = Math.floor(cents / 100.)
+      console.log("steps_cycle",steps_cycle);
       var mts = [];
-      mts[0] = steps_cycle + 60; // calculates the desired note and two bytes of tuning resolution
+      mts[0] = (steps_cycle + 180) % 120; // calculates the desired note and two bytes of tuning resolution
       mts[1] = (cents * 0.01) - steps_cycle;
       steps_cycle = note_count;
       mts[1] = Math.round(16384 * mts[1]);
@@ -60,7 +61,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, mid
 }  
 
 MidiHex.prototype.noteOn = function () {
-  if (this.mts.length > 0) {
+  if ((this.mts.length > 0) && (this.mts[0] >= 0) && (this.mts[0] < 128)) {
     this.midi_output.send([240, 127, 0, 8, 2, 0, 1, note_count, this.mts[0], this.mts[1], this.mts[2], 247]);
     console.log("MTS target note and tuning:", note_count, this.mts[0] + (this.mts[1]/128) + (this.mts[2]/16384));
   };

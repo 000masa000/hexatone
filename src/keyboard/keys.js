@@ -65,8 +65,8 @@ class Keys {
       });
 
       this.midiin_data.addForwarder(WebMidi.getOutputById(this.settings.midi_device), {types:
-        ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]}
-      );
+        ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]
+      });
     };
   };
 
@@ -104,6 +104,8 @@ class Keys {
   midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
     var steps = e.note.number - 60;
     var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    channel_offset = ((channel_offset + 24) % 16) - 8;
+    console.log("channel_offset", channel_offset);
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
     var velocity_played = e.note.rawAttack;
@@ -124,6 +126,7 @@ class Keys {
   midinoteOff = (e) => {
     var steps = e.note.number - 60;
     var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    channel_offset = ((channel_offset + 24) % 16) - 8;
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
     var rSteps_count = Math.round(steps / this.settings.rSteps);

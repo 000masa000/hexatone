@@ -27,7 +27,7 @@ export const instruments = [
         fileName: "hammond",
         name: "Hammond",
         gain: 0.53,
-        attack: 0.002,
+        attack: 0.01,
         release: 0.002,
         loop: true
       }, {
@@ -82,36 +82,36 @@ export const instruments = [
         fileName: "WMRI3LST",
         name: "3-Limit (4 Harmonics)",
         gain: 0.72,
-        attack: 0.28,
-        release: 0.08,
+        attack: 0.116,
+        release: 0.027,
         loop: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
         gain: 0.68,
-        attack: 0.28,
-        release: 0.08,
+        attack: 0.112,
+        release: 0.024,
         loop: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         gain: 0.65,
-        attack: 0.28,
-        release: 0.08,
+        attack: 0.108,
+        release: 0.021,
         loop: true
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         gain: 0.61,
-        attack: 0.28,
-        release: 0.08,
+        attack: 0.104,
+        release: 0.018,
         loop: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         gain: 0.56,
-        attack: 0.28,
-        release: 0.08,
+        attack: 0.1,
+        release: 0.015,
         loop: true
       }, {
         fileName: "WMRIByzantineST",
