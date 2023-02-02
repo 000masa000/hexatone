@@ -68,25 +68,37 @@ class Keys {
       if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
         this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
         
-        this.midiin_data.addListener("keyaftertouch", e => {
+        /*this.midiin_data.addListener("keyaftertouch", e => {
           console.log("Key Aftertouch", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1]/128.0);
-        });
+          this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1]/128.0, {});
+        });*/   // TODO as with pitchbend below
         
-        this.midiin_data.addListener("controlchange", e => {
-          console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1]);
-        });
+        if (this.settings.midi_mapping == "multichannel") {
+          this.midiin_data.addListener("controlchange", e => {
+            console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
+            this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], {  });
+          });
 
-        this.midiin_data.addListener("channelaftertouch", e => {
-          console.log("Channel Aftertouch", e.message.dataBytes[0]);
-          this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0]/128.0);
-        });
+          this.midiin_data.addListener("channelaftertouch", e => {
+            console.log("Channel Aftertouch", e.message.dataBytes[0]);
+            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, {  });
+          });
+        } else {
+          this.midiin_data.addListener("controlchange", e => {
+            console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
+            this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1) });
+          });
 
-        this.midiin_data.addListener("pitchbend", e => {
+          this.midiin_data.addListener("channelaftertouch", e => {
+            console.log("Channel Aftertouch", e.message.dataBytes[0]);
+            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
+          });
+        };
+
+       /* this.midiin_data.addListener("pitchbend", e => {
           console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0))) - 1.0);
-        });
+          this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0))) - 1.0, { channels:(this.settings.midi_channel + 1) });
+        });*/    //TODO -- make this a bend of the last note played, send to the output channel that is assigned by multichannel layout if being used
       };
     };
   };
