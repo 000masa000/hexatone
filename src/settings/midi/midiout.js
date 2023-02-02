@@ -52,8 +52,10 @@ const MidiOut = (props) => (
         value={props.settings.midi_velocity}
         step="1" min="0" max="127"
         onChange={(e) => {
-          props.onChange(e.target.name, parseInt(e.target.value));
-          localStorage.setItem(e.target.name, parseInt(e.target.value));
+          if (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 127) {
+            props.onChange(e.target.name, parseInt(e.target.value));
+            localStorage.setItem(e.target.name, parseInt(e.target.value));
+          };
         }
         } />
     </label>

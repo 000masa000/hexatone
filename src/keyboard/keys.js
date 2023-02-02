@@ -55,6 +55,7 @@ class Keys {
     if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) {
     
       this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
+      
     
       this.midiin_data.addListener("noteon", e => {
         this.midinoteOn(e);
@@ -64,9 +65,29 @@ class Keys {
         this.midinoteOff(e);
       });
 
-      this.midiin_data.addForwarder(WebMidi.getOutputById(this.settings.midi_device), {types:
-        ["keyaftertouch", "controlchange", "programchange", "channelaftertouch", "pitchbend", "sysex", "sysexend"]
-      });
+      if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
+        this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
+        
+        this.midiin_data.addListener("keyaftertouch", e => {
+          console.log("Key Aftertouch", e.message.dataBytes[0], e.message.dataBytes[1]);
+          this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1]/128.0);
+        });
+        
+        this.midiin_data.addListener("controlchange", e => {
+          console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
+          this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1]);
+        });
+
+        this.midiin_data.addListener("channelaftertouch", e => {
+          console.log("Channel Aftertouch", e.message.dataBytes[0]);
+          this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0]/128.0);
+        });
+
+        this.midiin_data.addListener("pitchbend", e => {
+          console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
+          this.midiout_data.sendPitchBend((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0));
+        });
+      };
     };
   };
 
@@ -96,8 +117,7 @@ class Keys {
   if (this.midiin_data) {
     this.midiin_data.removeListener("noteon");
     this.midiin_data.removeListener("noteoff");
-    this.midiin_data.removeForwarder;
-    this.midin_data = null;
+    this.midiin_data = null;
     };
   };
 
