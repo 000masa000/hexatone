@@ -85,7 +85,7 @@ class Keys {
 
         this.midiin_data.addListener("pitchbend", e => {
           console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendPitchBend((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0));
+          this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0))) - 1.0);
         });
       };
     };
@@ -114,11 +114,15 @@ class Keys {
     this.state.canvas.removeEventListener("mouseup", this.mouseUp, false);
     this.state.canvas.removeEventListener("mousemove", this.mouseActive, false);
 
-  if (this.midiin_data) {
-    this.midiin_data.removeListener("noteon");
-    this.midiin_data.removeListener("noteoff");
-    this.midiin_data = null;
-    };
+    if (this.midiin_data) {
+      this.midiin_data.removeListener("noteon");
+      this.midiin_data.removeListener("noteoff");
+      this.midiin_data.removeListener("keyaftertouch");
+      this.midiin_data.removeListener("controlchange");
+      this.midiin_data.removeListener("channelaftertouch");
+      this.midiin_data.removeListener("pitchbend");
+      this.midiin_data = null;
+      };
   };
 
   midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
