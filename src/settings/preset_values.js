@@ -252,7 +252,7 @@ export const presets = [
           "F", "F", "F", "f",
           "♯f", "F", "F G", "F",
 
-          "g", "G", "G", "G",
+          "g", "G","G", "G", 
           "♯g", "A", "G A", "A",
 
           "A", "a", "A", "A",
@@ -274,7 +274,7 @@ export const presets = [
           "#ffffff", "#ffffff", "#ededf7", "#ffe5e5",
           "#e2caca", "#dee2da", "#c3c3d5", "#dee2da",
 
-          "#ffe5e5", "#ffffff", "#ededf7", "#ffffff",
+          "#ffe5e5", "#ededf7", "#ffffff", "#ffffff",
           "#e2caca", "#d0d0d7", "#c3c3d5", "#dee2da",
 
           "#fffae5", "#ffe5e5", "#ededf7", "#ffffff",
