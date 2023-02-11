@@ -141,7 +141,7 @@ class Keys {
     var steps = e.note.number - 60;
     var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 24) % 16) - 8;
-    console.log("channel_offset", channel_offset);
+    console.log("transposition (in equaves)", channel_offset);
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
     var velocity_played = e.note.rawAttack;
