@@ -27,7 +27,7 @@ const MidiOut = (props) => (
           localStorage.setItem(e.target.name, parseInt(e.target.value));
         }
         }>
-        <option value="-1">place the scale fundamental (1/1 = C4 = note 60):</option>
+        <option value="-1">---place the scale fundamental--(1/1 = C4 = note 60)---</option>
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
@@ -40,10 +40,11 @@ const MidiOut = (props) => (
           localStorage.setItem(e.target.name, e.target.value);
         }
         }>
-        <option>choose how the notes are sent</option>
+        <option>---choose how the notes are sent---</option>
         <option value="multichannel">one cycle per channel, starting from MIDI note 0</option>
         <option value="sequential">all notes on selected channel, around MIDI note 60</option>
-        <option value="MTS">notes and MTS tuning data on selected channel</option>
+        <option value="MTS1">all notes and MTS tuning data on selected channel</option>
+        <option value="MTS2">Pianoteq range MTS tuning data on selected channel</option>
       </select>
     </label>
     <label>
