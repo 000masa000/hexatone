@@ -24,25 +24,19 @@ export const instruments = [
         release: 0.002,
         loop: false
       }, {
-        fileName: "vibes",
-        name: "Vibraphone",
-        gain: 0.4,
-        attack: 0,
-        release: 0.2,
-        loop: false
-      }, {
-        fileName: "marimba",
-        name: "Marimba",
-        gain: 0.4,
-        attack: 0,
-        release: 0.2,
-        loop: false
-      }, {
         fileName: "hammond",
         name: "Hammond",
         gain: 0.53,
         attack: 0.01,
         release: 0.002,
+        loop: true
+      }, {
+        fileName: "sruti",
+        name: "Srutibox",
+        gain: 0.36
+        ,
+        attack: 0,
+        release: 0.06,
         loop: true
       }, {
         fileName: "harpsichord",
@@ -71,6 +65,20 @@ export const instruments = [
         gain: 0.35,
         attack: 0,
         release: 0.3,
+        loop: false
+      },{
+        fileName: "vibes",
+        name: "Vibraphone",
+        gain: 0.4,
+        attack: 0,
+        release: 0.2,
+        loop: false
+      }, {
+        fileName: "marimba",
+        name: "Marimba",
+        gain: 0.4,
+        attack: 0,
+        release: 0.2,
         loop: false
       }, {
         fileName: "qanun",

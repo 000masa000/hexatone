@@ -1,16 +1,26 @@
 // TODO MIDI panic button
 export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity) => {
     return {
-    makeHex: (coords, cents, pressed_interval, steps, equaves, equivSteps, velocity_played) => {
-        return new MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, midi_output, channel, midi_mapping, velocity);
+    makeHex: (coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played) => {
+        return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity);
     }
     };
 };
+
 var note_count = 0;
 var note_count_l = 23; // Pianoteq hack: only notes 9 to 113 may be played even when using MTS (as of 2023, PTQ version 8); unfortunately, extended ranges of other instruments are even more severely limited; also, notes above a certain cutoff point (varying by model between 89 and 92) are automatically played without a damper, to optimise polyphony; to cope with this implementation MTS data is sent to two cycling note groups: sounding pitches from 0 to 88 are sent to MIDI notes 23 to 88. Sounding pitches 89 to 127 are sent to MIDI notes 92 to 106.
 var note_count_h = 89;
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, midi_output, channel, midi_mapping, velocity) {
+export const tuningmap = new Array(128); // MTS array showing retunings indexed by note played
+export const keymap = new Array(128); // array mapping originally played keys to MTS output
+for (let i = 0; i < 128; i++) {
+  tuningmap[i] = [i, 0, 0];  
+};
+for (let i = 0; i < 16384; i++) {
+  keymap[i] = [0, 0, 0, 0];  
+};
+
+function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity) {
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
@@ -41,6 +51,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, mid
       if (mts[3] == 128) {
         mts[3] = 127;
       };
+      tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
+      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
     } else if (midi_mapping === "MTS2") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var split = channel;
       var steps_cycle = Math.floor(cents / 100.) // finds the number of steps from middle C (1/1)
@@ -66,6 +78,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, velocity_played, mid
       if (mts[3] == 128) {
         mts[3] = 127;
       };
+      tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
+      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
     }
     this.coords = coords; // these end up being used by the keys class
     this.cents = cents;
@@ -95,10 +109,10 @@ MidiHex.prototype.noteOn = function () {
     console.log("MTS target note and tuning:", this.mts[0], this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));    
   };
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
-  console.log("note_on:", this.channel+1,this.steps, this.velocity);
+  console.log("(output) note_on:", this.channel+1,this.steps, this.velocity);
 };
 
 MidiHex.prototype.noteOff = function () {
   this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
-  console.log("note_off:", this.channel+1,this.steps, 0);
+  console.log("(output) note_off:", this.channel+1,this.steps, this.velocity);
 };

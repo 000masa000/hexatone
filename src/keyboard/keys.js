@@ -4,6 +4,7 @@ import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 import { WebMidi } from 'webmidi';
 import { midi_in } from '../settings/midi/midiin';
+import { keymap } from '../midi_synth';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -46,56 +47,92 @@ class Keys {
     this.state.canvas.addEventListener("mousedown", this.mouseDown, false);
     this.state.canvas.addEventListener("mouseup", this.mouseUp, false);
    
-   /* console.log("midiin_device:", this.settings.midiin_device);
+   /* 
+    console.log("midiin_device:", this.settings.midiin_device);
     console.log("midiin_channel:", this.settings.midiin_channel);
     console.log("midi_device:", this.settings.midi_device);
     console.log("midi_channel:", this.settings.midi_channel);
-    console.log("midi_mapping:", this.settings.midi_mapping);*/
+    console.log("midi_mapping:", this.settings.midi_mapping); */
 
     if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) {
     
       this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
       
-    
       this.midiin_data.addListener("noteon", e => {
-        this.midinoteOn(e);
+        console.log("(input) note_on", e.message.channel, e.note.number, e.note.rawAttack);
+        this.midinoteOn(e);        
       });
 
       this.midiin_data.addListener("noteoff", e => {
-        this.midinoteOff(e);
+        console.log("(input) note_off", e.message.channel, e.note.number, e.note.rawAttack);
+        this.midinoteOff(e);        
       });
 
       if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
         this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
         
-        /*this.midiin_data.addListener("keyaftertouch", e => {
-          console.log("Key Aftertouch", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1]/128.0, {});
-        });*/   // TODO as with pitchbend below
-        
-        if (this.settings.midi_mapping == "multichannel") {
+        if (this.settings.midi_mapping == "multichannel") { // in multichannel output replicate controlchange and channel pressure on all channels
+
           this.midiin_data.addListener("controlchange", e => {
-            console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
+            console.log("Control Change (thru on all channels)", e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], {  });
           });
 
           this.midiin_data.addListener("channelaftertouch", e => {
-            console.log("Channel Aftertouch", e.message.dataBytes[0]);
-            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, {  });
+            console.log("Channel Pressure (thru on all channels) ", e.message.dataBytes[0]);
+            this.midiout_data.sendChannelAtertouch(e.message.dataBytes[0] / 128.0, {});
           });
-        } else {
+
+          this.midiin_data.addListener("keyaftertouch", e => {
+            var channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
+            channel_offset = ((channel_offset + 20) % 8) - 4;
+            var channel = ((e.message.channel + channel_offset + 15) % 16) + 1; // apply offset to output channel for key pressure
+            this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1] / 128.0, { channels: (channel) });
+            console.log("Key Pressure MultiCh", channel, e.message.dataBytes[0], e.message.dataBytes[1]);
+          });
+
+          /* this.midiin_data.addListener("pitchbend", e => {
+            console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
+            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, {  });
+          }); */
+            
+        } else { // in single-channel output send controlchange and channel pressure only on selected channel
+
           this.midiin_data.addListener("controlchange", e => {
-            console.log("Control Change", e.message.dataBytes[0], e.message.dataBytes[1]);
+            console.log("(thru) Control Change", this.settings.midi_channel + 1, e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("channelaftertouch", e => {
-            console.log("Channel Aftertouch", e.message.dataBytes[0]);
+            console.log("Channel Aftertouch (thru)", this.settings.midi_channel + 1, e.message.dataBytes[0]);
             this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
           });
+
+          if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
+
+            this.midiin_data.addListener("keyaftertouch", e => {              
+              var channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
+              channel_offset = ((channel_offset + 20) % 8) - 4;
+              var note_offset = channel_offset * this.settings.equivSteps;
+              var note = (e.message.dataBytes[0] + note_offset) % 128; // matches note cycling in midi_synth/index,js
+              this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
+              console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
+            }); 
+
+          } else if ((this.settings.midi_mapping == "MTS1") || (this.settings.midi_mapping == "MTS2")) {
+
+              this.midiin_data.addListener("keyaftertouch", e => {                
+                var note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
+                //console.log("note", note);
+                //console.log("keymap", keymap[note][0]);
+                this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
+                console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
+              }); 
+          };
         };
 
-       /* this.midiin_data.addListener("pitchbend", e => {
+       /*TODO
+       this.midiin_data.addListener("pitchbend", e => {
           console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
           this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0))) - 1.0, { channels:(this.settings.midi_channel + 1) });
         });*/    //TODO -- make this a bend of the last note played, send to the output channel that is assigned by multichannel layout if being used
@@ -140,10 +177,11 @@ class Keys {
   midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
     var steps = e.note.number - 60;
     var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
-    channel_offset = ((channel_offset + 24) % 16) - 8;
+    channel_offset = ((channel_offset + 20) % 8) - 4;
     console.log("transposition (in equaves)", channel_offset);
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
+    var note_played = e.note.number + (128 * (e.message.channel - 1)); // allows note and channel to be encoded and recovered for MTS key pressure
     var velocity_played = e.note.rawAttack;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
     var rSteps_to_steps = this.settings.rSteps * rSteps_count;
@@ -154,7 +192,7 @@ class Keys {
     var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
     if (remainder == 0) {
       var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
-      var hex = this.hexOn(coords, velocity_played);
+      var hex = this.hexOn(coords, note_played, velocity_played);
       this.state.activeHexObjects.push(hex);
     };
   };
@@ -162,7 +200,7 @@ class Keys {
   midinoteOff = (e) => {
     var steps = e.note.number - 60;
     var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
-    channel_offset = ((channel_offset + 24) % 16) - 8;
+    channel_offset = ((channel_offset + 20) % 8) - 4;
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
     var rSteps_count = Math.round(steps / this.settings.rSteps);
@@ -185,11 +223,11 @@ class Keys {
     };
   };
   
-  hexOn(coords, velocity_played) {
+  hexOn(coords, note_played, velocity_played) {
     const [cents, pressed_interval, steps, equaves, equivSteps] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps, velocity_played);
+    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played);
     hex.noteOn();
     return hex;
   };
@@ -531,7 +569,7 @@ class Keys {
     // hexcoords = p and screenCoords = hexCenter
 
     context.fillStyle = getContrastYIQ(current_text_color);
-    context.font = "28pt Roboto HEJI2";
+    context.font = "29pt Roboto HEJI2";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -555,7 +593,7 @@ class Keys {
       };
       if (name) {
         context.save();
-        var scaleFactor = name.length > 3 ? 4 / name.length : 1;
+        var scaleFactor = name.length > 3 ? 3.58 / name.length : 1;
         scaleFactor *= this.settings.hexSize / 46;
         context.scale(scaleFactor, scaleFactor);
         context.fillText(name, 0, 0);

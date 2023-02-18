@@ -188,7 +188,7 @@ const App = () => {
   // console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
     settings.midi_velocity = parseInt(localStorage.getItem("midi_velocity"));
   } else {
-    settings.midi_velocity = 64;
+    settings.midi_velocity = 96;
   };
 
   useEffect(() => {
