@@ -590,7 +590,7 @@ export const presets = [
         "short_description": "19-HS 34 to 51"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,5 <= 256",
+        "name": "Odd Partial Pitch Class Subgroup 3,5 <= 256",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5.",
         "scale": parseScale(scale_14_hs_odd_3_5).scale,
         "equivSteps": 14,
@@ -617,10 +617,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG 3,5)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,5 <= 256 (HEJI)",
+        "name": "Odd Partial Pitch Class Subgroup 3,5 <= 256 (HEJI)",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
         "scale": parseScale(scale_14_hs_odd_3_5).scale,
         "equivSteps": 14,
@@ -647,10 +647,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG 3,5)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,7 <= 256",
+        "name": "Odd Partial Pitch Class Subgroup 3,7 <= 256",
         "description": "12-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 7.",
         "scale": parseScale(scale_12_hs_odd_3_7).scale,
         "equivSteps": 12,
@@ -679,10 +679,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG 3,7)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,7 <= 256 (HEJI)",
+        "name": "Odd Partial Pitch Class Subgroup 3,7 <= 256 (HEJI)",
         "description": "12-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 7, notated with HEJI accidentals.",
         "scale": parseScale(scale_12_hs_odd_3_7).scale,
         "equivSteps": 12,
@@ -711,10 +711,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG 3,7)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,7,11 <= 256",
+        "name": "Odd Partial Pitch Class Subgroup 3,7,11 <= 256",
         "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11.",
         "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
         "equivSteps": 18,
@@ -743,10 +743,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,7,11 <= 256 (HEJI)",
+        "name": "Odd Partial Pitch Class Subgroup 3,7,11 <= 256 (HEJI)",
         "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11, notated with HEJI accidentals.",
         "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
         "equivSteps": 18,
@@ -775,10 +775,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,5,13 <= 256",
+        "name": "Odd Partial Pitch Class Subgroup 3,5,13 <= 256",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5.",
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
         "equivSteps": 20,
@@ -805,10 +805,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "Odd-Partial Pitch Class Subgroup 3,5,13 <= 256 (HEJI)",
+        "name": "Odd Partial Pitch Class Subgroup 3,5,13 <= 256 (HEJI)",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
         "equivSteps": 20,
@@ -835,7 +835,7 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
-        "short_description": "Odd-Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG 3,5,13)"
       }
     ]
   },
