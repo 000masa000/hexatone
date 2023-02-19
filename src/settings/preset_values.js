@@ -22,13 +22,14 @@ import scale_55_ji_5l from 'scales/55-JI-5L-Sabat-Euler.scl';
 import scale_13_ji_7l_P5 from 'scales/13-JI-7L-P5.scl';
 
 import scale_36_hs_12to48 from 'scales/36-HS-12to48.scl';
-import scale_112_hs_16to128 from 'scales/112-HS-16to128.scl';
 import scale_72_hss_12to48 from 'scales/72-HSS-12to48.scl';
 import scale_72_shs_12to48 from 'scales/72-SHS-12to48.scl';
 import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
 
 import scale_14_hs_odd_3_5 from 'scales/14-HS-odd-3+5.scl';
 import scale_12_hs_odd_3_7 from 'scales/12-HS-odd-3+7.scl';
+import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
+import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
@@ -711,7 +712,131 @@ export const presets = [
         "rotation": -16.102113751,
         "fundamental": 260.740740,
         "short_description": "Odd-Partial PC SG 3,7)"
-      }  
+      },
+      {
+        "name": "Odd-Partial Pitch Class Subgroup 3,7,11 <= 256",
+        "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11.",
+        "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
+        "equivSteps": 18,
+        "note_names": [
+          "1°", "33°",
+          "9°", "147°", "77°",
+          "81°",
+          "21°", "11°", "189°",
+          "3°", "49°", "99°",
+          "27°",
+          "7°", "231°",
+          "121°", "243°", "63°"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#dfe5f1",
+          "#ffffff", "#f8c9c9", "#f3e7f1",
+          "#ffffff",
+          "#ffe5e5", "#dfe5f1","#ffe5e5",
+          "#ffffff", "#f8c9c9", "#dfe5f1",
+          "#ffffff",
+          "#ffe5e5", "#f3e7f1",
+          "#d2ddf4", "#ffffff", "#ffe5e5"],
+        "spectrum_colors": false,
+        "rSteps": 2,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd-Partial PC SG 3,7)"
+      },
+      {
+        "name": "Odd-Partial Pitch Class Subgroup 3,7,11 <= 256 (HEJI)",
+        "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11, notated with HEJI accidentals.",
+        "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
+        "equivSteps": 18,
+        "note_names": [
+          "C", "C",
+          "D", "E", "E",
+          "E",
+          "F", "F", "G",
+          "G", "A", "G",
+          "A",
+          "B", "B",
+          "B", "B", "C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#dfe5f1",
+          "#ffffff", "#f8c9c9", "#f3e7f1",
+          "#ffffff",
+          "#ffe5e5", "#dfe5f1","#ffe5e5",
+          "#ffffff", "#f8c9c9", "#dfe5f1",
+          "#ffffff",
+          "#ffe5e5", "#f3e7f1",
+          "#d2ddf4", "#ffffff", "#ffe5e5"],
+        "spectrum_colors": false,
+        "rSteps": 2,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd-Partial PC SG 3,7)"
+      },
+      {
+        "name": "Odd-Partial Pitch Class Subgroup 3,5,13 <= 256",
+        "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5.",
+        "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
+        "equivSteps": 20,
+        "note_names": [
+          "1°", "65°", "135°",
+          "9°", "75°", "39°", "5°", 
+          "81°",
+          "169°", "45°",
+          "3°", "195°", "25°", "13°",
+          "27°", "225°", "117°", "15°", 
+          "243°", "125°"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#f6eaf1", "#fffae5",
+          "#ffffff", "#fceec5", "#e8dbfa", "#fffae5",
+          "#ffffff",
+          "#e8ccff", "#fffae5",
+          "#ffffff", "#f6eaf1", "#fceec5", "#e8dbfa", 
+          "#ffffff", "#fceec5", "#e8dbfa", "#fffae5",
+          "#ffffff", "#f2deb1"],
+        "spectrum_colors": false,
+        "rSteps": 3,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd-Partial PC SG 3,5)"
+      },
+      {
+        "name": "Odd-Partial Pitch Class Subgroup 3,5,13 <= 256 (HEJI)",
+        "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
+        "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
+        "equivSteps": 20,
+        "note_names": [
+          "C", "C", "C",
+          "D", "D", "E", "E", 
+          "E",
+          "F", "F",
+          "G", "G", "G", "A",
+          "A", "A", "B", "B", 
+          "B", "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#f6eaf1", "#fffae5",
+          "#ffffff", "#fceec5", "#e8dbfa", "#fffae5",
+          "#ffffff",
+          "#e8ccff", "#fffae5",
+          "#ffffff", "#f6eaf1", "#fceec5", "#e8dbfa", 
+          "#ffffff", "#fceec5", "#e8dbfa", "#fffae5",
+          "#ffffff", "#f2deb1"],
+        "spectrum_colors": false,
+        "rSteps": 3,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd-Partial PC SG 3,5)"
+      }
     ]
   },
   {
@@ -914,12 +1039,12 @@ export const presets = [
           "5/4", "14/11", "9/7", "21/16"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d6e1",
-          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#d0d6e1",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
+          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#dfe5f1",
           "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5"],
         "spectrum_colors": false,
         "rSteps": 7,
@@ -943,12 +1068,12 @@ export const presets = [
           "B", "C", "B", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d6e1",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
           "#fffae5", "#ffffff", "#e2caca", "#ffe5e5",
-          "#ffffff", "#dee2da", "#e1d0e1", "#d0d6e1","#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1",
+          "#ffffff", "#dee2da", "#e1d0e1", "#dfe5f1", "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5"],
         "spectrum_colors": false,
         "rSteps": 7,
@@ -973,12 +1098,12 @@ export const presets = [
           "B", "B", "C", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5",
-          "#ffffff", "#dee2da", "#d0d6e1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#d0d6e1",
-          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#d0d6e1",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
+          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#dfe5f1",
           "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
         ],
         "spectrum_colors": false,
@@ -1005,11 +1130,11 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#e4fbe6", "#e1d0e1",
-          "#ffffff", "#ffe5e5", "#d0d6e1",
+          "#ffffff", "#ffe5e5", "#dfe5f1",
           "#fffae5",
-          "#ffffff", "#d0d6e1", "#e1d0e1",
-          "#ffffff", "#e4fbe6", "#d0d6e1",
-          "#fffae5", "#ffe5e5", "#d0d6e1",
+          "#ffffff", "#dfe5f1", "#e1d0e1",
+          "#ffffff", "#e4fbe6", "#dfe5f1",
+          "#fffae5", "#ffe5e5", "#dfe5f1",
           "#fffae5"],
         "spectrum_colors": false,
         "rSteps": 3,
@@ -1031,15 +1156,15 @@ export const presets = [
           "F", "F", "F", "F", "F", "G", "G", "G", "G",
           "G", "G", "G", "A", "A", "A", "A", "A", "A",
           "A", "A", "A", "B", "B", "B", "B", "B", "B",
-          "B", "B", "C", "C"],
+          "B", "B", "C", "C"],  
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#dee2da", "#d0d6e1", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#e1d0e1", "#fffae5",
+          "#ffffff", "#dee2da", "#dfe5f1", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#e1d0e1", "#fffae5",
           "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5",
-          "#ffffff", "#dee2da", "#d0d6e1", "#e1d0e1", "#fffae5", "#dee2da", "#e1d0e1", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1", "#e1d0e1", "#fffae5",
+          "#ffffff", "#dee2da", "#dfe5f1", "#e1d0e1", "#fffae5", "#dee2da", "#e8dbfa", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#e1d0e1", "#fffae5",
+          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1", "#e1d0e1", "#fffae5",
           "#ffffff", "#e2caca", "#cee3e2", "#fffae5"],
         "spectrum_colors": false,
         "rSteps": 9,
