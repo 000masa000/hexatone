@@ -22,7 +22,7 @@ const Colors = (props) => (
     </label>
     {props.settings.spectrum_colors && (
       <label>
-        Fundamental Color
+        Choose Central Hue
         <input name="fundamental_color" type="color"
                onChange={(e) => props.onChange(e.target.name, e.target.value)}
                value={props.settings.fundamental_color}/>

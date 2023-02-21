@@ -207,7 +207,7 @@ const App = () => {
       typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity)
+      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity, settings.fundamental)
         .then(s => { 
           setLoading(signal);
           setSynth(s);
@@ -228,9 +228,24 @@ const App = () => {
   const onImport = () => {
     setSettings(s => {
       if (s.scale_import) {
-        const { equivSteps, description, scale, labels, colors } = parseScale(s.scale_import);
+        const { filename, description, equivSteps, scale, labels, colors } = parseScale(s.scale_import);
         const scala_names = parsedScaleToLabels(scale);
-        return {...s, description, equivSteps, scale, scala_names, note_names: labels, note_colors: colors };
+        var f_color = colors.pop();
+        console.log("f_color", f_color)
+        if (f_color == "null") {
+          colors.unshift("#ffffff"); 
+        } else {
+          colors.unshift(f_color); 
+        };
+        var f_name = labels.pop();
+        console.log("f_name", f_name)
+        if (f_name == "null") {
+          labels.unshift(""); 
+        } else {
+          labels.unshift(f_name); 
+        };
+           
+        return {...s, name: filename, description, equivSteps, scale, scala_names, note_names: labels, note_colors: colors };
       } else {
         return s;
       }
@@ -261,7 +276,7 @@ const App = () => {
       </button>
 	  <nav id="sidebar">
         <h1>
-          Hexatone
+          Plainsound Hexatone
         </h1>
         <Settings presetChanged={presetChanged}
                     presets={presets}

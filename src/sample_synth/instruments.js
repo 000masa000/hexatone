@@ -12,21 +12,21 @@ export const instruments = [
       }, {
         fileName: "mkii",
         name: "MKII",
-        gain: 0.36,
+        gain: 0.48,
         attack: 0,
         release: 0.002,
         loop: false
       }, {
         fileName: "rhodes",
         name: "Rhodes",
-        gain: 0.36,
+        gain: 0.38,
         attack: 0,
         release: 0.002,
         loop: false
       }, {
         fileName: "hammond",
         name: "Hammond",
-        gain: 0.53,
+        gain: 0.58,
         attack: 0.01,
         release: 0.002,
         loop: true
@@ -41,21 +41,21 @@ export const instruments = [
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
-        gain: 0.25,
+        gain: 0.28,
         attack: 0,
         release: 0.06,
         loop: false
       }, {
         fileName: "lute",
         name: "Lute-Stop",
-        gain: 0.25,
+        gain: 0.24,
         attack: 0,
         release: 0.2,
         loop: false
       }, {
         fileName: "harp",
         name: "Harp",
-        gain: 0.33,
+        gain: 0.34,
         attack: 0,
         release: 1.5,
         loop: false
@@ -76,7 +76,7 @@ export const instruments = [
       }, {
         fileName: "marimba",
         name: "Marimba",
-        gain: 0.4,
+        gain: 0.5,
         attack: 0,
         release: 0.2,
         loop: false

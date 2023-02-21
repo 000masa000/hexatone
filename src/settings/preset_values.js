@@ -30,6 +30,7 @@ import scale_14_hs_odd_3_5 from 'scales/14-HS-odd-3+5.scl';
 import scale_12_hs_odd_3_7 from 'scales/12-HS-odd-3+7.scl';
 import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
 import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
+import scale_40_hs_odd_13l from 'scales/40-HS-odd-13L.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
@@ -61,7 +62,7 @@ export const presets = [
     settings: [
       {
         "name": "Equal Temperament",
-        "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a tilted Paul Jankó layout, which approximates the 7-white/5-black piano keyboard. Notated using HEJI accidentals (Helmholtz-Ellis JI Pitch Notation, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz.",
+        "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a layout that approximates the Paul Jankó modified piano keyboard. Notated using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz.",
         "scale": scale_12_edo_parsed,        
         "equivSteps": 12,
         "note_names": [
@@ -91,7 +92,7 @@ export const presets = [
       },
       {
         "name": "Pure Fifths: Pythagorean / Ancient Mesopotamian",
-        "description": "12-tone 3-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the 7-white/5-black piano keyboard. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A series of eleven perfect fifths - from D♭ through F♯ - are pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths - A-D♭, E-A♭, B-E♭, F♯-B♭ - are nearly pure - one schisma (ca. 2 cents) less than 5/4 ratios.",
+        "description": "12-tone 3-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the piano keyboard. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A sequence of eleven perfect fifths - from D♭ through F♯ - are pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths – A-D♭, E-A♭, B-E♭, F♯-B♭ – are nearly pure – one schisma (ca. 2 cents) less than 5/4 ratios.",
         "scale": parseScale(scale_12_ji_3l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -121,7 +122,7 @@ export const presets = [
       },
       {
         "name": "Pure Thirds: Quarter-Comma Meantone",
-        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the 7-white/5-black piano keyboard. Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
+        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the piano keyboard. Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
         "scale": parseScale(scale_12_mt_1_4_SC).scale,
         "equivSteps": 12,
         "note_names": [
@@ -134,13 +135,13 @@ export const presets = [
           "b"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffe5e5", "#e2caca",
-          "#ffe5e5", "#e2caca",
-          "#ffe5e5",
-          "#ffe5e5", "#e2caca",
-          "#ffe5e5", "#e2caca",
-          "#ffe5e5", "#e2caca",
-          "#ffe5e5"],
+          "#f9f7eb", "#e2dfcf",
+          "#f9f7eb", "#e2dfcf",
+          "#f9f7eb",
+          "#f9f7eb", "#e2dfcf",
+          "#f9f7eb", "#e2dfcf",
+          "#f9f7eb", "#e2dfcf",
+          "#f9f7eb"],
         "spectrum_colors": false,
         "rSteps": 2,
         "urSteps": 1,
@@ -151,7 +152,7 @@ export const presets = [
       },
       {
         "name": "5-limit Just Intonation",
-        "description": "12-tone 5-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the 7-white/5-black piano keyboard. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
+        "description": "12-tone 5-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the piano keyboard. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
         "scale": parseScale(scale_12_ji_5l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -180,8 +181,63 @@ export const presets = [
         "short_description": "12-RI-5L"
       },
       {
+        "name": "Equal, Pythagorean, Meantone, and 5-limit JI combined",
+        "description": "Four common tunings of the chromatic 12-tone scale combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-limit JI (with additional arrows indicating the Syntonic Comma alterations).",
+        "scale": parseScale(scale_12_combined).scale,
+        "equivSteps": 48,
+        "note_names": [
+          "c", "C", "C", "C",
+          "♯c", "D", "C D", "D",
+
+          "D", "d", "D", "D",
+          "E", "D E", "♭e", "E",
+
+          "e", "E", "E", "E",
+
+          "F", "F", "F", "f",
+          "♯f", "F", "F G", "F",
+
+          "g", "G","G", "G", 
+          "♯g", "A", "G A", "A",
+
+          "A", "a", "A", "A",
+          "B", "A B", "♭b", "B",
+
+          "b", "B", "B", "B"],
+        
+        "key_labels": "note_names",
+        
+        "note_colors": [
+          "#f9f7eb", "#ffffff", "#ededf7", "#ffffff",
+          "#e2dfcf", "#d0d0d7", "#c3c3d5", "#dee2da",
+
+          "#fffae5", "#f9f7eb", "#ededf7", "#ffffff",
+          "#d0d0d7", "#c3c3d5", "#e2dfcf", "#dee2da",
+
+          "#f9f7eb", "#fffae5", "#ededf7", "#ffffff",
+
+          "#ffffff", "#ffffff", "#ededf7", "#f9f7eb",
+          "#e2dfcf", "#fffae5", "#c3c3d5", "#d0d0d7",
+
+          "#f9f7eb", "#ededf7", "#ffffff", "#ffffff",
+          "#e2dfcf", "#d0d0d7", "#c3c3d5", "#dee2da",
+
+          "#fffae5", "#f9f7eb", "#ededf7", "#ffffff",
+          "#d0d0d7", "#c3c3d5", "#e2dfcf", "#dee2da",
+
+          "#f9f7eb", "#fffae5", "#ededf7", "#ffffff"
+          ],
+        "spectrum_colors": false,
+        "rSteps": 4,
+        "urSteps": -1,
+        "hexSize": 42,
+        "rotation": 40.9,        
+        "fundamental": 260.74074074,
+        "short_description": "12-tone-combined"
+      },
+      {
         "name": "7-limit Just Intonation",
-        "description": "12-tone 7-Limit Rational Intonation scale, consisting of 12 notes per octave derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the 7-white/5-black piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32 used in the previous scale.",
+        "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32 used in the previous scale.",
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -211,7 +267,7 @@ export const presets = [
       },
       {
         "name": "Septimal Blues",
-        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, consisting of 12 notes per octave derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, mapped on a layout that approximates the 7-white/5-black piano keyboard.",
+        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, mapped on a layout that approximates the piano keyboard.",
         "scale": parseScale(scale_12_ji_blues_7l).scale,
         "equivSteps": 12,
         "note_names": [
@@ -238,107 +294,6 @@ export const presets = [
         "rotation": -16.102113751,        
         "fundamental": 264,
         "short_description": "12-RI-7L-blues",
-      },
-      {
-        "name": "Equal, Pythagorean, Meantone, and 5-limit JI combined",
-        "description": "Four common tunings of the chromatic 12-tone scale combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-limit JI (with additional arrows indicating the Syntonic Comma alterations).",
-        "scale": parseScale(scale_12_combined).scale,
-        "equivSteps": 48,
-        "note_names": [
-          "c", "C", "C", "C",
-          "♯c", "D", "C D", "D",
-
-          "D", "d", "D", "D",
-          "E", "D E", "♭e", "E",
-
-          "e", "E", "E", "E",
-
-          "F", "F", "F", "f",
-          "♯f", "F", "F G", "F",
-
-          "g", "G","G", "G", 
-          "♯g", "A", "G A", "A",
-
-          "A", "a", "A", "A",
-          "B", "A B", "♭b", "B",
-
-          "b", "B", "B", "B"],
-        
-        "key_labels": "note_names",
-
-        "note_colors": [
-          "#ffe5e5", "#ffffff", "#ededf7", "#ffffff",
-          "#e2caca", "#d0d0d7", "#c3c3d5", "#dee2da",
-
-          "#fffae5", "#ffe5e5", "#ededf7", "#ffffff",
-          "#d0d0d7", "#c3c3d5", "#e2caca", "#dee2da",
-
-          "#ffe5e5", "#fffae5", "#ededf7", "#ffffff",
-
-          "#ffffff", "#ffffff", "#ededf7", "#ffe5e5",
-          "#e2caca", "#fffae5", "#c3c3d5", "#d0d0d7",
-
-          "#ffe5e5", "#ededf7", "#ffffff", "#ffffff",
-          "#e2caca", "#d0d0d7", "#c3c3d5", "#dee2da",
-
-          "#fffae5", "#ffe5e5", "#ededf7", "#ffffff",
-          "#d0d0d7", "#c3c3d5", "#e2caca", "#dee2da",
-
-          "#ffe5e5", "#fffae5", "#ededf7", "#ffffff"
-          ],
-        "spectrum_colors": false,
-        "rSteps": 4,
-        "urSteps": -1,
-        "hexSize": 42,
-        "rotation": 40.9,        
-        "fundamental": 260.74074074,
-        "short_description": "12-tone-combined"
-      },
-      {
-        "name": "B-System Button Layout",
-        "description": "12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a chromatic button accordion Type-B system.",
-        "scale": scale_12_edo_parsed,
-        "equivSteps": 12,
-        "note_names": [
-          "C", "D C",
-          "D", "E D",
-          "E",
-          "F", "G F",
-          "G", "A G",
-          "A", "B A",
-          "B"],
-        "key_labels": "note_names",
-        "note_colors": ["#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7", "#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7"],
-        "spectrum_colors": false,
-        "rSteps": 3,
-        "urSteps": 1,
-        "hexSize": 42,
-        "rotation": 0,
-        "fundamental": 261.6255653,
-        "short_description": "12-edo B-System Chromatic Button"
-      },
-      {
-        "name": "C-System Button Layout",
-        "description": "12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a chromatic button accordion Type-C system.",
-        "scale": scale_12_edo_parsed,
-        "equivSteps": 12,
-        "note_names": [
-          "C", "D C",
-          "D", "E D",
-          "E",
-          "F", "G F",
-          "G", "A G",
-          "A", "B A",
-          "B"],
-        "key_labels": "note_names",
-        "note_colors": ["#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7", "#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7", "#c3c3d5", "#ededf7"],
-        "spectrum_colors": false,
-        "rSteps": 3,
-        "urSteps": 2,
-        "hexSize": 42,
-        "rotation": 0,
-        "fundamental": 261.6255653,
-        "short_description": "12-edo C-System Chromatic Button"       
       }
     ]
   },
@@ -390,13 +345,13 @@ export const presets = [
           "C", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e2caca", "#e1d0e1",
+          "#ffffff", "#ebd0e0", "#e8dbfa",
           "#ffffff", "#d0d0d7",
-          "#e1d0e1", "#ffffff",
-          "#ffffff", "#e2caca", "#e1d0e1",
+          "#e8dbfa", "#ffffff",
+          "#ffffff", "#ebd0e0", "#e8dbfa",
           "#ffffff", "#d0d0d7",
-          "#e1d0e1", "#ffffff", "#d0d0d7",
-          "#e2caca", "#e1d0e1"],
+          "#e8dbfa", "#ffffff", "#d0d0d7",
+          "#ebd0e0", "#e8dbfa"],
         "spectrum_colors": false,
         "rSteps": 3,
         "urSteps": 1,
@@ -511,17 +466,17 @@ export const presets = [
         "scale": parseScale(scale_36_hs_12to48).scale,
         "equivSteps": 36,
         "note_names": [
-          "12°", "13°", "14°", "15°",
-          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°",
-          "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°",
-          "48°"],
+          "12", "13", "14", "15",
+          "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
+          "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47",
+          "48"],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#f8fdfe",
+        "fundamental_color": "#eff1f1",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 32,
+        "hexSize": 42,
         "rotation": -26,
         "fundamental": 260.74074074,
         "short_description": "36-HS 12° to 24°"
@@ -535,15 +490,15 @@ export const presets = [
           "12", "13°", "14°", "15°",
           "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°",
           "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48",
-          "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16", "u15", "u14", "u13", "12"          
+          "47", "46", "45", "44", "43", "42", "41", "40", "39", "38", "37", "36", "35", "34", "33", "32", "31", "30", "29", "28", "27", "26", "25", "24", "23", "22", "21", "20", "19", "18", "17", "16", "15", "14", "13", "12"          
         ],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#f8fdfe",
+        "fundamental_color": "#eff1f1",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 32,
+        "hexSize": 38,
         "rotation": -26,
         "fundamental": 260.74074074,
         "short_description": "72-HSS 12 to 48"
@@ -554,17 +509,17 @@ export const presets = [
         "scale": parseScale(scale_72_shs_12to48).scale,
         "equivSteps": 72,
         "note_names": [
-          "48", "u47", "u46", "u45", "u44", "u43", "u42", "u41", "u40", "u39", "u38", "u37", "u36", "u35", "u34", "u33", "u32", "u31", "u30", "u29", "u28", "u27", "u26", "u25", "u24", "u23", "u22", "u21", "u20", "u19", "u18", "u17", "u16", "u15", "u14", "u13",
-          "12", "13°", "14°", "15°",
-          "16°", "17°", "18°", "19°", "20°", "21°", "22°", "23°", "24°", "25°", "26°", "27°", "28°", "29°", "30°", "31°", "32°", "33°", "34°", "35°", "36°", "37°", "38°", "39°", "40°", "41°", "42°", "43°", "44°", "45°", "46°", "47°", "48" 
+          "48", "47", "46", "45", "44", "43", "42", "41", "40", "39", "38", "37", "36", "35", "34", "33", "32", "31", "30", "29", "28", "27", "26", "25", "24", "23", "22", "21", "20", "19", "18", "17", "16", "15", "14", "13",
+          "12", "13", "14", "15",
+          "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48" 
         ],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#f8fdfe",
+        "fundamental_color": "#eff1f1",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 32,
+        "hexSize": 38,
         "rotation": -26,
         "fundamental": 260.74074074,
         "short_description": "72-SHS 12 to 48"
@@ -575,16 +530,16 @@ export const presets = [
         "scale": parseScale(scale_19_hs_34to51).scale,
         "equivSteps": 19,
         "note_names": [
-          "34°51°", "52°", "35°", "36°", "37°", "38°", "39°", "40°", "41°",
-          "42°", "43°", "44°", "45°", "46°", "47°", "32°48°", "49°", "33°",
-          "50°"],
+          "3451", "52", "35", "36", "37", "38", "39", "40", "41",
+          "42", "43", "44", "45", "46", "47", "3248", "49", "33",
+          "50"],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#f8fdfe",
-        "rSteps": 3,
-        "urSteps": 2,
-        "hexSize": 36,
+        "fundamental_color": "#eff1f1",
+        "rSteps": 5,
+        "urSteps": 1,
+        "hexSize": 32,
         "rotation": -27,
         "fundamental": 260.74074074,
         "short_description": "19-HS 34 to 51"
@@ -595,13 +550,13 @@ export const presets = [
         "scale": parseScale(scale_14_hs_odd_3_5).scale,
         "equivSteps": 14,
         "note_names": [
-          "1°", "135°",
-          "9°", "75°",
-          "5°", "81°",
-          "45°",
-          "3°", "25°",
-          "27°", "225°",
-          "15°", "243°", "125°"],
+          "1", "135",
+          "9", "75",
+          "5", "81",
+          "45",
+          "3", "25",
+          "27", "225",
+          "15", "243", "125"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#fffae5",
@@ -655,14 +610,14 @@ export const presets = [
         "scale": parseScale(scale_12_hs_odd_3_7).scale,
         "equivSteps": 12,
         "note_names": [
-          "1°",
-          "9°", "147°",
-          "81°",
-          "21°", "189°",
-          "3°", "49°",
-          "27°",
-          "7°",
-          "243°", "63°"],
+          "1",
+          "9", "147",
+          "81",
+          "21", "189",
+          "3", "49",
+          "27",
+          "7",
+          "243", "63"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff",
@@ -719,14 +674,14 @@ export const presets = [
         "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
         "equivSteps": 18,
         "note_names": [
-          "1°", "33°",
-          "9°", "147°", "77°",
-          "81°",
-          "21°", "11°", "189°",
-          "3°", "49°", "99°",
-          "27°",
-          "7°", "231°",
-          "121°", "243°", "63°"],
+          "1", "33",
+          "9", "147", "77",
+          "81",
+          "21", "11", "189",
+          "3", "49", "99",
+          "27",
+          "7", "231",
+          "121", "243", "63"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dfe5f1",
@@ -779,17 +734,17 @@ export const presets = [
       },
       {
         "name": "Odd Partial Pitch Class Subgroup 3,5,13 <= 256",
-        "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5.",
+        "description": "20-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5.",
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
         "equivSteps": 20,
         "note_names": [
-          "1°", "65°", "135°",
-          "9°", "75°", "39°", "5°", 
-          "81°",
-          "169°", "45°",
-          "3°", "195°", "25°", "13°",
-          "27°", "225°", "117°", "15°", 
-          "243°", "125°"],
+          "1", "65", "135",
+          "9", "75", "39", "5", 
+          "81",
+          "169", "45",
+          "3", "195", "25", "13",
+          "27", "225", "117", "15", 
+          "243", "125"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#f6eaf1", "#fffae5",
@@ -809,7 +764,7 @@ export const presets = [
       },
       {
         "name": "Odd Partial Pitch Class Subgroup 3,5,13 <= 256 (HEJI)",
-        "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
+        "description": "20-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
         "equivSteps": 20,
         "note_names": [
@@ -836,6 +791,66 @@ export const presets = [
         "rotation": -16.102113751,
         "fundamental": 260.740740,
         "short_description": "Odd Partial PC SG 3,5,13)"
+      },
+      {
+        "name": "13-limit Odd Partial Pitch Class Set <= 256",
+        "description": "40-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 13.",
+        "scale": parseScale(scale_40_hs_odd_13l).scale,
+        "equivSteps": 40,
+        "note_names": [
+          "1", "65", "33", "135", "35", "143",
+          "9", "147", "75", "77", "39", "5", 
+          "81", "165", "21",
+          "169", "175", "11", "45", "91", "189",
+          "3", "195", "49", "99", "25", "13", "105",
+          "27", "55", "7", "225", "231", "117", "15", "121",
+          "243", "245", "125", "63"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#f6eaf1", "#dfe5f1", "#fffae5", "#f8ffeb", "#e2e0ff",
+          "#ffffff", "#f8c9c9", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5",
+          "#ffffff", "#dbf6ff", "#ffe5e5",
+          "#e8ccff", "#d8e3ce", "#dfe5f1", "#fffae5", "#ebd0e0", "#ffe5e5",
+          "#ffffff", "#f6eaf1", "#f8c9c9", "#dfe5f1", "#fceec5", "#e8dbfa", "#f8ffeb",
+          "#ffffff", "#dbf6ff", "#ffe5e5", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5", "#d2ddf4",
+          "#ffffff", "#ffd0a3", "#f2deb1", "#ffe5e5"],                 
+        "spectrum_colors": false,
+        "rSteps": 7,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd Partial PC SG 3,5,13)"
+      },
+      {
+        "name": "13-limit Odd Partial Pitch Class Set <= 256 (HEJI)",
+        "description": "40-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 13, notated with HEJI accidentals.",
+        "scale": parseScale(scale_40_hs_odd_13l).scale,
+        "equivSteps": 40,
+        "note_names": [
+          "C", "C", "C", "C", "D", "D",
+          "D", "E", "D", "E", "E", "E", 
+          "E", "E", "F",
+          "F", "F", "F", "F", "G", "G",
+          "G", "G", "A", "G", "G", "A", "A",
+          "A", "A", "B", "A", "B", "B", "B", "B",
+          "B", "C", "B", "C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#f6eaf1", "#dfe5f1", "#fffae5", "#f8ffeb", "#e2e0ff",
+          "#ffffff", "#f8c9c9", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5",
+          "#ffffff", "#dbf6ff", "#ffe5e5",
+          "#e8ccff", "#d8e3ce", "#dfe5f1", "#fffae5", "#ebd0e0", "#ffe5e5",
+          "#ffffff", "#f6eaf1", "#f8c9c9", "#dfe5f1", "#fceec5", "#e8dbfa", "#f8ffeb",
+          "#ffffff", "#dbf6ff", "#ffe5e5", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5", "#d2ddf4",
+          "#ffffff", "#ffd0a3", "#f2deb1", "#ffe5e5"],                 
+        "spectrum_colors": false,
+        "rSteps": 7,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd Partial PC SG 3,5,13)"
       }
     ]
   },
@@ -844,7 +859,7 @@ export const presets = [
     settings: [
       {
         "name": "53-tone Extended Pythagorean",
-        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a series of 53 just fifths is very nearly equal to 31 octaves.",
+        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a sequence of 53 just fifths is very nearly equal to 31 octaves.",
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
         "note_names": [
@@ -1040,9 +1055,9 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#cee3e2",
           "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#dfe5f1",
-          "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
+          "#fffae5", "#e7e7ca", "#cee3e2", "#fffae5",
           "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5"],
@@ -1059,19 +1074,19 @@ export const presets = [
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
         "equivSteps": 43,
         "note_names": [
-          "C", "C", "C", "D", "C", "D", "D",
+          "C", "C", "C", "D", "C", "D", "D",
           "D", "D", "E", "D", "E", "E",
           "E", "E", "E", "F",
-          "F", "F", "F", "F", "F", "F", "G", "G",
+          "F", "F", "F", "F", "F", "F", "G", "G",
           "G", "G", "G", "A", "A", "A", "A", "A",
           "A", "A", "B", "B", "B", "B",
           "B", "C", "B", "C"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
-          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5",
-          "#ffffff", "#dee2da", "#e1d0e1", "#dfe5f1", "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#cee3e2",
+          "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#dfe5f1",
+          "#fffae5", "#e7e7ca", "#cee3e2", "#fffae5",
           "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#dee2da", "#cee3e2", "#e1d0e1", "#fffae5",
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5"],
@@ -1093,7 +1108,7 @@ export const presets = [
           "D", "D", "E", "E", "E", "E",
           "E", "F", "E", "F",
           "F", "F", "F", "G", "F", "G", "G",
-          "G", "G", "A", "G", "A", "A",
+          "G", "G", "A", "G", "A", "A",
           "A", "A", "A", "B", "B", "B", "B", "B",
           "B", "B", "C", "C"],
         "key_labels": "note_names",
@@ -1102,9 +1117,9 @@ export const presets = [
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1",
           "#fffae5", "#e4fbe6", "#e2caca", "#ffe5e5",
           "#ffffff", "#dee2da", "#dfe5f1", "#ece6df", "#e7e7ca", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#dfe5f1",
+          "#ffffff", "#e2caca", "#ffe5e5", "#e4fbe6", "#dee2da", "#cee3e2",
           "#fffae5", "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#e1d0e1", "#dfe5f1",
-          "#fffae5", "#f8ffeb", "#cee3e2", "#fffae5",
+          "#fffae5", "#e7e7ca", "#cee3e2", "#fffae5"
         ],
         "spectrum_colors": false,
         "rSteps": 7,
@@ -1152,19 +1167,19 @@ export const presets = [
         "note_names": [
           "C", "C", "C", "D", "D", "D", "D", "D", "D",
           "D", "D", "D", "E", "E", "E", "E", "E", "E",
-          "E", "E", "E", "F",
+          "E", "E", "F", "F",
           "F", "F", "F", "F", "F", "G", "G", "G", "G",
           "G", "G", "G", "A", "A", "A", "A", "A", "A",
-          "A", "A", "A", "B", "B", "B", "B", "B", "B",
+          "A", "A", "B", "B", "B", "B", "B", "B", "B",
           "B", "B", "C", "C"],  
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da", "#dfe5f1", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5",
-          "#ffffff", "#dee2da", "#dfe5f1", "#e1d0e1", "#fffae5", "#dee2da", "#e8dbfa", "#cee3e2", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#e1d0e1", "#fffae5",
-          "#ffffff", "#e2caca", "#e4fbe6", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1", "#e1d0e1", "#fffae5",
+          "#ffffff", "#e2caca", "#e4f6fb", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#cabddb", "#fffae5",
+          "#ffffff", "#e2caca", "#e4fbf1", "#ffe5e5",
+          "#ffffff", "#dee2da", "#dfe5f1", "#cabddb", "#fffae5", "#dee2da", "#e8dbfa", "#cee3e2", "#fffae5",
+          "#ffffff", "#e2caca", "#e4f6fb", "#ffe5e5", "#d0d0d7", "#dee2da", "#e8dbfa", "#cabddb", "#fffae5",
+          "#ffffff", "#e2caca", "#e4fbf1", "#ffe5e5", "#d0d0d7", "#dee2da", "#dfe5f1", "#cabddb", "#fffae5",
           "#ffffff", "#e2caca", "#cee3e2", "#fffae5"],
         "spectrum_colors": false,
         "rSteps": 9,

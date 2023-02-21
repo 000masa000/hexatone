@@ -2,7 +2,7 @@ import { h, render } from 'preact';
 
 // scale name and description
 const Info = (props) => (
-  <fieldset><legend>Name and Description</legend>
+  <fieldset><legend><b>Name and Description</b></legend>
     <label>     
       <input name="name" type="text" width="100%"
              value={props.settings.name}

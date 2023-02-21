@@ -5,7 +5,7 @@ import MidiOut from './midiout';
 
 const MIDIio = (props) => (
   <fieldset>
-    <legend>MIDI</legend>
+    <legend><b>MIDI Settings</b></legend>
     <label>
       Input Port
       <select value={props.settings.midiin_device}
@@ -21,6 +21,9 @@ const MIDIio = (props) => (
     ))}
       </select>
     </label>
+    <br />
+    <em>Note: Input is always received on all channels. The Central Input Channel chosen below remains untransposed. Other channels are transposed by multiples of the selected scale's interval of repetition (usually an octave, but it may be any value, commonly called "equave"). Multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
+    <br /><br />
     <label>
     Central Input Channel
       <select value={props.settings.midiin_channel}
@@ -35,7 +38,7 @@ const MIDIio = (props) => (
       </select>
     </label>
     <label>
-      Output
+      (Sound Synthesis)
       <select value={props.settings.output}
               name="output"
         onChange={(e) => {
@@ -44,7 +47,7 @@ const MIDIio = (props) => (
         }
         }>
         <option value="OFF">OFF</option>
-        {props.midi && (<option value="midi">MIDI Synth ON</option>)}
+        {props.midi && (<option value="midi">(MIDI-output)</option>)}
         <option value="sample">(sample-synth)</option>
       </select>
     </label>

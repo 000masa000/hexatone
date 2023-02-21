@@ -5,6 +5,8 @@
   Note: this parser also allows encoding of key labels and key colors (hex format, i.e. #ffffff)
 */
 
+import { string } from "prop-types";
+
 export const parseScale = (scala) => {
   const out = {
     scale: [],
@@ -23,14 +25,17 @@ export const parseScale = (scala) => {
       // ignore comments, indicated by a "!" symbol, but capture the first; which by convention is a filename.
       if (!out.filename) {
         out.filename = line.split("!", 2)[1].trim();
+        console.log("scale name:", out.filename);
       }
       continue;
     } else if (!out.description) {
       // the first non-comment line is a description
       out.description = line.trim();
+      console.log("scale description:", out.description);
     } else if (!out.equivSteps && line.match(/^\s*[0-9]+\s*$/)) {
       // The first number is the number of lines in the file to come, containing scale data.
       out.equivSteps = parseInt(line.trim());
+      console.log("scale length:", out.equivSteps);
     } else if (match = line.match(/^\s*(-?[0-9]+\.[0-9]*|[0-9]+\/[0-9]*|[0-9]+\\[0-9]*|[0-9]+)\s*$/)) {
       // only a pitch value (positive or negative float; positive ratio; edo step in backslash format)
       out.scale.push(match[1]);

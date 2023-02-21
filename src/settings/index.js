@@ -12,7 +12,7 @@ import './settings.css';
 // set up the fieldset to enter the app settings 
 const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, instruments}) => (
   <form>
-    <fieldset><legend>Tuning</legend>
+    <fieldset><legend><b>Tuning</b></legend>
       <label>   
         <Presets onChange={presetChanged} presets={presets} />
       </label>

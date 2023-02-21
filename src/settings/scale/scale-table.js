@@ -54,7 +54,7 @@ const ScaleTable = (props) => {
       </thead>
       <tbody>
         <tr>
-          <td><em>1/1</em>&nbsp;&nbsp;&nbsp;=&nbsp;<em>0 cents</em>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;0\n</td>
+          <td><em>1/1</em>&nbsp;&nbsp;&nbsp;=&nbsp;<em>0.0 cents</em>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;0\n</td>
           <td>
             <input id="centered" type="text" disabled={editable_labels}
                    name="degree0" value={degrees[0]} onChange={nameChange}

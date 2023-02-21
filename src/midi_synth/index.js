@@ -1,8 +1,8 @@
 // TODO MIDI panic button
-export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity) => {
+export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity, fundamental) => {
     return {
     makeHex: (coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played) => {
-        return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity);
+        return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental);
     }
     };
 };
@@ -20,7 +20,7 @@ for (let i = 0; i < 16384; i++) {
   keymap[i] = [0, 0, 0, 0];  
 };
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity) {
+function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental) {
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
@@ -32,14 +32,19 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
+      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... problem: MIDI softsynth must be set to 440 Hz for this to work correctly ????
+      var ref_offset = fundamental / 261.6255653;
+      ref_offset = 1200 * Math.log2(ref_offset);
+      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
+      console.log("cents_from_reference", ref_cents);
       var split = channel;
-      var steps_cycle = Math.floor(cents / 100.) // finds the number of steps from middle C (1/1)
+      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
       var mts = [];
       mts[0] = note_count;
       note_count = (note_count + 1) % 128; // cycles the notes sent as carriers of MTS data
       mts[1] = (steps_cycle + 180) % 120; // calculates the desired note and two bytes of tuning resolution, offset from MIDI note C4 (60)
-      mts[2] = (cents * 0.01) - steps_cycle;
+      mts[2] = (ref_cents * 0.01) - steps_cycle;
       steps_cycle = mts[0];
       mts[2] = Math.round(16384 * mts[2]);
       if (mts[2] == 16384) {
@@ -54,8 +59,13 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
       keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
     } else if (midi_mapping === "MTS2") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
+      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... problem: MIDI softsynth must be set to 440 Hz for this to work correctly ????
+      var ref_offset = fundamental / 261.6255653;
+      ref_offset = 1200 * Math.log2(ref_offset);
+      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
+      console.log("cents_from_reference", ref_cents);
       var split = channel;
-      var steps_cycle = Math.floor(cents / 100.) // finds the number of steps from middle C (1/1)
+      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
       var mts = [];
       mts[1] = (steps_cycle + 180) % 120; // calculates the desired note and two bytes of tuning resolution, offset from MIDI note C4 (60)
@@ -66,7 +76,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
         mts[0] = note_count_h;
         note_count_h = ((note_count_h - 88) % 18) + 89; // cycles the notes to be played without dampers
       };    
-      mts[2] = (cents * 0.01) - steps_cycle;
+      mts[2] = (ref_cents * 0.01) - steps_cycle;
       steps_cycle = mts[0];
       mts[2] = Math.round(16384 * mts[2]);
       if (mts[2] == 16384) {

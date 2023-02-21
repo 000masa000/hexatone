@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Layout = (props) => (
   <fieldset>
-    <legend>Layout</legend>
+    <legend><b>Layout</b></legend>
     <label>
       Right-Facing Steps
       <input name="rSteps" type="number"

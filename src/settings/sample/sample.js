@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Sample = (props) => (
   <>
     <label>
-      Instrument
+      Internal Instruments
       <Instruments value={props.settings.instrument}
                    groups={props.instruments}
                    onChange={props.onChange}/>
