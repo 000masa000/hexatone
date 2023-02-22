@@ -33,11 +33,18 @@ export const instruments = [
       }, {
         fileName: "sruti",
         name: "Srutibox",
-        gain: 0.36
-        ,
+        gain: 0.36,
         attack: 0,
         release: 0.06,
         loop: true
+      }, {
+        fileName: "HvP8_retuned",
+        name: "Baroque Organ Principal",
+        gain: 0.5,
+        attack: 0,
+        release: 0.06,
+        loop: true,
+        loopPoints: [4.0, 5.2913, 2.287103, 4.1999, 2.287, 4.21495, 0.9711, 3.574]
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",

@@ -9,6 +9,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const sampleAttack = findAttack(fileName);
     const sampleRelease = findRelease(fileName);
     const sampleLoop = findLoop(fileName);
+    const sampleLoopPoints = findLoopPoints(fileName);
     const audioContext = new AudioContext();
     const s110 = await loadSample(audioContext, fileName, "110");
     const s220 = await loadSample(audioContext, fileName, "220");
@@ -18,7 +19,7 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const samples = [s110, s220, s440, s880];
     return {
       makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, samples, audioContext);
+        return new ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, samples, audioContext);
       },
     };
   } catch (e) {
@@ -32,7 +33,7 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
@@ -42,6 +43,7 @@ function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleR
   this.sampleAttack = sampleAttack;
   this.sampleRelease = sampleRelease;
   this.sampleLoop = sampleLoop;
+  this.sampleLoopPoints = sampleLoopPoints;
   this.sampleBuffer = sampleBuffer;
   this.audioContext = audioContext;
 }
@@ -71,7 +73,22 @@ ActiveHex.prototype.noteOn = function() {
   if (!(this.sampleBuffer[sampleNumber])) return; // Sample not yet loaded
 
   source.buffer = this.sampleBuffer[sampleNumber]; // tell the source which sound to play
-  source.loop = this.sampleLoop; // tell it lo loop if needed
+  source.loop = this.sampleLoop; // tell it to loop if needed
+
+  if (this.sampleLoopPoints[sampleNumber * 2] > 0) { // find the loop start
+    source.loopStart = this.sampleLoopPoints[sampleNumber * 2];
+  } else {
+    source.loopStart = 0;
+  };
+
+  if (this.sampleLoopPoints[(sampleNumber * 2) + 1] > 0) { // find the loop end
+    source.loopEnd = this.sampleLoopPoints[(sampleNumber * 2) + 1];
+  } else {
+    source.loopEnd = 0;
+  };
+
+  console.log("current loop:", source.loopStart, source.loopEnd);
+  
   source.playbackRate.value = freq / sampleFreq;
   // Create a gain node.
   var gainNode = this.audioContext.createGain();
@@ -143,6 +160,21 @@ const findLoop = (fileName) => {
   }
   console.error("Unable to find configured instrument");
   return 0.1;
+};
+
+const findLoopPoints = (fileName) => {
+  for (let g of instruments) {
+    for (let i of g.instruments) { 
+      if (i.fileName === fileName) {
+        if (i.loopPoints) {
+          return i.loopPoints;
+        } else {
+          return [0, 0, 0, 0, 0, 0, 0, 0];
+        }
+      }
+    }
+  }
+  console.error("Unable to find configured instrument");
 };
 
 export default create_sample_synth;
