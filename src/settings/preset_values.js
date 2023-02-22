@@ -62,7 +62,7 @@ export const presets = [
     settings: [
       {
         "name": "Equal Temperament",
-        "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a layout that approximates the Paul Jankó modified piano keyboard. Notated using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. The text font Roboto with embedded HEJI accidentals used in this web app may be obtained at https://www.plainsound.org/fonts. The accidentals follow the Unicode standard music font layout and their location may be found at https://w3c.github.io/smufl/latest/tables/extended-helmholtz-ellis-accidentals-just-intonation.html.",
+        "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a layout that approximates the Paul Jankó modified piano keyboard. Notated using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
         "scale": scale_12_edo_parsed,        
         "equivSteps": 12,
         "note_names": [
