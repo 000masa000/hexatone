@@ -31,6 +31,7 @@ import scale_12_hs_odd_3_7 from 'scales/12-HS-odd-3+7.scl';
 import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
 import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
 import scale_40_hs_odd_13l from 'scales/40-HS-odd-13L.scl';
+import scale_55_hs_odd_19l from 'scales/55-HS-odd-19L.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
@@ -799,12 +800,12 @@ export const presets = [
         "equivSteps": 40,
         "note_names": [
           "1", "65", "33", "135", "35", "143",
-          "9", "147", "75", "77", "39", "5", 
-          "81", "165", "21",
+          "9", "147", "75", "77", "39",
+          "5", "81", "165", "21",
           "169", "175", "11", "45", "91", "189",
           "3", "195", "49", "99", "25", "13", "105",
-          "27", "55", "7", "225", "231", "117", "15", "121",
-          "243", "245", "125", "63"],
+          "27", "55", "7", "225", "231", "117", "15",
+          "121", "243", "245", "125", "63"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#f6eaf1", "#dfe5f1", "#fffae5", "#f8ffeb", "#e2e0ff",
@@ -815,8 +816,8 @@ export const presets = [
           "#ffffff", "#dbf6ff", "#ffe5e5", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5", "#d2ddf4",
           "#ffffff", "#ffd0a3", "#f2deb1", "#ffe5e5"],                 
         "spectrum_colors": false,
-        "rSteps": 7,
-        "urSteps": 1,
+        "rSteps": 6,
+        "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,
@@ -845,8 +846,40 @@ export const presets = [
           "#ffffff", "#dbf6ff", "#ffe5e5", "#fceec5", "#f3e7f1", "#e8dbfa", "#fffae5", "#d2ddf4",
           "#ffffff", "#ffd0a3", "#f2deb1", "#ffe5e5"],                 
         "spectrum_colors": false,
-        "rSteps": 7,
-        "urSteps": 1,
+        "rSteps": 6,
+        "urSteps": 5,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 260.740740,
+        "short_description": "Odd Partial PC SG 3,5,13)"
+      },
+      {
+        "name": "19-limit Odd Partial Pitch Class Set < 256",
+        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
+        "scale": parseScale(scale_55_hs_odd_19l).scale,
+        "equivSteps": 55,
+        "note_names": [
+          "1", "65", "33", "133", "135", "17", "35", "143",
+          "9", "147", "75", "19", "153", "77", "39", "5",
+          "81", "165", "21", "169", "85",
+          "171", "175", "11", "45", "91", "187", "189", "95",
+          "3", "195", "49", "99", "25", "51", "13", "209",
+          "105", "27", "55", "221", "7", "225", "57", "231",
+          "117", "119", "15", "121", "243",
+          "245", "247", "125", "63", "255"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#f6eaf1", "#dfe5f1", "#edfbfd", "#fffae5", "#eaeafb", "#f8ffeb", "#e2e0ff",
+          "#ffffff", "#f8c9c9", "#fceec5", "#edfbfd", "#eaeafb", "#f3e7f1", "#e8dbfa", "#fffae5",
+          "#ffffff", "#dbf6ff", "#ffe5e5", "#e8ccff", "#eaeafb",
+          "#edfbfd", "#d8e3ce", "#dfe5f1", "#fffae5", "#ebd0e0", "#eaeafb", "#ffe5e5", "#edfbfd",
+          "#ffffff", "#f6eaf1", "#f8c9c9", "#dfe5f1", "#fceec5", "#eaeafb", "#e8dbfa","#edfbfd",
+          "#f8ffeb", "#ffffff", "#dbf6ff", "#eaeafb", "#ffe5e5", "#fceec5", "#edfbfd", "#f3e7f1",
+          "#e8dbfa", "#eaeafb", "#fffae5", "#d2ddf4", "#ffffff",
+          "#ffd0a3", "#edfbfd", "#f2deb1", "#ffe5e5", "#eaeafb"],                 
+        "spectrum_colors": false,
+        "rSteps": 8,
+        "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
         "fundamental": 260.740740,

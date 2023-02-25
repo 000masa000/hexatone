@@ -87,7 +87,7 @@ ActiveHex.prototype.noteOn = function() {
     source.loopEnd = 0;
   };
 
-  console.log("current loop:", source.loopStart, source.loopEnd);
+  //console.log("current loop:", source.loopStart, source.loopEnd);
   
   source.playbackRate.value = freq / sampleFreq;
   // Create a gain node.

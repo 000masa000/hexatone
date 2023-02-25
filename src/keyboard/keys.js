@@ -17,7 +17,7 @@ class Keys {
     };
     this.synth = synth;
     this.typing = typing;
-
+    
     this.state = {
       canvas,
       context: canvas.getContext('2d'),
@@ -181,15 +181,24 @@ class Keys {
     console.log("transposition (in equaves)", channel_offset);
     var steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
+    //console.log("gcd", this.settings.gcd);
+    //console.log("steps", steps);
     var note_played = e.note.number + (128 * (e.message.channel - 1)); // allows note and channel to be encoded and recovered for MTS key pressure
     var velocity_played = e.note.rawAttack;
-    var rSteps_count = Math.round(steps / this.settings.rSteps);
+    var rSteps_count = Math.round(steps / this.settings.rSteps); // how many steps to the right to get near the played note
     var rSteps_to_steps = this.settings.rSteps * rSteps_count;
+    //console.log("rSteps_count", rSteps_count);
+    //console.log("rSteps_to_steps", rSteps_to_steps);
     var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
     var urSteps_to_steps = this.settings.urSteps * urSteps_count;
-    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
+    //console.log("urSteps_count", urSteps_count);
+    //console.log("urSteps_to_steps", urSteps_to_steps);
+    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);    
     var gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+    //console.log("gcdSteps_count", gcdSteps_count);
+    //console.log("gcdSteps_to_steps", gcdSteps_to_steps);
     var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
+    //console.log("remainder", remainder);
     if (remainder == 0) {
       var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
       var hex = this.hexOn(coords, note_played, velocity_played);

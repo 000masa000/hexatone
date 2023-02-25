@@ -188,7 +188,7 @@ const App = () => {
   // console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
     settings.midi_velocity = parseInt(localStorage.getItem("midi_velocity"));
   } else {
-    settings.midi_velocity = 96;
+    settings.midi_velocity = 72;
   };
 
   useEffect(() => {
@@ -230,14 +230,14 @@ const App = () => {
       if (s.scale_import) {
         const { filename, description, equivSteps, scale, labels, colors } = parseScale(s.scale_import);
         const scala_names = parsedScaleToLabels(scale);
-        var f_color = colors.pop();
+        var f_color = colors.pop(); // deals with 1/1
         console.log("f_color", f_color)
         if (f_color == "null") {
           colors.unshift("#ffffff"); 
         } else {
           colors.unshift(f_color); 
         };
-        var f_name = labels.pop();
+        var f_name = labels.pop(); // deals with 1/1
         console.log("f_name", f_name)
         if (f_name == "null") {
           labels.unshift(""); 
