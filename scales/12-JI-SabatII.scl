@@ -1,0 +1,18 @@
+! 12_Sabat_II.scl
+! 12-tone Rational Intonation Well Temperament, derived from harmonic series intervals limited to the prime subgroup of 2, 3, 5, and 17.
+!
+12-JI-Sabat II Well Temperament
+12
+!
+16/15
+9/8
+81/68
+81/64
+4/3
+729/512
+3/2
+51/32
+27/16
+3645/2048
+243/128
+2/1
