@@ -24,6 +24,13 @@ export const instruments = [
         release: 0.002,
         loop: false
       }, {
+        fileName: "wurli",
+        name: "Wurlitzer Electric Piano",
+        gain: 0.37,
+        attack: 0,
+        release: 0.002,
+        loop: false
+      }, {
         fileName: "hammond",
         name: "Hammond",
         gain: 0.68,
@@ -101,6 +108,13 @@ export const instruments = [
         attack: 0,
         release: 1.0,
         loop: false
+      }, {
+        fileName: "tanpura",
+        name: "Digital Tanpura",
+        gain: 0.65,
+        attack: 0,
+        release: 1.2,
+        loop: true
       }
     ],
   },

@@ -110,7 +110,7 @@ ActiveHex.prototype.noteOff = function () {
     this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleRelease);
   }
   if (this.source) {
-    this.source.stop(fadeout + 1);
+    this.source.stop(fadeout + 6);
   }
 };
 
