@@ -56,9 +56,6 @@ import scale_1cent from 'scales/1cent.scl';
 //import the Scala file parser, which can output scale: [], colors: [], labels: [], errors: [],
 import { parseScale } from './scale/parse-scale';
 
-//define the standard 12-edo equal tempered scale 
-const scale_12_edo_parsed = parseScale(scale_12_edo).scale;
-
 //define the presets which appear in the sidebar menu
 
 export const presets = [
@@ -68,7 +65,7 @@ export const presets = [
       {
         "name": "Equal Temperament",
         "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a layout that approximates the Paul Jankó modified piano keyboard. Notated using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
-        "scale": scale_12_edo_parsed,        
+        "scale": parseScale(scale_12_edo).scale,  
         "equivSteps": 12,
         "note_names": [
           "C", "C D",

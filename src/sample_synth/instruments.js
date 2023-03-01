@@ -25,7 +25,7 @@ export const instruments = [
         loop: false
       }, {
         fileName: "wurli",
-        name: "Wurlitzer Electric Piano",
+        name: "Wurlitzer",
         gain: 0.29,
         attack: 0,
         release: 0.002,
@@ -46,7 +46,7 @@ export const instruments = [
         loop: true
       }, {
         fileName: "HvP8_retuned",
-        name: "Baroque Organ Principal",
+        name: "Organ",
         gain: 0.5,
         attack: 0,
         release: 0.045,

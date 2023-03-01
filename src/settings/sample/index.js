@@ -12,7 +12,7 @@ const SampleSynth = (props) => (
         name="output"
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
         }
         }>
         <option value = "OFF">OFF</option>

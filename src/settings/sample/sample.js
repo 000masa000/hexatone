@@ -26,7 +26,7 @@ const Instruments = (props) => (
     value={props.value}
     onChange={(e) => {
       props.onChange(e.target.name, e.target.value);
-      localStorage.setItem(e.target.name, e.target.value);
+      sessionStorage.setItem(e.target.name, e.target.value);
     }
     } >
     {props.groups.map(group => (

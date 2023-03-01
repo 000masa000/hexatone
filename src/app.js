@@ -16,7 +16,7 @@ import Blurb from './blurb';
 import PropTypes from 'prop-types';
 
 import "normalize.css";
-import "./terpstra-style.css";
+import "./hex-style.css";
 import LoadingIcon from './hex.svg';
 import './loader.css';
 
@@ -127,66 +127,73 @@ const App = () => {
   function onMIDISuccess(midiAccess) {
     console.log("Web MIDI API with sysex for MTS messages is ready!"); // post success    
     setMidi(midiAccess); // MIDIAccess stored
-  }
+    midiAccess.onstatechange = (e) => {
+      console.log(e.port.name, e.port.id, e.port.state);
+      settings.midiin_device = "OFF";
+      settings.midi_device = "OFF";
+      sessionStorage.removeItem("midiin_device");
+      sessionStorage.removeItem("midi_device");
+    };
+  };
 
   function onMIDIFailure() {
     console.log('Web MIDI API could not initialise!');
-  } // MIDI failure error
+  }; // MIDI failure error
 
-  // if localStorage values have been set for preferred output (sample/MIDI) and settings, use them
+  // if sessionStorage values have been set for preferred output (sample/MIDI) and settings, use them
 
-  if (localStorage.getItem("output")) {
-   // console.log("localstorage output", localStorage.getItem("output"))
-    settings.output = localStorage.getItem("output");
+  if (sessionStorage.getItem("output")) {
+   // console.log("sessionStorage output", sessionStorage.getItem("output"))
+    settings.output = sessionStorage.getItem("output");
   } else {
     settings.output = "sample";
   };
 
-  if (localStorage.getItem("instrument")) {
-   // console.log("localstorage instrument", localStorage.getItem("instrument"))
-    settings.instrument = localStorage.getItem("instrument");
+  if (sessionStorage.getItem("instrument")) {
+   // console.log("sessionStorage instrument", sessionStorage.getItem("instrument"))
+    settings.instrument = sessionStorage.getItem("instrument");
   } else {
     settings.instrument = "hammond";
   };
   
-  if (localStorage.getItem("midiin_device")) {
-   // console.log("localstorage midiin_device", localStorage.getItem("midiin_device"))
-    settings.midiin_device = localStorage.getItem("midiin_device");
+  if (sessionStorage.getItem("midiin_device")) {
+   // console.log("sessionStorage midiin_device", sessionStorage.getItem("midiin_device"))
+    settings.midiin_device = sessionStorage.getItem("midiin_device");
   } else {
     settings.midiin_device = "OFF";
   };
 
-  if (localStorage.getItem("midiin_channel")) {
-   // console.log("localstorage midiin_channel", localStorage.getItem("midiin_channel"))
-    settings.midiin_channel = parseInt(localStorage.getItem("midiin_channel"));
+  if (sessionStorage.getItem("midiin_channel")) {
+   // console.log("sessionStorage midiin_channel", sessionStorage.getItem("midiin_channel"))
+    settings.midiin_channel = parseInt(sessionStorage.getItem("midiin_channel"));
   } else {
     settings.midiin_channel = 0;
   };
 
-  if (localStorage.getItem("midi_device")) {
-   // console.log("localstorage midi_device", localStorage.getItem("midi_device"))
-    settings.midi_device = localStorage.getItem("midi_device");
+  if (sessionStorage.getItem("midi_device")) {
+   // console.log("sessionStorage midi_device", sessionStorage.getItem("midi_device"))
+    settings.midi_device = sessionStorage.getItem("midi_device");
   } else {
     settings.midi_device = "OFF";
   };
 
-  if (localStorage.getItem("midi_channel")) {
-   // console.log("localstorage midi_channel", localStorage.getItem("midi_channel"))
-    settings.midi_channel = parseInt(localStorage.getItem("midi_channel"));
+  if (sessionStorage.getItem("midi_channel")) {
+   // console.log("sessionStorage midi_channel", sessionStorage.getItem("midi_channel"))
+    settings.midi_channel = parseInt(sessionStorage.getItem("midi_channel"));
   } else {
     settings.midi_channel = 0;
   };
   
-  if (localStorage.getItem("midi_mapping")) {
-   // console.log("localstorage midi_mapping", localStorage.getItem("midi_mapping"))
-    settings.midi_mapping = localStorage.getItem("midi_mapping");
+  if (sessionStorage.getItem("midi_mapping")) {
+   // console.log("sessionStorage midi_mapping", sessionStorage.getItem("midi_mapping"))
+    settings.midi_mapping = sessionStorage.getItem("midi_mapping");
   } else {
     settings.midi_mapping = "sequential";
   };
 
-  if (localStorage.getItem("midi_velocity")) {
-  // console.log("localstorage midi_velocity", localStorage.getItem("midi_velocity"))
-    settings.midi_velocity = parseInt(localStorage.getItem("midi_velocity"));
+  if (sessionStorage.getItem("midi_velocity")) {
+  // console.log("sessionStorage midi_velocity", sessionStorage.getItem("midi_velocity"))
+    settings.midi_velocity = parseInt(sessionStorage.getItem("midi_velocity"));
   } else {
     settings.midi_velocity = 72;
   };
@@ -278,6 +285,9 @@ const App = () => {
         <h1>
           Plainsound Hexatone
         </h1>
+        <p>
+          <em>To play use a touchscreen or attach a MIDI keyboard or Lumatone. When the sidebar is closed, a computer keyboard may also be used as an input device; H plays middle C4 and the spacebar acts as a sustain pedal.</em>
+        </p>
         <Settings presetChanged={presetChanged}
                     presets={presets}
                     onChange={onChange}

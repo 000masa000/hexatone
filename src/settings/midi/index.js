@@ -12,7 +12,8 @@ const MIDIio = (props) => (
         name="midiin_device"
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
+          console.log("MIDI in device selected: ", e.target.name, sessionStorage.getItem(e.target.name));
         }
         }>
         <option value="OFF">OFF</option>
@@ -27,7 +28,7 @@ const MIDIio = (props) => (
         name="midiin_channel"
         onChange={(e) => {
           props.onChange(e.target.name, parseInt(e.target.value));
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
         }
         }>
         <option value="-1">---choose a channel on which input is untransposed---</option>
@@ -43,7 +44,7 @@ const MIDIio = (props) => (
               name="output"
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
         }
         }>
         <option value="OFF">OFF</option>

@@ -9,7 +9,7 @@ const MidiOut = (props) => (
       <select value={props.settings.midi_device}
         midi={props.midi} name="midi_device" onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
         }
         }>
           <option value="OFF">OFF</option>
@@ -24,7 +24,7 @@ const MidiOut = (props) => (
         name="midi_mapping"
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
-          localStorage.setItem(e.target.name, e.target.value);
+          sessionStorage.setItem(e.target.name, e.target.value);
         }
         }>
         <option>---choose how the notes are sent---</option>
@@ -40,7 +40,7 @@ const MidiOut = (props) => (
         name="midi_channel"
         onChange={(e) => {
           props.onChange(e.target.name, parseInt(e.target.value));
-          localStorage.setItem(e.target.name, parseInt(e.target.value));
+          sessionStorage.setItem(e.target.name, parseInt(e.target.value));
         }
         }>
         <option value="-1">---place the scale fundamental--(1/1 = C4 = note 60)---</option>
@@ -55,7 +55,7 @@ const MidiOut = (props) => (
         onChange={(e) => {
           if (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 127) {
             props.onChange(e.target.name, parseInt(e.target.value));
-            localStorage.setItem(e.target.name, parseInt(e.target.value));
+            sessionStorage.setItem(e.target.name, parseInt(e.target.value));
           };
         }
         } />
