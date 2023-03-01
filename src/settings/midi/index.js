@@ -35,7 +35,7 @@ const MIDIio = (props) => (
       </select>
     </label>
     <br />
-    <em>Note: Input is always received on all channels. The Central Input Channel chosen above remains untransposed. Other channels are transposed by multiples of the selected scale's interval of repetition (usually an octave, but it may be any value, commonly called "equave"). Multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
+    <em>Input is always received on all channels. The Central Input Channel chosen above remains untransposed. Other channels are transposed by multiples of the selected scale's interval of repetition (usually an octave, but it may be any value, commonly called "equave"). Multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
     <br /><br />    
     <label>
       (Sound Synthesis)

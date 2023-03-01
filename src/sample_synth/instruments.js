@@ -26,7 +26,7 @@ export const instruments = [
       }, {
         fileName: "wurli",
         name: "Wurlitzer Electric Piano",
-        gain: 0.37,
+        gain: 0.29,
         attack: 0,
         release: 0.002,
         loop: false
@@ -57,7 +57,7 @@ export const instruments = [
         name: "Harpsichord",
         gain: 0.26,
         attack: 0,
-        release: 0.12,
+        release: 0.075,
         loop: false
       }, {
         fileName: "lute",

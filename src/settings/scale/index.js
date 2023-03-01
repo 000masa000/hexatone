@@ -29,7 +29,7 @@ const Scale = (props) => {
              onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
       </label>
       <br />
-      <em>Note: To obtain the desired absolute frequencies when using MIDI output with MTS real-time tuning messages, please set global tuning of (all) receiving instrument(s) to A4 = 440 Hz! Choosing a different Kammerton (i.e. 415 Hz or 442 Hz) will transpose everything accordingly.<br />
+      <em>To obtain the desired absolute frequencies when using MIDI output with MTS real-time tuning messages, please set global tuning of (all) receiving instrument(s) to A4 = 440 Hz! Choosing a different Kammerton (i.e. 415 Hz or 442 Hz) will transpose everything accordingly.<br />
         Common standard values for the Reference Frequency of C4 === MIDI Note 60 === are:<br /></em>
         261.6255653 Hz <em>(12-edo)</em>, 260.74074 Hz <em>(Pythagorean)</em>, 264 Hz <em>(5-Limit JI)</em>.
       <br />

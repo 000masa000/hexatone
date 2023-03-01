@@ -62,7 +62,7 @@ const MidiOut = (props) => (
     </label>
     
     <p>
-    <em>Note: Output is determined by the selected MIDI Mapping chosen above. "Multichannel" means the entire scale, up to a maximum of 128 degrees, is sent on multiple MIDI channels, around the Central Output Channel. "All notes on selected channel" sends the scale degrees sequentially, as successive MIDI notes on one channel only. The two "MTS" options send a real-time MIDI tuning message followed by a MIDI note, which triggers the retuned pitch. These options may be used directly, or in tandem with the free Oddsound MTS-ESP Mini Master/Client plug-ins, to retune compatible softsynths using other protocols (MPE or multichannel pitchbend).</em>
+    <em>Output is determined by the selected MIDI Mapping chosen above. "Multichannel" means the entire scale, up to a maximum of 128 degrees, is sent on multiple MIDI channels, around the Central Output Channel. "All notes on selected channel" sends the scale degrees sequentially, as successive MIDI notes on one channel only. The two "MTS" options send a real-time MIDI tuning message followed by a MIDI note, which triggers the retuned pitch. These options may be used directly, or in tandem with the free Oddsound MTS-ESP Mini Master/Client plug-ins, to retune compatible softsynths using other protocols (MPE or multichannel pitchbend).</em>
     </p>    
   </>
 );

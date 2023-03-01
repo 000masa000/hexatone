@@ -2,7 +2,8 @@
   Parsing scale information encoded in the Scala .scl format.
   http://www.huygens-fokker.org/scala/scl_format.html
 
-  Note: this parser also allows encoding of key labels and key colors (hex format, i.e. #ffffff)
+  This parser also allows encoding of key labels and key colors (hex format, i.e. #ffffff)
+  TODO allow frequencies to be passed directly and converted automatically to cents
 */
 
 import { string } from "prop-types";
