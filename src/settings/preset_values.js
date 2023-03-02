@@ -119,7 +119,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740740,   
+        "fundamental": 260.740741,   
         "short_description": "12-RI-3L"
       },
       {
@@ -149,7 +149,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 263.181385,
+        "fundamental": 263.181386,
         "short_description": "12-MT"
       },
       {
@@ -179,7 +179,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 264,
+        "fundamental": 260.740741,
         "short_description": "12-RI-5L"
       },
       {
@@ -234,7 +234,7 @@ export const presets = [
         "urSteps": -1,
         "hexSize": 42,
         "rotation": 40.9,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-tone-combined"
       },
       {
@@ -264,7 +264,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-RI-7L",
       },
       {
@@ -294,7 +294,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-RI-7L-blues",
       },
       {
@@ -324,7 +324,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-RI-3.7.11",
       },
       {
@@ -354,7 +354,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-RI-3.5.13",
       },
       {
@@ -372,19 +372,19 @@ export const presets = [
           "B"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#d8d8e9",
-          "#ffffff", "#c3c3e9",
+          "#ffffff", "#cfcfcf",
+          "#ffffff", "#ccccdb",
           "#ffffff",
-          "#ffffff", "#bfd2d4",
+          "#ffffff", "#bedce4",
           "#ffffff", "#c3c3d5",
-          "#ffffff", "#e0eff1",
+          "#ffffff", "#d6f7ff",
           "#ffffff"],
         "spectrum_colors": false,
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-SabatI",
       },
       {
@@ -403,10 +403,10 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dee2da",
-          "#ffffff", "#c3c3e9",
+          "#ffffff", "#ccccdb",
           "#ffffff",
           "#ffffff", "#d0d0d7",
-          "#ffffff", "#d8d8e9",
+          "#ffffff", "#cfcfcf",
           "#ffffff", "#fffae5",
           "#ffffff"],
         "spectrum_colors": false,
@@ -414,7 +414,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "12-SabatII",
       }
     ]
@@ -449,7 +449,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "22-JI-17L Farabi"
       },
       {
@@ -479,7 +479,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "17-JI-13L Ibn Sina"
       },
       {
@@ -509,7 +509,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "17-JI-3L Ormavi"
       }  
     ]
@@ -544,7 +544,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       },
       {
@@ -574,7 +574,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       }      
     ]
@@ -600,7 +600,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -26,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "36-HS 12° to 24°"
       },
       {
@@ -622,7 +622,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 38,
         "rotation": -26,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "72-HSS 12 to 48"
       },
       {
@@ -643,7 +643,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 38,
         "rotation": -26,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "72-SHS 12 to 48"
       },
       {
@@ -663,7 +663,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 32,
         "rotation": -27,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "19-HS 34 to 51"
       },
       {
@@ -693,7 +693,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
@@ -723,7 +723,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
@@ -755,7 +755,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
@@ -787,7 +787,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
@@ -819,7 +819,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
@@ -851,7 +851,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
@@ -881,7 +881,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -911,7 +911,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -941,7 +941,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -971,7 +971,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -1003,7 +1003,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -1011,29 +1011,15 @@ export const presets = [
         "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°), in this layout notated with HEJI accidentals.",
         "scale": parseScale(scale_55_hs_odd_19l).scale,
         "equivSteps": 55,
-        /*"note_names": [
-          "1", "65", "33", "133", "135", "17", "35", "143",
-          "9", "147", "75", "19", "153", "77", "39", "5",
-          "81", "165", "21", "169", "85",
-          "171", "175", "11", "45", "91", "187", "189", "95",
-          "3", "195", "49", "99", "25", "51", "13", "209",
-          "105", "27", "55", "221", "7", "225", "57", "231",
-          "117", "119", "15", "121", "243",
-          "245", "247", "125", "63", "255"],*/
-
-          "note_names": [
-            "C", "C", "C", "D", "C", "C", "D", "D",
-            "D", "E", "D", "E", "D", "E", "E", "E",
-            "E", "E", "F", "F", "E",
-            "F", "F", "F", "F", "G", "F",  "G", "G",
-            "G", "G", "A", "G", "G", "G", "A", "A",
-            "A", "A", "A", "A", "B", "A", "B", "B",
-            "B","B", "B", "B", "B",
-            "C", "C", "B", "C", "B"],
-        
-        
-        
-        
+        "note_names": [
+          "C", "C", "C", "D", "C", "C", "D", "D",
+          "D", "E", "D", "E", "D", "E", "E", "E",
+          "E", "E", "F", "F", "E",
+          "F", "F", "F", "F", "G", "F",  "G", "G",
+          "G", "G", "A", "G", "G", "G", "A", "A",
+          "A", "A", "A", "A", "B", "A", "B", "B",
+          "B","B", "B", "B", "B",
+          "C", "C", "B", "C", "B"],                       
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#ffcba8", "#acd2c2",
@@ -1049,7 +1035,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "Odd Partial PC SG 3,5,13)"
       }
     ]
@@ -1084,7 +1070,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
@@ -1114,7 +1100,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.451161,
+        "fundamental": 260.740741,
         "short_description": "55-JI-5L Ptolemaic Euler Lattice"
       },
       {
@@ -1144,7 +1130,7 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "41-JI-7L Sabat-Young"
       },
       {
@@ -1174,7 +1160,7 @@ export const presets = [
         "urSteps": 8,
         "hexSize": 42,
         "rotation": -46,
-        "fundamental": 260.740740,
+        "fundamental": 260.740741,
         "short_description": "41-JI-7L Sabat-Young Lattice"
       },
       {
@@ -1204,7 +1190,7 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264,
+        "fundamental": 260.740741,
         "short_description": "31-JI-7L Fokker"
       },
       {
@@ -1236,7 +1222,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 264,
+        "fundamental": 260.740741,
         "short_description": "13-RI-7L-P5",
       },
       {
@@ -1326,7 +1312,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "43-JI-11L Partch (C)"
       },
       {
@@ -1356,7 +1342,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264,
+        "fundamental": 260.740741,
         "short_description": "17-JI-11L Wilson"
       },
       {
@@ -1386,7 +1372,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.74074074,
+        "fundamental": 260.740741,
         "short_description": "53-RI-13L Cam Taylor"
       }
     ]
@@ -1451,7 +1437,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -34.5,
-        "fundamental": 263.0921203,
+        "fundamental": 263.1813855,
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
       },
       {
@@ -1481,7 +1467,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740740,
+        "fundamental": 260.845,
         "short_description": "35-MT Helmholtz"
       },
       {
@@ -1511,7 +1497,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.682024,
+        "fundamental": 262.6915,
         "short_description": "43-mt, D♭♭♭-D♯♯♯"
       },
       {
@@ -1541,7 +1527,7 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.451161,
+        "fundamental": 262.51349,
         "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯"
       }
     ]
@@ -1576,7 +1562,7 @@ export const presets = [
         "urSteps": 2,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264.022598,
+        "fundamental": 264.023,
         "short_description": "19-edo (Salinas)"
       },
       {
@@ -1606,7 +1592,7 @@ export const presets = [
         "urSteps": 2,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264.022598,
+        "fundamental": 264.023,
         "short_description": "19-edo (Salinas, Septimal Notation)"
       },
       {
@@ -1696,7 +1682,7 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.5221364,
+        "fundamental": 260.5225,
         "short_description": "41-edo (Septimal-Pythagorean Notation)"
       },
       {
@@ -1726,7 +1712,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.682024,
+        "fundamental": 262.6822,
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)"
       },
       {
@@ -1756,7 +1742,7 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.771561,
+        "fundamental": 260.772,
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)"
       },
       {
@@ -1786,7 +1772,7 @@ export const presets = [
         "urSteps": 17,
         "hexSize": 42,
         "rotation": -6,
-        "fundamental": 260.771561,
+        "fundamental": 260.772,
         "short_description": "53-edo (Euler Lattice Layout)"
       },
       {
@@ -1858,7 +1844,7 @@ export const presets = [
         "urSteps": 7,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.451161,
+        "fundamental": 261.6255653,
         "short_description": "72-edo (Sims/Tenney)"
       }
     ]

@@ -32,7 +32,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
-      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... problem: MIDI softsynth must be set to 440 Hz for this to work correctly ????
+      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
       var ref_offset = fundamental / 261.6255653;
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
