@@ -50,7 +50,7 @@ const ScaleTable = (props) => {
         <th class="wide" id="leftaligned">Frequency Ratio&nbsp;&nbsp;|&nbsp;&nbsp;Cents&nbsp;&nbsp;|&nbsp;&nbsp;EDO-steps</th>
         <th>Degree</th>
         <th>Name</th>
-        <th>Color</th>
+        <th>Colour</th>
       </thead>
       <tbody>
         <tr>

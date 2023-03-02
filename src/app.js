@@ -23,7 +23,7 @@ import './loader.css';
 export const Loading = () => <LoadingIcon />;
 
 let notChrome = !/Chrome/.test(navigator.userAgent);
-let alertMessage = "Please use a desktop version of Google Chrome or Microsoft Edge to fully access this site.\nSome key features of the Web MIDI API do not currently work on phones or in other browsers."
+let alertMessage = "Please use a desktop version of Google Chrome or Microsoft Edge to fully access this site.\nSome key features of the Web MIDI API do not currently work on phones or in other browsers. For Apple devices a recent version of iOS is required."
 if (notChrome) alert(alertMessage);
 
 const findPreset = (preset) => {
@@ -127,13 +127,13 @@ const App = () => {
   function onMIDISuccess(midiAccess) {
     console.log("Web MIDI API with sysex for MTS messages is ready!"); // post success    
     setMidi(midiAccess); // MIDIAccess stored
-    midiAccess.onstatechange = (e) => {
-      console.log(e.port.name, e.port.id, e.port.state);
+    /*midiAccess.onstatechange = (e) => {
+      console.log(e.port.name, e.port.id, e.port.state, "MIDI IO reset!");
       settings.midiin_device = "OFF";
       settings.midi_device = "OFF";
       sessionStorage.removeItem("midiin_device");
       sessionStorage.removeItem("midi_device");
-    };
+    };*/
   };
 
   function onMIDIFailure() {
@@ -286,7 +286,7 @@ const App = () => {
           Plainsound Hexatone
         </h1>
         <p>
-          <em>To play use a touchscreen or attach a MIDI keyboard or Lumatone. When the sidebar is closed, a computer keyboard may also be used as an input device; H plays middle C4 and the spacebar acts as a sustain pedal.</em>
+          <em>To play: click on notes, use a touchscreen, attach a MIDI keyboard or a Lumatone. When this sidebar is minimised, a computer keyboard may also be used as an input device. The H key is mapped to middle C4 and the spacebar acts as a sustain pedal, allowing chords to be played.</em>
         </p>
         <Settings presetChanged={presetChanged}
                     presets={presets}
