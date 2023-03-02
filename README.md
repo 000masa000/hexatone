@@ -7,9 +7,9 @@ Designed by [Siemen Terpstra](http://siementerpstra.com/) in the late 1980s, bas
 Initial development by [James Fenn](http://jamesfenn.com/) with additions and modifications from [Brandon Lewis](http://brandlew.com/), [Bo Constantinsen](http://whatmusicreallyis.com/), [Chengu Wang](https://sites.google.com/site/wangchengu/), [Ashton Snelgrove](https://ashton.snelgrove.science).
 Sampling credits to Scott Thompson, Tim Kahn, Carlos Vaquero,Dr. Ozan Yarman, Lars Palo, Soni Musicae.
 
-MIDI version designed and programmed by <a href="https://www.plainsound.org" target="new">Marc&nbsp;Sabat</a>. [Marc Sabat](https://www.plainsound.org).
+MIDI version designed and programmed by [Marc Sabat](https://www.plainsound.org).
 Current version 2.5 (2023), released as Free/Libre and Open Source Software under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
-Code on github: https://github.com/000masa000/hexatone".
+Code on github: https://github.com/000masa000/hexatone.
 
 ## Isomorphic Keyboards
 [Wikipedia](https://en.wikipedia.org/wiki/Isomorphic_keyboard)
