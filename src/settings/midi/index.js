@@ -13,7 +13,7 @@ const MIDIio = (props) => (
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
           sessionStorage.setItem(e.target.name, e.target.value);
-          console.log("MIDI in device selected: ", e.target.name, sessionStorage.getItem(e.target.name));
+          console.log("MIDI in device selected: ", sessionStorage.getItem(e.target.name));
         }
         }>
         <option value="OFF">OFF</option>

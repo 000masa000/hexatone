@@ -87,6 +87,7 @@ const App = () => {
     output: ExtractString,
     instrument: ExtractString,
     fundamental: ExtractFloat,
+    reference_degree: ExtractInt,
     midi_mapping: ExtractString,
     midi_device: ExtractString,
     midi_channel: ExtractInt,
@@ -153,7 +154,7 @@ const App = () => {
    // console.log("sessionStorage instrument", sessionStorage.getItem("instrument"))
     settings.instrument = sessionStorage.getItem("instrument");
   } else {
-    settings.instrument = "hammond";
+    settings.instrument = "WMRIByzantineST";
   };
   
   if (sessionStorage.getItem("midiin_device")) {
@@ -198,12 +199,15 @@ const App = () => {
     settings.midi_velocity = 72;
   };
 
+  if (!settings.reference_degree) {
+    settings.reference_degree = 0;
+  };
+
   useEffect(() => {
     if (settings.output === "sample"
         && settings.instrument && settings.fundamental) {
       setLoading(wait);
-      create_sample_synth(settings.instrument,
-                          settings.fundamental)
+      create_sample_synth(settings.instrument, settings.fundamental, settings.reference_degree, settings.scale)
         .then(s => {
           setLoading(signal);
           setSynth(s);
@@ -214,13 +218,14 @@ const App = () => {
       typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity, settings.fundamental)
+      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity,
+        settings.fundamental, settings.reference_degree, settings.scale)
         .then(s => { 
           setLoading(signal);
           setSynth(s);
         }); // todo error handling
     }
-  }, [settings.instrument, settings.fundamental, settings.midiin_device, settings.midiin_channel,
+  }, [settings.instrument, settings.fundamental, settings.reference_degree, settings.scale,
       settings.midi_device, settings.midi_channel, settings.midi_mapping,
       settings.midi_velocity, settings.output, midi]);
 
@@ -238,14 +243,14 @@ const App = () => {
         const { filename, description, equivSteps, scale, labels, colors } = parseScale(s.scale_import);
         const scala_names = parsedScaleToLabels(scale);
         var f_color = colors.pop(); // deals with 1/1
-        console.log("f_color", f_color)
+        //console.log("f_color", f_color)
         if (f_color == "null") {
           colors.unshift("#ffffff"); 
         } else {
           colors.unshift(f_color); 
         };
         var f_name = labels.pop(); // deals with 1/1
-        console.log("f_name", f_name)
+       // console.log("f_name", f_name)
         if (f_name == "null") {
           labels.unshift(""); 
         } else {
@@ -260,9 +265,9 @@ const App = () => {
   };
 
   const valid = s => (
-    ((s.output === "midi" && (s.midi_device !== "OFF") && (s.midi_channel >= 0) && s.midi_mapping &&
-      typeof s.midi_velocity === "number" && s.midi_velocity > 0) ||
-     (s.output === "sample" && s.fundamental && s.instrument)) &&
+    (((s.output === "midi") && (s.midi_device !== "OFF") && (s.midi_channel >= 0) && s.midi_mapping &&
+      (typeof s.midi_velocity === "number") && (s.midi_velocity > 0)) ||
+     (s.output === "sample" && (s.fundamental > 0.015625) && s.instrument)) &&
       s.rSteps && s.urSteps &&
       s.hexSize && s.hexSize >= 20 && typeof s.rotation === "number" &&
       s.scale && s.equivSteps &&

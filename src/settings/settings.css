@@ -18,6 +18,11 @@ label {
     line-height: 1.5em;
 }
 
+input:out-of-range {
+    background-color: rgb(255, 154, 117);
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;

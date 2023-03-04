@@ -60,7 +60,7 @@ import { parseScale } from './scale/parse-scale';
 
 export const presets = [
   {
-    "name": "12-tone",
+    "name": "12 Note Scales",
     settings: [
       {
         "name": "Equal Temperament",
@@ -89,7 +89,8 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 261.6255653,
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-edo"
       },
       {
@@ -118,8 +119,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,        
-        "fundamental": 260.740741,   
+        "rotation": -16.102113751,  
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-RI-3L"
       },
       {
@@ -148,8 +150,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,        
-        "fundamental": 263.181386,
+        "rotation": -16.102113751,
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-MT"
       },
       {
@@ -178,7 +181,7 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,        
+        "rotation": -16.102113751,
         "fundamental": 260.740741,
         "short_description": "12-RI-5L"
       },
@@ -233,8 +236,9 @@ export const presets = [
         "rSteps": 4,
         "urSteps": -1,
         "hexSize": 42,
-        "rotation": 40.9,        
-        "fundamental": 260.740741,
+        "rotation": 40.9,       
+        "fundamental": 440,
+        "reference_degree": 39,
         "short_description": "12-tone-combined"
       },
       {
@@ -294,7 +298,8 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740741,
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-RI-7L-blues",
       },
       {
@@ -323,8 +328,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,        
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-RI-3.7.11",
       },
       {
@@ -384,7 +390,8 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740741,
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-SabatI",
       },
       {
@@ -414,7 +421,8 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740741,
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "12-SabatII",
       }
     ]
@@ -448,8 +456,9 @@ export const presets = [
         "rSteps": 4,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17,
         "short_description": "22-JI-17L Farabi"
       },
       {
@@ -478,8 +487,9 @@ export const presets = [
         "rSteps": 3,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 13,
         "short_description": "17-JI-13L Ibn Sina"
       },
       {
@@ -508,8 +518,9 @@ export const presets = [
         "rSteps": 3,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 13,
         "short_description": "17-JI-3L Ormavi"
       }  
     ]
@@ -543,8 +554,9 @@ export const presets = [
         "rSteps": 4,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17,
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       },
       {
@@ -573,18 +585,19 @@ export const presets = [
         "rSteps": 4,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17,
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       }      
     ]
   },
   {
-    "name": "Harmonic and Subharmonic Series",
+    "name": "Harmonics and Subharmonics",
     settings: [
       {
         "name": "Harmonic Series partials from 12° to 48°",
-        "description": "A two octave cycle comprising Harmonic Series partials 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees.",
+        "description": "A two octave cycle comprising Harmonic Series partials 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees. In this example, the 12° is tuned to 240 Hz, giving 1° = 20 Hz",
         "scale": parseScale(scale_36_hs_12to48).scale,
         "equivSteps": 36,
         "note_names": [
@@ -600,7 +613,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -26,
-        "fundamental": 260.740741,
+        "fundamental": 240,
         "short_description": "36-HS 12° to 24°"
       },
       {
@@ -622,7 +635,7 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 38,
         "rotation": -26,
-        "fundamental": 260.740741,
+        "fundamental": 240,
         "short_description": "72-HSS 12 to 48"
       },
       {
@@ -643,12 +656,12 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 38,
         "rotation": -26,
-        "fundamental": 260.740741,
+        "fundamental": 240,
         "short_description": "72-SHS 12 to 48"
       },
       {
         "name": "19-tone modulating pattern (harmonic partials 32°-52°)",
-        "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth. Matching partial numbers produce perfect fifths instead of octaves. Useful for investigating possible chords of higher partials embedded within a perfect fifth, for example 6:7:8:9, 8:9:11:12, 10:12:13:15, and others.",
+        "description": "A cycle of Harmonic Series partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth. Matching partial numbers produce perfect fifths instead of octaves. Useful for investigating possible chords of higher partials embedded within a perfect fifth, for example 6:7:8:9, 8:9:11:12, 10:12:13:15, and others. The 48° of the central transposition of the scale is set to 440 Hz.",
         "scale": parseScale(scale_19_hs_34to51).scale,
         "equivSteps": 19,
         "note_names": [
@@ -662,8 +675,9 @@ export const presets = [
         "rSteps": 5,
         "urSteps": 1,
         "hexSize": 32,
-        "rotation": -27,
-        "fundamental": 260.740741,
+        "rotation": -27,   
+        "fundamental": 440,
+        "reference_degree": 15,
         "short_description": "19-HS 34 to 51"
       },
       {
@@ -692,8 +706,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
@@ -722,8 +737,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 9,
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
@@ -754,8 +770,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 8,
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
@@ -786,8 +803,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 8,
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
@@ -818,8 +836,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 12,
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
@@ -850,8 +869,9 @@ export const presets = [
         "rSteps": 2,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 12,
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
@@ -880,8 +900,9 @@ export const presets = [
         "rSteps": 3,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 14,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -910,8 +931,9 @@ export const presets = [
         "rSteps": 3,
         "urSteps": 1,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 14,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -940,8 +962,9 @@ export const presets = [
         "rSteps": 6,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 28,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -970,8 +993,9 @@ export const presets = [
         "rSteps": 6,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 28,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -1002,8 +1026,9 @@ export const presets = [
         "rSteps": 8,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 38,
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
@@ -1034,8 +1059,9 @@ export const presets = [
         "rSteps": 8,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 38,
         "short_description": "Odd Partial PC SG 3,5,13)"
       }
     ]
@@ -1069,8 +1095,9 @@ export const presets = [
         "rSteps": 9,
         "urSteps": 4,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 40,
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
@@ -1099,8 +1126,9 @@ export const presets = [
         "rSteps": 9,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 41,
         "short_description": "55-JI-5L Ptolemaic Euler Lattice"
       },
       {
@@ -1119,7 +1147,7 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
-          "#ffffff", "#e2caca", "#ffe5e5",  "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
+          "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
           "#ffffff", "#e2caca", "#fffae5",
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
           "#ffffff", "#e2caca", "#ffe5e5", "#d0d0d7", "#dee2da", "#d0d6e1", "#fffae5",
@@ -1129,8 +1157,9 @@ export const presets = [
         "rSteps": 7,
         "urSteps": 3,
         "hexSize": 42,
-        "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 31,
         "short_description": "41-JI-7L Sabat-Young"
       },
       {
@@ -1159,8 +1188,9 @@ export const presets = [
         "rSteps": 17,
         "urSteps": 8,
         "hexSize": 42,
-        "rotation": -46,
-        "fundamental": 260.740741,
+        "rotation": -46,       
+        "fundamental": 440,
+        "reference_degree": 31,
         "short_description": "41-JI-7L Sabat-Young Lattice"
       },
       {
@@ -1195,7 +1225,7 @@ export const presets = [
       },
       {
         "name": "13-tone 7-limit ratios repeating at the 3/2 perfect fifth",
-        "description": "13-tone 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed.",
+        "description": "13-tone 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed. The central 1/1 ratio is tuned to Pythagorean D (293.333333 Hz), so that the next cycle begins at A 440 Hz.",
         "scale": parseScale(scale_13_ji_7l_P5).scale,
         "equivSteps": 13,
         "note_names": [
@@ -1222,7 +1252,8 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 42,
         "rotation": -16.102113751,        
-        "fundamental": 260.740741,
+        "fundamental": 293.3333333,
+        "reference_degree": 0,
         "short_description": "13-RI-7L-P5",
       },
       {
@@ -1252,11 +1283,12 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 261.333333,
+        "fundamental": 392,
+        "reference_degree": 25,
         "short_description": "43-JI-11L Partch (G)"
       },{
         "name": "43-tone 11-limit (Harry Partch, HEJI)",
-        "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. The HEJI notation follows Partch's original tuning, based on 1/1 = G (392 Hz). Note that the scala file uses the standard reference tone C, so each of Partch’s ratios must be multiplied by 3/2 and normalised to produce his original pitch-heights.",
+        "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. The HEJI notation follows Partch's original tuning, based on 1/1 = G (392 Hz), so Pythagorean A4 is 441 Hz. Note that the scala file uses the standard reference tone C, so each of Partch’s ratios must be multiplied by 3/2 and normalised to produce his original pitch-heights.",
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
         "equivSteps": 43,
         "note_names": [
@@ -1281,11 +1313,12 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 261.333333,
+        "fundamental": 392,
+        "reference_degree": 25,
         "short_description": "43-JI-11L Partch (G)"
       },
       {
-        "name": "43-tone 11-limit (Partch ratios, C = 1/1, HEJI)",
+        "name": "43-tone 11-limit (Partch ratios, C = 1/1, A 440 Hz, HEJI)",
         "description": "Transposition of the 43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale": parseScale(scale_43_ji_11l_partch).scale,
         "equivSteps": 43,
@@ -1312,7 +1345,8 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "fundamental": 440,
+        "reference_degree": 32,
         "short_description": "43-JI-11L Partch (C)"
       },
       {
@@ -1372,7 +1406,8 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.740741,
+        "fundamental": 440,
+        "reference_degree": 40,
         "short_description": "53-RI-13L Cam Taylor"
       }
     ]
@@ -1381,7 +1416,7 @@ export const presets = [
     "name": "Extended Meantone",
     settings: [
       {
-        "name": "Vicentino I (1555) 31-tone Extended Meantone (g♭-a♯♯♯)",
+        "name": "Vicentino I (1555) 31-tone 1/4 Comma (g♭-a♯♯♯)",
         "description": "31-tone scale in extended 1/4 Comma meantone (probably the tuning used for Nicola Vicentino’s instruments, following his description). Each fifth in the range g♭-a♯♯♯ is narrowed from its JI ratio (3/2) by 1/4 of a Syntonic Comma, so that four successive fifths produce a major third (5/4). Standard 12-tone meantone usually ranges from e♭ to g♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 31 notes, a circulating well-temperament is produced: the missing c may be replaced by the enharmonically nearly-equivalent pitch b. Note that b *is* equivalent to c!",
         "scale": parseScale(scale_31_mt_vicentino).scale,
         "equivSteps": 31,
@@ -1407,11 +1442,12 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 263.1813855, 
+        "fundamental": 440,
+        "reference_degree": 23,
         "short_description": "31-Extended-Meantone (g♭-a♯♯♯) - Vicentino I"
       },
       {
-        "name": "Vicentino II (1555) 38-tone Adaptive Just Intonation",
+        "name": "Vicentino II (1555) 38-tone Adaptive JI",
         "description": "19 tones from Extended 1/4 Syntonic Comma Meantone (g♭-b♯) combined with another tuning of the same 19 notes, raised by 1/4 of a Syntonic Comma, to produce perfect fifths. An example of \"adaptive\" Rational Intonation, this tuning allows triads to be played with 3/2 fifths and 5/4 major thirds or 6/5 minor thirds.",
         "scale": parseScale(scale_19_19P5_amt_vicentino).scale,
         "equivSteps": 38,
@@ -1437,11 +1473,12 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -34.5,
-        "fundamental": 263.1813855,
+        "fundamental": 440,
+        "reference_degree": 28,
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
       },
       {
-        "name": "2/17-Schisma Extended Meantone (Helmholtz)",
+        "name": "2/17-Schisma Meantone (based on Helmholtz)",
         "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
         "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
         "equivSteps": 35,
@@ -1467,11 +1504,12 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.845,
+        "fundamental": 440,
+        "reference_degree": 27,
         "short_description": "35-MT Helmholtz"
       },
       {
-        "name": "43-tone Extended 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
+        "name": "43-tone 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
         "description": "43-tone scale in extended 1/5 Syntonic Comma meantone. Each fifth in the range d♭♭♭-d♯♯♯ is narrowed from its JI ratio (3/2) by 1/5 of a Syntonic Comma (81/80 = ca. 21.5c), so that five successive fifths produce a major seventh (15/8). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 43 notes, a circulating well-temperament is produced.",
         "scale": parseScale(scale_43_mt).scale,
         "equivSteps": 43,
@@ -1497,11 +1535,12 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.6915,
+        "fundamental": 440,
+        "reference_degree": 32,
         "short_description": "43-mt, D♭♭♭-D♯♯♯"
       },
       {
-        "name": "55-tone Extended 1/6-Pythagorean Comma Meantone (a♭♭♭♭-g♯♯♯♯)", 
+        "name": "55-tone 1/6-Pythagorean Comma Meantone (a♭♭♭♭-g♯♯♯♯)", 
         "description": "55-tone scale in extended 1/6 Pythagorean Comma meantone. Each fifth in the range A♭♭♭♭-G♯♯♯♯ is narrowed from its JI ratio (3/2) by 1/6 of a Pythagorean Comma (531441/524288 = ca. 23.5c), so that six successive fifths produce a Pythagorean tritone (729/512). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 55 notes, a circulating well-temperament is produced.",
         "scale": parseScale(scale_55_mt).scale,
         "equivSteps": 55,
@@ -1527,7 +1566,8 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.51349,
+        "fundamental": 440,
+        "reference_degree": 41,
         "short_description": "55-mt, a♭♭♭♭-g♯♯♯♯"
       }
     ]
@@ -1562,7 +1602,8 @@ export const presets = [
         "urSteps": 2,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264.023,
+        "fundamental": 440,
+        "reference_degree": 14,
         "short_description": "19-edo (Salinas)"
       },
       {
@@ -1592,7 +1633,8 @@ export const presets = [
         "urSteps": 2,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 264.023,
+        "fundamental": 440,
+        "reference_degree": 14,
         "short_description": "19-edo (Salinas, Septimal Notation)"
       },
       {
@@ -1622,7 +1664,8 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 263.0921203,
+        "fundamental": 440,
+        "reference_degree": 23,
         "short_description": "31-edo (g♭♭-a♯♯)"
       },
       {
@@ -1652,7 +1695,8 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 263.0921203,
+        "fundamental": 440,
+        "reference_degree": 23,
         "short_description": "31-edo (Vicentino Notation)"
       },
       {
@@ -1682,7 +1726,8 @@ export const presets = [
         "urSteps": 3,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 260.5225,
+        "fundamental": 440,
+        "reference_degree": 31,
         "short_description": "41-edo (Septimal-Pythagorean Notation)"
       },
       {
@@ -1712,7 +1757,8 @@ export const presets = [
         "urSteps": 4,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.6822,
+        "fundamental": 440,
+        "reference_degree": 32,
         "short_description": "43-edo (Sauveur, D♭♭♭-D♯♯♯)"
       },
       {
@@ -1740,9 +1786,11 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 9,
         "urSteps": 4,
-        "hexSize": 42,
+        "hexSize": 40,
         "rotation": -16.102113751,
         "fundamental": 260.772,
+        "fundamental": 440,
+        "reference_degree": 40,
         "short_description": "53-edo (Mercator/Newton, Syntonic-Pythagorean Notation)"
       },
       {
@@ -1772,7 +1820,8 @@ export const presets = [
         "urSteps": 17,
         "hexSize": 42,
         "rotation": -6,
-        "fundamental": 260.772,
+        "fundamental": 440,
+        "reference_degree": 40,
         "short_description": "53-edo (Euler Lattice Layout)"
       },
       {
@@ -1802,7 +1851,8 @@ export const presets = [
         "urSteps": 5,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 262.451161,
+        "fundamental": 440,
+        "reference_degree": 41,
         "short_description": "55-edo (Telemann, a♭♭♭♭-g♯♯♯♯)"
       },
       {
@@ -1844,7 +1894,8 @@ export const presets = [
         "urSteps": 7,
         "hexSize": 42,
         "rotation": -16.102113751,
-        "fundamental": 261.6255653,
+        "fundamental": 440,
+        "reference_degree": 54,
         "short_description": "72-edo (Sims/Tenney)"
       }
     ]
@@ -1866,11 +1917,11 @@ export const presets = [
         "urSteps": 1,
         "hexSize": 28,
         "rotation": -29.3577535,
-        "fundamental": 261.6255653,
+        "fundamental": 240,
         "short_description": "Interval Tester by Syntonic Commas (22 cents)"
       },
       {
-        "name": "By 24-edo Quarter-Tones (50 cents)", 
+        "name": "By Diesis (41 cents)", 
         "description": "One step = 1 cent, right-up moves by equal quarter-tones, right-down by cents.",
         "scale": parseScale(scale_1cent).scale,
         "equivSteps": 1,
@@ -1879,12 +1930,12 @@ export const presets = [
         "note_colors": [],
         "spectrum_colors": true,
         "fundamental_color": "#f5fbff",        
-        "rSteps": 50,
+        "rSteps": 41,
         "urSteps": 1,
         "hexSize": 28,
         "rotation": -29.3577535,
-        "fundamental": 261.6255653,
-        "short_description": "Interval Tester by 24-edo Quarter-Tones (50 cents)"
+        "fundamental": 240,
+        "short_description": "Interval Tester by Diesis (41 cents)"
       }      
     ]
   }

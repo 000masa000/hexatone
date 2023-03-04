@@ -22,16 +22,23 @@ const Scale = (props) => {
   <fieldset>
       <legend><b>Scale</b></legend>
       <label >
-        Reference Frequency (Hz value assigned to Scale Degree 0)
+        Reference Frequency (Hz value assigned to any Scale Degree)
       <input name="fundamental" type="number"
              value={props.settings.fundamental}
              step="any" min="0.015625" max="16384"
              onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
       </label>
+      <label >
+        Scale Degree to which the Reference Frequency is applied
+      <input name="reference_degree" type="number"
+             value={props.settings.reference_degree}
+             step="1" min="0" max={props.settings.equivSteps - 1}
+             onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}/>
+      </label>
       <br />
       <em>To obtain the desired absolute frequencies when using MIDI output with MTS real-time tuning messages, please set global tuning of (all) receiving instrument(s) to A4 = 440 Hz! Choosing a different Kammerton (i.e. 415 Hz or 442 Hz) will transpose everything accordingly.<br />
         Common standard values for the Reference Frequency of C4 === MIDI Note 60 === are:<br /></em>
-        261.6255653 Hz <em>(12-edo)</em> or 260.740741 Hz <em>(Pythagorean)</em>.
+        261.6255653 Hz <em>(12-edo)</em> or 260.740741 Hz <em>(Pythagorean / HEJI Notation)</em>.
       <br />
       <br />
       {importing

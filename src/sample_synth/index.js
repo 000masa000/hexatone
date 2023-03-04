@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { instruments } from './instruments';
+import { scalaToCents } from '../settings/scale/parse-scale';
 
 // Three concepts:
 // Coordinates -> Scale degree -> Pitch/midi
-export const create_sample_synth = async (fileName, fundamental) => {
+export const create_sample_synth = async (fileName, fundamental, reference_degree, scale) => {
   try {
     const sampleGain = findGain(fileName);
     const sampleAttack = findAttack(fileName);
@@ -17,9 +18,17 @@ export const create_sample_synth = async (fileName, fundamental) => {
     const s880 = await loadSample(audioContext, fileName, "880");
 
     const samples = [s110, s220, s440, s880];
+
+    var offset = 0;
+    if (reference_degree > 0) {
+      offset = scalaToCents(scale[reference_degree - 1]);
+    };
+    console.log("reference_degree:", reference_degree);
+    console.log("offset_value:", offset);
+
     return {
       makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, samples, audioContext);
+        return new ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, samples, audioContext);
       },
     };
   } catch (e) {
@@ -33,12 +42,13 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
   this.cents = cents;
   this.fundamental = fundamental;
+  this.offset = offset;
   this.sampleGain = sampleGain;
   this.sampleAttack = sampleAttack;
   this.sampleRelease = sampleRelease;
@@ -50,7 +60,7 @@ function ActiveHex(coords, cents, fundamental, sampleGain, sampleAttack, sampleR
 
 // Does this need to be a param or is it constant for the hex? i think constant
 ActiveHex.prototype.noteOn = function() {
-  var freq = this.fundamental * Math.pow(2, this.cents / 1200);
+  var freq = this.fundamental * Math.pow(2, (this.cents - this.offset) / 1200);
   var source = this.audioContext.createBufferSource(); // creates a sound source
   // choose sample
   var sampleFreq = 110;

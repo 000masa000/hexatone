@@ -37,6 +37,7 @@ Keyboard.propTypes = {
     output: PropTypes.string,
     instrument: PropTypes.string,
     fundamental: PropTypes.number,
+    reference_degree: PropTypes.number,
     midi: PropTypes.string,
     midi_device: PropTypes.string,
     midi_channel: PropTypes.number,

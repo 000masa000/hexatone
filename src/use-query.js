@@ -105,7 +105,7 @@ export function useQuery(spec, defaults) {
     }
     const url = new URL(location.toString());
     url.search = query.toString();
-    history.pushState({}, "Terpstra Keyboard WebApp", url);
+    history.pushState({}, "Hexatone WebApp", url);
 
     setValues(next);
   }

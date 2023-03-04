@@ -1,10 +1,22 @@
+import { scalaToCents } from "../settings/scale/parse-scale";
+
 // TODO MIDI panic button
-export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity, fundamental) => {
-    return {
+export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity, fundamental, reference_degree, scale) => {
+
+  var offset = 0;
+  if (reference_degree > 0) {
+    offset = scalaToCents(scale[reference_degree - 1]);
+  };
+  console.log("reference_degree:", reference_degree);
+  console.log("offset_value (cents):", offset);
+  offset = 2 ** (offset / 1200);
+  console.log("offset_value (ratio):", offset);
+ 
+  return {
     makeHex: (coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played) => {
-        return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental);
+      return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental, offset);
     }
-    };
+  };
 };
 
 var note_count = 0;
@@ -20,7 +32,7 @@ for (let i = 0; i < 16384; i++) {
   keymap[i] = [0, 0, 0, 0];  
 };
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental) {
+function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental, offset) {
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
@@ -32,8 +44,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
-      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
-      var ref_offset = fundamental / 261.6255653;
+      var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
+      var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
       console.log("cents_from_reference", ref_cents);
