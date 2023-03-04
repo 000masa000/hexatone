@@ -48,7 +48,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
-      console.log("cents_from_reference", ref_cents);
+     // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var split = channel;
       var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
@@ -71,11 +71,11 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
       keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
     } else if (midi_mapping === "MTS2") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
-      var ref = fundamental; // use the desired fundamental to calculate an offset for the outcoming MTS data ... problem: MIDI softsynth must be set to 440 Hz for this to work correctly ????
-      var ref_offset = fundamental / 261.6255653;
+      var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
+      var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
-      console.log("cents_from_reference", ref_cents);
+     // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var split = channel;
       var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
