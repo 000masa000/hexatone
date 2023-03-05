@@ -1,7 +1,6 @@
 ! 22-JI-5L-Indian.scl
-! 22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.
 !
-22-JI-5L-Indian
+22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.
 22
 !
 256/243

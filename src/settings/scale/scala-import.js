@@ -26,9 +26,9 @@ const ScalaImport = (props) => (
 
 ScalaImport.propTypes = {
   onChange: PropTypes.func.isRequired,
-  settings: PropTypes.shape({
+  /*settings: PropTypes.shape({
     scale_import: PropTypes.string,
-  }).isRequired,
+  }).isRequired,*/
 };
 
 export default ScalaImport;

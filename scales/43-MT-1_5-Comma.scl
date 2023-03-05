@@ -1,7 +1,6 @@
 ! 43-MT-1_5-Comma.scl
-! 43-tone scale in extended 1/5 Syntonic Comma meantone. Each fifth in the range d♭♭♭-d♯♯♯ is narrowed from its JI ratio (3/2) by 1/5 of a Syntonic Comma (81/80 = ca. 21.5c), so that five successive fifths produce a major seventh (15/8). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 43 notes, a circulating well-temperament is produced.
 !
-1/5 Syntonic Comma Extended Meantone (d♭♭♭-d♯♯♯)
+! 43-tone scale in extended 1/5 Syntonic Comma meantone. Each fifth in the range d♭♭♭-d♯♯♯ is narrowed from its JI ratio (3/2) by 1/5 of a Syntonic Comma (81/80 = ca. 21.5c), so that five successive fifths produce a major seventh (15/8). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called "wolf" fifth. By extending the tuning to 43 notes, a circulating well-temperament is produced.
 43
 !
 28.1551

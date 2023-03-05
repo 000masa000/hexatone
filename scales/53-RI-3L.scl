@@ -1,7 +1,6 @@
 ! 53-RI-3L.scl
-! 53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C).
 !
-53-RI-3L
+53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C).
 53
 !
 531441/524288

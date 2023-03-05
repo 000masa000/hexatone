@@ -1,7 +1,6 @@
 ! 43-JI-11L-Partch.scl
-! 43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch’s ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.
 !
-43-JI-11L-Partch
+43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based on 1/1 = G (392 Hz), while this scala file uses the standard reference tone C. Therefore, each of Partch’s ratios have been multiplied by 3/2 and normalised, so that the original pitch-heights are retained.
 43
 !
 81/80

@@ -1,7 +1,6 @@
 ! Septimal Just Intonation.scl
-! 13-tone Septimal Just Intonation: a 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed.
 !
-14-JI-7L-P5 Just Intonation 13-tone scale repeating at the P5th.
+13-tone Septimal Just Intonation: a 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed.
 13
 !
 16/15

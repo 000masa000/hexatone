@@ -1,7 +1,6 @@
 ! 55-JI-5L-Sabat-Euler
-! 55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one syntonic comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a syntonic comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive syntonic commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence.
 !
-55-JI-5L-Sabat-Euler
+55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one syntonic comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a syntonic comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive syntonic commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence.
 55
 !
 81/80

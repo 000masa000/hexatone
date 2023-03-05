@@ -1,7 +1,6 @@
 ! 40-HS-odd-13L.scl
-! Harmonic Series odd-partial pitch-classes <= 256 13 Limit
 !
-40-HS-odd-13-Limit
+Harmonic Series odd-partial pitch-classes <= 256 13 Limit
 40
 !
 65/64

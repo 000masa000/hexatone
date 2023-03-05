@@ -28,8 +28,8 @@ export const keymap = new Array(128); // array mapping originally played keys to
 for (let i = 0; i < 128; i++) {
   tuningmap[i] = [i, 0, 0];  
 };
-for (let i = 0; i < 16384; i++) {
-  keymap[i] = [0, 0, 0, 0];  
+for (let i = 0; i < 2048; i++) {
+  keymap[i] = [0, 0, 0, 0, 0];  
 };
 
 function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental, offset) {
@@ -39,10 +39,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var steps_cycle = (steps + 60 + (16 * 128)) % 128;
       var split = channel; // output on selected channel
       var mts = [];
+      keymap[note_played] = [steps_cycle, 0, 0, 0, channel];
     } else if (midi_mapping === "multichannel") {
       var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
+      keymap[note_played] = [steps_cycle, 0, 0, 0, split];
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
@@ -69,7 +71,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
         mts[3] = 127;
       };
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
-      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
+      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], channel]; // allows key aftertouch to be remapped
     } else if (midi_mapping === "MTS2") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
@@ -101,7 +103,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
         mts[3] = 127;
       };
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
-      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3]]; // allows key aftertouch to be remapped
+      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], channel]; // allows key aftertouch to be remapped
     }
     this.coords = coords; // these end up being used by the keys class
     this.cents = cents;

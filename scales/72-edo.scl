@@ -1,7 +1,6 @@
 ! 72-edo.scl
-! 72-tone equal tempered scale consisting of 72 sonically equal divisions per octave. Step-size is 16 2/3 cents.
 !
-72-edo (Ezra Sims/James Tenney, multiple of 12-edo closely approximating 11-limit JI)
+72-edo (Ezra Sims/James Tenney, multiple of 12-edo closely approximating 11-limit JI): 72-tone equal tempered scale consisting of 72 sonically equal divisions per octave. Step-size is 16 2/3 cents.
 72
 !
 1\72
