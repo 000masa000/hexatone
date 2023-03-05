@@ -13,6 +13,7 @@ body {
     background-attachment: fixed;
     overflow: hidden;
     font-family: 'Roboto HEJI2', 'Roboto Condensed', 'Arial Nova Condensed', 'Arial Narrow', Helvetica, Arial, 'Open Sans', sans-serif;
+    color: antiquewhite;
 }
 
 table {
@@ -39,6 +40,8 @@ table {
     transition: transform 0.3s ease-in-out;
     z-index: 10;
     overflow: auto;
+    background-color: rgb(243, 241, 240);
+        color: rgb(92, 89, 96);
 }
 
 #sidebar-button {
@@ -57,6 +60,8 @@ a {
         height: 100vh;
         width: 100vw;
         padding-top: 4em;
+        background-color: rgb(243, 241, 240);
+        color: rgb(92, 89, 96);
     }
 
     #sidebar-button {
@@ -101,6 +106,8 @@ a {
         max-width: 40em;
         padding-left: 3.5em;
         padding-right: 1em;
+        background-color: rgb(243, 241, 240);
+        color: rgb(92, 89, 96);
     }
 
     #sidebar-button {

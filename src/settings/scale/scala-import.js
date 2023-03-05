@@ -20,7 +20,6 @@ const ScalaImport = (props) => (
     <br />
     <button type="button" onClick={props.onImport} >Build Layout</button>&nbsp;&nbsp;
     <button type="button" onClick={props.onCancel} >Cancel</button>
-    <br />
   </>
 );
 

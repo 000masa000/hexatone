@@ -30,7 +30,7 @@ table {
 
 table td, table th, table {
     padding: 0;
-    height: 1.5em;
+    height: 1.7em;
     box-sizing: border-box;
 }
 
@@ -43,14 +43,23 @@ textarea {
     height: 8.5em;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
+    background-color: rgb(254, 249, 244);
 }
 
 select, input[type="text"], input[type="number"] {
     width: 24em;
     height: 1.5em;
-    box-sizing: border-box;
+    box-sizing: border-box;    
+    
 }
 
 table input[type="text"] {
-    width: 95%;
+  height: 1.5em;
+  width: 95%;
+}
+
+table input[type="color"] {
+  height: 1.5em;
+  width: 95%;
+  padding: 0 ;
 }

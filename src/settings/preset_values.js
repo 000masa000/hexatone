@@ -279,7 +279,7 @@ export const presets = [
       },
       {
         "name": "Septimal Blues in C",
-        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup combinin 2, 3, and 7, combined with 5-limit triads on F, C and G, mapped on a layout that approximates the piano keyboard.",
+        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, combined with 5-limit triads on F, C and G, mapped on a layout that approximates the piano keyboard.",
         "scale_import": scale_12_ji_blues_7l,
         "scale": parseScale(scale_12_ji_blues_7l).scale,
         "equivSteps": 12,
