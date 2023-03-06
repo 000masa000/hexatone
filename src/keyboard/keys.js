@@ -15,7 +15,7 @@ class Keys {
       gcd: Euclid(settings.rSteps, settings.urSteps), // calculates a array with 3 values: the GCD of the layout tiling (smallest step available); Bézout Coefficients to be applied to rSteps and urSteps to obtain GCD
       ...settings,
     };
-    this.synth = synth;
+    this.synth = synth; // use built-in sounds or send MIDI out to an external synth
     this.typing = typing;
     
     this.state = {
@@ -54,7 +54,9 @@ class Keys {
     console.log("midi_channel:", this.settings.midi_channel);
     console.log("midi_mapping:", this.settings.midi_mapping); */
 
-    if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) {
+    this.bend = 0;
+
+    if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) { // get the MIDI noteons and noteoffs to play the internal sounds
     
       this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
       
@@ -68,7 +70,7 @@ class Keys {
         this.midinoteOff(e);        
       });
 
-      if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
+      if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) { // forward other MIDI data through to output
         this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
         
         if (this.settings.midi_mapping == "multichannel") { // in multichannel output replicate controlchange and channel pressure on all channels
@@ -84,14 +86,14 @@ class Keys {
           });
 
           this.midiin_data.addListener("keyaftertouch", e => {
-            var channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
+            let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
             channel_offset = ((channel_offset + 20) % 8) - 4;
-            var channel = ((e.message.channel + channel_offset + 15) % 16) + 1; // apply offset to output channel for key pressure
+            let channel = ((e.message.channel + channel_offset + 15) % 16) + 1; // apply offset to output channel for key pressure
             this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1] / 128.0, { channels: (channel) });
             console.log("Key Pressure MultiCh", channel, e.message.dataBytes[0], e.message.dataBytes[1]);
           });
 
-          /* this.midiin_data.addListener("pitchbend", e => {
+          /* this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
             console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, {  });
           }); */
@@ -111,34 +113,38 @@ class Keys {
           if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
 
             this.midiin_data.addListener("keyaftertouch", e => {              
-              var channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
+              let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
               channel_offset = ((channel_offset + 20) % 8) - 4;
-              var note_offset = channel_offset * this.settings.equivSteps;
-              var note = (e.message.dataBytes[0] + note_offset) % 128; // matches note cycling in midi_synth/index,js
+              let note_offset = channel_offset * this.settings.equivSteps;
+              let note = (e.message.dataBytes[0] + note_offset) % 128; // matches note cycling in midi_synth/index,js
               this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
               console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
             }); 
 
           } else if ((this.settings.midi_mapping == "MTS1") || (this.settings.midi_mapping == "MTS2")) {
 
-              this.midiin_data.addListener("keyaftertouch", e => {                
-                var note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
-                //console.log("note", note);
-                //console.log("keymap", keymap[note][0]);
-                this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
-                console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
-              }); 
+            this.midiin_data.addListener("keyaftertouch", e => {                
+              let note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
+              //console.log("note", note);
+              //console.log("keymap", keymap[note][0]);
+              this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
+              console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
+            });
+            
+            this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius :)
+              let bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
+              if (bend < 0) {
+                bend = bend / 8192; // set bend down between 0 and -1
+              } else {
+                bend = bend / 8191; // set bend up between 0 and 1
+              };
+              this.bend = bend;
+            });            
           };
         };
-
-       /*TODO
-       this.midiin_data.addListener("pitchbend", e => {
-          console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
-          this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0]/16384.0) + (e.message.dataBytes[1]/128.0))) - 1.0, { channels:(this.settings.midi_channel + 1) });
-        });*/    //TODO -- make this a bend of the last note played, send to the output channel that is assigned by multichannel layout if being used
       };
     };
-  };
+  }; // end of constructor
 
   deconstruct = () => {
     for (let hex of this.state.activeHexObjects) {
@@ -175,54 +181,47 @@ class Keys {
   };
 
   midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
-    var steps = e.note.number - 60;
-    var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    let steps = e.note.number - 60;
+    let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
     console.log("transposition (in equaves)", channel_offset);
-    var steps_offset = channel_offset * this.settings.equivSteps;
+    let steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
-    //console.log("gcd", this.settings.gcd);
-    //console.log("steps", steps);
-    var note_played = e.note.number + (128 * (e.message.channel - 1)); // allows note and channel to be encoded and recovered for MTS key pressure
-    var velocity_played = e.note.rawAttack;
-    var rSteps_count = Math.round(steps / this.settings.rSteps); // how many steps to the right to get near the played note
-    var rSteps_to_steps = this.settings.rSteps * rSteps_count;
-    //console.log("rSteps_count", rSteps_count);
-    //console.log("rSteps_to_steps", rSteps_to_steps);
-    var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
-    var urSteps_to_steps = this.settings.urSteps * urSteps_count;
-    //console.log("urSteps_count", urSteps_count);
-    //console.log("urSteps_to_steps", urSteps_to_steps);
-    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);    
-    var gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
-    //console.log("gcdSteps_count", gcdSteps_count);
-    //console.log("gcdSteps_to_steps", gcdSteps_to_steps);
-    var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
-    //console.log("remainder", remainder);
+    let note_played = e.note.number + (128 * (e.message.channel - 1)); // allows note and channel to be encoded and recovered for MTS key pressure
+    let velocity_played = e.note.rawAttack;
+
+    let rSteps_count = Math.round(steps / this.settings.rSteps); // how many steps to the right to get near the played note
+    let rSteps_to_steps = this.settings.rSteps * rSteps_count;
+    let urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
+    let urSteps_to_steps = this.settings.urSteps * urSteps_count;
+    let gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);    
+    let gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+    let remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
     if (remainder == 0) {
-      var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
-      var hex = this.hexOn(coords, note_played, velocity_played);
+      let coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
+      let hex = this.hexOn(coords, note_played, velocity_played);
       this.state.activeHexObjects.push(hex);
     };
   };
 
   midinoteOff = (e) => {
-    var steps = e.note.number - 60;
-    var channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
+    let steps = e.note.number - 60;
+    let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
-    var steps_offset = channel_offset * this.settings.equivSteps;
+    let steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
-    var rSteps_count = Math.round(steps / this.settings.rSteps);
-    var rSteps_to_steps = this.settings.rSteps * rSteps_count;
-    var urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
-    var urSteps_to_steps = this.settings.urSteps * urSteps_count;
-    var gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
-    var gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
-    var remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
+
+    let rSteps_count = Math.round(steps / this.settings.rSteps); // how many steps to the right to get near the played note, as before
+    let rSteps_to_steps = this.settings.rSteps * rSteps_count;
+    let urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
+    let urSteps_to_steps = this.settings.urSteps * urSteps_count;
+    let gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
+    let gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+    let remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
     if (remainder == 0) {
-      var coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
+      let coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
       this.hexOff(coords);
-      var hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
+      let hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
         return coords.equals(hex.coords);
       });
       if (hexIndex != -1) {
@@ -233,10 +232,10 @@ class Keys {
   };
   
   hexOn(coords, note_played, velocity_played) {
-    const [cents, pressed_interval, steps, equaves, equivSteps] = this.hexCoordsToCents(coords);
+    const [cents, pressed_interval, steps, equaves, equivSteps, cents_prev, cents_next] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played);
+    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played);
     hex.noteOn();
     return hex;
   };
@@ -257,7 +256,7 @@ class Keys {
 
   sustainOff() {
     this.state.sustain = false;
-    for (var note = 0; note < this.state.sustainedNotes.length; note++) {
+    for (let note = 0; note < this.state.sustainedNotes.length; note++) {
       this.noteOff(this.state.sustainedNotes[note]);
     }
     this.state.sustainedNotes = [];
@@ -270,15 +269,10 @@ class Keys {
   }
 
   /**************** Event Handlers ****************/
- /* deviceMotion = (e) => {
-    this.state.shake.x1 = e.accelerationIncludingGravity.x;
-    this.state.shake.y1 = e.accelerationIncludingGravity.y;
-    this.state.shake.z1 = e.accelerationIncludingGravity.z;
-  };*/
 
   motionScan = () => {
     const { x1, x2, y1, y2, z1, z2, lastShakeCount, lastShakeCheck } = this.state.shake;
-    var change = Math.abs(x1 - x2 + y1 - y2 + z1 - z2);
+    let change = Math.abs(x1 - x2 + y1 - y2 + z1 - z2);
 
     if (change > this.state.sensitivity) {
       if (lastShakeCheck - lastShakeCount >= 3) {
@@ -300,8 +294,8 @@ class Keys {
   resizeHandler = () => {
     // Resize Inner and outer coordinates of canvas to preserve aspect ratio
 
-    var newWidth = window.innerWidth;
-    var newHeight = window.innerHeight;
+    let newWidth = window.innerWidth;
+    let newHeight = window.innerHeight;
 
     this.state.canvas.style.height = newHeight + 'px';
     this.state.canvas.style.width = newWidth + 'px';
@@ -314,8 +308,8 @@ class Keys {
 
     // Find new centerpoint
 
-    var centerX = newWidth / 2;
-    var centerY = newHeight / 2;
+    let centerX = newWidth / 2;
+    let centerY = newHeight / 2;
     this.state.centerpoint = new Point(centerX, centerY);
 
     // Rotate about it
@@ -328,7 +322,7 @@ class Keys {
     this.state.rotationMatrix = calculateRotationMatrix(-this.settings.rotation, this.state.centerpoint);
 
     // I don't know why these need to be the opposite sign of each other.
-    var m = calculateRotationMatrix(this.settings.rotation, this.state.centerpoint);
+    let m = calculateRotationMatrix(this.settings.rotation, this.state.centerpoint);
     this.state.context.setTransform(m[0], m[1], m[2], m[3], m[4], m[5]);
 
     // Redraw Grid
@@ -347,8 +341,8 @@ class Keys {
       && (e.code in this.settings.keyCodeToCoords)
       && !this.state.pressedKeys.has(e.code)) {
       this.state.pressedKeys.add(e.code);
-      var coords = this.settings.keyCodeToCoords[e.code];
-      var hex = this.hexOn(coords, 0);
+      let coords = this.settings.keyCodeToCoords[e.code];
+      let hex = this.hexOn(coords, 0);
       this.state.activeHexObjects.push(hex);
     }
   };
@@ -360,9 +354,9 @@ class Keys {
       && (e.code in this.settings.keyCodeToCoords)) {
       if (this.state.pressedKeys.has(e.code)) {
         this.state.pressedKeys.delete(e.code);
-        var coords = this.settings.keyCodeToCoords[e.code];
+        let coords = this.settings.keyCodeToCoords[e.code];
         this.hexOff(coords);
-        var hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
+        let hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
           return coords.equals(hex.coords);
         });
         if (hexIndex != -1) {
@@ -375,6 +369,7 @@ class Keys {
 
   mouseUp = (e) => {
     this.state.isMouseDown = false;
+
     if (this.state.pressedKeys.size != 0 || this.state.isTouchDown) {
       return;
     }
@@ -396,14 +391,13 @@ class Keys {
   };
 
   mouseActive = (e) => {
-    var coords = this.getPointerPosition(e);
-
+    let coords = this.getPointerPosition(e);
     coords = this.getHexCoordsAt(coords);
 
     if (this.state.activeHexObjects.length == 0) {
       this.state.activeHexObjects[0] = this.hexOn(coords, 0);
     } else {
-      var first = this.state.activeHexObjects[0];
+      let first = this.state.activeHexObjects[0];
       if (!(coords.equals(first.coords))) {
         this.hexOff(first.coords);
         this.noteOff(first);
@@ -413,15 +407,15 @@ class Keys {
   };
 
   getPointerPosition(e) {
-    var parentPosition = this.getPosition(e.currentTarget);
-    var xPosition = e.clientX - parentPosition.x;
-    var yPosition = e.clientY - parentPosition.y;
+    let parentPosition = this.getPosition(e.currentTarget);
+    let xPosition = e.clientX - parentPosition.x;
+    let yPosition = e.clientY - parentPosition.y;
     return new Point(xPosition, yPosition);
   };
 
   getPosition(element) {
-    var xPosition = 0;
-    var yPosition = 0;
+    let xPosition = 0;
+    let yPosition = 0;
 
     while (element) {
       xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
@@ -442,28 +436,28 @@ class Keys {
     }
     this.state.isTouchDown = e.targetTouches.length != 0;
 
-    for (var i = 0; i < this.state.activeHexObjects.length; i++) {
+    for (let i = 0; i < this.state.activeHexObjects.length; i++) {
       this.state.activeHexObjects[i].release = true;
     };
 
-    for (var i = 0; i < e.targetTouches.length; i++) {
-      var coords = this.getHexCoordsAt(new Point(e.targetTouches[i].pageX - this.state.canvas.offsetLeft,
+    for (let i = 0; i < e.targetTouches.length; i++) {
+      let coords = this.getHexCoordsAt(new Point(e.targetTouches[i].pageX - this.state.canvas.offsetLeft,
         e.targetTouches[i].pageY - this.state.canvas.offsetTop));
-      var found = false;
+      let found = false;
 
-      for (var j = 0; j < this.state.activeHexObjects.length; j++) {
+      for (let j = 0; j < this.state.activeHexObjects.length; j++) {
         if (coords.equals(this.state.activeHexObjects[j].coords)) {
           this.state.activeHexObjects[j].release = false;
           found = true;
         }
       }
       if (!(found)) {
-        var newHex = this.hexOn(coords, 0);
+        let newHex = this.hexOn(coords, 0);
         this.state.activeHexObjects.push(newHex);
       }
     };
 
-    for (var i = this.state.activeHexObjects.length - 1; i >= 0; i--) {
+    for (let i = this.state.activeHexObjects.length - 1; i >= 0; i--) {
       if (this.state.activeHexObjects[i].release) {
         this.hexOff(this.state.activeHexObjects[i].coords);
         this.noteOff(this.state.activeHexObjects[i]);
@@ -474,35 +468,36 @@ class Keys {
   };
 
   /**************** Rendering ****************/
+
   drawGrid() {
-    var max = (this.state.centerpoint.x > this.state.centerpoint.y) ?
+    let max = (this.state.centerpoint.x > this.state.centerpoint.y) ?
         this.state.centerpoint.x / this.settings.hexSize :
         this.state.centerpoint.y / this.settings.hexSize;
     max = Math.floor(max);
-    for (var r = -max; r < max; r++) {
-      for (var ur = -max; ur < max; ur++) {
-        var coords = new Point(r, ur);
+    for (let r = -max; r < max; r++) {
+      for (let ur = -max; ur < max; ur++) {
+        let coords = new Point(r, ur);
         this.hexOff(coords);
       }
     }
   };
 
   hexCoordsToScreen(hex) { /* Point */
-    var screenX = this.state.centerpoint.x + hex.x * this.settings.hexWidth + hex.y * this.settings.hexWidth / 2;
-    var screenY = this.state.centerpoint.y + hex.y * this.settings.hexVert;
+    let screenX = this.state.centerpoint.x + hex.x * this.settings.hexWidth + hex.y * this.settings.hexWidth / 2;
+    let screenY = this.state.centerpoint.y + hex.y * this.settings.hexVert;
     return (new Point(screenX, screenY));
   };
 
   drawHex(p, c, current_text_color) { /* Point, color */
-    var context = this.state.context;
-    var hexCenter = this.hexCoordsToScreen(p);
+    let context = this.state.context;
+    let hexCenter = this.hexCoordsToScreen(p);
 
     // Calculate hex vertices
 
-    var x = [];
-    var y = [];
-    for (var i = 0; i < 6; i++) {
-      var angle = 2 * Math.PI / 6 * (i + 0.5);
+    let x = [];
+    let y = [];
+    for (let i = 0; i < 6; i++) {
+      let angle = 2 * Math.PI / 6 * (i + 0.5);
       x[i] = hexCenter.x + this.settings.hexSize * Math.cos(angle);
       y[i] = hexCenter.y + this.settings.hexSize * Math.sin(angle);
     };
@@ -511,7 +506,7 @@ class Keys {
 
     context.beginPath();
     context.moveTo(x[0], y[0]);
-    for (var i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
       context.lineTo(x[i], y[i]);
     }
     context.closePath();
@@ -523,7 +518,7 @@ class Keys {
     context.save();
     context.beginPath();
     context.moveTo(x[0], y[0]);
-    for (var i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
       context.lineTo(x[i], y[i]);
     }
     context.closePath();
@@ -531,10 +526,10 @@ class Keys {
 
     // Calculate hex vertices outside clipped path
 
-    var x2 = [];
-    var y2 = [];
-    for (var i = 0; i < 6; i++) {
-      var angle = 2 * Math.PI / 6 * (i + 0.5);
+    let x2 = [];
+    let y2 = [];
+    for (let i = 0; i < 6; i++) {
+      let angle = 2 * Math.PI / 6 * (i + 0.5);
       // TODO hexSize should already be a number
       x2[i] = hexCenter.x + (parseFloat(this.settings.hexSize) + 3) * Math.cos(angle);
       y2[i] = hexCenter.y + (parseFloat(this.settings.hexSize) + 3) * Math.sin(angle);
@@ -544,7 +539,7 @@ class Keys {
 
     context.beginPath();
     context.moveTo(x2[0], y2[0]);
-    for (var i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
       context.lineTo(x2[i], y2[i]);
     }
     context.closePath();
@@ -561,7 +556,7 @@ class Keys {
 
     context.beginPath();
     context.moveTo(x[0], y[0]);
-    for (var i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
       context.lineTo(x[i], y[i]);
     }
     context.closePath();
@@ -582,17 +577,17 @@ class Keys {
     context.textAlign = "center";
     context.textBaseline = "middle";
 
-    var note = p.x * this.settings.rSteps + p.y * this.settings.urSteps;
+    let note = p.x * this.settings.rSteps + p.y * this.settings.urSteps;
     // TODO this should be parsed already
-    var equivSteps = this.settings.scale.length;
-    var equivMultiple = Math.floor(note / equivSteps);
-    var reducedNote = note % equivSteps;
+    let equivSteps = this.settings.scale.length;
+    let equivMultiple = Math.floor(note / equivSteps);
+    let reducedNote = note % equivSteps;
     if (reducedNote < 0) {
       reducedNote = equivSteps + reducedNote;
     };
 
     if (!this.settings.no_labels) {
-      var name;
+      let name;
       if (this.settings.degree) {
         name = "" + reducedNote
       } else if (this.settings.note) {
@@ -600,16 +595,17 @@ class Keys {
       } else if (this.settings.scala) {
         name = this.settings.scala_names[reducedNote];
       };
+
       if (name) {
         context.save();
-        var scaleFactor = name.length > 3 ? 3.58 / name.length : 1;
+        let scaleFactor = name.length > 3 ? 3.58 / name.length : 1;
         scaleFactor *= this.settings.hexSize / 46;
         context.scale(scaleFactor, scaleFactor);
         context.fillText(name, 0, 0);
         context.restore();
       }
 
-      var scaleFactor = this.settings.hexSize / 50;
+      let scaleFactor = this.settings.hexSize / 50;
       context.scale(scaleFactor, scaleFactor);
       context.translate(12, -30);
       context.fillStyle = getContrastYIQ_2(current_text_color);
@@ -623,7 +619,8 @@ class Keys {
   }
 
   centsToColor(cents, pressed, pressed_interval) {
-    var returnColor;
+    let returnColor;
+
     if (!this.settings.spectrum_colors) {
       if (typeof(this.settings.note_colors[pressed_interval]) === 'undefined') {
         returnColor = "#EDEDE4";
@@ -631,7 +628,7 @@ class Keys {
         returnColor = this.settings.note_colors[pressed_interval];
       }
 
-      var oldColor = returnColor;
+      let oldColor = returnColor;
 
       //convert color name to hex
       returnColor = nameToHex(returnColor);
@@ -642,21 +639,22 @@ class Keys {
 
       //darken for pressed key
       if (pressed) {
-        returnColor[0] -= 90;
-        returnColor[1] -= 90;
+        returnColor[0] -= 64;
+        returnColor[1] -= 64;
+        returnColor[2] -= 64;
       }
 
       return [rgb(returnColor[0], returnColor[1], returnColor[2]), current_text_color];
     };
 
-    var fcolor = hex2rgb("#" + this.settings.fundamental_color);
+    let fcolor = hex2rgb("#" + this.settings.fundamental_color);
     fcolor = rgb2hsv(fcolor[0], fcolor[1], fcolor[2]);
 
-    var h = fcolor.h / 360;
-    var s = fcolor.s / 100;
-    var v = fcolor.v / 100;
-    //var h = 145/360; // green
-    var reduced = (cents / 1200) % 1;
+    let h = fcolor.h / 360;
+    let s = fcolor.s / 100;
+    let v = fcolor.v / 100;
+    //let h = 145/360; // green
+    let reduced = (cents / 1200) % 1;
     if (reduced < 0) reduced += 1;
     h = (reduced + h) % 1;
 
@@ -665,7 +663,7 @@ class Keys {
     returnColor = HSVtoRGB(h, s, v);
 
     //setup text color
-    var tcolor = HSVtoRGB2(h, s, v);
+    let tcolor = HSVtoRGB2(h, s, v);
     const current_text_color = rgbToHex(tcolor.red, tcolor.green, tcolor.blue);
     return [returnColor, current_text_color];
   };
@@ -678,40 +676,54 @@ class Keys {
   };
 
   hexCoordsToCents(coords) {
-    var distance = coords.x * this.settings.rSteps + coords.y * this.settings.urSteps;
-    var octs = this.roundTowardZero(distance / this.settings.scale.length);
-    var reducedSteps = distance % this.settings.scale.length;
-    var equivSteps = this.settings.equivSteps;
+    let distance = (coords.x * this.settings.rSteps) + (coords.y * this.settings.urSteps);
+    let octs = this.roundTowardZero(distance / this.settings.scale.length);
+    let octs_prev = this.roundTowardZero((distance - 1) / this.settings.scale.length);
+    let octs_next = this.roundTowardZero((distance + 1) / this.settings.scale.length);
+    let reducedSteps = distance % this.settings.scale.length;
+    let reducedSteps_prev = (distance - 1) % this.settings.scale.length;
+    let reducedSteps_next = (distance + 1) % this.settings.scale.length;
+    let equivSteps = this.settings.equivSteps;
     if (reducedSteps < 0) {
       reducedSteps += this.settings.scale.length;
       octs -= 1;
-    }
-    var cents = octs * this.settings.equivInterval + this.settings.scale[reducedSteps];
-    return [cents, reducedSteps, distance, octs, equivSteps];
+    };
+    if (reducedSteps_prev < 0) {
+      reducedSteps_prev += this.settings.scale.length;
+      octs_prev -= 1;
+    };
+    if (reducedSteps_next < 0) {
+      reducedSteps_next += this.settings.scale.length;
+      octs_next -= 1;
+    };
+    let cents = octs * this.settings.equivInterval + this.settings.scale[reducedSteps];
+    let cents_prev = octs_prev * this.settings.equivInterval + this.settings.scale[reducedSteps_prev];
+    let cents_next = octs_next * this.settings.equivInterval + this.settings.scale[reducedSteps_next];
+    return [cents, reducedSteps, distance, octs, equivSteps, cents_prev, cents_next];
   };
 
   getHexCoordsAt(coords) {
     coords = applyMatrixToPoint(this.state.rotationMatrix, coords);
-    var x = coords.x - this.state.centerpoint.x;
-    var y = coords.y - this.state.centerpoint.y;
+    let x = coords.x - this.state.centerpoint.x;
+    let y = coords.y - this.state.centerpoint.y;
 
-    var q = (x * Math.sqrt(3) / 3 - y / 3) / this.settings.hexSize;
-    var r = y * 2 / 3 / this.settings.hexSize;
+    let q = (x * Math.sqrt(3) / 3 - y / 3) / this.settings.hexSize;
+    let r = y * 2 / 3 / this.settings.hexSize;
 
     q = Math.round(q);
     r = Math.round(r);
 
-    var guess = this.hexCoordsToScreen(new Point(q, r));
+    let guess = this.hexCoordsToScreen(new Point(q, r));
 
     // This gets an approximation; now check neighbours for minimum distance
 
-    var minimum = 100000;
-    var closestHex = new Point(q, r);
-    for (var qOffset = -1; qOffset < 2; qOffset++) {
-      for (var rOffset = -1; rOffset < 2; rOffset++) {
-        var neighbour = new Point(q + qOffset, r + rOffset);
-        var diff = this.hexCoordsToScreen(neighbour).minus(coords);
-        var distance = diff.x * diff.x + diff.y * diff.y;
+    let minimum = 100000;
+    let closestHex = new Point(q, r);
+    for (let qOffset = -1; qOffset < 2; qOffset++) {
+      for (let rOffset = -1; rOffset < 2; rOffset++) {
+        let neighbour = new Point(q + qOffset, r + rOffset);
+        let diff = this.hexCoordsToScreen(neighbour).minus(coords);
+        let distance = diff.x * diff.x + diff.y * diff.y;
         if (distance < minimum) {
           minimum = distance;
           closestHex = neighbour;

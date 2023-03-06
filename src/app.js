@@ -218,7 +218,7 @@ const App = () => {
       typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity,
+      create_midi_synth(settings.midiin_device, midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity,
         settings.fundamental, settings.reference_degree, settings.scale)
         .then(s => { 
           setLoading(signal);

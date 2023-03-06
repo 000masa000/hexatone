@@ -1,7 +1,8 @@
 import { scalaToCents } from "../settings/scale/parse-scale";
+import { WebMidi } from "webmidi";
 
 // TODO MIDI panic button
-export const create_midi_synth = async (midi_output, channel, midi_mapping, velocity, fundamental, reference_degree, scale) => {
+export const create_midi_synth = async (midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, reference_degree, scale) => {
 
   var offset = 0;
   if (reference_degree > 0) {
@@ -13,8 +14,8 @@ export const create_midi_synth = async (midi_output, channel, midi_mapping, velo
   console.log("offset_value (ratio):", offset);
  
   return {
-    makeHex: (coords, cents, pressed_interval, steps, equaves, equivSteps, note_played, velocity_played) => {
-      return new MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental, offset);
+    makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played) => {
+      return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, offset);
     }
   };
 };
@@ -32,7 +33,7 @@ for (let i = 0; i < 2048; i++) {
   keymap[i] = [0, 0, 0, 0, 0];  
 };
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocity_played, midi_output, channel, midi_mapping, velocity, fundamental, offset) {
+function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, offset) {
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
@@ -50,6 +51,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
+      var bend_up = cents_next - cents;
+      var bend_down = cents - cents_prev;
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var split = channel;
       var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
@@ -78,6 +81,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       ref_offset = 1200 * Math.log2(ref_offset);
       var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
+      var bend_up = cents_next - cents;
+      var bend_down = cents - cents_prev;
       var split = channel;
       var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
@@ -107,6 +112,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
     }
     this.coords = coords; // these end up being used by the keys class
     this.cents = cents;
+    this.bend_down = bend_down;
+    this.bend_up = bend_up;
     this.equaves = equaves;
 
     this.release = false;
@@ -117,6 +124,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
       this.velocity = velocity;
     };
 
+    this.midiin_device = midiin_device;
+
     this.midi_output = midi_output;
     this.channel = split;
     this.steps = steps_cycle;
@@ -124,18 +133,64 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, note_played, velocit
   } else {
     console.log("Please choose an output channel!");
   };
-}  
+}
 
 MidiHex.prototype.noteOn = function () {
+
+  this.midiin_data = WebMidi.getInputById(this.midiin_device);
+  this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius :)
+    let bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
+    if (bend < 0) {
+      bend = this.bend_down * bend / 8192; // set bend down between 0 and -1
+    } else {
+      bend = this.bend_up * bend / 8191; // set bend up between 0 and 1
+    };
+    console.log("pb", bend);
+    var mts_bend = centsToMTS(mtsToMidiFloat([this.mts[1], this.mts[2], this.mts[3]]), bend);
+    this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], mts_bend[0], mts_bend[1], mts_bend[2], 247]);
+  });
+
   if (this.mts.length > 0) {
     this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], this.mts[1], this.mts[2], this.mts[3], 247]);
     console.log("MTS target note and tuning:", this.mts[0], this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));    
   };
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
-  console.log("(output) note_on:", this.channel+1,this.steps, this.velocity);
+    console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
 };
 
 MidiHex.prototype.noteOff = function () {
+  this.midiin_data.removeListener("pitchbend");
+  this.midiin_data = null;
+
   this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
   console.log("(output) note_off:", this.channel+1,this.steps, this.velocity);
+};
+
+function centsToMTS(note, bend) {
+  let mts = []
+  mts[0] = Math.floor(note);
+  let total_bend = (bend * 0.01) + note - mts[0];
+
+  let shift = Math.floor(total_bend);
+  let remainder = total_bend - shift;
+
+  mts[0] = mts[0] + shift;
+  mts[1] = 16384 * remainder;
+  mts[1] = Math.round(mts[1]);
+  if (mts[1] == 16384) {
+    mts[1] = 16383;
+  };
+  mts[2] = mts[1] / 128;
+  mts[1] = Math.floor(mts[2]);
+  mts[2] = Math.round(128 * (mts[2] - mts[1]));
+  if (mts[2] == 128) {
+    mts[2] = 127;
+  };
+
+  return mts;
+}
+
+function mtsToMidiFloat(mts) {
+  let midifloat = mts[0] + (mts[1] / 128) + (mts[2] / 16384);
+  return midifloat;
 };
