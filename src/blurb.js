@@ -14,7 +14,7 @@ const Blurb = () => (
       <a href="https://github.com/000masa000/hexatone" target="new">github.com/000masa000/hexatone</a>
     </p>
     <p>
-      <em>The text font with embedded HEJI accidentals (RobotoCondensed-HEJI2) used in this web app may be obtained in various formats or used for other web apps by linking to <a href="https://www.plainsound.org/fonts" target="new">plainsound.org/fonts</a>. The accidentals follow the Unicode standard music font layout and their unicode data for copy/paste may be found at <a href="https://w3c.github.io/smufl/latest/tables/extended-helmholtz-ellis-accidentals-just-intonation.html" target="new">w3c.github.io/smufl/latest/tables/</a>.</em>
+      <em>The text font with embedded HEJI accidentals (RobotoCondensed-HEJI2) used in this web app may be obtained in various formats or used for other web apps by linking to <a href="https://www.plainsound.org/fonts" target="new">plainsound.org/fonts</a>. The accidentals follow the Unicode standard music font layout and their unicode data for copy/paste may be found at <a href="https://w3c.github.io/smufl/latest/tables/extended-helmholtz-ellis-accidentals-just-intonation.html" target="new">w3c.github.io/smufl/latest/tables</a>.</em>
     </p>
   </div>);
 export default Blurb;

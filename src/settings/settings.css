@@ -8,6 +8,10 @@ h1 a {
 
 fieldset {
     margin-bottom: 0.5em;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: #c3c8cb;
+    border-style: solid;
 }
 
 label {
@@ -17,11 +21,6 @@ label {
     margin-top: 0.125em;
     line-height: 1.5em;
 }
-
-input:out-of-range {
-    background-color: rgb(255, 154, 117);
-}
-
 
 table {
     width: 100%;
@@ -44,22 +43,89 @@ textarea {
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     background-color: rgb(254, 249, 244);
+    border-width: 1px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #c3c8cb;
 }
 
-select, input[type="text"], input[type="number"] {
+select {
+  width: 24em;
+  height: 1.5em;
+  box-sizing: border-box;
+  background-color: rgb(254, 249, 244);
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #c3c8cb;
+}
+
+input[type="number"] {
     width: 24em;
     height: 1.5em;
-    box-sizing: border-box;    
-    
+    box-sizing: border-box;
+    background-color: rgb(254, 249, 244); 
+    border-width: 1px; 
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #c3c8cb;
+}
+
+input[type="text"] {
+  width: 24em;
+  height: 1.5em;
+  box-sizing: border-box;
+  background-color: rgb(254, 249, 244);
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #c3c8cb;
+}
+
+input[type="color"] {
+  height: 1.5em;
+  width: 2.5em;
+  box-sizing: border-box;
+  background-color: rgb(254, 249, 244);
+  border-width: 1px;
+  color:  rgb(245, 241, 240);
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #c3c8cb;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+  border-radius: 3px;
 }
 
 table input[type="text"] {
   height: 1.5em;
   width: 95%;
+  box-sizing: border-box;
+  background-color: rgb(254, 249, 244);
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #c3c8cb;
 }
 
 table input[type="color"] {
   height: 1.5em;
-  width: 95%;
-  padding: 0 ;
+  width: 2.5em;
+  box-sizing: border-box;
+  background-color: rgb(254, 249, 244);
+  border-width: 1px;
+  color:  rgb(245, 241, 240);
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #c3c8cb;
 }
+
+input:out-of-range {
+  background-color: rgb(255, 233, 233);
+  color: rgb(214, 9, 9);
+  ;
+}
+
+
