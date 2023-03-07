@@ -23,8 +23,8 @@ export const create_sample_synth = async (fileName, fundamental, reference_degre
     if (reference_degree > 0) {
       offset = scalaToCents(scale[reference_degree - 1]);
     };
-    console.log("reference_degree:", reference_degree);
-    console.log("offset_value:", offset);
+    //console.log("reference_degree:", reference_degree);
+    //console.log("offset_value:", offset);
 
     return {
       makeHex: (coords, cents) => {

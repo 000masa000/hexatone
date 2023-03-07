@@ -10,6 +10,7 @@ const MidiOut = (props) => (
         midi={props.midi} name="midi_device" onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
           sessionStorage.setItem(e.target.name, e.target.value);
+          console.log("MIDI Out device selected: ", sessionStorage.getItem(e.target.name));
         }
         }>
           <option value="OFF">OFF</option>
@@ -25,6 +26,7 @@ const MidiOut = (props) => (
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
           sessionStorage.setItem(e.target.name, e.target.value);
+          console.log("MIDI Out mapping selected: ", sessionStorage.getItem(e.target.name));
         }
         }>
         <option>---choose how the notes are sent---</option>
@@ -40,7 +42,12 @@ const MidiOut = (props) => (
         name="midi_channel"
         onChange={(e) => {
           props.onChange(e.target.name, parseInt(e.target.value));
-          sessionStorage.setItem(e.target.name, parseInt(e.target.value));
+          sessionStorage.setItem(e.target.name, parseInt(e.target.value));          
+          let ch = parseInt(sessionStorage.getItem(e.target.name)) + 1;
+          if (ch == 0) {
+            ch = "OFF";
+          }
+          console.log("MIDI Out channel selected: ", ch);
         }
         }>
         <option value="-1">---place the scale fundamental--(1/1 = C4 = note 60)---</option>

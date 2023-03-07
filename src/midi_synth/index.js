@@ -8,10 +8,10 @@ export const create_midi_synth = async (midiin_device, midi_output, channel, mid
   if (reference_degree > 0) {
     offset = scalaToCents(scale[reference_degree - 1]);
   };
-  console.log("reference_degree:", reference_degree);
-  console.log("offset_value (cents):", offset);
+  //console.log("reference_degree:", reference_degree);
+  //console.log("offset_value (cents):", offset);
   offset = 2 ** (offset / 1200);
-  console.log("offset_value (ratio):", offset);
+  //console.log("offset_value (ratio):", offset);
  
   return {
     makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played) => {
