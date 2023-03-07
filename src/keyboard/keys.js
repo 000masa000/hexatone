@@ -85,6 +85,11 @@ class Keys {
             this.midiout_data.sendChannelAtertouch(e.message.dataBytes[0] / 128.0, {});
           });
 
+          this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
+            console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, {  });
+          });
+
           this.midiin_data.addListener("keyaftertouch", e => {
             let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
             channel_offset = ((channel_offset + 20) % 8) - 4;
@@ -108,6 +113,11 @@ class Keys {
           this.midiin_data.addListener("channelaftertouch", e => {
             console.log("Channel Aftertouch (thru)", this.settings.midi_channel + 1, e.message.dataBytes[0]);
             this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
+          });
+
+          this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
+            console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
           });
 
           if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
@@ -184,7 +194,7 @@ class Keys {
     let steps = e.note.number - 60;
     let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
-    console.log("transposition (in equaves)", channel_offset);
+    //console.log("transposition (in equaves)", channel_offset);
     let steps_offset = channel_offset * this.settings.equivSteps;
     steps = steps + steps_offset;
     let note_played = e.note.number + (128 * (e.message.channel - 1)); // allows note and channel to be encoded and recovered for MTS key pressure

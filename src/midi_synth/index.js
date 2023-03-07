@@ -136,31 +136,34 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
 }
 
 MidiHex.prototype.noteOn = function () {
-
-  this.midiin_data = WebMidi.getInputById(this.midiin_device);
-  this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius :)
-    let bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
-    if (bend < 0) {
-      bend = this.bend_down * bend / 8192; // set bend down between 0 and -1
-    } else {
-      bend = this.bend_up * bend / 8191; // set bend up between 0 and 1
-    };
-    console.log("pb", bend);
-    var mts_bend = centsToMTS(mtsToMidiFloat([this.mts[1], this.mts[2], this.mts[3]]), bend);
-    this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], mts_bend[0], mts_bend[1], mts_bend[2], 247]);
-  });
-
+  
   if (this.mts.length > 0) {
     this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], this.mts[1], this.mts[2], this.mts[3], 247]);
-    console.log("MTS target note and tuning:", this.mts[0], this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));    
+    console.log("MTS target note and tuning:", this.mts[0], this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));
+    
+    this.midiin_data = WebMidi.getInputById(this.midiin_device);
+    this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius :)
+      let bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
+      if (bend < 0) {
+        bend = this.bend_down * bend / 8192; // set bend down between 0 and -1
+      } else {
+        bend = this.bend_up * bend / 8191; // set bend up between 0 and 1
+      };
+      console.log("pb", bend);
+      var mts_bend = centsToMTS(mtsToMidiFloat([this.mts[1], this.mts[2], this.mts[3]]), bend);
+      this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], mts_bend[0], mts_bend[1], mts_bend[2], 247]);
+    });
   };
+
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
     console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
 };
 
 MidiHex.prototype.noteOff = function () {
-  this.midiin_data.removeListener("pitchbend");
-  this.midiin_data = null;
+  if (this.mts.length > 0) {
+    this.midiin_data.removeListener("pitchbend");
+    this.midiin_data = null;
+  };
 
   this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
   console.log("(output) note_off:", this.channel+1,this.steps, this.velocity);

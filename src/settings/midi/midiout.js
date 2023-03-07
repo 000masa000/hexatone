@@ -55,7 +55,7 @@ const MidiOut = (props) => (
       </select>
     </label>
     <label>
-      Fixed Velocity
+      Fixed Velocity (touch input)
       <input name="midi_velocity" type="number"
         value={props.settings.midi_velocity}
         step="1" min="0" max="127"
