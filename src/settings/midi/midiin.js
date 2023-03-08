@@ -1,9 +1,10 @@
+import { options } from "preact";
 import { WebMidi } from "webmidi";
 
 export var midi_in = [];
 
 WebMidi
-.enable()
+  .enable( { sysex:true } )
 .then(onEnabled)
 .catch(err => alert(err));
 

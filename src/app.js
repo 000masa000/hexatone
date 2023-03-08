@@ -257,7 +257,7 @@ const App = () => {
           labels.unshift(f_name); 
         };
            
-        return {...s, name: filename, description, equivSteps, scale, scala_names, note_names: labels, note_colors: colors };
+        return {...s, name: filename, description, equivSteps, scale, scala_names, note_names: labels, note_colors: colors, key_labels: "scala_names" };
       } else {
         return s;
       }

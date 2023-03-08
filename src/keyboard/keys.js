@@ -4,7 +4,8 @@ import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 import { WebMidi } from 'webmidi';
 import { midi_in } from '../settings/midi/midiin';
-import { keymap } from '../midi_synth';
+import { keymap, notes_played } from '../midi_synth';
+import { mtsToMidiFloat, centsToMTS } from '../midi_synth';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -17,7 +18,7 @@ class Keys {
     };
     this.synth = synth; // use built-in sounds or send MIDI out to an external synth
     this.typing = typing;
-    
+    this.bend = 0;
     this.state = {
       canvas,
       context: canvas.getContext('2d'),
@@ -54,7 +55,6 @@ class Keys {
     console.log("midi_channel:", this.settings.midi_channel);
     console.log("midi_mapping:", this.settings.midi_mapping); */
 
-    this.bend = 0;
 
     if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) { // get the MIDI noteons and noteoffs to play the internal sounds
     
@@ -115,13 +115,13 @@ class Keys {
             this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
           });
 
-          this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
-            console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
-            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
-          });
-
           if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
 
+            this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
+              console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+              this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
+            });
+            
             this.midiin_data.addListener("keyaftertouch", e => {              
               let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
               channel_offset = ((channel_offset + 20) % 8) - 4;
@@ -141,14 +141,8 @@ class Keys {
               console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
             });
             
-            this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius :)
-              let bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
-              if (bend < 0) {
-                bend = bend / 8192; // set bend down between 0 and -1
-              } else {
-                bend = bend / 8191; // set bend up between 0 and 1
-              };
-              this.bend = bend;
+            this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius
+              this.mtsBend(e);       
             });            
           };
         };
@@ -190,7 +184,50 @@ class Keys {
       };
   };
 
-  midinoteOn = (e) => {; // TODO make the display calculation relative to angle of hex, and write a separate function
+  mtsBend = (e) => { // generates scale specific one scale degree last note played pitch bend
+    let bend = 0;
+    bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
+    let last_noteon = notes_played[notes_played.length - 1];
+    if (bend < 0) {
+      bend = bend / 8192; // set bend down between 0 and -1
+    } else {
+      bend = bend / 8191; // set bend up between 0 and 1
+    };
+
+    this.bend = bend;
+
+    if (last_noteon) {
+      console.log("last_noteon", last_noteon);
+      let bend_up = keymap[last_noteon][5]; // get data from most recently played note
+      let bend_down = keymap[last_noteon][4];
+      let mts_current = [keymap[last_noteon][0], keymap[last_noteon][1], keymap[last_noteon][2], keymap[last_noteon][3]];
+      //console.log("keymap[current]", keymap[last_noteon]);
+
+      if (bend < 0) {
+        bend = bend_down * bend; // set bend down between 0 and -1
+      } else {
+        bend = bend_up * bend; // set bend up between 0 and 1
+      };
+
+      if ((this.settings.midi_mapping == "MTS1") || (this.settings.midi_mapping == "MTS2")) {
+        console.log("Keys_MTSBend", bend);
+        let mts_bend = centsToMTS(mtsToMidiFloat([mts_current[1], mts_current[2], mts_current[3]]), bend);
+        console.log("mtsBend-message", mts_current[0], mts_bend[0], mts_bend[1], mts_bend[2]);
+     
+        if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) { // forward other MIDI data through to output
+          this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
+          this.midiout_data.sendSysex([127], [127, 8, 2, 0, 1, mts_current[0], mts_bend[0], mts_bend[1], mts_bend[2]]); // generates single note pitchbend
+        };
+      };
+    };
+  };
+
+  midinoteOn = (e) => { // TODO make the display calculation relative to angle of hex, and write a separate function
+    let bend = 0;
+    if (this.bend) {
+      bend = this.bend;
+    };
+    console.log("note_on-bend", bend);
     let steps = e.note.number - 60;
     let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
@@ -209,7 +246,7 @@ class Keys {
     let remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
     if (remainder == 0) {
       let coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
-      let hex = this.hexOn(coords, note_played, velocity_played);
+      let hex = this.hexOn(coords, note_played, velocity_played, bend);
       this.state.activeHexObjects.push(hex);
     };
   };
@@ -241,11 +278,14 @@ class Keys {
     };
   };
   
-  hexOn(coords, note_played, velocity_played) {
+  hexOn(coords, note_played, velocity_played, bend) {
+    if (!bend) {
+      bend = 0;
+    };
     const [cents, pressed_interval, steps, equaves, equivSteps, cents_prev, cents_next] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played);
+    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend);
     hex.noteOn();
     return hex;
   };
@@ -352,7 +392,7 @@ class Keys {
       && !this.state.pressedKeys.has(e.code)) {
       this.state.pressedKeys.add(e.code);
       let coords = this.settings.keyCodeToCoords[e.code];
-      let hex = this.hexOn(coords, 0);
+      let hex = this.hexOn(coords);
       this.state.activeHexObjects.push(hex);
     }
   };
@@ -405,13 +445,13 @@ class Keys {
     coords = this.getHexCoordsAt(coords);
 
     if (this.state.activeHexObjects.length == 0) {
-      this.state.activeHexObjects[0] = this.hexOn(coords, 0);
+      this.state.activeHexObjects[0] = this.hexOn(coords);
     } else {
       let first = this.state.activeHexObjects[0];
       if (!(coords.equals(first.coords))) {
         this.hexOff(first.coords);
         this.noteOff(first);
-        this.state.activeHexObjects[0] = this.hexOn(coords, 0);
+        this.state.activeHexObjects[0] = this.hexOn(coords);
       }
     }
   };
@@ -462,7 +502,7 @@ class Keys {
         }
       }
       if (!(found)) {
-        let newHex = this.hexOn(coords, 0);
+        let newHex = this.hexOn(coords);
         this.state.activeHexObjects.push(newHex);
       }
     };
@@ -649,9 +689,9 @@ class Keys {
 
       //darken for pressed key
       if (pressed) {
-        returnColor[0] -= 64;
-        returnColor[1] -= 64;
-        returnColor[2] -= 64;
+        returnColor[0] -= 40;
+        returnColor[1] -= 40;
+        returnColor[2] -= 40;
       }
 
       return [rgb(returnColor[0], returnColor[1], returnColor[2]), current_text_color];
