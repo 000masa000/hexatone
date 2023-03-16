@@ -2,6 +2,7 @@ import { h } from 'preact';
 import { Fragment } from 'preact/compat';
 import PropTypes from 'prop-types';
 import MidiOut from './midiout';
+import MidiTuning from './mts';
 
 const MIDIio = (props) => (
   <fieldset>
@@ -41,27 +42,16 @@ const MIDIio = (props) => (
       </select>
     </label>
     <br />
-    <em>Input is always received on all channels. The Central Input Channel chosen above remains untransposed. Other channels are transposed by multiples of the selected scale's interval of repetition (usually an octave, but it may be any value, commonly called "equave"). Multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
+    <em>Input is received on all channels. Notes on the Central Input Channel remain untransposed. Other channels are transposed by multiples of the selected scale&rsquo;s interval of repetition (usually an octave, but it may be any value). Thus, multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
     <br /><br />    
-    <label>
-      (Sound Synthesis)
-      <select value={props.settings.output}
-              name="output"
-        onChange={(e) => {
-          props.onChange(e.target.name, e.target.value);
-          sessionStorage.setItem(e.target.name, e.target.value);
-          console.log("Sound Synthesis selected: ", sessionStorage.getItem(e.target.name));
-        }
-        }>
-        <option value="OFF">OFF</option>
-        {props.midi && (<option value="midi">(MIDI-output)</option>)}
-        <option value="sample">(sample-synth)</option>
-      </select>
-    </label>
+    
     {(props.settings.output === "midi" && props.midi) && (
       <MidiOut {...props}/>
     )}
-  </fieldset>  
+    {(props.settings.output === "midi" && props.midi) && (
+      <MidiTuning {...props}/>
+    )}
+  </fieldset>
 );
 
 MIDIio.propTypes = {

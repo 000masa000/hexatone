@@ -55,7 +55,7 @@ const MidiOut = (props) => (
       </select>
     </label>
     <label>
-      Fixed Velocity (touch input)
+      Velocity (touch input)
       <input name="midi_velocity" type="number"
         value={props.settings.midi_velocity}
         step="1" min="0" max="127"
@@ -69,7 +69,10 @@ const MidiOut = (props) => (
     </label>
     
     <p>
-    <em>Output is determined by the selected MIDI Mapping chosen above. "Multichannel" means the entire scale, up to a maximum of 128 degrees, is sent on multiple MIDI channels, around the Central Output Channel. "All notes on selected channel" sends the scale degrees sequentially, as successive MIDI notes on one channel only. The two "MTS" options send a real-time MIDI tuning message followed by a MIDI note, which triggers the retuned pitch. These options may be used directly, or in tandem with the free Oddsound MTS-ESP Mini Master/Client plug-ins, to retune compatible softsynths using other protocols (MPE or multichannel pitchbend).</em>
+      <em>MIDI Output is determined by the selected MIDI Mapping. In "Multichannel" each transposed cycle of the scale, up to a maximum of 128 degrees, is sent on a different MIDI channel, around the Central Output Channel. "All notes on selected channel" sends scale degrees as successive MIDI notes on one channel only. In either of these settings, the synth will need to load a global tuning map. To send a global tuning map based on the selected scala file and reference frequency, please choose from the options below.</em>
+    </p>
+    <p>
+      <em>The "MTS" Midi Mappings offer an alternative approach, by sending a real-time single-note MIDI tuning message followed by a MIDI note, which triggers the retuned pitch, allowing scales with any number of notes to be played. The MIDI notes used for triggering are unrelated to the actual pitches. They simply cycle sequentially through all 128 possible note numbers. This allows any combination of up to 128 retuned notes, including rearticulations of the same pitch, to be played polyphonically.</em>
     </p>    
   </>
 );

@@ -4,9 +4,9 @@ import { WebMidi } from "webmidi";
 export var midi_in = [];
 
 WebMidi
-  .enable( { sysex:true } )
-.then(onEnabled)
-.catch(err => alert(err));
+  .enable({ sysex: true })
+  .then(onEnabled)
+  .catch(err => alert(err));
 
 function onEnabled() {
   console.log("webmidi.js for MIDI input is on!"); //post to console if WebMidi enabled

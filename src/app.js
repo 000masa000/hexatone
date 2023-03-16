@@ -92,6 +92,11 @@ const App = () => {
     midi_device: ExtractString,
     midi_channel: ExtractInt,
     midi_velocity: ExtractInt,
+    sysex_auto: ExtractBool,
+    sysex_type: ExtractInt,
+    device_id: ExtractInt,
+    tuning_map_number: ExtractInt,
+    tuning_map_degree0: ExtractInt,
 
     // Layout
     rSteps: ExtractInt,
@@ -203,6 +208,34 @@ const App = () => {
     settings.reference_degree = 0;
   };
 
+  if (sessionStorage.getItem("sysex_type")) {
+    settings.sysex_type = parseInt(sessionStorage.getItem("sysex_type"));
+  } else {
+    settings.sysex_type = 127;
+  };  
+  //console.log("sessionStorage sysex_type", settings.sysex_type);
+
+  if (sessionStorage.getItem("device_id")) {
+    settings.device_id = parseInt(sessionStorage.getItem("device_id"));
+  } else {
+    settings.device_id = 127;
+  };
+  // console.log("sessionStorage device_id", sessionStorage.getItem("device_id"))
+
+  if (sessionStorage.getItem("tuning_map_number")) {
+    settings.tuning_map_number = parseInt(sessionStorage.getItem("tuning_map_number"));
+  } else {
+    settings.tuning_map_number = 0;
+  };
+  // console.log("sessionStorage tuning_map_number", sessionStorage.getItem("tuning_map_number"))
+  
+  if (sessionStorage.getItem("tuning_map_degree0")) {
+    settings.tuning_map_degree0 = parseInt(sessionStorage.getItem("tuning_map_degree0"));
+  } else {
+    settings.tuning_map_degree0 = 60;
+  };
+  // console.log("sessionStorage tuning_map_degree0", sessionStorage.getItem("tuning_map_degree0"))
+
   useEffect(() => {
     if (settings.output === "sample"
         && settings.instrument && settings.fundamental) {
@@ -218,16 +251,15 @@ const App = () => {
       typeof settings.midi_velocity === "number") {
       setLoading(wait);
 
-      create_midi_synth(settings.midiin_device, midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity,
-        settings.fundamental, settings.reference_degree, settings.scale)
+      create_midi_synth(settings.midiin_device, midi.outputs.get(settings.midi_device), settings.midi_channel, settings.midi_mapping, settings.midi_velocity, settings.fundamental)
         .then(s => { 
           setLoading(signal);
           setSynth(s);
         }); // todo error handling
     }
   }, [settings.instrument, settings.fundamental, settings.reference_degree, settings.scale,
-      settings.midi_device, settings.midi_channel, settings.midi_mapping,
-      settings.midi_velocity, settings.output, midi]);
+    settings.midi_device, settings.midi_channel, settings.midi_mapping, settings.midi_velocity,
+    settings.output, midi]);
 
   const onChange = (key, value) => {
     setSettings(s => ({...s, [key]: value}));
@@ -242,7 +274,7 @@ const App = () => {
       if (s.scale_import) {
         const { filename, description, equivSteps, scale, labels, colors } = parseScale(s.scale_import);
         const scala_names = parsedScaleToLabels(scale);
-        var f_color = colors.pop(); // deals with 1/1
+        var f_color = colors.pop(); // deals with 1/1, missing in scala file
         //console.log("f_color", f_color)
         if (f_color == "null") {
           colors.unshift("#ffffff"); 

@@ -8,6 +8,7 @@ import SampleSynth from './sample';
 import MIDIio from './midi';
 
 import './settings.css';
+import MidiTuning from './midi/mts';
 
 // set up the fieldset to enter the app settings 
 const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, instruments}) => (
@@ -23,7 +24,7 @@ const Settings = ({presetChanged, presets, settings, onChange, onImport, midi, i
     <SampleSynth onChange={onChange} settings={settings}
       instruments={instruments} />
     <MIDIio onChange={onChange} settings={settings}
-                    midi={midi} />
+      midi={midi} />
   </form>
 );
 

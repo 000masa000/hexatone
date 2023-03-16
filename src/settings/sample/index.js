@@ -7,7 +7,7 @@ const SampleSynth = (props) => (
   <fieldset>
     <legend><b>Sound Synthesis</b></legend>
     <label>
-      Sample Synth or MIDI Out
+      Built-In Synth / MIDI Output
       <select value={props.settings.output}
         name="output"
         onChange={(e) => {
@@ -17,7 +17,7 @@ const SampleSynth = (props) => (
         }
         }>
         <option value = "OFF">OFF</option>
-        <option value="sample">Sample Synth ON</option>
+        <option value="sample">Built-In Synth ON</option>
         <option value="midi">MIDI Output ON</option>
       </select>
     </label>

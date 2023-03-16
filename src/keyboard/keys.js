@@ -6,6 +6,7 @@ import { WebMidi } from 'webmidi';
 import { midi_in } from '../settings/midi/midiin';
 import { keymap, notes_played } from '../midi_synth';
 import { mtsToMidiFloat, centsToMTS } from '../midi_synth';
+import { scalaToCents } from '../settings/scale/parse-scale';
 
 class Keys {
   constructor(canvas, settings, synth, typing,) {
@@ -14,6 +15,7 @@ class Keys {
       hexVert: settings.hexSize * 3 / 2,
       hexWidth: Math.sqrt(3) * settings.hexSize,
       gcd: Euclid(settings.rSteps, settings.urSteps), // calculates a array with 3 values: the GCD of the layout tiling (smallest step available); Bézout Coefficients to be applied to rSteps and urSteps to obtain GCD
+      offset: getOffset(settings.reference_degree, settings.scale),
       ...settings,
     };
     this.synth = synth; // use built-in sounds or send MIDI out to an external synth
@@ -29,6 +31,7 @@ class Keys {
       isTouchDown: false,
       isMouseDown: false
     };
+    this.mts_tuning_map = mtsTuningMap(this.settings.sysex_type, this.settings.device_id, this.settings.tuning_map_number, this.settings.tuning_map_degree0, this.settings.scale, this.settings.equivInterval, this.settings.fundamental, this.settings.offset); // generate the tuning map sysex data
     
     // Set up resize handler
     window.addEventListener('resize', this.resizeHandler, false);
@@ -55,6 +58,10 @@ class Keys {
     console.log("midi_channel:", this.settings.midi_channel);
     console.log("midi_mapping:", this.settings.midi_mapping); */
 
+    if ((this.settings.sysex_auto) && (this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
+      this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
+      this.mtsSendMap();
+    };
 
     if ((this.settings.midiin_device !== "OFF") && (this.settings.midiin_channel >= 0)) { // get the MIDI noteons and noteoffs to play the internal sounds
     
@@ -97,11 +104,6 @@ class Keys {
             this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1] / 128.0, { channels: (channel) });
             console.log("Key Pressure MultiCh", channel, e.message.dataBytes[0], e.message.dataBytes[1]);
           });
-
-          /* this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
-            console.log("Pitch Bend", e.message.dataBytes[0], e.message.dataBytes[1]);
-            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, {  });
-          }); */
             
         } else { // in single-channel output send controlchange and channel pressure only on selected channel
 
@@ -141,7 +143,7 @@ class Keys {
               console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
             });
             
-            this.midiin_data.addListener("pitchbend", e => { // pitchbend should go to be processed as MTS real-time data allowing every note a different bend radius
+            this.midiin_data.addListener("pitchbend", e => { // pitchbend is processed as MTS real-time data allowing every note a different bend radius
               this.mtsBend(e);       
             });            
           };
@@ -181,11 +183,26 @@ class Keys {
       this.midiin_data.removeListener("channelaftertouch");
       this.midiin_data.removeListener("pitchbend");
       this.midiin_data = null;
+    };
+    
+    if (this.midiout_data) {
+      this.midiout_data = null;
       };
+  };
+
+  mtsSendMap = () => { // send the tuning map
+    let sysex = this.mts_tuning_map;
+    console.log("mtsMap: ", sysex);
+    if (this.midiout_data) {
+      for (let i = 0; i < 128; i++) {
+        this.midiout_data.sendSysex([sysex[i].shift()], sysex[i]);
+      };
+    };
   };
 
   mtsBend = (e) => { // generates scale specific one scale degree last note played pitch bend
     let bend = 0;
+    console.log("Pitchbend: ", e.message.dataBytes[0], e.message.dataBytes[1]);
     bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
     let last_noteon = notes_played[notes_played.length - 1];
     if (bend < 0) {
@@ -195,9 +212,10 @@ class Keys {
     };
 
     this.bend = bend;
+    //console.log("MTSbend: ", bend);
 
     if (last_noteon) {
-      console.log("last_noteon", last_noteon);
+      //console.log("last_noteon", last_noteon);
       let bend_up = keymap[last_noteon][5]; // get data from most recently played note
       let bend_down = keymap[last_noteon][4];
       let mts_current = [keymap[last_noteon][0], keymap[last_noteon][1], keymap[last_noteon][2], keymap[last_noteon][3]];
@@ -210,9 +228,9 @@ class Keys {
       };
 
       if ((this.settings.midi_mapping == "MTS1") || (this.settings.midi_mapping == "MTS2")) {
-        console.log("Keys_MTSBend", bend);
+        //console.log("Keys_MTSBend", bend);
         let mts_bend = centsToMTS(mtsToMidiFloat([mts_current[1], mts_current[2], mts_current[3]]), bend);
-        console.log("mtsBend-message", mts_current[0], mts_bend[0], mts_bend[1], mts_bend[2]);
+        //console.log("mtsBend-message", mts_current[0], mts_bend[0], mts_bend[1], mts_bend[2]);
      
         if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) { // forward other MIDI data through to output
           this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
@@ -285,7 +303,8 @@ class Keys {
     const [cents, pressed_interval, steps, equaves, equivSteps, cents_prev, cents_next] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
-    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend);
+    let offset = this.settings.offset[1];
+    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset);
     hex.noteOn();
     return hex;
   };
@@ -786,3 +805,59 @@ class Keys {
 };
 
 export default Keys;
+
+function getOffset(reference_degree, scale) {
+  let offset = [0, 1];
+  if (reference_degree > 0) {
+    offset[0] = scale[reference_degree];
+    offset[1] = 2 ** (offset[0] / 1200); // offset ratio
+  };
+  //console.log("reference_degree:", reference_degree);
+  //console.log("offset_value (cents, ratio):", offset);
+  
+  return offset;
+};
+
+function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degree0, scale, equave, fundamental, offset) {
+  if (sysex_type == "127") {
+    var header = [127, device_id, 8, 2, tuning_map_number, 1]; // sysex real-time single-note tuning change of tuning map, 128 notes
+    let fundamental_cents = 1200 * Math.log2(fundamental / 440);
+    let degree_0_cents = fundamental_cents - offset[0];
+    let map_offset = degree_0_cents - (100 * (tuning_map_degree0 - 69));
+    let mts_data = [];
+
+    for (let i = 0; i < 128; i++) {
+      mts_data[i] = centsToMTS(tuning_map_degree0, scale[((i - tuning_map_degree0) + (128 * scale.length)) % scale.length] + map_offset + (equave * (Math.floor(((i - tuning_map_degree0) + (128 * scale.length)) / scale.length) - 128)));
+    };
+
+    let low = 0;
+    while (mts_data[low][0] < 0) {
+      low++;
+    };
+    for (let i = 0; i < low; i++) {
+      mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
+    };
+
+    let high = 127;
+    while (mts_data[high][0] > 127) {
+      high--;
+    };
+    for (let i = 127; i > high; i--) {
+      mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
+    };
+
+    let sysex = [];
+    for (let j = 0; j < 128; j++) {
+      sysex[j] = [];
+      for (let i = 0; i < header.length; i++) { 
+        sysex[j].push(header[i]);
+      };      
+      sysex[j].push(j);
+      sysex[j].push(mts_data[j][0]);
+      sysex[j].push(mts_data[j][1]);
+      sysex[j].push(mts_data[j][2]);
+      };
+    //console.log("mts-tuning_map", sysex);
+    return sysex;    
+  };
+};

@@ -1,21 +1,16 @@
 import { scalaToCents } from "../settings/scale/parse-scale";
 import { WebMidi } from "webmidi";
 
-// TODO MIDI panic button
-export const create_midi_synth = async (midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, reference_degree, scale) => {
+export const tuningmap = new Array(128); // MTS array showing retunings indexed by note played
+for (let i = 0; i < 128; i++) {
+  tuningmap[i] = [i, 0, 0];  
+};
 
-  var offset = 0;
-  if (reference_degree > 0) {
-    offset = scalaToCents(scale[reference_degree - 1]);
-  };
-  //console.log("reference_degree:", reference_degree);
-  //console.log("offset_value (cents):", offset);
-  offset = 2 ** (offset / 1200);
-  //console.log("offset_value (ratio):", offset);
- 
+// TODO MIDI panic button
+export const create_midi_synth = async (midiin_device, midi_output, channel, midi_mapping, velocity, fundamental) => {
   return {
-    makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend) => {
-      return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, offset);
+    makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset) => {
+      return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental);
     }
   };
 };
@@ -25,33 +20,34 @@ var note_count_l = 23; // Pianoteq hack: only notes 9 to 113 may be played even 
 var note_count_h = 89;
 export var notes_played = [];
 
-export const tuningmap = new Array(128); // MTS array showing retunings indexed by note played
 export const keymap = new Array(128); // array mapping originally played keys to MTS output
-for (let i = 0; i < 128; i++) {
-  tuningmap[i] = [i, 0, 0];  
-};
 for (let i = 0; i < 2048; i++) {
   keymap[i] = [i, i % 128, 0, 0, 0, 0];  // [played note + (128 * channel), mts, mts, mts, mts, bend_down, bend_up]
 };
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental, offset) {
+function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental) {
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
       var steps_cycle = (steps + 60 + (16 * 128)) % 128;
       var split = channel; // output on selected channel
       var mts = [];
-      if (note_played) {
+      if (note_played != null) {
         console.log("note_played", note_played);
         keymap[note_played] = [steps_cycle, 0, 0, 0, channel];
-        console.log("keymap", keymap[note_played]);
+        //console.log("keymap", keymap[note_played]);
         notes_played.push(note_played);
-      };    
+      };
+      
     } else if (midi_mapping === "multichannel") {
       var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
       var mts = [];
       var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
-      keymap[note_played] = [steps_cycle, 0, 0, 0, split];
+      if (note_played != null) {
+        keymap[note_played] = [steps_cycle, 0, 0, 0, split];
+        //console.log("keymap", keymap[note_played]);
+        notes_played.push(note_played);
+      };
    
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
@@ -83,8 +79,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       };
       
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
-      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
-      notes_played.push(note_played);
+
+      if (note_played != null) {
+        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
+        //console.log("keymap", keymap[note_played]);
+        notes_played.push(note_played);
+      };
       
       if (bend < 0) {
         bend = bend * bend_down;
@@ -133,8 +133,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       };
      
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
-      keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
-      notes_played.push(note_played);
+      
+      if (note_played != null) {
+        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
+        //console.log("keymap", keymap[note_played]);
+        notes_played.push(note_played);
+      };
      
       if (bend < 0) {
         bend = bend * bend_down;
@@ -187,7 +191,9 @@ MidiHex.prototype.noteOn = function () {
 
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
   console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
-  console.log("notes_played after noteon:", notes_played);
+  if (notes_played != null) {
+    console.log("notes_played after noteon:", notes_played);
+  };
 };
 
 MidiHex.prototype.noteOff = function () {
@@ -204,7 +210,9 @@ MidiHex.prototype.noteOff = function () {
     second_half.shift();
     let newarray = [];
     notes_played = newarray.concat(first_half, second_half);
-    console.log("notes_played after noteoff", notes_played);
+    if (notes_played != null) {
+      console.log("notes_played after noteoff", notes_played);
+    };
   };  
 };
 
