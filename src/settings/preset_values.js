@@ -64,7 +64,7 @@ export const presets = [
     settings: [
       {
         "name": "12-edo Tempered Scale",
-        "description": "12-edo, a shorthand for \"equal divisions of an octave\"), is the commonly used tempered scale. It divides an octave into 12 proportionally equal and equal sounding semitone intervals. It is notated here using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
+        "description": "12-edo, a shorthand for \"equal divisions of an octave\", is the commonly used equal tempered scale. It divides an octave into 12 proportionally equal and equal sounding semitone intervals. It is notated here using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
         "scale_import": scale_12_edo,
         "scale": parseScale(scale_12_edo).scale,  
         "equivSteps": 12,
@@ -96,7 +96,7 @@ export const presets = [
       },
       {
         "name": "C Pythagorean / Ancient Mesopotamian (Pure Fifths)",
-        "description": "12-tone 3-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the piano keyboard. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A sequence of eleven perfect fifths - from D♭ through F♯ - are pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths – A-D♭, E-A♭, B-E♭, F♯-B♭ – are nearly pure – one schisma (ca. 2 cents) less than 5/4 ratios.",
+        "description": "12-tone 3-Limit Rational Intonation scale. Derived from harmonic series intervals, it is limited to partials having only 2 and 3 as prime factors. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A sequence of eleven perfect fifths - from D♭ through F♯ - are tuned as pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths – A-D♭, E-A♭, B-E♭, F♯-B♭ – are nearly pure – one schisma (ca. 2 cents) less than 5/4 ratios.",
         "scale_import": scale_12_ji_3l,
         "scale": parseScale(scale_12_ji_3l).scale,
         "equivSteps": 12,
@@ -128,7 +128,7 @@ export const presets = [
       },
       {
         "name": "1/4-sc Meantone (Pure Thirds)",
-        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the piano keyboard. Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
+        "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80). Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
         "scale_import": scale_12_mt_1_4_SC,
         "scale": parseScale(scale_12_mt_1_4_SC).scale,
         "equivSteps": 12,
@@ -160,7 +160,7 @@ export const presets = [
       },
       {
         "name": "C 5-Limit JI",
-        "description": "12-tone 5-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the piano keyboard. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
+        "description": "12-tone 5-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 5. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
         "scale_import": scale_12_ji_5l,
         "scale": parseScale(scale_12_ji_5l).scale,
         "equivSteps": 12,
@@ -191,7 +191,7 @@ export const presets = [
       },
       {
         "name": "Combined 12-tone systems (Equal, Pythagorean, MT, JI)",
-        "description": "Four common tunings of the chromatic 12-tone scale combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-Limit JI (with additional arrows indicating the Syntonic Comma alterations).",
+        "description": "Four common tunings of the chromatic 12-tone scale are combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-Limit JI (with additional arrows indicating the Syntonic Comma alterations).",
         "scale_import": scale_12_combined,
         "scale": parseScale(scale_12_combined).scale,
         "equivSteps": 48,
