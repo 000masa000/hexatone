@@ -1,4 +1,4 @@
-! 35-MT-Sabat-Helmholtz.scl
+! 35-MT-Sabat-Helmholtz
 !
 35-tone scale tempering the perfect fifth narrow by 2/17 schisma (the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4), so that 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.
 !
