@@ -207,7 +207,7 @@ const App = () => {
   if (!settings.reference_degree) {
     settings.reference_degree = 0;
   };
-
+  
   if (sessionStorage.getItem("sysex_type")) {
     settings.sysex_type = parseInt(sessionStorage.getItem("sysex_type"));
   } else {

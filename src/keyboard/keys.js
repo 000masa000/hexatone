@@ -58,6 +58,14 @@ class Keys {
     console.log("midi_channel:", this.settings.midi_channel);
     console.log("midi_mapping:", this.settings.midi_mapping); */
 
+    
+    if (sessionStorage.getItem("sysex_auto") == "true") {
+      this.settings.sysex_auto = false;
+      this.settings.sysex_auto = true;
+    } else {
+      this.settings.sysex_auto = false;
+    };
+
     if ((this.settings.sysex_auto) && (this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) {
       this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
       this.mtsSendMap();
