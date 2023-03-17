@@ -33,7 +33,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var split = channel; // output on selected channel
       var mts = [];
       if (note_played != null) {
-        console.log("note_played", note_played);
+        //console.log("note_played", note_played);
         keymap[note_played] = [steps_cycle, 0, 0, 0, channel];
         //console.log("keymap", keymap[note_played]);
         notes_played.push(note_played);
@@ -191,9 +191,9 @@ MidiHex.prototype.noteOn = function () {
 
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
   console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
-  if (notes_played != null) {
-    console.log("notes_played after noteon:", notes_played);
-  };
+  /*if (notes_played != null) {
+    //console.log("notes_played after noteon:", notes_played);
+  };*/
 };
 
 MidiHex.prototype.noteOff = function () {
@@ -211,7 +211,7 @@ MidiHex.prototype.noteOff = function () {
     let newarray = [];
     notes_played = newarray.concat(first_half, second_half);
     if (notes_played != null) {
-      console.log("notes_played after noteoff", notes_played);
+      //console.log("notes_played after noteoff", notes_played);
     };
   };  
 };

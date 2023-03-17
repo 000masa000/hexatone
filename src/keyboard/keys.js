@@ -257,7 +257,7 @@ class Keys {
     if (this.bend) {
       bend = this.bend;
     };
-    console.log("note_on-bend", bend);
+    //console.log("note_on-bend", bend);
     let steps = e.note.number - 60;
     let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
@@ -875,11 +875,16 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     };
     //console.log("mts-tuning_map", sysex);
     return sysex;
+
   } else if (sysex_type == "126") {
     let name_array = Array.from(name);
+    // console.log("name:", name, name_array);
     let ascii_name = [];
     for (let i = 0; i < 16; i++) {
-      let char = name_array[i].charCodeAt();
+      let char = 32;
+      if (i < name_array.length) {
+        char = name_array[i].charCodeAt();
+      };
       if ((char > 31) && (char < 128)) {
         ascii_name.push(char);
       } else {

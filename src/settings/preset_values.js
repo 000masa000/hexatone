@@ -63,8 +63,8 @@ export const presets = [
     "name": "12 Note Scales",
     settings: [
       {
-        "name": "Equal Temperament",
-        "description": "12-edo (\"equal divisions of an octave\"): 12-tone equal tempered scale consisting of 12 sonically equal divisions per octave, mapped on a layout that approximates the Paul Jankó modified piano keyboard. Notated using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
+        "name": "12-edo Tempered Scale",
+        "description": "12-edo, a shorthand for \"equal divisions of an octave\"), is the commonly used tempered scale. It divides an octave into 12 proportionally equal and equal sounding semitone intervals. It is notated here using HEJI (Helmholtz-Ellis JI Pitch Notation) accidentals, devised by Marc Sabat and Wolfgang von Schweinitz, 2000-2005, revised by Marc Sabat and Thomas Nicholson in 2020 with special thanks to M.O. Abbott, Catherine Lamb, and Wolfgang von Schweinitz. Fonts with embedded HEJI accidentals and unicode legends may be obtained by following the links at the bottom of this sidebar.",
         "scale_import": scale_12_edo,
         "scale": parseScale(scale_12_edo).scale,  
         "equivSteps": 12,
@@ -95,7 +95,7 @@ export const presets = [
         "short_description": "12-edo"
       },
       {
-        "name": "Pure Fifths: Pythagorean / Ancient Mesopotamian",
+        "name": "C Pythagorean / Ancient Mesopotamian (Pure Fifths)",
         "description": "12-tone 3-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 3, mapped on a layout that approximates the piano keyboard. Traditionally attributed to Pythagoras and the Pythagoreans, this tuning is also described in Ancient Mesopotamian / Akkadian and Chinese music texts, and remains in use today. A sequence of eleven perfect fifths - from D♭ through F♯ - are pure 3/2 ratios. The missing 13th note C♯ would lie one Pythagorean Comma (ca. 23.5 cents) higher than the D♭. Four diminished fourths – A-D♭, E-A♭, B-E♭, F♯-B♭ – are nearly pure – one schisma (ca. 2 cents) less than 5/4 ratios.",
         "scale_import": scale_12_ji_3l,
         "scale": parseScale(scale_12_ji_3l).scale,
@@ -127,7 +127,7 @@ export const presets = [
         "short_description": "12-RI-3L"
       },
       {
-        "name": "Pure Thirds: Quarter-Comma Meantone",
+        "name": "1/4-sc Meantone (Pure Thirds)",
         "description": "12-tone Quarter Comma Meantone: in the range from E♭ to G♯ each fifth is narrowed by 1/4 of a Syntonic Comma (dividing the ratio 81/80), mapped on a layout that approximates the piano keyboard. Eight major thirds - E♭-G, B♭-D, F-A, C-E, G-B, D-F♯, A-C♯, E-G♯ - are pure 5/4 ratios. Notated using small letter-names to distinguish that the fifths are tempered.",
         "scale_import": scale_12_mt_1_4_SC,
         "scale": parseScale(scale_12_mt_1_4_SC).scale,
@@ -159,7 +159,7 @@ export const presets = [
         "short_description": "12-MT"
       },
       {
-        "name": "5-limit Just Intonation in C",
+        "name": "C 5-Limit JI",
         "description": "12-tone 5-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 5, mapped on a layout that approximates the piano keyboard. The three major and minor triads on F, C, and G are tuned pure, as 4:5:6 or 10:12:15 ratios. The fifth between D (from the triad G major) and A (from the triad F major) is one Syntonic Comma (81/80) smaller than a pure 3/2 ratio.",
         "scale_import": scale_12_ji_5l,
         "scale": parseScale(scale_12_ji_5l).scale,
@@ -190,8 +190,8 @@ export const presets = [
         "short_description": "12-RI-5L"
       },
       {
-        "name": "Equal, Pythagorean, Meantone, and 5-limit JI combined",
-        "description": "Four common tunings of the chromatic 12-tone scale combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-limit JI (with additional arrows indicating the Syntonic Comma alterations).",
+        "name": "Combined 12-tone systems (Equal, Pythagorean, MT, JI)",
+        "description": "Four common tunings of the chromatic 12-tone scale combined in one 48-tone layout (pitches which are the same in different tunings are repeated): 12-edo (tempered HEJI accidentals), Pythagorean (uninflected accidentals), 1/4-Syntonic Comma Meantone (notated with small letters), and 5-Limit JI (with additional arrows indicating the Syntonic Comma alterations).",
         "scale_import": scale_12_combined,
         "scale": parseScale(scale_12_combined).scale,
         "equivSteps": 48,
@@ -247,8 +247,8 @@ export const presets = [
         "short_description": "12-tone-combined"
       },
       {
-        "name": "7-limit Just Intonation in C",
-        "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32. Also, in this scale the 3/4-tone melodic step 25:27, found in the 5-limit JI scale between 5/3 (A) and 9/5 (B), is replaced with the familiar small semitone 20:21.",
+        "name": "C 7-Limit JI",
+        "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32. Also, in this scale the 3/4-tone melodic step 25:27, found in the 5-Limit JI scale between 5/3 (A) and 9/5 (B), is replaced with the familiar small semitone 20:21.",
         "scale_import": scale_12_ji_7l,
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
@@ -278,8 +278,8 @@ export const presets = [
         "short_description": "12-RI-7L",
       },
       {
-        "name": "Septimal Blues in C",
-        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, combined with 5-limit triads on F, C and G, mapped on a layout that approximates the piano keyboard.",
+        "name": "C Septimal Blues",
+        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, combined with 5-Limit triads on F, C and G, mapped on a layout that approximates the piano keyboard.",
         "scale_import": scale_12_ji_blues_7l,
         "scale": parseScale(scale_12_ji_blues_7l).scale,
         "equivSteps": 12,
@@ -309,7 +309,7 @@ export const presets = [
         "short_description": "12-RI-7L-blues",
       },
       {
-        "name": "12-tone scale in C combining 3,7, and 11",
+        "name": "C JI 3+7+11",
         "description": "12-tone Undecimal-Septimal-Pythagorean Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 7, and 11, mapped on a layout that approximates the piano keyboard. The usual JI intervals based on 5 are not included, and the typical consonant chord is 6:7:8:9:11:12.",
         "scale_import": scale_12_ji_7_11,
         "scale": parseScale(scale_12_ji_7_11).scale,
@@ -341,7 +341,7 @@ export const presets = [
         "short_description": "12-RI-3.7.11",
       },
       {
-        "name": "12-tone scale in C combining 3,5, and 13",
+        "name": "C JI 3+5+13",
         "description": "12-tone Tridecimal-Ptolemaic Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 5, and 13, mapped on a layout that approximates the piano keyboard. The typical consonant chord is 10:12:13:15(:16).",
         "scale_import": scale_12_ji_5_13,
         "scale": parseScale(scale_12_ji_5_13).scale,
@@ -372,7 +372,7 @@ export const presets = [
         "short_description": "12-RI-3.5.13",
       },
       {
-        "name": "Sabat I Rational Well Temperament",
+        "name": "Sabat I",
         "description": "12-tone Rational Intonation Well Temperament, derived from harmonic series intervals limited to the prime subgroup of 2, 3, 17, 19 and 577. The seven diatonic notes are tuned Pythagorean, and the five whole tones are divided evenly using the higher primes. Conceived as an inversion of Vallotti's temperament with six pure fifths and six fifths narrowed by 1/6 comma. Allows instruments at 415 Hz to play in 1/6 comma meantone together with 440 Hz instruments tuned in JI.",
         "scale_import": scale_12_ji_sabat_I,
         "scale": parseScale(scale_12_ji_sabat_I).scale,
@@ -404,7 +404,7 @@ export const presets = [
         "short_description": "12-SabatI",
       },
       {
-        "name": "Sabat II Rational Well Temperament",
+        "name": "Sabat II",
         "description": "12-tone Rational Intonation Well Temperament, derived from harmonic series intervals limited to the prime subgroup of 2, 3, 5, and 17, 19. Seven diatonic notes and F are tuned Pythagorean, allowing the historical Persian Arabic schisma tunings to be applied. A and D are added as major thirds, and the two remaining tones are divided evenly using 16:17.",
         "scale_import": scale_12_ji_sabat_II,
         "scale": parseScale(scale_12_ji_sabat_II).scale,
@@ -441,8 +441,8 @@ export const presets = [
     "name": "Arabic and Persian Theoretical Systems",
     settings: [
       {
-        "name": "al-Farabi",
-        "description": "22-tone 17-Limit Rational Intonation gamut, proposed by Abu Nasr Farabi (872-950), also known as al-Farabi, in his book Kitab al-Musiqa al-Kabir (\"The Great Book of Music\"). This maps a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, 11, and 17. The chain of 9 subharmonic perfect fifths tuned below the fundamental also ends in four pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3). Thanks to Idin Samimi Mofakham for translation, analysis, and documentation.", 
+        "name": "22-Farabi",
+        "description": "22-tone 17-Limit Rational Intonation gamut, proposed by Abu Nasr Farabi (872-950), also known as al-Farabi, in his book Kitab al-Musiqa al-Kabir (\"The Great Book of Music\"). This maps a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, 11, and 17. The chain of 9 subharmonic perfect fifths tuned below the fundamental also ends in four pitches one schisma lower than common 5-Limit ratios (45/32, 15/8, 5/4, 5/3). Thanks to Idin Samimi Mofakham for translation, analysis, and documentation.", 
         "scale_import": scale_22_ji_17l,
         "scale": parseScale(scale_22_ji_17l).scale,
         "equivSteps": 22,
@@ -469,11 +469,10 @@ export const presets = [
         "hexSize": 42,
         "rotation": -16.102113751,       
         "fundamental": 440,
-        "reference_degree": 17,
-        "short_description": "22-JI-17L Farabi"
+        "reference_degree": 17
       },
       {
-        "name": "Ibn Sina",
+        "name": "17-Ibn Sina",
         "description": "17-tone 13-Limit Rational Intonation gamut, proposed by Ibn Sina (980-1037), also known as Avicenna, in the encyclopaedia Kitab al-Shifa, as a fretting of the oud as used in his time. The gamut combines divisions (intervals) derived by combining primes 2, 3, 7, and 13. Thanks to Idin Samimi Mofakham for translation, analysis, and documentation.",
         "scale_import": scale_17_ji_13l,
         "scale": parseScale(scale_17_ji_13l).scale,
@@ -505,7 +504,7 @@ export const presets = [
         "short_description": "17-JI-13L Ibn Sina"
       },
       {
-        "name": "Safiaddin Ormavi",
+        "name": "17-Ormavi",
         "description": "17-tone 3-Limit Rational Intonation gamut, proposed by Safiaddin Ormavi (1216-1294), generated from 12 perfect fifths descending and 4 ascending plus the fundamental, producing 17 notes per octave derived from harmonic series intervals up to a prime limit of 3 (Pythagorean tuning). Thanks to Idin Samimi Mofakham for translation, analysis, and documentation.",
         "scale_import": scale_17_ji_3l,
         "scale": parseScale(scale_17_ji_3l).scale,
@@ -542,7 +541,7 @@ export const presets = [
     "name": "Indian Theoretical Systems",
     settings: [
       {
-        "name": "Śruti (Sambamurthy/Daniélou)",
+        "name": "22-Sruti (Sambamurthy/Daniélou)",
         "description": "22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental. Notated with Indian syllable names.", 
         "scale_import": scale_22_ji_5l,
         "scale": parseScale(scale_22_ji_5l).scale,
@@ -574,7 +573,7 @@ export const presets = [
         "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
       },
       {
-        "name": "Śruti (HEJI Notation)",
+        "name": "22-Sruti (HEJI Notation)",
         "description": "22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",
         "scale_import": scale_22_ji_5l,
         "scale": parseScale(scale_22_ji_5l).scale,
@@ -611,7 +610,7 @@ export const presets = [
     "name": "Harmonics and Subharmonics",
     settings: [
       {
-        "name": "Harmonic Series partials from 12° to 48°",
+        "name": "HS 12 to 48: Harmonic Series partials 12° to 48°",
         "description": "A two octave cycle comprising Harmonic Series partials 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees. In this example, the 12° is tuned to 240 Hz, giving 1° = 20 Hz",
         "scale_import": scale_36_hs_12to48,
         "scale": parseScale(scale_36_hs_12to48).scale,
@@ -633,7 +632,7 @@ export const presets = [
         "short_description": "36-HS 12° to 24°"
       },
       {
-        "name": "Harmonic and Subharmonic Series 12 to 48 combined",
+        "name": "HS_SH 12 to 48: Harmonics/Subharmonics combined",
         "description": "Harmonic and Subharmonic Series partials from 12 to 48 mapped onto a four octave cycle. The \"subharmonic\" series is a mirroring of the harmonic series, with  intervals taken downward from a common pitch, rather than upward. Although subharmonic chords do not exhibit the same psychoacoustic fusion and combination tone reinforcement as harmonic chords, they produce melodically related sets that harmonise well with a sustained higher pitch, and are useful in scale-formation and counterpoint. Some JI composers (i.e. Elsie Hamilton, Harry Partch and Ben Johnston) have worked extensively with the concept of symmetrically structured otonal / utonal harmonies.",
         "scale_import": scale_72_hss_12to48,
         "scale": parseScale(scale_72_hss_12to48).scale,
@@ -656,7 +655,7 @@ export const presets = [
         "short_description": "72-HSS 12 to 48"
       },
       {
-        "name": "Subharmonic and Harmonic Series 12 to 48 combined",
+        "name": "SH_HS 12 to 48: Subharmonics/Harmonics combined",
         "description": "Subharmonic and Harmonic Series partials from 12 to 48 mapped onto a four octave cycle. In this scale, the subharmonic sequence is placed below the harmonic one, so the small microtonal intervals lie in the centre of the keyboard range.",
         "scale_import": scale_72_shs_12to48,
         "scale": parseScale(scale_72_shs_12to48).scale,
@@ -700,7 +699,7 @@ export const presets = [
         "short_description": "19-HS 34 to 51"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,5 < 256",
+        "name": "3,5 < 256: Odd Partial Pitch Class Subgroup",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5. Note that odd numbered harmonics produce distinct pitch classes, and mark the lowest position of any pitch class to its generating fundamental. Therefore, intervals, chords, gamuts, melodies may all be thought of as sets of odd partials. When voiced in their original octaves, such structures are in their \"most consonant\" voicing, i.e. closest to thir common fundamental. By limiting the component primes and the maximum partial, compactness of the resulting harmonic space subset is maintained, providing more harmonicity in combinations of the pitch set.",
         "scale_import": scale_14_hs_odd_3_5,
         "scale": parseScale(scale_14_hs_odd_3_5).scale,
@@ -732,7 +731,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,5 < 256 (HEJI)",
+        "name": "3,5 < 256 (HEJI): Odd Partial Pitch Class Subgroup",
         "description": "14-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 5, notated with HEJI accidentals.",
         "scale_import": scale_14_hs_odd_3_5,
         "scale": parseScale(scale_14_hs_odd_3_5).scale,
@@ -764,7 +763,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,7 < 256",
+        "name": "3,7 < 256: Odd Partial Pitch Class Subgroup",
         "description": "12-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 7.",
         "scale_import": scale_12_hs_odd_3_7,
         "scale": parseScale(scale_12_hs_odd_3_7).scale,
@@ -798,7 +797,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,7 < 256 (HEJI)",
+        "name": "3,7 < 256 (HEJI): Odd Partial Pitch Class Subgroup",
         "description": "12-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3 and 7, notated with HEJI accidentals.",
         "scale_import": scale_12_hs_odd_3_7,
         "scale": parseScale(scale_12_hs_odd_3_7).scale,
@@ -832,7 +831,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,7)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,7,11 < 256",
+        "name": "3,7,11 < 256: Odd Partial Pitch Class Subgroup",
         "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11. By including 3 primes in addition to 2 (which is treated as an equivalence relation in all of these sets), the harmonic dimensionality is increased. It is possible, for example, to move between consonant four-note chords featuring different primes, connected by common tones. These relationships may be more easily imagined with the help of the HEJI notation (see the next scale).",
         "scale_import": scale_18_hs_odd_3_7_11,
         "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
@@ -866,7 +865,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,7,11 < 256 (HEJI)",
+        "name": "3,7,11 < 256 (HEJI): Odd Partial Pitch Class Subgroup",
         "description": "18-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 7, and 11, notated with HEJI accidentals. Here, the same pitches are written with note names and accidentals. Since there is no longer a visible one-dimensional hierarchy of numbers, it is easier to imagine modulating to interconnected tonal centres.",
         "scale_import": scale_18_hs_odd_3_7_11,
         "scale": parseScale(scale_18_hs_odd_3_7_11).scale,
@@ -900,7 +899,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,7,11)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,5,13 < 256",
+        "name": "3,5,13 < 256: Odd Partial Pitch Class Subgroup",
         "description": "20-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 5, and 13.",
         "scale_import": scale_20_hs_odd_3_5_13,
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
@@ -932,7 +931,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "Odd Partial Pitch Class Subgroup 3,5,13 < 256 (HEJI)",
+        "name": "3,5,13 < 256 (HEJI): Odd Partial Pitch Class Subgroup",
         "description": "20-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes 3, 5, and 13, notated with HEJI accidentals.",
         "scale_import": scale_20_hs_odd_3_5_13,
         "scale": parseScale(scale_20_hs_odd_3_5_13).scale,
@@ -964,7 +963,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "13-limit Odd Partial Pitch Class Set < 256",
+        "name": "13-Limit Odd Partial Pitch Class Set < 256",
         "description": "40-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 13. This set combines all of the preceding pitches, and also contains new pitch classes produced by primes interacting with each other (i.e. 5° and 7° combine to produce 35°). This allows chords in which higher primes meet to coexist with the simpler chords featuring only one higher prime.",
         "scale_import": scale_40_hs_odd_13l,
         "scale": parseScale(scale_40_hs_odd_13l).scale,
@@ -996,7 +995,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "13-limit Odd Partial Pitch Class Set < 256 (HEJI)",
+        "name": "13-Limit Odd Partial Pitch Class Set < 256 (HEJI)",
         "description": "40-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 13, notated with HEJI accidentals.",
         "scale_import": scale_40_hs_odd_13l,
         "scale": parseScale(scale_40_hs_odd_13l).scale,
@@ -1028,8 +1027,8 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "19-limit Odd Partial Pitch Class Set < 256",
-        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
+        "name": "19-Limit Odd Partial Pitch Class Set < 256",
+        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
         "scale_import": scale_55_hs_odd_19l,
         "scale": parseScale(scale_55_hs_odd_19l).scale,
         "equivSteps": 55,
@@ -1062,8 +1061,8 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "19-limit Odd Partial Pitch Class Set < 256 (HEJI)",
-        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°), in this layout notated with HEJI accidentals.",
+        "name": "19-Limit Odd Partial Pitch Class Set < 256 (HEJI)",
+        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from harmonic series odd partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°), in this layout notated with HEJI accidentals.",
         "scale_import": scale_55_hs_odd_19l,
         "scale": parseScale(scale_55_hs_odd_19l).scale,
         "equivSteps": 55,
@@ -1101,8 +1100,8 @@ export const presets = [
     "name": "Rational Intonation",
     settings: [
       {
-        "name": "53-tone Extended Pythagorean",
-        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a sequence of 53 just fifths is very nearly equal to 31 octaves. Compare this tuning to the following tuning based on 5-limit (with 2 enharmonic proximities added) and to the 53edo temperament.",
+        "name": "Pythagorean 53-tone",
+        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics (above C) and 26 are subharmonics (below C). Notes are enharmonically respelled to produce a rising scale by combining two HEJI symbols: tilde and arrow indicate a combined alteration by a Schisma and a Syntonic Comma, which is equal to a Pythagorean Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a sequence of 53 just fifths is very nearly equal to 31 octaves. Compare this tuning to the following tuning based on 5-Limit (with 2 enharmonic proximities added) and to the 53edo temperament.",
         "scale_import": scale_53_ri_3l,
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
@@ -1133,7 +1132,7 @@ export const presets = [
         "short_description": "53-JI-3L Extended Pythagorean"
       },
       {
-        "name": "55-tone Ptolemaic Euler Lattice (Marc Sabat)", 
+        "name": "Ptolemaic Euler Lattice 55-tone", 
         "description": "55-tone 5-Limit Rational Intonation scale, based on Marc Sabat’s \"Euler Lattice Spirals Scenery\". The Pythagorean diatonic tones are each divided in the same symmetric pattern of 9 \"commas\". To divide the interval C 1/1 - D 9/8 add two notes above C: 81/80 and 25/24, then add two more notes one Syntonic Comma above each of these. Similarly, add two notes below D: 10/9 and 27/25; then, add two more notes a Syntonic Comma below each of these. To divide the diatonic limmas E-F and B-C, add two successive Syntonic Commas upward from the lower note and two commas downward from the higher note, reaching a point of enharmonic near-equivalence between E and F.",
         "scale_import": scale_55_ji_5l,
         "scale": parseScale(scale_55_ji_5l).scale,
@@ -1165,7 +1164,7 @@ export const presets = [
         "short_description": "55-JI-5L Ptolemaic Euler Lattice"
       },
       {
-        "name": "41-tone Septimal-Pythagorean",
+        "name": "Septimal-Pythagorean 41-tone",
         "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided Limma-Comma-Limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each Limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c). Compare this tuning to 41edo temperament.",
         "scale_import": scale_41_ji_7l,
         "scale": parseScale(scale_41_ji_7l).scale,
@@ -1197,7 +1196,7 @@ export const presets = [
         "short_description": "41-JI-7L Sabat-Young"
       },
       {
-        "name": "41-tone Septimal-Pythagorean (Tonnetz Layout)",
+        "name": "Septimal-Pythagorean 41-tone (Tonnetz Layout)",
         "description": "41-tone 7-Limit Rational Intonation scale, based on La Monte Young’s Well-Tuned-Piano 12-note tuning. The Pythagorean diatonic tones (C-D, D-E, F-G, G-A, A-B) are each divided Limma-Comma-Limma (i.e., C, D♭, C♯, D), producing a division of the octave into 5 Pythagorean Commas and 12 limmas (including E-F and B-C). Each Limma is divided further into three septimal intervals with sizes 64/63, 49/48, 64/63. The resulting 41 note scale consists of 5 Pythagorean Commas (24c), 12 49/48’s (35c), and 24 Septimal Commas (27c).",
         "scale_import": scale_41_ji_7l,
         "scale": parseScale(scale_41_ji_7l).scale,
@@ -1229,7 +1228,7 @@ export const presets = [
         "short_description": "41-JI-7L Sabat-Young Lattice"
       },
       {
-        "name": "31-tone 7-limit (Adriaan Fokker)",
+        "name": "Fokker 31-tone 7-Limit",
         "description": "31-tone 7-Limit Rational Intonation scale by Adriaan Fokker, consisting of 31 notes per octave derived from harmonic series intervals up to a prime limit of 7. Fokker was an early advocate of extending the conventional tone system beyond 12 notes, and advocated adoption of a 31-tone system. He is also a key figure in Rational Intonation and temperament research, inventing the concept of periodicity blocks. Compare this rational tuning to extended Quarter Comma Meantone and the 31edo temperament.",
         "scale_import": scale_31_ji_7l_fokker,
         "scale": parseScale(scale_31_ji_7l_fokker).scale,
@@ -1260,7 +1259,7 @@ export const presets = [
         "short_description": "31-JI-7L Fokker"
       },
       {
-        "name": "13-tone 7-limit ratios repeating at the 3/2 perfect fifth",
+        "name": "Divided Fifth: 13-tone 7-Limit ratios repeating at the 3/2",
         "description": "13-tone 7-Limit Rational Intonation scale, consisting of 13 notes per 3/2 derived from harmonic series intervals up to a prime limit of 7. The pattern chosen takes all complete and gapless harmonic and subharmonic divisions of the perfect fifth and perfect fourth within the 23 limit and compiles notes which occur in at least two such divisions. The division of the fifth and two symmetrically placed divisions of the fourth are superposed. The central 1/1 ratio is tuned to Pythagorean D (293.333333 Hz), so that the next cycle begins at A 440 Hz.",
         "scale_import": scale_13_ji_7l_P5,
         "scale": parseScale(scale_13_ji_7l_P5).scale,
@@ -1294,7 +1293,7 @@ export const presets = [
         "short_description": "13-RI-7L-P5",
       },
       {
-        "name": "43-tone 11-limit (Harry Partch, original ratios)",
+        "name": "Partch 43-tone 11-Limit (original ratios)",
         "description": "The classic 43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. The ratio notation follows Partch's original tuning, based on 1/1 = G (392 Hz). Note that the scala file uses the standard reference tone C, so each of Partch’s ratios must be multiplied by 3/2 and normalised to produce his original pitch-heights.",
         "scale_import": scale_43_ji_11l_partchG,
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
@@ -1325,7 +1324,7 @@ export const presets = [
         "reference_degree": 25,
         "short_description": "43-JI-11L Partch (G)"
       },{
-        "name": "43-tone 11-limit (Harry Partch, HEJI)",
+        "name": "Partch 43-tone 11-Limit (HEJI)",
         "description": "43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. The HEJI notation follows Partch's original tuning, based on 1/1 = G (392 Hz), so Pythagorean A4 is 441 Hz. Note that the scala file uses the standard reference tone C, so each of Partch’s ratios must be multiplied by 3/2 and normalised to produce his original pitch-heights.",
         "scale_import": scale_43_ji_11l_partchG,
         "scale": parseScale(scale_43_ji_11l_partchG).scale,
@@ -1357,7 +1356,7 @@ export const presets = [
         "short_description": "43-JI-11L Partch (G)"
       },
       {
-        "name": "43-tone 11-limit (Partch ratios, C = 1/1, A 440 Hz, HEJI)",
+        "name": "Partch 43-tone 11-Limit (C = 1/1, A 440 Hz, HEJI)",
         "description": "Transposition of the 43-tone 11-Limit Rational Intonation scale by Harry Partch, consisting of 43 divisions per octave derived symmetrically from both harmonic and subharmonic series (otonalities and utonalities) up to a prime limit of 11. Partch’s original tuning was based in 1/1 = G, while this version sets 1/1 = C, using the same frequency ratios.",
         "scale_import": scale_43_ji_11l_partch,
         "scale": parseScale(scale_43_ji_11l_partch).scale,
@@ -1390,7 +1389,7 @@ export const presets = [
         "short_description": "43-JI-11L Partch (C)"
       },
       {
-        "name": "17-tone 11-limit (Erv Wilson)",
+        "name": "Wilson 17-tone 11-Limit",
         "description": "17-tone 11-Limit Rational Intonation scale by Erv Wilson, consisting of 17 notes per octave derived from harmonic series intervals up to a prime limit of 11. Wilson is one of the most important theorists of microtonal music research, inventing not only the hexagonal isomorphic keyboard layout featured in this web app, but also numerous key theoretical concepts relating to scale formation (moment of symmetry, combination product sets, etc.)",
         "scale_import": scale_17_ji_11l_wilson,
         "scale": parseScale(scale_17_ji_11l_wilson).scale,
@@ -1421,8 +1420,8 @@ export const presets = [
         "short_description": "17-JI-11L Wilson"
       },
       {
-        "name": "53-tone 13-limit (Cam Taylor)",
-        "description": "Cam Taylor’s 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived notes per octave derived from harmonic series intervals up to a prime limit of 13. This 13-limit scale demonstrates a symmetric harmonic-subharmonic construction producing a continuous chain of perfect fifths and \"quasi-fifths\". By its similarity to the other 53-tone scales found here, this version demonstrates the concept of \"rational temperament\", where enharmonically proximal ratios may substitute for missing notes as slightly mistuned alternates.",
+        "name": "Taylor 53-tone 13-Limit",
+        "description": "Cam Taylor’s 53-tone 13-Limit Rational Intonation scale, consisting of 53 symmetrically derived notes per octave derived from harmonic series intervals up to a prime limit of 13. This 13-Limit scale demonstrates a symmetric harmonic-subharmonic construction producing a continuous chain of perfect fifths and \"quasi-fifths\". By its similarity to the other 53-tone scales found here, this version demonstrates the concept of \"rational temperament\", where enharmonically proximal ratios may substitute for missing notes as slightly mistuned alternates.",
         "scale_import": scale_53_ji_13l_ct,
         "scale": parseScale(scale_53_ji_13l_ct).scale,
         "equivSteps": 53,
@@ -1522,7 +1521,7 @@ export const presets = [
         "short_description": "19 from Extended Meantone with P5s - Vicentino II"
       },
       {
-        "name": "2/17-Schisma Meantone (based on Helmholtz)",
+        "name": "2/17-Schisma MT (based on Helmholtz)",
         "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
         "scale_import": scale_35_mt_sabat_helmholtz,
         "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
@@ -1554,7 +1553,7 @@ export const presets = [
         "short_description": "35-MT Helmholtz"
       },
       {
-        "name": "43-tone 1/5-Syntonic Comma Meantone (d♭♭♭-d♯♯♯)",
+        "name": "1/5-sc MT (dbbb-d###)",
         "description": "43-tone scale in extended 1/5 Syntonic Comma meantone. Each fifth in the range d♭♭♭-d♯♯♯ is narrowed from its JI ratio (3/2) by 1/5 of a Syntonic Comma (81/80 = ca. 21.5c), so that five successive fifths produce a major seventh (15/8). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 43 notes, a circulating well-temperament is produced.",
         "scale_import": scale_43_mt,
         "scale": parseScale(scale_43_mt).scale,
@@ -1586,7 +1585,7 @@ export const presets = [
         "short_description": "43-mt, D♭♭♭-D♯♯♯"
       },
       {
-        "name": "55-tone 1/6-Pythagorean Comma Meantone (a♭♭♭♭-g♯♯♯♯)", 
+        "name": "1/6-pc MT (abbbb-g####)", 
         "description": "55-tone scale in extended 1/6 Pythagorean Comma meantone. Each fifth in the range A♭♭♭♭-G♯♯♯♯ is narrowed from its JI ratio (3/2) by 1/6 of a Pythagorean Comma (531441/524288 = ca. 23.5c), so that six successive fifths produce a Pythagorean tritone (729/512). Standard 12-tone meantone usually ranges from E♭ to G♯, leaving a so-called \"wolf\" fifth. By extending the tuning to 55 notes, a circulating well-temperament is produced.",
         "scale_import": scale_55_mt,
         "scale": parseScale(scale_55_mt).scale,
@@ -1655,7 +1654,7 @@ export const presets = [
         "short_description": "19-edo (Salinas)"
       },
       {
-        "name": "19-edo (in enharmonic Septimal notation)",
+        "name": "19-edo (enharmonic Septimal notation)",
         "description": "19-tone equal tempered scale consisting of 19 sonically equal divisions per octave, similar to 1/3-Syntonic Comma meantone. System was first described by Francisco de Salinas in 1577. Step-size is 63.2 cents.",
         "scale_import": scale_19_edo,
         "scale": parseScale(scale_19_edo).scale,
@@ -1687,7 +1686,7 @@ export const presets = [
         "short_description": "19-edo (Salinas, Septimal Notation)"
       },
       {
-        "name": "31-edo (g♭♭-a♯♯)",
+        "name": "31-edo (gbb-a##)",
         "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Syntonic Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Step-size is 38.7 cents.",
         "scale_import": scale_31_edo,
         "scale": parseScale(scale_31_edo).scale,
@@ -1719,7 +1718,7 @@ export const presets = [
         "short_description": "31-edo (g♭♭-a♯♯)"
       },
       {
-        "name": "31-edo (in Vicentino’s Notation, 1555)",
+        "name": "31-edo (in Vicentino Notation, 1555)",
         "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Syntonic Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Using a notation invented by Nicola Vicentino.",
         "scale_import": scale_31_edo,
         "scale": parseScale(scale_31_edo).scale,
@@ -1783,7 +1782,7 @@ export const presets = [
         "short_description": "41-edo (Septimal-Pythagorean Notation)"
       },
       {
-        "name": "43-edo (Sauveur 1696, d♭♭♭-d♯♯♯)",
+        "name": "43-edo (Sauveur 1696, dbbb-d###)",
         "description": "43-tone equal tempered scale consisting of 43 sonically equal divisions per octave. Similar to 1/5-Syntonic Comma Meantone, the system was described by Joseph Sauveur in 1696. Step-size (named méride by Sauveur) is 27.9 cents.",
         "scale_import": scale_43_edo,
         "scale": parseScale(scale_43_edo).scale,
@@ -1880,7 +1879,7 @@ export const presets = [
         "short_description": "53-edo (Euler Lattice Layout)"
       },
       {
-        "name": "55-edo (Telemann 1767, a♭♭♭♭-g♯♯♯♯)", 
+        "name": "55-edo (Telemann 1767, abbbb-g####)", 
         "description": "55-tone equal tempered scale consisting of 55 sonically equal divisions per octave. Similar to 1/6-Pythagorean Comma meantone. Step-size is 21.8 cents.",
         "scale_import": scale_55_edo,
         "scale": parseScale(scale_55_edo).scale,
@@ -1913,7 +1912,7 @@ export const presets = [
       },
       {
         "name": "72-edo (Sims/Tenney)", 
-        "description": "72-tone equal tempered scale consisting of 72 sonically equal divisions per octave, multiple of 12-edo closely approximating 11-limit JI. Step-size is 16 2/3 cents.",
+        "description": "72-tone equal tempered scale consisting of 72 sonically equal divisions per octave, multiple of 12-edo closely approximating 11-Limit JI. Step-size is 16 2/3 cents.",
         "scale_import": scale_72_edo,
         "scale": parseScale(scale_72_edo).scale,
         "equivSteps": 72,
