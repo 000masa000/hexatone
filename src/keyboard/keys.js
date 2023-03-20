@@ -302,7 +302,7 @@ class Keys {
         return coords.equals(hex.coords);
       });
       if (hexIndex != -1) {
-        this.noteOff(this.state.activeHexObjects[hexIndex]);
+        this.noteOff(this.state.activeHexObjects[hexIndex], e.note.rawAttack);
         this.state.activeHexObjects.splice(hexIndex, 1);
       };
     };
@@ -327,18 +327,18 @@ class Keys {
     this.drawHex(coords, color, text_color);
   };
 
-  noteOff(hex) {
+  noteOff(hex, release_velocity) {
     if (this.state.sustain) {
-      this.state.sustainedNotes.push(hex);
+      this.state.sustainedNotes.push([hex, release_velocity]);
     } else {
-      hex.noteOff();
+      hex.noteOff(release_velocity);
     }
   };
 
   sustainOff() {
     this.state.sustain = false;
     for (let note = 0; note < this.state.sustainedNotes.length; note++) {
-      this.noteOff(this.state.sustainedNotes[note]);
+      this.noteOff(this.state.sustainedNotes[note][0], this.state.sustainedNotes[note][1]);
     }
     this.state.sustainedNotes = [];
     // tempAlert('Sustain Off', 900);

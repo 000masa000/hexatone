@@ -248,7 +248,7 @@ export const presets = [
       },
       {
         "name": "C 7-Limit JI",
-        "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7, mapped on a layout that approximates the piano keyboard. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32. Also, in this scale the 3/4-tone melodic step 25:27, found in the 5-Limit JI scale between 5/3 (A) and 9/5 (B), is replaced with the familiar small semitone 20:21.",
+        "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32. Also, in this scale the 3/4-tone melodic step 25:27, found in the 5-Limit JI scale between 5/3 (A) and 9/5 (B), is replaced with the familiar small semitone 20:21.",
         "scale_import": scale_12_ji_7l,
         "scale": parseScale(scale_12_ji_7l).scale,
         "equivSteps": 12,
@@ -279,7 +279,7 @@ export const presets = [
       },
       {
         "name": "C Septimal Blues",
-        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, combined with 5-Limit triads on F, C and G, mapped on a layout that approximates the piano keyboard.",
+        "description": "12-tone Septimal-Pythagorean Rational Intonation Blues scale, derived from harmonic series intervals limited to the prime subgroup of 2, 3, and 7, combined with 5-Limit triads on F, C and G.",
         "scale_import": scale_12_ji_blues_7l,
         "scale": parseScale(scale_12_ji_blues_7l).scale,
         "equivSteps": 12,
@@ -310,7 +310,7 @@ export const presets = [
       },
       {
         "name": "C JI 3+7+11",
-        "description": "12-tone Undecimal-Septimal-Pythagorean Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 7, and 11, mapped on a layout that approximates the piano keyboard. The usual JI intervals based on 5 are not included, and the typical consonant chord is 6:7:8:9:11:12.",
+        "description": "12-tone Undecimal-Septimal-Pythagorean Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 7, and 11. The usual JI intervals based on 5 are not included, and the typical consonant chord is 6:7:8:9:11:12.",
         "scale_import": scale_12_ji_7_11,
         "scale": parseScale(scale_12_ji_7_11).scale,
         "equivSteps": 12,
@@ -342,7 +342,7 @@ export const presets = [
       },
       {
         "name": "C JI 3+5+13",
-        "description": "12-tone Tridecimal-Ptolemaic Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 5, and 13, mapped on a layout that approximates the piano keyboard. The typical consonant chord is 10:12:13:15(:16).",
+        "description": "12-tone Tridecimal-Ptolemaic Rational Intonation scale, derived from harmonic series intervals limited to the prime subgroup combining 2, 3, 5, and 13. The typical consonant chord is 10:12:13:15(:16).",
         "scale_import": scale_12_ji_5_13,
         "scale": parseScale(scale_12_ji_5_13).scale,
         "equivSteps": 12,

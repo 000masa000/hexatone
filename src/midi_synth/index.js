@@ -196,10 +196,18 @@ MidiHex.prototype.noteOn = function () {
   };*/
 };
 
-MidiHex.prototype.noteOff = function () {
+MidiHex.prototype.noteOff = function (release_velocity) {
+
+  let velocity = this.velocity;
+
+  if (release_velocity) {
+    velocity = release_velocity
+  };
+
+  console.log("release_velocity", velocity);
   
-  this.midi_output.send([128 + this.channel, this.steps, this.velocity]);
-  console.log("(output) note_off:", this.channel + 1, this.steps, this.velocity);
+  this.midi_output.send([128 + this.channel, this.steps, velocity]);
+  console.log("(output) note_off:", this.channel + 1, this.steps, velocity);
   
   let index = notes_played.lastIndexOf(this.note_played); // eliminate note_played from array of played notes
   if (index >= 0) {
