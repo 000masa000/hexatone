@@ -843,23 +843,33 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     };
 
     let low = 0;
-    while (mts_data[low][0] < 0) {
+    //console.log("low", low, mts_data[low]);
+    while ( (mts_data[low][0] < 0) && (low < 127) ) {
       low++;
     };
+
     for (let i = 0; i < low; i++) {
-      mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
+      if ((low < 128) && (mts_data[low][0] >= 0)) {
+        mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
+      } else {
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+      };        
     };
 
     let high = 127;
-    while (mts_data[high][0] > 127) {
+    while ( (mts_data[high][0] > 127) && (high > 0) ) {
       high--;
     };
-    while ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) { // no F7 F7 F7 messages !
+    while ( ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) && (high >= 0) ) { // no F7 F7 F7 messages !
       high--;
     };
 
-    for (let i = 127; i > high; i--) {
-      mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
+    for (let i = 127; i >= high; i--) {
+      if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
+        mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
+      } else {
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+      };
     };
 
     let sysex = [];
@@ -904,25 +914,35 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     for (let i = 0; i < 128; i++) {
       mts_data[i] = centsToMTS(tuning_map_degree0, scale[((i - tuning_map_degree0) + (128 * scale.length)) % scale.length] + map_offset + (equave * (Math.floor(((i - tuning_map_degree0) + (128 * scale.length)) / scale.length) - 128)));
     };
-
+    
     let low = 0;
-    while (mts_data[low][0] < 0) {
+    //console.log("low", low, mts_data[low]);
+    while ( (mts_data[low][0] < 0) && (low < 127) ) {
       low++;
     };
+
     for (let i = 0; i < low; i++) {
-      mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
+      if ((low < 128) && (mts_data[low][0] >= 0)) {
+        mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
+      } else {
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+      };        
     };
 
     let high = 127;
-    while (mts_data[high][0] > 127) {
+    while ( (mts_data[high][0] > 127) && (high > 0) ) {
       high--;
     };
-    while ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) { // no F7 F7 F7 messages !
+    while ( ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) && (high >= 0) ) { // no F7 F7 F7 messages !
       high--;
     };
-    
-    for (let i = 127; i > high; i--) {
-      mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
+
+    for (let i = 127; i >= high; i--) {
+      if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
+        mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
+      } else {
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+      };
     };
 
     let sysex = [];
