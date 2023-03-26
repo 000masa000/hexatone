@@ -1547,7 +1547,7 @@ export const presets = [
         "rSteps": 6,
         "urSteps": 5,
         "hexSize": 42,
-        "rotation": -16.102113751,
+        "rotation": -21.2,
         "fundamental": 440,
         "reference_degree": 27,
         "short_description": "35-MT Helmholtz"
