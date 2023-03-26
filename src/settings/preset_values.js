@@ -988,8 +988,8 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 6,
         "urSteps": 5,
-        "hexSize": 42,
-        "rotation": -16.102113751,       
+        "hexSize": 41,
+        "rotation": -21.05,       
         "fundamental": 440,
         "reference_degree": 28,
         "short_description": "Odd Partial PC SG 3,5,13)"
@@ -1020,8 +1020,8 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 6,
         "urSteps": 5,
-        "hexSize": 42,
-        "rotation": -16.102113751,       
+        "hexSize": 41,
+        "rotation": -21.05,       
         "fundamental": 440,
         "reference_degree": 28,
         "short_description": "Odd Partial PC SG 3,5,13)"
@@ -1054,8 +1054,8 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 8,
         "urSteps": 5,
-        "hexSize": 42,
-        "rotation": -16.102113751,       
+        "hexSize": 38,
+        "rotation": -8.2,       
         "fundamental": 440,
         "reference_degree": 38,
         "short_description": "Odd Partial PC SG 3,5,13)"
@@ -1088,8 +1088,8 @@ export const presets = [
         "spectrum_colors": false,
         "rSteps": 8,
         "urSteps": 5,
-        "hexSize": 42,
-        "rotation": -16.102113751,       
+        "hexSize": 38,
+        "rotation": -8.2,       
         "fundamental": 440,
         "reference_degree": 38,
         "short_description": "Odd Partial PC SG 3,5,13)"
