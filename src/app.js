@@ -299,7 +299,7 @@ const App = () => {
   const valid = s => (
     (((s.output === "midi") && (s.midi_device !== "OFF") && (s.midi_channel >= 0) && s.midi_mapping &&
       (typeof s.midi_velocity === "number") && (s.midi_velocity > 0)) ||
-     (s.output === "sample" && (s.fundamental > 0.015625) && s.instrument)) &&
+     (s.output === "sample" && (s.fundamental >= 0.015625) && s.instrument)) &&
       s.rSteps && s.urSteps &&
       s.hexSize && s.hexSize >= 20 && typeof s.rotation === "number" &&
       s.scale && s.equivSteps &&

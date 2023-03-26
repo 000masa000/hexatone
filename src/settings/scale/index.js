@@ -25,8 +25,8 @@ const Scale = (props) => {
         Reference Frequency (Hz value assigned to any Scale Degree)
       <input name="fundamental" type="number"
              value={props.settings.fundamental}
-             step="any" min="0.015625" max="16384"
-             onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}
+          step="0.000001" min="0.015625" max="16384"
+          onChange={(e) => props.onChange(e.target.name, parseFloat(e.target.value))}
              />
       </label>
       <label >

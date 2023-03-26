@@ -125,7 +125,6 @@ table input[type="color"] {
 input:out-of-range {
   background-color: rgb(255, 233, 233);
   color: rgb(214, 9, 9);
-  ;
 }
 
 
