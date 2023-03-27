@@ -864,7 +864,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       high--;
     };
 
-    for (let i = 127; i >= high; i--) {
+    for (let i = 127; i > high; i--) {
       if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
         mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
       } else {
@@ -888,7 +888,6 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
 
   } else if (sysex_type == "126") {
     let name_array = Array.from(name);
-    // console.log("name:", name, name_array);
     let ascii_name = [];
     for (let i = 0; i < 16; i++) {
       let char = 32;
@@ -898,7 +897,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       if ((char > 31) && (char < 128)) {
         ascii_name.push(char);
       } else {
-        ascii_name.push(32);
+        ascii_name.push(32); // pad with spaces if needed
       };
     };
     
@@ -913,7 +912,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
 
     for (let i = 0; i < 128; i++) {
       mts_data[i] = centsToMTS(tuning_map_degree0, scale[((i - tuning_map_degree0) + (128 * scale.length)) % scale.length] + map_offset + (equave * (Math.floor(((i - tuning_map_degree0) + (128 * scale.length)) / scale.length) - 128)));
-    };
+    }; 
     
     let low = 0;
     //console.log("low", low, mts_data[low]);
@@ -937,7 +936,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       high--;
     };
 
-    for (let i = 127; i >= high; i--) {
+    for (let i = 127; i > high; i--) {
       if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
         mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
       } else {
@@ -954,7 +953,15 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       sysex.push(mts_data[i][1]);
       sysex.push(mts_data[i][2]);
     };
-   // console.log("mts-tuning_map", sysex);
+
+    let checksum = sysex[0] ^ sysex[1];
+
+    for (let i = 2; i < sysex.length; i++) {
+      checksum = checksum ^ sysex[i];
+    };
+
+    sysex.push(checksum);
+    
     return sysex;
   };
 };
