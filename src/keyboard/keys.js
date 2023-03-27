@@ -964,4 +964,4 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     
     return sysex;
   };
-};git add 
+};
