@@ -39,7 +39,7 @@ import scale_55_hs_odd_19l from 'scales/55-HS-odd-19L.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
-import scale_35_mt_sabat_helmholtz from 'scales/35-MT-Sabat-Helmholtz.scl';
+import scale_36_mt_sabat_helmholtz from 'scales/36-MT-Sabat-Helmholtz.scl';
 import scale_43_mt from 'scales/43-MT-1_5-Comma.scl';
 import scale_55_mt from 'scales/55-MT-1_6-Comma.scl';
 
@@ -1522,10 +1522,10 @@ export const presets = [
       },
       {
         "name": "2/17-Schisma MT (based on Helmholtz)",
-        "description": "35-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
-        "scale_import": scale_35_mt_sabat_helmholtz,
-        "scale": parseScale(scale_35_mt_sabat_helmholtz).scale,
-        "equivSteps": 35,
+        "description": "36-tone scale tempering the perfect fifth narrow by 2/17 Schisma (by dividing the ratio 32805/32768, or ca. 2 cents, representing the difference between 8 3/2 perfect fifths and a 5/4, into very small parts). 8 perfect fifths produce a 5/4 major third less 1/17 schisma and nine perfect fifths produce a 6/5 minor third less 1/17 schisma. Based on Hermann von Helmholtz’s 24-note harmonium tuning and Gioseffo Zarlino’s 2/7 Syntonic Comma Meantone.",
+        "scale_import": scale_36_mt_sabat_helmholtz,
+        "scale": parseScale(scale_36_mt_sabat_helmholtz).scale,
+        "equivSteps": 36,
         "note_names": [
             "C", "C", "C", "C", "C D", "D",
             "D", "D", "D", "D E", "E", "E",
