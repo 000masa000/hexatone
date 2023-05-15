@@ -1,5 +1,6 @@
 import { scalaToCents } from "../settings/scale/parse-scale";
 import { WebMidi } from "webmidi";
+import { number } from "prop-types";
 
 export const tuningmap = new Array(128); // MTS array showing retunings indexed by note played
 for (let i = 0; i < 128; i++) {
@@ -225,24 +226,27 @@ MidiHex.prototype.noteOff = function (release_velocity) {
 };
 
 export function centsToMTS(note, bend) {
-  let mts = []
-  mts[0] = Math.floor(note);
-  let total_bend = (bend * 0.01) + note - mts[0];
+  let mts = [127, 127, 127];
 
-  let shift = Math.floor(total_bend);
-  let remainder = total_bend - shift;
+  if ((typeof(note) == "number") && (typeof(bend) == "number")) {
+    mts[0] = Math.floor(note);
+    let total_bend = (bend * 0.01) + note - mts[0];
 
-  mts[0] = mts[0] + shift;
-  mts[1] = 16384 * remainder;
-  mts[1] = Math.round(mts[1]);
-  if (mts[1] == 16384) {
-    mts[1] = 16383;
-  };
-  mts[2] = mts[1] / 128;
-  mts[1] = Math.floor(mts[2]);
-  mts[2] = Math.round(128 * (mts[2] - mts[1]));
-  if (mts[2] == 128) {
-    mts[2] = 127;
+    let shift = Math.floor(total_bend);
+    let remainder = total_bend - shift;
+
+    mts[0] = mts[0] + shift;
+    mts[1] = 16384 * remainder;
+    mts[1] = Math.round(mts[1]);
+    if (mts[1] == 16384) {
+      mts[1] = 16383;
+    };
+    mts[2] = mts[1] / 128;
+    mts[1] = Math.floor(mts[2]);
+    mts[2] = Math.round(128 * (mts[2] - mts[1]));
+    if (mts[2] == 128) {
+      mts[2] = 127;
+    };
   };
 
   return mts;

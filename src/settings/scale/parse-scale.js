@@ -82,9 +82,11 @@ export const scalaToCents = (line) => {
     // edo step
     var edo = line.split("\\");
     return parseFloat(edo[0]) * 1200 / parseFloat(edo[1]);
-  } else {
+  } else if ((typeof(line) == "number") && (line > 0)) {
     // integer implicit ratio
     return 1200 * Math.log(parseInt(line)) / Math.log(2);
+  } else {
+    return 0;
   }
 };
 
