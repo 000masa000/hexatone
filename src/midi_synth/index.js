@@ -205,7 +205,7 @@ MidiHex.prototype.noteOff = function (release_velocity) {
     velocity = release_velocity
   };
 
-  console.log("release_velocity", velocity);
+  //console.log("release_velocity", velocity);
   
   this.midi_output.send([128 + this.channel, this.steps, velocity]);
   console.log("(output) note_off:", this.channel + 1, this.steps, velocity);
