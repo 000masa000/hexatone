@@ -88,29 +88,27 @@ class Keys {
       if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) { // forward other MIDI data through to output
         this.midiout_data = WebMidi.getOutputById(this.settings.midi_device);
         
-        if (this.settings.midi_mapping == "multichannel") { // in multichannel output replicate controlchange and channel pressure on all channels
+        if (this.settings.midi_mapping == "multichannel") { // in multichannel output send controlchange and channel pressure on selected channel only
 
           this.midiin_data.addListener("controlchange", e => {
             console.log("Control Change (thru on all channels)", e.message.dataBytes[0], e.message.dataBytes[1]);
-            this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], {  });
+            this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("channelaftertouch", e => {
             console.log("Channel Pressure (thru on all channels) ", e.message.dataBytes[0]);
-            this.midiout_data.sendChannelAtertouch(e.message.dataBytes[0] / 128.0, {});
+            this.midiout_data.sendChannelAtertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
           });
 
-          this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
+          this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do, for now on output channel only
             console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
-            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, {  });
+            this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("keyaftertouch", e => {
-            let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
-            channel_offset = ((channel_offset + 20) % 8) - 4;
-            let channel = ((e.message.channel + channel_offset + 15) % 16) + 1; // apply offset to output channel for key pressure
-            this.midiout_data.sendKeyAftertouch(e.message.dataBytes[0], e.message.dataBytes[1] / 128.0, { channels: (channel) });
-            console.log("Key Pressure MultiCh", channel, e.message.dataBytes[0], e.message.dataBytes[1]);
+            let note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
+            this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (keymap[note][6] + 1) });
+            console.log("Key Pressure MultiCh", keymap[note][6] + 1, keymap[note][0], e.message.dataBytes[1]);
           });
             
         } else { // in single-channel output send controlchange and channel pressure only on selected channel

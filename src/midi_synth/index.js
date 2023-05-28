@@ -21,9 +21,9 @@ var note_count_l = 23; // Pianoteq hack: only notes 9 to 113 may be played even 
 var note_count_h = 89;
 export var notes_played = [];
 
-export const keymap = new Array(128); // array mapping originally played keys to MTS output
+export const keymap = new Array(128); // array mapping originally played keys to MTS output or processed note output
 for (let i = 0; i < 2048; i++) {
-  keymap[i] = [i, i % 128, 0, 0, 0, 0];  // [played note + (128 * channel), mts, mts, mts, mts, bend_down, bend_up]
+  keymap[i] = [i % 128, 0, 0, 0, 0, 0, 0];  // keymap[played note + (128 * channel)] = [mts, mts, mts, mts, bend_down, bend_up, channel]
 };
 
 function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental) {
@@ -35,19 +35,18 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var mts = [];
       if (note_played != null) {
         //console.log("note_played", note_played);
-        keymap[note_played] = [steps_cycle, 0, 0, 0, channel];
+
+        keymap[note_played] = [steps_cycle, 0, 0, 0, 0, 0, channel];
         //console.log("keymap", keymap[note_played]);
-        notes_played.push(note_played);
       };
       
     } else if (midi_mapping === "multichannel") {
       var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
       var mts = [];
-      var steps_cycle = (steps + (equivSteps * 2048)) % equivSteps; // cycle the steps based on number of notes in a cycle, start from MIDI note 0 on each channel
+      var steps_cycle = ( 60 + (steps + (equivSteps * 2048)) % equivSteps ) % 128; // cycle the steps based on number of notes in a cycle, start from MIDI note 60 on each channel, wrap at 0 for longer scales
       if (note_played != null) {
-        keymap[note_played] = [steps_cycle, 0, 0, 0, split];
+        keymap[note_played] = [steps_cycle, 0, 0, 0, 0, 0, split];
         //console.log("keymap", keymap[note_played]);
-        notes_played.push(note_played);
       };
    
     } else if (midi_mapping === "MTS1") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
@@ -82,9 +81,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
 
       if (note_played != null) {
-        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
+        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up, channel];
         //console.log("keymap", keymap[note_played]);
-        notes_played.push(note_played);
       };
       
       if (bend < 0) {
@@ -136,9 +134,8 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
       
       if (note_played != null) {
-        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up];
+        keymap[note_played] = [mts[0], mts[1], mts[2], mts[3], bend_down, bend_up, channel];
         //console.log("keymap", keymap[note_played]);
-        notes_played.push(note_played);
       };
      
       if (bend < 0) {

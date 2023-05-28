@@ -30,7 +30,7 @@ const MidiOut = (props) => (
         }
         }>
         <option>---choose how the notes are sent---</option>
-        <option value="multichannel">multichannel, each cycle starts from MIDI note 0</option>
+        <option value="multichannel">multichannel, each cycle wraps around MIDI note 60</option>
         <option value="sequential">all notes on selected channel, around MIDI note 60</option>
         <option value="MTS1">all notes and MTS tuning data on selected channel</option>
         <option value="MTS2">Pianoteq range MTS tuning data on selected channel</option>
