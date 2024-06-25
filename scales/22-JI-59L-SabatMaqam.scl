@@ -1,0 +1,27 @@
+! 22-JI-59L-SabatMaqam
+!
+22-tone 59-limit Rational Intonation gamut, proposed by Marc Sabat based on Abu Nasr Farabi (872-950), also known as al-Farabi. This maps a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, and 59, which subharmonically divides the Pythagorean minor third 54:59:64. The chain of 11 subharmonic perfect fifths tuned below the fundamental also ends in six pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3). 
+22
+!
+243/236
+256/243
+65536/59049
+9/8
+32/27
+72/59
+8192/6561
+81/64
+4/3
+81/59
+1024/729
+262144/177147
+3/2
+128/81
+96/59
+32768/19683
+27/16
+16/9
+108/59
+4096/2187
+243/128
+2/1

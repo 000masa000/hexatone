@@ -14,6 +14,7 @@ import scale_12_ji_sabat_II from 'scales/12-JI-SabatII.scl';
 import scale_17_ji_3l from 'scales/17-JI-3L-Ormavi.scl';
 import scale_17_ji_13l from 'scales/17-JI-13L-Sina.scl';
 import scale_22_ji_17l from 'scales/22-JI-17L-Farabi.scl';
+import scale_22_ji_59l from 'scales/22-JI-59L-SabatMaqam.scl';
 import scale_22_ji_5l from 'scales/22-JI-5L-Indian.scl';
 import scale_43_ji_11l_partch from 'scales/43-JI-11L-Partch.scl';
 import scale_43_ji_11l_partchG from 'scales/43-JI-11L-Partch_on_G.scl';
@@ -463,6 +464,37 @@ export const presets = [
           "#ffffff", "#d0d0d7", "#cee3e2", "#fffae5",
           "#ffffff", "#d0d0d7", "#fffae5", "#c3c3e9",
           "#cee3e2"],
+        "spectrum_colors": false,
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17
+      },
+      {
+        "name": "22-SabatMaqam",
+        "description": "22-tone 59-limit Rational Intonation gamut, proposed by Marc Sabat based on Abu Nasr Farabi (872-950), also known as al-Farabi. This maps a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, and 59, which subharmonically divides the Pythagorean minor third 54:59:64. The chain of 11 subharmonic perfect fifths tuned below the fundamental also ends in six pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3).", 
+        "scale_import": scale_22_ji_59l,
+        "scale": parseScale(scale_22_ji_59l).scale,
+        "equivSteps": 22,
+        "note_names": [
+          "C", "C", "C", "D",
+          "D", "E", "E", "E",
+          "E",
+          "F", "F", "F", "G",
+          "G", "A", "A", "A",
+          "A", "B", "B", "B",
+          "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#dfffd6", "#fffae5", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dfffd6", "#fffae5",
+          "#ffffff",
+          "#ffffff", "#dfffd6", "#fffae5", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dfffd6", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dfffd6", "#fffae5",
+          "#ffffff"],
         "spectrum_colors": false,
         "rSteps": 4,
         "urSteps": 1,
