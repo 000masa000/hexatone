@@ -485,7 +485,7 @@ export const presets = [
           "F", "F", "F", "G",
           "G", "A", "A", "A",
           "A", "B", "B", "B",
-          "B"],
+          "C"],
         "key_labels": "note_names",
         "note_colors": [
           "#ffffff", "#dfffd6", "#fffae5", "#fffae5",
