@@ -82,6 +82,7 @@ const App = () => {
     // Input
     midiin_device: ExtractString,
     midiin_channel: ExtractInt,
+    midiin_degree0: ExtractInt,
 
     // Output
     output: ExtractString,
@@ -176,6 +177,13 @@ const App = () => {
     settings.midiin_channel = 0;
   };
 
+  if (sessionStorage.getItem("midiin_degree0")) {
+    // console.log("sessionStorage midiin_degree0", sessionStorage.getItem("midiin_degree0"))
+      settings.midiin_degree0 = parseInt(sessionStorage.getItem("midiin_degree0"));
+    } else {
+      settings.midiin_degree0 = 60;
+    };
+
   if (sessionStorage.getItem("midi_device")) {
    // console.log("sessionStorage midi_device", sessionStorage.getItem("midi_device"))
     settings.midi_device = sessionStorage.getItem("midi_device");
@@ -212,29 +220,25 @@ const App = () => {
     settings.sysex_type = parseInt(sessionStorage.getItem("sysex_type"));
   } else {
     settings.sysex_type = 127;
-  };  
-  //console.log("sessionStorage sysex_type", settings.sysex_type);
+  };
 
   if (sessionStorage.getItem("device_id")) {
     settings.device_id = parseInt(sessionStorage.getItem("device_id"));
   } else {
     settings.device_id = 127;
   };
-  // console.log("sessionStorage device_id", sessionStorage.getItem("device_id"))
 
   if (sessionStorage.getItem("tuning_map_number")) {
     settings.tuning_map_number = parseInt(sessionStorage.getItem("tuning_map_number"));
   } else {
     settings.tuning_map_number = 0;
   };
-  // console.log("sessionStorage tuning_map_number", sessionStorage.getItem("tuning_map_number"))
   
   if (sessionStorage.getItem("tuning_map_degree0")) {
     settings.tuning_map_degree0 = parseInt(sessionStorage.getItem("tuning_map_degree0"));
   } else {
     settings.tuning_map_degree0 = 60;
   };
-  // console.log("sessionStorage tuning_map_degree0", sessionStorage.getItem("tuning_map_degree0"))
 
   useEffect(() => {
     if (settings.output === "sample"

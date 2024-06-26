@@ -41,6 +41,20 @@ const MIDIio = (props) => (
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
+    <label>
+      MIDI Note for Degree 0
+      <input name="midiin_degree0" type="number"
+        value={props.settings.midiin_degree0}
+        step="1" min="0" max="127"
+        onChange={(e) => {
+          if ((e.target.value >= 0) && (e.target.value <= 127)) {
+            props.onChange(e.target.name, parseInt(e.target.value));
+            sessionStorage.setItem(e.target.name, e.target.value);
+            console.log("Degree 0 plays on MIDI Note: ", sessionStorage.getItem(e.target.name));
+          };
+        }
+        } />
+    </label>
     <br />
     <em>Input is received on all channels. Notes on the Central Input Channel remain untransposed. Other channels are transposed by multiples of the selected scale&rsquo;s interval of repetition (usually an octave, but it may be any value). Thus, multichannel controllers are automatically mapped onto transpositions of the selected scale (up to 128 pitches per channel).</em>
     <br /><br />    

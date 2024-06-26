@@ -37,6 +37,7 @@ import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
 import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
 import scale_40_hs_odd_13l from 'scales/40-HS-odd-13L.scl';
 import scale_55_hs_odd_19l from 'scales/55-HS-odd-19L.scl';
+import scale_53_hs_odd_mod from 'scales/53-HS-odd-mod.scl'
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
@@ -473,7 +474,7 @@ export const presets = [
         "reference_degree": 17
       },
       {
-        "name": "22-SabatMaqam",
+        "name": "22-Sabat-Maqam",
         "description": "22-tone 59-limit Rational Intonation gamut, proposed by Marc Sabat based on Abu Nasr Farabi (872-950), also known as al-Farabi. This maps a theoretical fretting of the oud, obtaining several commonly used divisions of the tetrachord. The gamut combines divisions (intervals) derived by combining primes 2, 3, and 59, which subharmonically divides the Pythagorean minor third 54:59:64. The chain of 11 subharmonic perfect fifths tuned below the fundamental also ends in six pitches one schisma lower than common 5-limit ratios (45/32, 15/8, 5/4, 5/3).", 
         "scale_import": scale_22_ji_59l,
         "scale": parseScale(scale_22_ji_59l).scale,
@@ -1125,6 +1126,38 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 38,
         "short_description": "Odd Partial PC SG 3,5,13)"
+      },
+      {
+        "name": "53-tone near-isomorphic Odd Partial Pitch Class Set",
+        "description": "53-tone Rational Intonation gamut, based on the set of pitch classes derived from harmonic series odd partials not exceeding 256°. To divide each whole tone into 9 parts and each limma in 4 parts, and obtain a near-isomorphic layout, a few additional higher primes and a few pitches from the subdominant series have been added to complete the scale (69, 7/6, 315, 65/48, 177, 23, 19/12, 5/3, 59, 31, 95/48).",
+        "scale_import": scale_53_hs_odd_mod,
+        "scale": parseScale(scale_53_hs_odd_mod).scale,
+        "equivSteps": 53,
+        "note_names": [
+          "1", "65", "33", "133", "135", "17", "69", "35", "143",
+          "9", "147", "7/6", "75", "19", "77", "39", "315", "5",
+          "81", "165", "21", "169",
+          "171", "65/48", "11", "177", "45", "91", "23", "189", "95",
+          "3", "49", "99", "25", "19/12", "51", "13", "105", "5/3",
+          "27", "55", "7", "225", "57", "231", "117", "59", "15",
+          "121", "31", "63", "95/48"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#d3dab9", "#ffcba8", "#acd2c2",
+          "#ffffff", "#f8c9c9", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ffcba8", "#fffae5",
+          "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe",
+          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#d3dab9", "#ffe5e5", "#e5fff9",
+          "#ffffff", "#f8c9c9", "#dfffd6", "#fef5be", "#d6f7ff", "#cfcfcf", "#e6d7fe", "#ffcba8","#fffae5",
+          "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#d0d0d7", "#fffae5",
+          "#c3ffad", "#d1c2c2", "#ffe5e5", "#e5fff9"],                  
+          "spectrum_colors": false,
+          "rSteps": 9,
+          "urSteps": 4,
+          "hexSize": 42,
+          "rotation": -16.102113751,       
+          "fundamental": 440,
+          "reference_degree": 40,
+          "short_description": "53-near-isomorphic odd partial set"
       }
     ]
   },

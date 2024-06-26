@@ -13,7 +13,7 @@ const SampleSynth = (props) => (
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
           sessionStorage.setItem(e.target.name, e.target.value);
-          console.log("Sound Synthesis selected: ", sessionStorage.getItem(e.target.name));
+          //console.log("Sound Synthesis selected: ", sessionStorage.getItem(e.target.name));
         }
         }>
         <option value = "OFF">OFF</option>

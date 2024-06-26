@@ -1,6 +1,6 @@
 ! 53-HS-odd-mod
 !
-Harmonic Series odd-partial pitch-classes for modulation
+53-tone Rational Intonation gamut, based on the set of pitch classes derived from harmonic series odd partials not exceeding 256°. To divide each whole tone into 9 parts and each limma in 4 parts, and obtain a near-isomorphic layout, a few additional higher primes and a few pitches from the subdominant series have been added to complete the scale (69°, 7/6, 315°, 65/48, 177°, 23°, 19/12, 5/3, 59°, 31°, 95/48).
 53
 !
 65/64

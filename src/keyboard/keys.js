@@ -202,11 +202,11 @@ class Keys {
     if (this.midiout_data) {
       if (this.settings.sysex_type == "127") {
         for (let i = 0; i < 128; i++) {
-          console.log("mtsMap", i, ": ", sysex[i]);
+          //console.log("mtsMap", i, ": ", sysex[i]);
           this.midiout_data.sendSysex([sysex[i].shift()], sysex[i]);
         };
       } else if (this.settings.sysex_type == "126") {
-        console.log("mtsMap: ", sysex);
+        //console.log("mtsMap: ", sysex);
         this.midiout_data.sendSysex([sysex.shift()], sysex);
       };
     };
@@ -831,7 +831,7 @@ function getOffset(reference_degree, scale) {
 };
 
 function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degree0, scale, name, equave, fundamental, offset) {
-  console.log("mts-input-scale:", scale)
+  //console.log("mts-input-scale:", scale)
   if (sysex_type == "127") {
     let header = [127, device_id, 8, 2, tuning_map_number, 1]; // sysex real-time single-note tuning change of tuning map, 128 notes
     let fundamental_cents = 1200 * Math.log2(fundamental / 440);
@@ -844,20 +844,21 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       let bend = scale[((i - tuning_map_degree0) + (128 * scale.length)) % scale.length] + map_offset + (equave * (Math.floor(((i - tuning_map_degree0) + (128 * scale.length)) / scale.length) - 128));
       if (typeof(bend) == "number") {
         mts_data[i] = centsToMTS(tuning_map_degree0, bend);
+        console.log("mts_data[", i, "]:", mts_data[i]);
       };
     };
 
-    let low = 0;
+    /*let low = 0;
     //console.log("low", low, mts_data[low]);
-    while ( (mts_data[low][0] < 0) && (low < 127) ) {
+    while ((mts_data[low][0] < 0) && (low < 127)) {
       low++;
     };
-
+    if (mts_data[low][0] < 0) {
+      mts_data[low] = [0, 0, 0];
+    };
     for (let i = 0; i < low; i++) {
       if ((low < 128) && (mts_data[low][0] >= 0)) {
         mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
-      } else {
-        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
       };        
     };
 
@@ -868,14 +869,15 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     while ( ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) && (high >= 0) ) { // no F7 F7 F7 messages !
       high--;
     };
+    if (mts_data[high][0] > 127) {
+      mts_data[high] = [127, 127, 126];
+    };
 
     for (let i = 127; i > high; i--) {
       if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
         mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
-      } else {
-        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
       };
-    };
+    };*/
 
     let sysex = [];
     for (let j = 0; j < 128; j++) {
@@ -923,7 +925,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       };
     }; 
     
-    let low = 0;
+    /*let low = 0;
     //console.log("low", low, mts_data[low]);
     while ( (mts_data[low][0] < 0) && (low < 127) ) {
       low++;
@@ -943,7 +945,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
     };
     while ( ((mts_data[high][0] == 127) && (mts_data[high][1] == 127) && (mts_data[high][2] == 127)) && (high >= 0) ) { // no F7 F7 F7 messages !
       high--;
-    };
+    };*/
 
     for (let i = 127; i > high; i--) {
       if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {

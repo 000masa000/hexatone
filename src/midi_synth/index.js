@@ -188,7 +188,7 @@ MidiHex.prototype.noteOn = function () {
   };
 
   this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
-  console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
+  //console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
   /*if (notes_played != null) {
     //console.log("notes_played after noteon:", notes_played);
   };*/
@@ -205,7 +205,7 @@ MidiHex.prototype.noteOff = function (release_velocity) {
   //console.log("release_velocity", velocity);
   
   this.midi_output.send([128 + this.channel, this.steps, velocity]);
-  console.log("(output) note_off:", this.channel + 1, this.steps, velocity);
+  //console.log("(output) note_off:", this.channel + 1, this.steps, velocity);
   
   let index = notes_played.lastIndexOf(this.note_played); // eliminate note_played from array of played notes
   if (index >= 0) {
@@ -223,31 +223,54 @@ MidiHex.prototype.noteOff = function (release_velocity) {
 };
 
 export function centsToMTS(note, bend) {
-  let mts = [127, 127, 127];
+  let mts = [0, 0, 0];
 
-  if ((typeof(note) == "number") && (typeof(bend) == "number")) {
-    mts[0] = Math.floor(note);
+  if ((typeof (note) == "number") && (typeof (bend) == "number")) {
+    if (note >= 0) {
+      mts[0] = Math.floor(note);
+    } else {
+      mts[0] = (-1 * Math.floor(-1 * note));
+      if (mts[0] > note) {
+        mts[0] -= 1;
+      }
+    }
     let total_bend = (bend * 0.01) + note - mts[0];
-
-    let shift = Math.floor(total_bend);
+    let shift = 0
+    if (total_bend >= 0) {
+      shift = Math.floor(total_bend);
+    } else {
+      shift = (-1 * Math.floor(-1 * total_bend));
+      if (shift > total_bend) {
+        shift -= 1;
+      }
+    };
     let remainder = total_bend - shift;
 
     mts[0] = mts[0] + shift;
-    mts[1] = 16384 * remainder;
-    mts[1] = Math.round(mts[1]);
-    if (mts[1] == 16384) {
-      mts[1] = 16383;
-    };
-    mts[2] = mts[1] / 128;
-    mts[1] = Math.floor(mts[2]);
-    mts[2] = Math.round(128 * (mts[2] - mts[1]));
-    if (mts[2] == 128) {
-      mts[2] = 127;
+    if (mts[0] < 0) {
+      mts = [0, 0, 0]
+    } else if (mts[0] > 127) {
+      mts = [127, 127, 126]
+    } else {
+      mts[1] = 16384 * remainder;
+      mts[1] = Math.round(mts[1]);
+      if (mts[1] == 16384) {
+        mts[1] = 16383;
+      };
+      mts[2] = mts[1] / 128;
+      mts[1] = Math.floor(mts[2]);
+      mts[2] = Math.round(128 * (mts[2] - mts[1]));
+      if (mts[2] == 128) {
+        mts[2] = 127;
+      };
+      if (mts == [127, 127, 127]) {
+        mts = [127, 127, 126]
+      };
     };
   };
 
   return mts;
-}
+  };
 
 export function mtsToMidiFloat(mts) {
   let midifloat = mts[0] + (mts[1] / 128) + (mts[2] / 16384);
