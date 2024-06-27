@@ -64,7 +64,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var bend_down = cents - cents_prev;
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var split = channel;
-      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
+      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note assigned to degree0, notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
       
       var mts = [];
@@ -107,12 +107,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
-      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
+      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0) to the incoming cents value
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var bend_up = cents_next - cents;
       var bend_down = cents - cents_prev;
       var split = channel;
-      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note 60 (middle C), notice that any global retuning of the softsynth other than 440Hz will change this as well!
+      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note assigned to degree0, notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
       
       var mts = [];
