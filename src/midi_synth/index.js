@@ -8,10 +8,10 @@ for (let i = 0; i < 128; i++) {
 };
 
 // TODO MIDI panic button
-export const create_midi_synth = async (midiin_device, midi_output, channel, midi_mapping, velocity, fundamental) => {
+export const create_midi_synth = async (midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental) => {
   return {
     makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset) => {
-      return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental);
+      return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental);
     }
   };
 };
@@ -26,11 +26,17 @@ for (let i = 0; i < 2048; i++) {
   keymap[i] = [i % 128, 0, 0, 0, 0, 0, 0];  // keymap[played note + (128 * channel)] = [mts, mts, mts, mts, bend_down, bend_up, channel]
 };
 
-function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midi_output, channel, midi_mapping, velocity, fundamental) {
+function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental) {
+
+  if (midiin_degree0 > 127) {
+    midiin_degree0 = 127;
+  } else if (midiin_degree0 < 0) {
+    midiin_degree0 = 0;
+  };
 
   if (channel >= 0) {
     if (midi_mapping === "sequential") {
-      var steps_cycle = (steps + 60 + (16 * 128)) % 128;
+      var steps_cycle = (steps + midiin_degree0 + (16 * 128)) % 128;
       var split = channel; // output on selected channel
       var mts = [];
       if (note_played != null) {
@@ -43,7 +49,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
     } else if (midi_mapping === "multichannel") {
       var split = (channel + equaves + 16) % 16; // transpose each channel by an equave
       var mts = [];
-      var steps_cycle = ( 60 + (steps + (equivSteps * 2048)) % equivSteps ) % 128; // cycle the steps based on number of notes in a cycle, start from MIDI note 60 on each channel, wrap at 0 for longer scales
+      var steps_cycle = ( midiin_degree0 + (steps + (equivSteps * 2048)) % equivSteps ) % 128; // cycle the steps based on number of notes in a cycle, start from specified degree0 MIDI note (default 60) on each channel, wrap at 0 for longer scales
       if (note_played != null) {
         keymap[note_played] = [steps_cycle, 0, 0, 0, 0, 0, split];
         //console.log("keymap", keymap[note_played]);
@@ -53,7 +59,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
       var ref_offset = ref / 261.6255653; // compare the fundamental assigned to standard C with C at A 440 Hz
       ref_offset = 1200 * Math.log2(ref_offset);
-      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0 assigned to MIDI note 60) to the incoming cents value
+      var ref_cents = cents + ref_offset; // apply the offset (tuning of scale degree 0) to the incoming cents value
       var bend_up = cents_next - cents;
       var bend_down = cents - cents_prev;
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
@@ -169,6 +175,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
     //console.log("note_played", note_played);
 
     this.midiin_device = midiin_device;
+    this.midiin_degree0 = midiin_degree0;
     this.midi_output = midi_output;
     this.channel = split;
     this.steps = steps_cycle;

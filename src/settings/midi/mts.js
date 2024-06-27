@@ -71,7 +71,7 @@ const MidiTuning = (props) => (
           if ((e.target.value >= 0) && (e.target.value <= 127)) {
             props.onChange(e.target.name, parseInt(e.target.value));
             sessionStorage.setItem(e.target.name, e.target.value);
-            console.log("Degree 0 Mapped to MIDI Note: ", sessionStorage.getItem(e.target.name));
+           // console.log("Degree 0 Mapped to MIDI Note: ", sessionStorage.getItem(e.target.name));
           };
         }
         } />

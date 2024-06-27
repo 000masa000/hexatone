@@ -76,12 +76,12 @@ class Keys {
       this.midiin_data = WebMidi.getInputById(this.settings.midiin_device);
       
       this.midiin_data.addListener("noteon", e => {
-        console.log("(input) note_on", e.message.channel, e.note.number, e.note.rawAttack);
+        //console.log("(input) note_on", e.message.channel, e.note.number, e.note.rawAttack);
         this.midinoteOn(e);        
       });
 
       this.midiin_data.addListener("noteoff", e => {
-        console.log("(input) note_off", e.message.channel, e.note.number, e.note.rawRelease);
+        //console.log("(input) note_off", e.message.channel, e.note.number, e.note.rawRelease);
         this.midinoteOff(e);        
       });
 
@@ -258,7 +258,7 @@ class Keys {
       bend = this.bend;
     };
     //console.log("note_on-bend", bend);
-    let steps = e.note.number - 60;
+    let steps = e.note.number - this.settings.midiin_degree0;
     let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
     //console.log("transposition (in equaves)", channel_offset);
@@ -282,7 +282,7 @@ class Keys {
   };
 
   midinoteOff = (e) => {
-    let steps = e.note.number - 60;
+    let steps = e.note.number - this.settings.midiin_degree0;
     let channel_offset = e.message.channel - 1 - this.settings.midiin_channel;
     channel_offset = ((channel_offset + 20) % 8) - 4;
     let steps_offset = channel_offset * this.settings.equivSteps;
@@ -720,9 +720,9 @@ class Keys {
 
       //darken for pressed key
       if (pressed) {
-        returnColor[0] -= 40;
-        returnColor[1] -= 40;
-        returnColor[2] -= 40;
+        returnColor[0] += 200;
+        returnColor[1] -= 200;
+        returnColor[2] -= 200;
       }
 
       return [rgb(returnColor[0], returnColor[1], returnColor[2]), current_text_color];
@@ -844,7 +844,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       let bend = scale[((i - tuning_map_degree0) + (128 * scale.length)) % scale.length] + map_offset + (equave * (Math.floor(((i - tuning_map_degree0) + (128 * scale.length)) / scale.length) - 128));
       if (typeof(bend) == "number") {
         mts_data[i] = centsToMTS(tuning_map_degree0, bend);
-        console.log("mts_data[", i, "]:", mts_data[i]);
+        //console.log("mts_data[", i, "]:", mts_data[i]);
       };
     };
 

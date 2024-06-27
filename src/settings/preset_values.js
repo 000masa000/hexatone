@@ -2044,7 +2044,7 @@ export const presets = [
       },
       {
         "name": "By Diesis (41 cents)", 
-        "description": "One step = 1 cent, right-up moves by equal quarter-tones, right-down by cents.",
+        "description": "One step = 1 cent, right-up moves by diesis (41 cents), right-down by cents. Provided to experiment with fine tuning intervals. Notice the unusual scale definition, which repeats at 1 cent intervals. The \"Octaves/Equaves\" setting for Key Labels is used to indicate the cents deviations as small numbers in the top right corner of each hexagonal touch key.",
         "scale_import": scale_1cent,
         "scale": parseScale(scale_1cent).scale,
         "equivSteps": 1,
