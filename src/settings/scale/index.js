@@ -38,7 +38,7 @@ const Scale = (props) => {
       </label>
       <p>
       <em>To obtain the desired absolute frequencies when using MIDI output with MTS (MIDI Tuning) messages, please set global tuning of (all) receiving instrument(s) to A4 = 440 Hz. Choosing a different Kammerton (i.e. 415 Hz or 442 Hz) will transpose everything accordingly. Commonly used values for the Reference Frequency C4 === MIDI Note 60 === Degree 0 are:<br /></em>
-        261.6255653 Hz <em>(12-edo)</em> or 260.740741 Hz <em>(Pythagorean / HEJI Notation)</em>.
+        261.6255653 Hz <em>(12edo)</em> or 260.740741 Hz <em>(Pythagorean / HEJI Notation)</em>.
       </p>
       <Colors {...props} />
       <KeyLabels {...props} />

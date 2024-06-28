@@ -935,7 +935,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       if ((low < 128) && (mts_data[low][0] >= 0)) {
         mts_data[i] = mts_data[low]; // repeat the lowest possible note at the bottom end of the map as needed
       } else {
-        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12edo
       };        
     };
 
@@ -951,7 +951,7 @@ function mtsTuningMap(sysex_type, device_id, tuning_map_number, tuning_map_degre
       if ( (high >= 0) && (mts_data[high] <= 127) && (mts_data[high] != [127, 127, 127]) ) {
         mts_data[i] = mts_data[high]; // repeat the highest possible note at the top of the map as needed
       } else {
-        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12-edo
+        mts_data[i] = [i, 0, 0]; // if data is invalid, load 12edo
       };
     };
 
