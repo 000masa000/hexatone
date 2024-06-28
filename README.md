@@ -8,7 +8,7 @@ Initial development by [James Fenn](http://jamesfenn.com/) with additions and mo
 Sampling credits to Scott Thompson, Tim Kahn, Carlos Vaquero, Dr. Ozan Yarman, Lars Palo, Soni Musicae.
 
 MIDI version designed and programmed by [Marc Sabat](https://www.plainsound.org).
-Current version 2.5 (2023), released as Free/Libre and Open Source Software under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+Current version 2.6 (2024), released as Free/Libre and Open Source Software under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
 Code on github: https://github.com/000masa000/hexatone.
 
 ## Isomorphic Keyboards

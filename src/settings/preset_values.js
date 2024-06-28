@@ -249,7 +249,7 @@ export const presets = [
         "short_description": "12-tone-combined"
       },
       {
-        "name": "C 7-Limit JI",
+        "name": "C Septimal-Quintal",
         "description": "12-tone 7-Limit Rational Intonation scale, derived from harmonic series intervals up to a prime limit of 7. The 7° partial over C produces a harmonic series 9th chord over fundamental C: 4:5:6:7:9 and the 7/5 ratio diminished fifth above C produces a more consonant interval than the 5-Limit ratio 45/32. Also, in this scale the 3/4-tone melodic step 25:27, found in the 5-Limit JI scale between 5/3 (A) and 9/5 (B), is replaced with the familiar small semitone 20:21.",
         "scale_import": scale_12_ji_7l,
         "scale": parseScale(scale_12_ji_7l).scale,
@@ -575,7 +575,7 @@ export const presets = [
     settings: [
       {
         "name": "22-Sruti (Sambamurthy/Daniélou)",
-        "description": "22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental. Notated with Indian syllable names.", 
+        "description": "22-tone Quintal Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental. Notated with Indian syllable names.", 
         "scale_import": scale_22_ji_5l,
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
@@ -607,7 +607,7 @@ export const presets = [
       },
       {
         "name": "22-Sruti (HEJI Notation)",
-        "description": "22-tone 5-Limit Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",
+        "description": "22-tone Quintal Rational Intonation Indian śruti gamut, according to Sambamurthy/Daniélou, consisting of 22 notes per octave derived from harmonic series intervals up to a prime limit of 5. Derived by schisma-alteration from a 22-tone 3-Limit scale generated from 11 perfect fifths ascending and 10 descending plus the fundamental.",
         "scale_import": scale_22_ji_5l,
         "scale": parseScale(scale_22_ji_5l).scale,
         "equivSteps": 22,
