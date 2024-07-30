@@ -643,8 +643,8 @@ export const presets = [
     "name": "Harmonics and Subharmonics",
     settings: [
       {
-        "name": "HS 12-48: harmonic partial sequence 12° to 48°",
-        "description": "A two octave cycle comprising the harmonic partial sequence from 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees. In this example, the 12° is tuned to 240 Hz, giving 1° = 20 Hz",
+        "name": "HS 12-48: harmonic partial row 12° to 48°",
+        "description": "A two octave cycle comprising the harmonic partial row from 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees. In this example, the 12° is tuned to 240 Hz, giving 1° = 20 Hz",
         "scale_import": scale_36_hs_12to48,
         "scale": parseScale(scale_36_hs_12to48).scale,
         "equivSteps": 36,
@@ -666,7 +666,7 @@ export const presets = [
       },
       {
         "name": "HS_SH 12-48: Harmonics/Subharmonics combined",
-        "description": "Harmonic and Subharmonic partial sequences from 12° to 48° mapped onto a four octave cycle. The \"subharmonic\" sequence is a mirroring, with intervals taken downward from a common pitch. Subharmonic chords do not exhibit the same psychoacoustic fusion and combination tone reinforcement as harmonic chords, but they produce melodically related sets that harmonise with a sustained higher pitch (e.g., in counterpoint). Some JI composers (i.e., Elsie Hamilton,Harry Partch, Ben Johnston) have worked extensively with symmetrically structured otonal / utonal harmonies.",
+        "description": "Harmonic and Subharmonic partial rows from 12° to 48° mapped onto a four octave cycle. The \"subharmonic\" row is a mirroring, with intervals taken downward from a common pitch. Subharmonic chords do not exhibit the same psychoacoustic fusion and combination tone reinforcement as harmonic chords, but they produce melodically related sets that harmonise with a sustained higher pitch (e.g., in counterpoint). Some JI composers (i.e., Elsie Hamilton,Harry Partch, Ben Johnston) have worked extensively with symmetrically structured otonal / utonal harmonies.",
         "scale_import": scale_72_hss_12to48,
         "scale": parseScale(scale_72_hss_12to48).scale,
         "equivSteps": 72,
@@ -689,7 +689,7 @@ export const presets = [
       },
       {
         "name": "SH_HS 12-48: Subharmonics/Harmonics combined",
-        "description": "Subharmonic and Harmonic partial sequences from 12° to 48° mapped onto a four octave cycle. In this scale, the subharmonic sequence is placed below the harmonic one, so the small microtonal intervals lie in the centre of the keyboard range.",
+        "description": "Subharmonic and Harmonic partial rows from 12° to 48° mapped onto a four octave cycle. In this scale, the subharmonic row is placed below the harmonic one, so the small microtonal intervals lie in the centre of the keyboard range.",
         "scale_import": scale_72_shs_12to48,
         "scale": parseScale(scale_72_shs_12to48).scale,
         "equivSteps": 72,
