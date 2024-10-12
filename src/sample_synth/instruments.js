@@ -8,49 +8,56 @@ export const instruments = [
         gain: 0.72,
         attack: 0.116,
         release: 0.027,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "WMRI5LST",
         name: "5-Limit (6 Harmonics)",
         gain: 0.68,
         attack: 0.112,
         release: 0.024,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "WMRI7LST",
         name: "7-Limit (10 Harmonics)",
         gain: 0.65,
         attack: 0.108,
         release: 0.021,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "WMRI11LST",
         name: "11-Limit (12 Harmonics)",
         gain: 0.6,
         attack: 0.104,
         release: 0.018,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "WMRI13LST",
         name: "13-Limit (16 Harmonics)",
         gain: 0.565,
         attack: 0.1,
         release: 0.015,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "WMRIByzantineST",
         name: "Reed (9 Harmonics)",
         gain: 0.58,
         attack: 0.096,
         release: 0.012,
-        loop: true
+        loop: true,
+        velocity: true
       }, {
         fileName: "hammond",
         name: "Hammond (9 Harmonics)",
         gain: 0.66,
         attack: 0.001,
         release: 0.001,
-        loop: true
+        loop: true,
+        velocity: false
       }
     ],
   },
@@ -63,14 +70,16 @@ export const instruments = [
         gain: 0.29,
         attack: 0,
         release: 0.002,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "rhodes",
         name: "Fender Rhodes",
         gain: 0.42,
         attack: 0,
         release: 0.002,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "HvP8_retuned",
         name: "Baroque Organ",
@@ -78,56 +87,64 @@ export const instruments = [
         attack: 0,
         release: 0.045,
         loop: true,
-        loopPoints: [4.0, 5.2913, 2.287103, 4.1999, 2.287, 4.21495, 0.9711, 3.574]
+        loopPoints: [4.0, 5.2913, 2.287103, 4.1999, 2.287, 4.21495, 0.9711, 3.574],
+        velocity: false
       }, {
         fileName: "harpsichord",
         name: "Harpsichord",
         gain: 0.26,
         attack: 0,
         release: 0.075,
-        loop: false
+        loop: false,
+        velocity: false
       }, {
         fileName: "lute",
         name: "Lute-Stop",
         gain: 0.22,
         attack: 0,
         release: 0.2,
-        loop: false
+        loop: false,
+        velocity: false
       }, {
         fileName: "harp",
         name: "Harp",
         gain: 0.34,
         attack: 0,
         release: 1.5,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "qanun",
         name: "Qanun",
         gain: 0.27,
         attack: 0,
         release: 1.5,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "gayageum",
         name: "Gayageum",
         gain: 0.2,
         attack: 0,
         release: 1.0,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "vibes",
         name: "Vibraphone",
         gain: 0.39,
         attack: 0,
         release: 0.2,
-        loop: false
+        loop: false,
+        velocity: true
       }, {
         fileName: "sruti",
         name: "Srutibox Harmonium",
         gain: 0.285,
         attack: 0,
         release: 0.038,
-        loop: true
+        loop: true,
+        velocity: true
       }
     ]
   }

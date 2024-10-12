@@ -10,7 +10,7 @@ for (let i = 0; i < 128; i++) {
 // TODO MIDI panic button
 export const create_midi_synth = async (midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental) => {
   return {
-    makeHex: (coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset) => {
+    makeHex: (coords, cents, velocity_played, steps, equaves, equivSteps, cents_prev, cents_next, note_played, bend, offset) => {
       return new MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset, midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental);
     }
   };

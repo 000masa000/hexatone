@@ -11,6 +11,7 @@ export const create_sample_synth = async (fileName, fundamental, reference_degre
     const sampleRelease = findRelease(fileName);
     const sampleLoop = findLoop(fileName);
     const sampleLoopPoints = findLoopPoints(fileName);
+    const velocity_response = findVelocity(fileName);
     const audioContext = new AudioContext();
     const s110 = await loadSample(audioContext, fileName, "110");
     const s220 = await loadSample(audioContext, fileName, "220");
@@ -27,8 +28,8 @@ export const create_sample_synth = async (fileName, fundamental, reference_degre
     //console.log("offset_value:", offset);
 
     return {
-      makeHex: (coords, cents) => {
-        return new ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, samples, audioContext);
+      makeHex: (coords, cents, velocity_played) => {
+        return new ActiveHex(coords, cents, velocity_played, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, velocity_response, samples, audioContext);
       },
     };
   } catch (e) {
@@ -42,11 +43,12 @@ const loadSample = async (audioContext, name, freq) => {
   return sample;
 }
 
-function ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, sampleBuffer, audioContext) {
+function ActiveHex(coords, cents, velocity_played, fundamental, offset, sampleGain, sampleAttack, sampleRelease, sampleLoop, sampleLoopPoints, velocity_response, sampleBuffer, audioContext) {
   this.coords = coords;// these end up being used by the keys class
   this.release = false;
 
   this.cents = cents;
+  this.velocity_played = velocity_played;
   this.fundamental = fundamental;
   this.offset = offset;
   this.sampleGain = sampleGain;
@@ -54,6 +56,7 @@ function ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack,
   this.sampleRelease = sampleRelease;
   this.sampleLoop = sampleLoop;
   this.sampleLoopPoints = sampleLoopPoints;
+  this.velocity_response = velocity_response;
   this.sampleBuffer = sampleBuffer;
   this.audioContext = audioContext;
 }
@@ -61,6 +64,10 @@ function ActiveHex(coords, cents, fundamental, offset, sampleGain, sampleAttack,
 // Does this need to be a param or is it constant for the hex? i think constant
 ActiveHex.prototype.noteOn = function() {
   var freq = this.fundamental * Math.pow(2, (this.cents - this.offset) / 1200);
+  if (this.velocity_response) {
+    var vol = (0.1 + (0.9 * this.velocity_played / 127)) ** 1.4;
+  } else { var vol = 0.5 };
+  //console.log("vol:", vol);
   var source = this.audioContext.createBufferSource(); // creates a sound source
   // choose sample
   var sampleFreq = 110;
@@ -109,7 +116,7 @@ ActiveHex.prototype.noteOn = function() {
   source.connect(gainNode); // connect the source to the context's destination (the speakers)
   gainNode.gain.value = 0;
   source.start(0); // play the source now
-  gainNode.gain.setTargetAtTime(this.sampleGain * 0.5, this.audioContext.currentTime, this.sampleAttack);
+  gainNode.gain.setTargetAtTime(this.sampleGain * vol, this.audioContext.currentTime, this.sampleAttack);
   this.source = source;
   this.gainNode = gainNode;
 };
@@ -169,7 +176,7 @@ const findLoop = (fileName) => {
     }
   }
   console.error("Unable to find configured instrument");
-  return 0.1;
+  return false;
 };
 
 const findLoopPoints = (fileName) => {
@@ -185,6 +192,18 @@ const findLoopPoints = (fileName) => {
     }
   }
   console.error("Unable to find configured instrument");
+};
+
+const findVelocity = (fileName) => {
+  for (let g of instruments) {
+    for (let i of g.instruments) { 
+      if (i.fileName === fileName) {
+        return i.velocity;
+      }
+    }
+  }
+  console.error("Unable to find configured instrument");
+  return false;
 };
 
 export default create_sample_synth;

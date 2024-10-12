@@ -312,11 +312,14 @@ class Keys {
     if (!bend) {
       bend = 0;
     };
+    if (!velocity_played) {
+      velocity_played = 72;
+    };
     const [cents, pressed_interval, steps, equaves, equivSteps, cents_prev, cents_next] = this.hexCoordsToCents(coords);
     const [color, text_color] = this.centsToColor(cents, true, pressed_interval);
     this.drawHex(coords, color, text_color);
     let offset = this.settings.offset[1];
-    const hex = this.synth.makeHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_next, note_played, velocity_played, bend, offset);
+    const hex = this.synth.makeHex(coords, cents, velocity_played, steps, equaves, equivSteps, cents_prev, cents_next, note_played, bend, offset);
     hex.noteOn();
     return hex;
   };
