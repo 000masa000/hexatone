@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ScalaImport = (props) => (
   <>
-    copy/paste or type below using the Scala file format:&nbsp; <a href="http://www.huygens-fokker.org/scala/scl_format.html" target="new">[ Scala format ]</a>&nbsp; <a href="https://sevish.com/scaleworkshop" target="new">[ Scale Workshop ]</a>
+    copy/paste or type below using the Scala file format:&nbsp; <a href="http://www.huygens-fokker.org/scala/scl_format.html" target="new">[ Scala format ]</a>&nbsp; <a href="https://scaleworkshop.plainsound.org" target="new">[ Scale Workshop ]</a>
     <p>
       <b>Name</b> <em>(optional):</em> "!" followed by scala file name, e.g. "! myScale.scl"<br />
       "<b>!</b>" <em>(optional):</em> precedes a comment or empty line<br />

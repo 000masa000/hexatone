@@ -42,7 +42,7 @@ const MIDIio = (props) => (
       </select>
     </label>
     <label>
-      MIDI Note for Degree 0
+      MIDI Note that plays Degree 0
       <input name="midiin_degree0" type="number"
         value={props.settings.midiin_degree0}
         step="1" min="0" max="127"
