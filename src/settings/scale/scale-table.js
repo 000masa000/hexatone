@@ -90,7 +90,7 @@ const ScaleTable = (props) => {
             </td>
             <td>
               <input id="centered" type="text" disabled={editable_labels}
-                     name={`name${i+1}`} value={name}
+                     name={`name${i + 1}`} value={name}
                      onChange={nameChange}
                      aria-label={`pitch name ${i}`}
               />

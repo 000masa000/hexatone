@@ -65,7 +65,7 @@ function ActiveHex(coords, cents, velocity_played, fundamental, offset, sampleGa
 ActiveHex.prototype.noteOn = function() {
   var freq = this.fundamental * Math.pow(2, (this.cents - this.offset) / 1200);
   if (this.velocity_response) {
-    var vol = (0.1 + (0.9 * this.velocity_played / 127)) ** 1.4;
+    var vol = (0.5 + (0.5 * this.velocity_played / 127)) ** 2;
   } else { var vol = 0.5 };
   //console.log("vol:", vol);
   var source = this.audioContext.createBufferSource(); // creates a sound source
