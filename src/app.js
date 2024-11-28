@@ -50,6 +50,8 @@ const normalize = (settings) => {
     result["note"] = true;
   } else if (settings.key_labels === "scala_names") {
     result["scala"] = true;
+  } else if (settings.key_labels === "cents") {
+    result["cents"] = true;
   } else if (settings.key_labels === "no_labels") {
     result["no_labels"] = true;
   };

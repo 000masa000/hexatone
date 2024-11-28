@@ -678,6 +678,8 @@ class Keys {
         name = this.settings.note_names[reducedNote];
       } else if (this.settings.scala) {
         name = this.settings.scala_names[reducedNote];
+      } else if (this.settings.cents) {
+        name = Math.round(this.settings.scale[reducedNote]).toString() + ".";
       };
 
       if (name) {

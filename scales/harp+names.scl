@@ -1,0 +1,27 @@
+! harp-layout
+!
+22-tone scale for testing harp pedal combinationa
+22
+!
+1\12 !Db
+0\12 !B#
+1\12 !C#
+2\12 !D
+3\12 !Eb
+4\12 !Fb
+3\12 !D#
+4\12 !E
+5\12 !F
+6\12 !Gb
+5\12 !E#
+6\12 !F#
+7\12 !G
+8\12 !Ab
+8\12 !--
+8\12 !G#
+9\12 !A
+10\12 !Bb
+11\12 !Cb
+10\12 !A#
+11\12 !B
+2/1 !C

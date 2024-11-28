@@ -59,6 +59,7 @@ Keyboard.propTypes = {
     equivInterval: PropTypes.number,
     equivSteps: PropTypes.number,
     scala_names: PropTypes.arrayOf(PropTypes.string),
+    cents: PropTypes.arrayOf(PropTypes.string),
     note_names: PropTypes.arrayOf(PropTypes.string),
     note_colors: PropTypes.arrayOf(PropTypes.string),
     spectrum_colors: PropTypes.bool,

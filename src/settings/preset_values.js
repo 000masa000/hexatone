@@ -46,6 +46,7 @@ import scale_43_mt from 'scales/43-MT-1_5-Comma.scl';
 import scale_55_mt from 'scales/55-MT-1_6-Comma.scl';
 
 import scale_19_edo from 'scales/19edo.scl';
+import scale_22_edo from 'scales/22edo.scl';
 import scale_31_edo from 'scales/31edo.scl';
 import scale_41_edo from 'scales/41edo.scl';
 import scale_43_edo from 'scales/43edo.scl';
@@ -54,6 +55,8 @@ import scale_55_edo from 'scales/55edo.scl';
 import scale_72_edo from 'scales/72edo.scl';
 
 import scale_1cent from 'scales/1cent.scl';
+import scale_harp from 'scales/harp.scl';
+
 
 //import the Scala file parser, which can output scale: [], colors: [], labels: [], errors: [],
 import { parseScale } from './scale/parse-scale';
@@ -1756,6 +1759,38 @@ export const presets = [
         "short_description": "19edo (Salinas, Septimal Notation)"
       },
       {
+        "name": "22edo (HEJI)",
+        "description": "22-tone equal tempered scale consisting of 22 sonically equal divisions per octave. The HEJI notation indicates how this temperament may be considered to present a distorted approximation of 5-limit JI.",
+        "scale_import": scale_22_edo,
+        "scale": parseScale(scale_22_edo).scale,
+        "equivSteps": 22,
+        "note_names": [
+          "C", "D", "C D", "D",
+          "D", "E", "E", "E",
+          "E",
+          "F", "F G", "F G", "F G",
+          "G", "A", "A", "A",
+          "A", "B", "B", "B",
+          "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#d0d0d7", "#dee2da", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dee2da", "#fffae5",
+          "#ffffff",
+          "#ffffff", "#d0d0d7", "#dee2da", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dee2da", "#fffae5",
+          "#ffffff", "#d0d0d7", "#dee2da", "#fffae5",
+          "#ffffff"],
+        "spectrum_colors": false,
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17,
+        "short_description": "22-JI-5L Śrutis (Sambamurthy/Daniélou)"
+      },
+      {
         "name": "31edo (gbb-a##)",
         "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Quintal Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Step-size is 38.7 cents.",
         "scale_import": scale_31_edo,
@@ -2064,6 +2099,38 @@ export const presets = [
         "rotation": -29.3577535,
         "fundamental": 240,
         "short_description": "Interval Tester by Diesis (41 cents)"
+      },
+      {
+        "name": "Harp Layout",
+        "description": "22-tone layout for testing harp pedal combinations.",
+        "scale_import": scale_harp,
+        "scale": parseScale(scale_harp).scale,
+        "equivSteps": 22,
+        "note_names": [
+          "C", "D", "B", "C",
+          "D", "E", "F", "D",
+          "E",
+          "F", "G", "E", "F",
+          "G", "A", "-", "G",
+          "A", "B", "C", "A",
+          "B"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#d0d0d7", "#dee2da", "#dee2da",
+          "#ffffff", "#d0d0d7", "#d0d0d7", "#dee2da",
+          "#ffffff",
+          "#ffffff", "#d0d0d7", "#dee2da", "#dee2da",
+          "#ffffff", "#d0d0d7", "#999999", "#dee2da",
+          "#ffffff", "#d0d0d7", "#d0d0d7", "#dee2da",
+          "#ffffff"],
+        "spectrum_colors": false,
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 42,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 17,
+        "short_description": "Harp"
       }      
     ]
   }
