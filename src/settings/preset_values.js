@@ -1166,6 +1166,38 @@ export const presets = [
           "fundamental": 440,
           "reference_degree": 40,
           "short_description": "53-near-isomorphic odd partial set"
+      },
+      {
+        "name": "53-(19-Limit) < 256° isomorphic (HEJI)",
+        "description": "53-tone Rational Intonation gamut, based on the set of pitch classes derived from odd harmonic partials not exceeding 256°. To divide each whole tone into 9 parts and each limma in 4 parts, and obtain a near-isomorphic 53-layout, a few additional higher primes and a few pitches from the subdominant series have been added to complete the scale (69, 7/6, 315, 65/48, 177, 23, 19/12, 5/3, 59, 31, 95/48).",
+        "scale_import": scale_53_hs_odd_mod,
+        "scale": parseScale(scale_53_hs_odd_mod).scale,
+        "equivSteps": 53,
+        "note_names": [
+            "C", "C", "C", "D", "C", "C", "C", "D", "D",
+            "D", "E", "E", "D", "E", "E", "E", "E", "E",
+            "E", "E", "F", "F",
+            "F", "F", "F", "177°", "F", "G", "F",  "G", "G",
+            "G", "A", "G", "G", "A", "G", "A", "A", "A",
+            "A", "A", "B", "A", "B", "B", "B", "59°", "B",
+            "B", "C", "C", "C"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#d3dab9", "#ffcba8", "#acd2c2",
+          "#ffffff", "#f8c9c9", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ffcba8", "#fffae5",
+          "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe",
+          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#d3dab9", "#ffe5e5", "#e5fff9",
+          "#ffffff", "#f8c9c9", "#dfffd6", "#fef5be", "#d6f7ff", "#cfcfcf", "#e6d7fe", "#ffcba8","#fffae5",
+          "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#d0d0d7", "#fffae5",
+          "#c3ffad", "#d1c2c2", "#ffe5e5", "#e5fff9"],                  
+          "spectrum_colors": false,
+          "rSteps": 9,
+          "urSteps": 4,
+          "hexSize": 42,
+          "rotation": -16.102113751,       
+          "fundamental": 440,
+          "reference_degree": 40,
+          "short_description": "53-near-isomorphic odd partial set"
       }
     ]
   },
