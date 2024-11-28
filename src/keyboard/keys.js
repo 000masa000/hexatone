@@ -679,7 +679,7 @@ class Keys {
       } else if (this.settings.scala) {
         name = this.settings.scala_names[reducedNote];
       } else if (this.settings.cents) {
-        name = Math.round(this.settings.scale[reducedNote]).toString() + ".";
+        name = Math.round((this.settings.scale[reducedNote] - this.settings.scale[this.settings.reference_degree] + 1200) % 1200).toString() + ".";
       };
 
       if (name) {

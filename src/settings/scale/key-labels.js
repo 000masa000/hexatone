@@ -13,7 +13,7 @@ const KeyLabels = (props) => (
         <option value="enumerate">Scale Degrees</option>
         <option value="note_names">Note Names</option>
         <option value="scala_names">Ratios/Cents</option>
-        <option value="cents">Cents</option>
+        <option value="cents">Cents from Reference Degree</option>
       </select>
     </label>
   </>
