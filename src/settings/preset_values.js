@@ -1136,7 +1136,7 @@ export const presets = [
         "short_description": "Odd Partial PC SG 3,5,13)"
       },
       {
-        "name": "53-(19-Limit) < 256° isomorphic",
+        "name": "53 < 256° isomorphic",
         "description": "53-tone Rational Intonation gamut, based on the set of pitch classes derived from odd harmonic partials not exceeding 256°. To divide each whole tone into 9 parts and each limma in 4 parts, and obtain a near-isomorphic 53-layout, a few additional higher primes and a few pitches from the subdominant series have been added to complete the scale (69, 7/6, 315, 65/48, 177, 23, 19/12, 5/3, 59, 31, 95/48).",
         "scale_import": scale_53_hs_odd_mod,
         "scale": parseScale(scale_53_hs_odd_mod).scale,
@@ -1168,7 +1168,7 @@ export const presets = [
           "short_description": "53-near-isomorphic odd partial set"
       },
       {
-        "name": "53-(19-Limit) < 256° isomorphic (HEJI)",
+        "name": "53 < 256° isomorphic (HEJI)",
         "description": "53-tone Rational Intonation gamut, based on the set of pitch classes derived from odd harmonic partials not exceeding 256°. To divide each whole tone into 9 parts and each limma in 4 parts, and obtain a near-isomorphic 53-layout, a few additional higher primes and a few pitches from the subdominant series have been added to complete the scale (69, 7/6, 315, 65/48, 177, 23, 19/12, 5/3, 59, 31, 95/48).",
         "scale_import": scale_53_hs_odd_mod,
         "scale": parseScale(scale_53_hs_odd_mod).scale,
