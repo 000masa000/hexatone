@@ -1855,6 +1855,38 @@ export const presets = [
         "short_description": "31edo (g♭♭-a♯♯)"
       },
       {
+        "name": "31edo (quartertone notation)",
+        "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Quintal Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Step-size is 38.7 cents.",
+        "scale_import": scale_31_edo,
+        "scale": parseScale(scale_31_edo).scale,
+        "equivSteps": 31,
+        "note_names": [
+          "c", "c", "♯c", "♭d", "d",
+          "d", "d", "♯d", "♭e", "e",
+          "e", "e ♭f", "♯e f",
+          "f", "f", "♯f", "♭g", "g",
+          "g", "g", "♯g", "♭a", "a",
+          "a", "a", "♯a", "♭b", "b",
+          "b", "b ♭c", "♯b c"],
+        "key_labels": "note_names",
+        "note_colors": [
+          "#f9f7eb", "#eff4e7", "#eee9d3", "#e2dfcf", "#dddae2",
+          "#f9f7eb", "#eff4e7", "#eee9d3", "#e2dfcf", "#dddae2",
+          "#f9f7eb", "#eff4e7", "#eee9d3",
+          "#f9f7eb", "#eff4e7", "#eee9d3", "#e2dfcf", "#dddae2",
+          "#f9f7eb", "#eff4e7", "#eee9d3", "#e2dfcf", "#dddae2",
+          "#f9f7eb", "#eff4e7", "#eee9d3", "#e2dfcf", "#dddae2",
+          "#f9f7eb", "#eff4e7", "#eee9d3"],
+        "spectrum_colors": false,
+        "rSteps": 5,
+        "urSteps": 3,
+        "hexSize": 42,
+        "rotation": -16.102113751,
+        "fundamental": 440,
+        "reference_degree": 23,
+        "short_description": "31edo (quartertone)"
+      },
+      {
         "name": "31edo (in Vicentino Notation, 1555)",
         "description": "31-tone equal tempered scale consisting of 31 sonically equal divisions per octave. Similar to 1/4-Quintal Comma meantone, the system was first described by Lemme Rossi in 1666, although Vicentino effectively proposed it in 1555. Using a notation invented by Nicola Vicentino.",
         "scale_import": scale_31_edo,
