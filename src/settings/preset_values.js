@@ -29,7 +29,8 @@ import scale_13_ji_7l_P5 from 'scales/13-JI-7L-P5.scl';
 import scale_36_hs_12to48 from 'scales/36-HS-12to48.scl';
 import scale_72_hss_12to48 from 'scales/72-HSS-12to48.scl';
 import scale_72_shs_12to48 from 'scales/72-SHS-12to48.scl';
-import scale_19_hs_34to51 from 'scales/19-HS-34to51.scl';
+import scale_19_hs_34to52 from 'scales/19-HS-34to52.scl';
+import scale_56_hs_56to112 from 'scales/56-HS-56to112.scl';
 
 import scale_14_hs_odd_3_5 from 'scales/14-HS-odd-3+5.scl';
 import scale_12_hs_odd_3_7 from 'scales/12-HS-odd-3+7.scl';
@@ -646,8 +647,8 @@ export const presets = [
     "name": "Harmonics and Subharmonics",
     settings: [
       {
-        "name": "HS 12-48: harmonic partial row 12° to 48°",
-        "description": "A two octave cycle comprising the harmonic partial row from 12° to 48°. 12° is mapped to C, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is F. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees. In this example, the 12° is tuned to 240 Hz, giving 1° = 20 Hz",
+        "name": "HS 12°-48°: harmonic partial row from 12° to 48°",
+        "description": "A two octave cycle comprising the harmonic partial row from 12° to 48°. 12° is mapped to MIDI Note 60 (Middle C), and tuned to 240 Hz, giving 1° = 20 Hz. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees.",
         "scale_import": scale_36_hs_12to48,
         "scale": parseScale(scale_36_hs_12to48).scale,
         "equivSteps": 36,
@@ -659,17 +660,39 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#eff1f1",
+        "fundamental_color": "#f4fafa",
         "rSteps": 4,
         "urSteps": 1,
-        "hexSize": 42,
-        "rotation": -26,
+        "hexSize": 38,
+        "rotation": -16.102113751,
+        "fundamental": 240,
+        "short_description": "36-HS 12° to 24°"
+      },
+      {
+        "name": "HS 12°-48° (Odd Partial Pitch Classes)",
+        "description": "A two octave cycle comprising the harmonic partial row from 12° to 48°. 12° is mapped to MIDI Note 60 (Middle C), and tuned to 240 Hz, giving 1° = 20 Hz. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 3°. The first octave of the scale (12° to 24°) has 12 pitch-classes, and the second (24° to 48°) has 24, mapping onto 3 octaves of a conventional keyboard. Note that partials below 12° may also be played by taking lower even-numbered scale degrees.",
+        "scale_import": scale_36_hs_12to48,
+        "scale": parseScale(scale_36_hs_12to48).scale,
+        "equivSteps": 36,
+        "note_names": [
+          "3", "13", "7", "15",
+          "1", "17", "9", "19", "5", "21", "11", "23", "12", "25", "13", "27", "7", "29", "15", "31",
+          "1", "33", "17", "35", "9", "37", "19", "39", "5", "41", "21", "43", "11", "45", "23", "47",
+          "3"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f4fafa",
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 38,
+        "rotation": -16.102113751,
         "fundamental": 240,
         "short_description": "36-HS 12° to 24°"
       },
       {
         "name": "HS_SH 12-48: Harmonics/Subharmonics combined",
-        "description": "Harmonic and Subharmonic partial rows from 12° to 48° mapped onto a four octave cycle. The \"subharmonic\" row is a mirroring, with intervals taken downward from a common pitch. Subharmonic chords do not exhibit the same psychoacoustic fusion and combination tone reinforcement as harmonic chords, but they produce melodically related sets that harmonise with a sustained higher pitch (e.g., in counterpoint). Some JI composers (i.e., Elsie Hamilton,Harry Partch, Ben Johnston) have worked extensively with symmetrically structured otonal / utonal harmonies.",
+        "description": "Harmonic and Subharmonic partial rows from 12° to 48° mapped onto a four octave cycle. 12 is mapped to MIDI Note 60 (Middle C), and tuned to 240 Hz. The \"subharmonic\" row is a mirroring, with intervals taken downward from a common pitch. Subharmonic chords do not exhibit the same psychoacoustic fusion and combination tone reinforcement as harmonic chords, but they produce melodically related sets that harmonise with a sustained higher pitch (e.g., in counterpoint). Some JI composers (i.e., Elsie Hamilton, Harry Partch, Ben Johnston) have worked extensively with symmetrically structured otonal / utonal harmonies.",
         "scale_import": scale_72_hss_12to48,
         "scale": parseScale(scale_72_hss_12to48).scale,
         "equivSteps": 72,
@@ -682,11 +705,11 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#eff1f1",
+        "fundamental_color": "#f4fafa",
         "rSteps": 4,
         "urSteps": 1,
         "hexSize": 38,
-        "rotation": -26,
+        "rotation": -16.102113751,
         "fundamental": 240,
         "short_description": "72-HSS 12 to 48"
       },
@@ -704,36 +727,92 @@ export const presets = [
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
-        "fundamental_color": "#eff1f1",
+        "fundamental_color": "#f4fafa",
         "rSteps": 4,
         "urSteps": 1,
         "hexSize": 38,
-        "rotation": -26,
+        "rotation": -16.102113751,
         "fundamental": 240,
         "short_description": "72-SHS 12 to 48"
       },
       {
         "name": "19-tone modulating pattern (harmonic partials 32°-52°)",
         "description": "A cycle of harmonic partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth. Matching partial numbers produce perfect fifths instead of octaves. Useful for investigating possible chords of higher partials embedded within a perfect fifth, for example 6:7:8:9, 8:9:11:12, 10:12:13:15, and others. The 48° of the central transposition of the scale is set to 440 Hz.",
-        "scale_import": scale_19_hs_34to51,
-        "scale": parseScale(scale_19_hs_34to51).scale,
+        "scale_import": scale_19_hs_34to52,
+        "scale": parseScale(scale_19_hs_34to52).scale,
         "equivSteps": 19,
         "note_names": [
-          "3451", "52", "35", "36", "37", "38", "39", "40", "41",
-          "42", "43", "44", "45", "46", "47", "3248", "49", "33",
-          "50"],
+          "51|34", "52|", "|35", "36", "37", "38", "39", "40", "41",
+          "42", "43", "44", "45", "46", "47", "48|32", "49|", "|33",
+          "50|"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": true,
+        "fundamental_color": "#f4fafa",
+        "rSteps": 5,
+        "urSteps": 1,
+        "hexSize": 32,
+        "rotation": -16.102113751,   
+        "fundamental": 440,
+        "reference_degree": 15,
+        "short_description": "19-HS 34 to 52"
+      },
+      {
+        "name": "19-tone modulating (32°-52°, Odd Partial Pitch Classes)",
+        "description": "A cycle of harmonic partials (32° 33°) 34° to 51° (52°), repeating at the perfect fifth over changing fundamentals. Partial 48° is reinterpreted as 32° (and 51° = 34°); the fundamental shifts up a perfect fifth. Matching partial numbers produce perfect fifths instead of octaves. Useful for investigating possible chords of higher partials embedded within a perfect fifth, for example 6:7:8:9, 8:9:11:12, 10:12:13:15, and others. The 48° of the central transposition of the scale is set to 440 Hz.",
+        "scale_import": scale_19_hs_34to52,
+        "scale": parseScale(scale_19_hs_34to52).scale,
+        "equivSteps": 19,
+        "note_names": [
+          "51|17", "13|", "|35", "9", "37", "19", "39", "5", "41",
+          "21", "43", "11", "45", "23", "47", "3|1", "49|", "|33",
+          "25|"],
         "key_labels": "note_names",
         "note_colors": [],
         "spectrum_colors": true,
         "fundamental_color": "#eff1f1",
-        "rSteps": 5,
-        "urSteps": 1,
-        "hexSize": 32,
-        "rotation": -27,   
+        "rSteps": 4,
+        "urSteps": 3,
+        "hexSize": 36,
+        "rotation": -16.102113751,   
         "fundamental": 440,
         "reference_degree": 15,
-        "short_description": "19-HS 34 to 51"
-      }      
+        "short_description": "19-HS 34 to 52-Odd"
+      },
+      {
+        "name": "HS 55°-110°: harmonic partial row from 55° to 110°",
+        "description": "A one octave cycle comprising the harmonic partial row from 55° to 110°. 55° is mapped to MIDI Note 60 (Middle C) and tuned to  55°/D at A 440 Hz, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is Tertial D. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 55°.",
+        "scale_import": scale_56_hs_56to112,
+        "scale": parseScale(scale_56_hs_56to112).scale,
+        "equivSteps": 55,
+        "note_names": [
+          "55°", "7", "57", "29", "59", "15", "61", "31", "63",
+          "1", "65", "33", "67", "17", "69", "35", "71",
+          "9", "73", "37", "75", "19", "77", "39", "79",
+          "5", "81", "41", "83", "21", "85", "43", "87",
+          "11", "89", "45", "91", "23", "93", "47", "95",
+          "3", "97", "49", "99", "25", "101", "51", "103",
+          "13", "105", "53", "107", "27", "109", "55"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": false,
+        "note_colors": [
+          "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#bbbbbb", "#d1c2c2", "#ffe5e5",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#bbbbbb", "#cfcfcf", "#d3dab9", "#ffcba8", "#bbbbbb",
+          "#ffffff", "#bbbbbb", "#cee3e2", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#bbbbbb",
+          "#fffae5", "#ffffff", "#dee2da", "#bbbbbb", "#ffe5e5", "#eceae4", "#bbbbbb", "#b6ecd0",
+          "#dfffd6", "#bbbbbb", "#fffae5", "#ebd0e0", "#d3dab9", "#d1c2c2", "#ffb8da", "#e5fff9",
+          "#ffffff", "#bbbbbb", "#f8c9c9", "#dfffd6", "#fef5be", "#bbbbbb", "#cfcfcf", "#bbbbbb",
+          "#e6d7fe", "#ffcba8", "#bbbbbb", "#bbbbbb", "#ffffff", "#bbbbbb", "#ddfe95"
+        ],
+        "rSteps": 9,
+        "urSteps": 5,
+        "hexSize": 32,
+        "rotation": -16.102113751,
+        "fundamental": 440,
+        "reference_degree": 41,
+        "short_description": "56-HS 56° to 112°"
+      }
     ]
   },
   {
