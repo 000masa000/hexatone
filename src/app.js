@@ -179,12 +179,12 @@ const App = () => {
     settings.midiin_channel = 0;
   };
 
-  if (sessionStorage.getItem("midiin_degree0")) {
+  /* if (sessionStorage.getItem("midiin_degree0")) {
     // console.log("sessionStorage midiin_degree0", sessionStorage.getItem("midiin_degree0"))
     settings.midiin_degree0 = parseInt(sessionStorage.getItem("midiin_degree0"));
   } else {
       settings.midiin_degree0 = 60;
-  };
+  }; */
 
   if (sessionStorage.getItem("midi_device")) {
    // console.log("sessionStorage midi_device", sessionStorage.getItem("midi_device"))
