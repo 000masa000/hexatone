@@ -30,6 +30,7 @@ import scale_36_hs_12to48 from 'scales/36-HS-12to48.scl';
 import scale_72_hss_12to48 from 'scales/72-HSS-12to48.scl';
 import scale_72_shs_12to48 from 'scales/72-SHS-12to48.scl';
 import scale_19_hs_34to52 from 'scales/19-HS-34to52.scl';
+import scale_53_hs_53to106 from 'scales/53-HS-53to106.scl';
 import scale_55_hs_55to110 from 'scales/55-HS-55to110.scl';
 
 import scale_14_hs_odd_3_5 from 'scales/14-HS-odd-3+5.scl';
@@ -812,8 +813,43 @@ export const presets = [
         "short_description": "19-HS 34 to 52-Odd"
       },
       {
+        "name": "HS 53°-106°: harmonic partial row from 53° to 106°",
+        "description": "A one octave cycle comprising the harmonic partial row from 53° to 106°. 53° is mapped to MIDI Note 51 (Middle C) and tuned to  53°/C at A 440 Hz, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is Tertial C. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 53°.",
+        "scale_import": scale_53_hs_53to106,
+        "scale": parseScale(scale_53_hs_53to106).scale,
+        "equivSteps": 53,
+        "note_names": [
+          "53°", "27°", "55°", "7", "57", "29", "59", "15", "61", "31", "63",
+          "1", "65", "33", "67", "17", "69", "35", "71",
+          "9", "73", "37", "75", "19", "77", "39", "79",
+          "5", "81", "41", "83", "21", "85", "43", "87",
+          "11", "89", "45", "91", "23", "93", "47", "95",
+          "3", "97", "49", "99", "25", "101", "51", "103",
+          "13", "105", "53"],
+        "key_labels": "note_names",
+        "note_colors": [],
+        "spectrum_colors": false,
+        "note_colors": [
+          "#ededed", "#ffffff", "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#d1c2c2", "#ffe5e5",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#d3dab9", "#ffcba8", "#ededed",
+          "#ffffff", "#ededed", "#cee3e2", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ededed",
+          "#fffae5", "#ffffff", "#f2cdc5", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#b6ecd0",
+          "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#d3dab9", "#d1c2c2", "#ffb8da", "#e5fff9",
+          "#ffffff", "#ededed", "#f8c9c9", "#dfffd6", "#fef5be", "#ededed", "#cfcfcf", "#ededed",
+          "#e6d7fe", "#ffcba8", "#ededed"
+        ],
+        "rSteps": 9,
+        "urSteps": 4,
+        "hexSize": 32,
+        "rotation": -16.102113751,
+        "fundamental": 220,
+        "reference_degree": 1,
+        "midiin_degree0": 49,
+        "short_description": "53-HS 53° to 106°"
+      },
+      {
         "name": "HS 55°-110°: harmonic partial row from 55° to 110°",
-        "description": "A one octave cycle comprising the harmonic partial row from 55° to 110°. 55° is mapped to MIDI Note 60 (Middle C) and tuned to  55°/D at A 440 Hz, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is Tertial D. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 55°.",
+        "description": "A one octave cycle comprising the harmonic partial row from 55° to 110°. 55° is mapped to MIDI Note 51 and tuned to 55°/C at A 440 Hz, so the fundamental pitch-class (1°, 2°, 4°, 8°, 16°, etc.) is Tertial C. The entire series may be transposed to any fundamental by changing the Reference Frequency, which (in this case) will set the pitch-class 55°.",
         "scale_import": scale_55_hs_55to110,
         "scale": parseScale(scale_55_hs_55to110).scale,
         "equivSteps": 55,
@@ -832,7 +868,7 @@ export const presets = [
           "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#d1c2c2", "#ffe5e5",
           "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#d3dab9", "#ffcba8", "#ededed",
           "#ffffff", "#ededed", "#cee3e2", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ededed",
-          "#fffae5", "#ffffff", "#f2cdc5", "#ededed", "#ffe5e5", "#eceae4", "#ededed", "#b6ecd0",
+          "#fffae5", "#ffffff", "#f2cdc5", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#b6ecd0",
           "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#d3dab9", "#d1c2c2", "#ffb8da", "#e5fff9",
           "#ffffff", "#ededed", "#f8c9c9", "#dfffd6", "#fef5be", "#ededed", "#cfcfcf", "#ededed",
           "#e6d7fe", "#ffcba8", "#ededed", "#ededed", "#ffffff", "#ededed", "#ddfe95"
