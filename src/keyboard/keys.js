@@ -97,7 +97,7 @@ class Keys {
 
           this.midiin_data.addListener("channelaftertouch", e => {
             console.log("Channel Pressure (thru on all channels) ", e.message.dataBytes[0]);
-            this.midiout_data.sendChannelAtertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
+            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0], { channels: (this.settings.midi_channel + 1), rawAttack: true});
           });
 
           this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do, for now on output channel only
@@ -107,7 +107,7 @@ class Keys {
 
           this.midiin_data.addListener("keyaftertouch", e => {
             let note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
-            this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (keymap[note][6] + 1) });
+            this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1], { channels: (keymap[note][6] + 1), rawValue: true });
             console.log("Key Pressure MultiCh", keymap[note][6] + 1, keymap[note][0], e.message.dataBytes[1]);
           });
             
@@ -120,7 +120,7 @@ class Keys {
 
           this.midiin_data.addListener("channelaftertouch", e => {
             console.log("Channel Aftertouch (thru)", this.settings.midi_channel + 1, e.message.dataBytes[0]);
-            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0] / 128.0, { channels: (this.settings.midi_channel + 1) });
+            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0], { channels: (this.settings.midi_channel + 1), rawValue: true });
           });
 
           if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
@@ -135,7 +135,7 @@ class Keys {
               channel_offset = ((channel_offset + 20) % 8) - 4;
               let note_offset = channel_offset * this.settings.equivSteps;
               let note = (e.message.dataBytes[0] + note_offset) % 128; // matches note cycling in midi_synth/index,js
-              this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
+              this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1), rawValue: true });
               console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
             }); 
 
@@ -145,7 +145,7 @@ class Keys {
               let note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
               //console.log("note", note);
               //console.log("keymap", keymap[note][0]);
-              this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1] / 128.0, { channels: (this.settings.midi_channel + 1) });
+              this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1), rawValue: true });
               console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
             });
             
