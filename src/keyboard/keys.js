@@ -134,7 +134,7 @@ class Keys {
               let channel_offset = e.message.channel - 1 - this.settings.midiin_channel; // calculates the difference between selected central MIDI Input channel and the actual channel being sent and uses this to offset by up to +/- 4 equaves
               channel_offset = ((channel_offset + 20) % 8) - 4;
               let note_offset = channel_offset * this.settings.equivSteps;
-              let note = (e.message.dataBytes[0] + note_offset) % 128; // matches note cycling in midi_synth/index,js
+              let note = (e.message.dataBytes[0] + note_offset + (16 * 128)) % 128; // matches note cycling in midi_synth/index,js
               this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1), rawValue: true });
               console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
             }); 
