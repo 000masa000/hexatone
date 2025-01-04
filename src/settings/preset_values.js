@@ -873,10 +873,10 @@ export const presets = [
           "#ffffff", "#ededed", "#f8c9c9", "#dfffd6", "#fef5be", "#ededed", "#cfcfcf", "#ededed",
           "#e6d7fe", "#ffcba8", "#ededed", "#ededed", "#ffffff", "#ededed", "#ddfe95"
         ],
-        "rSteps": 9,
+        "rSteps": 8,
         "urSteps": 5,
         "hexSize": 32,
-        "rotation": -16.102113751,
+        "rotation": -8.2,
         "fundamental": 440,
         "reference_degree": 53,
         "midiin_degree0": 51,

@@ -64,7 +64,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       var bend_down = cents - cents_prev;
      // console.log("cents_from_reference", ref_cents); // this could give a readout of cents from nearest MIDI
       var split = channel;
-      var steps_cycle = Math.floor(ref_cents / 100.); // finds the number of steps from the desired reference frequency produced by MIDI note assigned to degree0, notice that any global retuning of the softsynth other than 440Hz will change this as well!
+      var steps_cycle = Math.floor(ref_cents / 100.0); // finds the number of steps from the desired reference frequency produced by MIDI note assigned to degree0, notice that any global retuning of the softsynth other than 440Hz will change this as well!
       //console.log("steps_cycle",steps_cycle);
       
       var mts = [];
