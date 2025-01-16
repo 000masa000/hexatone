@@ -4,7 +4,7 @@ import Euclid from './euclidean';
 import { rgb, HSVtoRGB, HSVtoRGB2, nameToHex, hex2rgb, rgb2hsv, getContrastYIQ, getContrastYIQ_2, rgbToHex } from './color_utils';
 import { WebMidi } from 'webmidi';
 import { midi_in } from '../settings/midi/midiin';
-import { keymap, notes_played } from '../midi_synth';
+import { keymap, notes } from '../midi_synth';
 import { mtsToMidiFloat, centsToMTS } from '../midi_synth';
 import { scalaToCents } from '../settings/scale/parse-scale';
 
@@ -77,12 +77,51 @@ class Keys {
       
       this.midiin_data.addListener("noteon", e => {
         //console.log("(input) note_on", e.message.channel, e.note.number, e.note.rawAttack);
-        this.midinoteOn(e);        
+        this.midinoteOn(e);
+        notes.played.unshift(e.note.number + (128 * (e.message.channel - 1)));
+        console.log("notes.played after noteon:", notes.played);
       });
 
       this.midiin_data.addListener("noteoff", e => {
         //console.log("(input) note_off", e.message.channel, e.note.number, e.note.rawRelease);
-        this.midinoteOff(e);        
+        this.midinoteOff(e);
+        let index = notes.played.lastIndexOf(e.note.number + (128 * (e.message.channel - 1))); // eliminate note_played from array of played notes when using internal synth
+        if (index >= 0) {
+          let first_half = [];
+          first_half = notes.played.slice(0, index);
+          let second_half = [];
+          second_half = notes.played.slice(index);
+          second_half.shift();
+          let newarray = [];
+          notes.played = newarray.concat(first_half, second_half);
+        };
+        if (notes.played.length > 0) {
+          console.log("notes.played after noteoff", notes.played);
+        } else {
+          console.log("All notes released!");
+        };
+      });
+
+      this.midiin_data.addListener("controlchange", e => {
+        if (e.message.dataBytes[0] == 64) {
+          console.log("Controller 64 (Sustain Pedal) Received");
+          if (e.message.dataBytes[1] > 0) {
+            this.sustainOn();
+          } else {
+            this.sustainOff();
+          };
+        };
+
+        if (e.message.dataBytes[0] == 123) {
+          console.log("Controller 123 (All Notes Off) Received");
+          console.log("Notes being played:", notes.played);
+          this.allnotesOff();
+        };
+
+        if (e.message.dataBytes[0] == 121) {
+          console.log("Controller 121 (All Controllers Off) Received");
+          this.sustainOff();
+        };        
       });
 
       if ((this.settings.midi_device !== "OFF") && (this.settings.midi_channel >= 0)) { // forward other MIDI data through to output
@@ -91,42 +130,42 @@ class Keys {
         if (this.settings.midi_mapping == "multichannel") { // in multichannel output send controlchange and channel pressure on selected channel only
 
           this.midiin_data.addListener("controlchange", e => {
-            console.log("Control Change (thru on all channels)", e.message.dataBytes[0], e.message.dataBytes[1]);
+            //console.log("Control Change (thru on all channels)", e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("channelaftertouch", e => {
-            console.log("Channel Pressure (thru on all channels) ", e.message.dataBytes[0]);
-            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0], { channels: (this.settings.midi_channel + 1), rawAttack: true});
+            //console.log("Channel Pressure (thru on all channels) ", e.message.dataBytes[0]);
+            this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0], { channels: (this.settings.midi_channel + 1), rawValue: true});
           });
 
           this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do, for now on output channel only
-            console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+            //console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("keyaftertouch", e => {
             let note = e.message.dataBytes[0] + (128 * (e.message.channel - 1)); // finds index of stored MTS data
             this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1], { channels: (keymap[note][6] + 1), rawValue: true });
-            console.log("Key Pressure MultiCh", keymap[note][6] + 1, keymap[note][0], e.message.dataBytes[1]);
+            //console.log("Key Pressure MultiCh", keymap[note][6] + 1, keymap[note][0], e.message.dataBytes[1]);
           });
             
         } else { // in single-channel output send controlchange and channel pressure only on selected channel
 
           this.midiin_data.addListener("controlchange", e => {
-            console.log("(thru) Control Change", this.settings.midi_channel + 1, e.message.dataBytes[0], e.message.dataBytes[1]);
+            //console.log("(thru) Control Change", this.settings.midi_channel + 1, e.message.dataBytes[0], e.message.dataBytes[1]);
             this.midiout_data.sendControlChange(e.message.dataBytes[0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1) });
           });
 
           this.midiin_data.addListener("channelaftertouch", e => {
-            console.log("Channel Aftertouch (thru)", this.settings.midi_channel + 1, e.message.dataBytes[0]);
+            //console.log("Channel Aftertouch (thru)", this.settings.midi_channel + 1, e.message.dataBytes[0]);
             this.midiout_data.sendChannelAftertouch(e.message.dataBytes[0], { channels: (this.settings.midi_channel + 1), rawValue: true });
           });
 
           if (this.settings.midi_mapping == "sequential") { // handling of sequential and mts output of key pressure
 
             this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do
-              console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+              //console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
               this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
             });
             
@@ -136,7 +175,7 @@ class Keys {
               let note_offset = channel_offset * this.settings.equivSteps;
               let note = (e.message.dataBytes[0] + note_offset + (16 * 128)) % 128; // matches note cycling in midi_synth/index,js
               this.midiout_data.sendKeyAftertouch(note, e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1), rawValue: true });
-              console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
+              //console.log("Key Pressure Seq", this.settings.midi_channel + 1, note, e.message.dataBytes[1]);
             }); 
 
           } else if ((this.settings.midi_mapping == "MTS1") || (this.settings.midi_mapping == "MTS2")) {
@@ -146,12 +185,19 @@ class Keys {
               //console.log("note", note);
               //console.log("keymap", keymap[note][0]);
               this.midiout_data.sendKeyAftertouch(keymap[note][0], e.message.dataBytes[1], { channels: (this.settings.midi_channel + 1), rawValue: true });
-              console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
+              //console.log("Key Pressure MTS", this.settings.midi_channel + 1, keymap[note][0], e.message.dataBytes[1]);
             });
-            
+
+            this.midiin_data.addListener("pitchbend", e => { // TODO decide what multichannel pitchbend should do, for now on output channel only
+              //console.log("Pitch Bend (thru)", e.message.dataBytes[0], e.message.dataBytes[1]);
+              this.midiout_data.sendPitchBend((2.0 * ((e.message.dataBytes[0] / 16384.0) + (e.message.dataBytes[1] / 128.0))) - 1.0, { channels: (this.settings.midi_channel + 1) });
+            });
+
+            /*
             this.midiin_data.addListener("pitchbend", e => { // pitchbend is processed as MTS real-time data allowing every note a different bend radius
               this.mtsBend(e);       
-            });            
+            });
+            */
           };
         };
       };
@@ -212,11 +258,12 @@ class Keys {
     };
   };
 
+  /*
   mtsBend = (e) => { // generates scale specific one scale degree last note played pitch bend
     let bend = 0;
-    console.log("Pitchbend: ", e.message.dataBytes[0], e.message.dataBytes[1]);
+    //console.log("Pitchbend: ", e.message.dataBytes[0], e.message.dataBytes[1]);
     bend = ((e.message.dataBytes[0] + (128 * e.message.dataBytes[1])) - 8192);
-    let last_noteon = notes_played[notes_played.length - 1];
+    let last_noteon = notes.played[notes.played.length - 1];
     if (bend < 0) {
       bend = bend / 8192; // set bend down between 0 and -1
     } else {
@@ -251,6 +298,7 @@ class Keys {
       };
     };
   };
+  */
 
   midinoteOn = (e) => { // TODO make the display calculation relative to angle of hex, and write a separate function
     let bend = 0;
@@ -305,6 +353,41 @@ class Keys {
         this.noteOff(this.state.activeHexObjects[hexIndex], e.note.rawRelease);
         this.state.activeHexObjects.splice(hexIndex, 1);
       };
+    };
+  };
+
+  allnotesOff = () => {
+    if (notes.played.length > 0) {
+      for (let i = 0; i < notes.played.length; i++) {
+        let steps = (notes.played[i] % 128) - this.settings.midiin_degree0;
+        let channel_offset = Math.floor((notes.played[i] / 128)) - this.settings.midiin_channel;
+        channel_offset = ((channel_offset + 20) % 8) - 4;
+        let steps_offset = channel_offset * this.settings.equivSteps;
+        steps = steps + steps_offset;
+
+        let rSteps_count = Math.round(steps / this.settings.rSteps); // how many steps to the right to get near the played note, as before
+        let rSteps_to_steps = this.settings.rSteps * rSteps_count;
+        let urSteps_count = Math.round((steps - rSteps_to_steps) / this.settings.urSteps);
+        let urSteps_to_steps = this.settings.urSteps * urSteps_count;
+        let gcdSteps_count = Math.floor((steps - rSteps_to_steps - urSteps_to_steps) / this.settings.gcd[0]);
+        let gcdSteps_to_steps = gcdSteps_count * this.settings.gcd[0];
+        let remainder = steps - rSteps_to_steps - urSteps_to_steps - gcdSteps_to_steps;
+        if (remainder == 0) {
+          let coords = new Point(rSteps_count + (gcdSteps_count * this.settings.gcd[1]), urSteps_count + (gcdSteps_count * this.settings.gcd[2]));
+          this.hexOff(coords);
+          let hexIndex = this.state.activeHexObjects.findIndex(function (hex) {
+            return coords.equals(hex.coords);
+          });
+          if (hexIndex != -1) {
+            this.noteOff(this.state.activeHexObjects[hexIndex], 64);
+            this.state.activeHexObjects.splice(hexIndex, 1);
+          };
+        };
+      };
+      notes.played = [];
+      console.log("All notes released!");
+    } else {
+      console.log("No held notes to be released.")
     };
   };
   

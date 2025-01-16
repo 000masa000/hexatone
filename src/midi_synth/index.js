@@ -7,7 +7,6 @@ for (let i = 0; i < 128; i++) {
   tuningmap[i] = [i, 0, 0];  
 };
 
-// TODO MIDI panic button
 export const create_midi_synth = async (midiin_device, midiin_degree0, midi_output, channel, midi_mapping, velocity, fundamental) => {
   return {
     makeHex: (coords, cents, velocity_played, steps, equaves, equivSteps, cents_prev, cents_next, note_played, bend, offset) => {
@@ -19,7 +18,11 @@ export const create_midi_synth = async (midiin_device, midiin_degree0, midi_outp
 var note_count = 0;
 var note_count_l = 23; // Pianoteq hack: only notes 9 to 113 may be played even when using MTS (as of 2023, PTQ version 8); unfortunately, extended ranges of other instruments are even more severely limited; also, notes above a certain cutoff point (varying by model between 89 and 92) are automatically played without a damper, to optimise polyphony; to cope with this implementation MTS data is sent to two cycling note groups: sounding pitches from 0 to 88 are sent to MIDI notes 23 to 88. Sounding pitches 89 to 127 are sent to MIDI notes 92 to 106.
 var note_count_h = 89;
-export var notes_played = [];
+
+let notes = {
+  played: []
+}
+export { notes };
 
 export const keymap = new Array(128); // array mapping originally played keys to MTS output or processed note output
 for (let i = 0; i < 2048; i++) {
@@ -91,6 +94,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
         //console.log("keymap", keymap[note_played]);
       };
       
+      /*
       if (bend < 0) {
         bend = bend * bend_down;
       } else {
@@ -102,6 +106,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       mts[1] = mts_bend[0];
       mts[2] = mts_bend[1];
       mts[3] = mts_bend[2];
+      */
     
     } else if (midi_mapping === "MTS2") { // or output on a single channel with MIDI tuning standard sysex messages to produce the desired tuning
       var ref = fundamental / offset; // use the specified fundamental and the scale degree offset to calculate the offset for the outcoming MTS data ... MIDI softsynth must be set to 440 Hz for this to work correctly
@@ -144,6 +149,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
         //console.log("keymap", keymap[note_played]);
       };
      
+      /*
       if (bend < 0) {
         bend = bend * bend_down;
       } else {
@@ -155,6 +161,7 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       mts[1] = mts_bend[0];
       mts[2] = mts_bend[1];
       mts[3] = mts_bend[2];
+      */
     }
     
     this.coords = coords; // these end up being used by the keys class
@@ -189,16 +196,12 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
 
 MidiHex.prototype.noteOn = function () {
   
-  if (this.mts.length > 0) { // send single note tuning change, TODO modify by bend
+  if (this.mts.length > 0) { // send single note tuning change
     this.midi_output.send([240, 127, 127, 8, 2, 0, 1, this.mts[0], this.mts[1], this.mts[2], this.mts[3], 247]);
-    console.log("MTS target note and tuning:", this.mts[0], this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));  
+    //console.log("MTS Note:", this.mts[0], "Tuned as:", this.mts[1] + (this.mts[2] / 128) + (this.mts[3] / 16384));  
   };
 
-  this.midi_output.send([144 + this.channel, this.steps, this.velocity]);  
-  //console.log("(output) note_on:", this.channel + 1, this.steps, this.velocity);
-  /*if (notes_played != null) {
-    //console.log("notes_played after noteon:", notes_played);
-  };*/
+  this.midi_output.send([144 + this.channel, this.steps, this.velocity]);
 };
 
 MidiHex.prototype.noteOff = function (release_velocity) {
@@ -212,21 +215,6 @@ MidiHex.prototype.noteOff = function (release_velocity) {
   //console.log("release_velocity", velocity);
   
   this.midi_output.send([128 + this.channel, this.steps, velocity]);
-  //console.log("(output) note_off:", this.channel + 1, this.steps, velocity);
-  
-  let index = notes_played.lastIndexOf(this.note_played); // eliminate note_played from array of played notes
-  if (index >= 0) {
-    let first_half = [];
-    first_half = notes_played.slice(0, index);
-    let second_half = [];
-    second_half = notes_played.slice(index);
-    second_half.shift();
-    let newarray = [];
-    notes_played = newarray.concat(first_half, second_half);
-    if (notes_played != null) {
-      //console.log("notes_played after noteoff", notes_played);
-    };
-  };  
 };
 
 export function centsToMTS(note, bend) {

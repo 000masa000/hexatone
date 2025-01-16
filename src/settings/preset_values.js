@@ -39,7 +39,8 @@ import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
 import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
 import scale_40_hs_odd_13l from 'scales/40-HS-odd-13L.scl';
 import scale_55_hs_odd_19l from 'scales/55-HS-odd-19L.scl';
-import scale_53_hs_odd_mod from 'scales/53-HS-odd-mod.scl'
+import scale_81_hs_odd_47l from 'scales/81-HS-odd-47L.scl';
+import scale_53_hs_odd_mod from 'scales/53-HS-odd-mod.scl';
 
 import scale_31_mt_vicentino from 'scales/31-MT-Vicentino.scl';
 import scale_19_19P5_amt_vicentino from 'scales/19+19P5-AdaptiveMT-Vicentino.scl';
@@ -830,11 +831,11 @@ export const presets = [
         "note_colors": [],
         "spectrum_colors": false,
         "note_colors": [
-          "#ededed", "#ffffff", "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#d1c2c2", "#ffe5e5",
-          "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#d3dab9", "#ffcba8", "#ededed",
+          "#ededed", "#ffffff", "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#68f3ec", "#ffe5e5",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#95c69b", "#ffcba8", "#ededed",
           "#ffffff", "#ededed", "#cee3e2", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ededed",
-          "#fffae5", "#ffffff", "#f2cdc5", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#b6ecd0",
-          "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#d3dab9", "#d1c2c2", "#ffb8da", "#e5fff9",
+          "#fffae5", "#ffffff", "#d39e92", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#8aafff",
+          "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#95c69b", "#68f3ec", "#ffb8da", "#e5fff9",
           "#ffffff", "#ededed", "#f8c9c9", "#dfffd6", "#fef5be", "#ededed", "#cfcfcf", "#ededed",
           "#e6d7fe", "#ffcba8", "#ededed"
         ],
@@ -865,11 +866,11 @@ export const presets = [
         "note_colors": [],
         "spectrum_colors": false,
         "note_colors": [
-          "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#d1c2c2", "#ffe5e5",
-          "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#d3dab9", "#ffcba8", "#ededed",
+          "#ddfe95", "#ffe5e5", "#d6f7ff", "#b6ece3", "#e5adff", "#fffae5", "#ededed", "#68f3ec", "#ffe5e5",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#ededed", "#cfcfcf", "#95c69b", "#ffcba8", "#ededed",
           "#ffffff", "#ededed", "#cee3e2", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ededed",
-          "#fffae5", "#ffffff", "#f2cdc5", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#b6ecd0",
-          "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#d3dab9", "#d1c2c2", "#ffb8da", "#e5fff9",
+          "#fffae5", "#ffffff", "#d39e92", "#ededed", "#ffe5e5", "#eceae4", "#dee2da", "#8aafff",
+          "#dfffd6", "#ededed", "#fffae5", "#ebd0e0", "#95c69b", "#68f3ec", "#ffb8da", "#e5fff9",
           "#ffffff", "#ededed", "#f8c9c9", "#dfffd6", "#fef5be", "#ededed", "#cfcfcf", "#ededed",
           "#e6d7fe", "#ffcba8", "#ededed", "#ededed", "#ffffff", "#ededed", "#ddfe95"
         ],
@@ -918,7 +919,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 9,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG (3,5)"
       },
       {
         "name": "14-(3,5) < 256° (HEJI)",
@@ -951,7 +952,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 9,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5)"
+        "short_description": "Odd Partial PC SG (3,5)"
       },
       {
         "name": "12-(3,7) < 256°",
@@ -986,7 +987,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 8,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG (3,7)"
       },
       {
         "name": "12-(3,7) < 256° (HEJI)",
@@ -1021,7 +1022,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 8,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,7)"
+        "short_description": "Odd Partial PC SG (3,7)"
       },
       {
         "name": "18-(3,7,11) < 256°",
@@ -1056,7 +1057,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 12,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,7,11)"
+        "short_description": "Odd Partial PC SG (3,7,11)"
       },
       {
         "name": "18-(3,7,11) < 256° (HEJI)",
@@ -1091,7 +1092,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 12,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,7,11)"
+        "short_description": "Odd Partial PC SG (3,7,11)"
       },
       {
         "name": "20-(3,5,13) < 256°",
@@ -1124,7 +1125,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 14,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC SG (3,5,13)"
       },
       {
         "name": "20-(3,5,13) < 256° (HEJI)",
@@ -1157,7 +1158,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 14,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC SG (3,5,13)"
       },
       {
         "name": "40-(13-Limit) < 256°",
@@ -1175,7 +1176,7 @@ export const presets = [
           "121", "243", "245", "125", "63"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#f3e7f1", "#e6d7fe",
           "#fffae5", "#ffffff", "#dbf6ff", "#ffe5e5",
           "#dbb3ff", "#d8e3ce", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
@@ -1190,7 +1191,7 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 28,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC (13-Limit)"
       },
       {
         "name": "40-(13-Limit) < 256° (HEJI)",
@@ -1208,7 +1209,7 @@ export const presets = [
           "B", "C", "B", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#e9ecc1", "#e6d7fe",
           "#fffae5", "#ffffff", "#dbf6ff", "#ffe5e5",
           "#dbb3ff", "#d8e3ce", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
@@ -1223,11 +1224,11 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 28,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC (13-Limit)"
       },
       {
         "name": "55-(19-Limit) < 256°",
-        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
+        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their multiples. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed within the partials up to 256, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset is therefore maximally compact while providing the most consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
         "scale_import": scale_55_hs_odd_19l,
         "scale": parseScale(scale_55_hs_odd_19l).scale,
         "equivSteps": 55,
@@ -1242,7 +1243,7 @@ export const presets = [
           "245", "247", "125", "63", "255"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#ffcba8", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#d6f7ff", "#cfcfcf", "#e9ecc1", "#e6d7fe", "#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe", "#eceae4",
           "#d6f7ff", "#ffd270", "#dfffd6", "#fffae5", "#ebd0e0", "#ccdbce", "#ffe5e5", "#e5fff9",
@@ -1258,11 +1259,11 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 38,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC (19-limit)"
       },
       {
         "name": "55-(19-Limit) < 256° (HEJI)",
-        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their odd partial pitch classes. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset provides the consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
+        "description": "55-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 19. This set combines all of the preceding pitches, and adds primes 17° and 19° along with their multiples. The limit is chosen because it is the highest prime that allows a complete 13-Limit harmony to be constructed, and because the addition of 17° and 19° produce a more even scale. The resulting harmonic space subset provides the consonant modulations in seven dimensions (3°, 5°, 7°, 11°, 13°, 17°, 19°).",
         "scale_import": scale_55_hs_odd_19l,
         "scale": parseScale(scale_55_hs_odd_19l).scale,
         "equivSteps": 55,
@@ -1277,7 +1278,7 @@ export const presets = [
           "C", "C", "B", "C", "B"],                       
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#ffcba8", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#d6f7ff", "#cfcfcf", "#e9ecc1", "#e6d7fe", "#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe", "#eceae4",
           "#d6f7ff", "#ffd270", "#dfffd6", "#fffae5", "#ebd0e0", "#ccdbce", "#ffe5e5", "#e5fff9",
@@ -1293,7 +1294,44 @@ export const presets = [
         "fundamental": 440,
         "reference_degree": 38,
         "midiin_degree0": 60,
-        "short_description": "Odd Partial PC SG 3,5,13)"
+        "short_description": "Odd Partial PC (19-limit)"
+      },
+      {
+        "name": "81-(47-Limit) < 256°",
+        "description": "81-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 47. This set combines all of the preceding pitches, and adds primes up to 47° and their multiples. The prime limit chosen is the highest prime that allows each pitch to be part of an harmonic chord comprising (at least) identities 1° 3° 5°.",
+        "scale_import": scale_81_hs_odd_47l,
+        "scale": parseScale(scale_81_hs_odd_47l).scale,
+        "equivSteps": 81,
+        "note_names": [
+          "1", "129", "65", "33", "133", "135", "17", "69", "35", "141", "143",
+          "9", "145", "147", "37", "75", "19", "153", "77", "155", "39", "5",
+          "161", "81", "41", "165", "21",
+          "169", "85", "171", "43", "87", "175", "11", "45", "91", "23", "185",
+          "93", "187", "47", "189", "95",
+          "3", "195", "49", "99", "25", "203", "51", "205", "207", "13", "209",
+          "105", "215", "27", "217", "55", "221", "111", "7", "225", "57", "115",
+          "231", "29", "117", "235", "119", "15", "121", "243", "245", "123", "247",
+          "31", "125", "63", "253", "255"],                       
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#c9a573", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#95c69b", "#ffcba8", "#ffb8da", "#90f9cd",
+          "#ffffff", "#8aafff", "#f8c9c9", "#cee3e2", "#fef5be", "#d6f7ff", "#cfcfcf", "#e9ecc1", "#68f3ec", "#e6d7fe", "#fffae5",
+          "#91b195", "#ffffff", "#d39e92", "#ddfe95", "#ffe5e5",
+          "#cba9fe", "#eceae4", "#d6f7ff", "#c9a573", "#8aafff", "#ffd270", "#dfffd6", "#fffae5", "#ebd0e0", "#95c69b", "#dfebdb",
+          "#68f3ec", "#ccdbce", "#ffb8da", "#ffe5e5", "#e5fff9",
+          "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#b0a9fe", "#cfcfcf", "#e0b49e", "#95c69b", "#e6d7fe","#caf7e3",
+          "#ffcba8", "#c9a573", "#ffffff", "#68f3ec",  "#ddfe95", "#c3b4d5", "#cee3e2", "#ffe5e5", "#fef5be", "#d6f7ff", "#90d597",
+          "#e9ecc1", "#8aafff", "#e6d7fe", "#f79cc5", "#ded4d5", "#fffae5", "#c3ffad", "#ffffff", "#ffa8a8", "#d39e92", "#dbe6ff",
+          "#68f3ec", "#ffef8a", "#ffe5e5", "#95c69b", "#eceae4"],                 
+        "spectrum_colors": false,
+        "rSteps": 9,
+        "urSteps": 5,
+        "hexSize": 38,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 56,
+        "midiin_degree0": 60,
+        "short_description": "Odd Partial PC (47-limit)"
       },
       {
         "name": "53 < 256° isomorphic",
@@ -1311,13 +1349,13 @@ export const presets = [
           "121", "31", "63", "95/48"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#d3dab9", "#ffcba8", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#95c69b", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ffcba8", "#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe",
-          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#d3dab9", "#ffe5e5", "#e5fff9",
+          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#95c69b", "#ffe5e5", "#e5fff9",
           "#ffffff", "#f8c9c9", "#dfffd6", "#fef5be", "#d6f7ff", "#cfcfcf", "#e6d7fe", "#ffcba8","#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#d0d0d7", "#fffae5",
-          "#c3ffad", "#d1c2c2", "#ffe5e5", "#e5fff9"],                  
+          "#c3ffad", "#68f3ec", "#ffe5e5", "#e5fff9"],                  
         "spectrum_colors": false,
         "rSteps": 9,
         "urSteps": 4,
@@ -1344,13 +1382,13 @@ export const presets = [
             "B", "C", "C", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#d3dab9", "#ffcba8", "#acd2c2",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#f4e6f2", "#fffae5", "#cfcfcf", "#95c69b", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#ffcba8", "#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#cba9fe",
-          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#d3dab9", "#ffe5e5", "#e5fff9",
+          "#d6f7ff", "#e9d7d3", "#dfffd6", "#d0d0d7", "#fffae5", "#ebd0e0", "#95c69b", "#ffe5e5", "#e5fff9",
           "#ffffff", "#f8c9c9", "#dfffd6", "#fef5be", "#d6f7ff", "#cfcfcf", "#e6d7fe", "#ffcba8","#fffae5",
           "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#d6f7ff", "#e9ecc1", "#e6d7fe", "#d0d0d7", "#fffae5",
-          "#c3ffad", "#d1c2c2", "#ffe5e5", "#e5fff9"],                  
+          "#c3ffad", "#68f3ec", "#ffe5e5", "#e5fff9"],                  
         "spectrum_colors": false,
         "rSteps": 9,
         "urSteps": 4,
@@ -1368,7 +1406,7 @@ export const presets = [
     settings: [
       {
         "name": "53-Tertial (center D)",
-        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics and 26 are subharmonics of D. This yields a symmetric, enharmonically respelled notation combining two HEJI symbols, tilde and arrow, to indicate alteration by a Schisma and a Quintal Comma, which is equal to a Tertial Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a sequence of 53 just fifths is very nearly equal to 31 octaves. Compare this tuning to the following tuning based on 5-Limit (with 2 enharmonic proximities added) and to the 53edo temperament.",
+        "description": "53-tone 3-Limit Rational Intonation scale, consisting of 53 notes per octave derived by tuning a chain of 53 3/2 perfect fifths: 26 are harmonics and 26 are subharmonics of D. This gives a symmetric, enharmonically respelled notation combining two HEJI symbols, tilde and arrow, to indicate alteration by a Quintal Comma plus a Schisma, which is equal to a Tertial Comma. Jing Fang (78–37 BCE), a Chinese music theorist, observed that a sequence of 53 just fifths is very nearly equal to 31 octaves. Compare this tuning to the following tuning based on 5-Limit (with 2 enharmonic proximities added) and to the 53edo temperament.",
         "scale_import": scale_53_ri_3l,
         "scale": parseScale(scale_53_ri_3l).scale,
         "equivSteps": 53,
