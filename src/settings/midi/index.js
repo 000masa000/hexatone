@@ -14,7 +14,7 @@ const MIDIio = (props) => (
         onChange={(e) => {
           props.onChange(e.target.name, e.target.value);
           sessionStorage.setItem(e.target.name, e.target.value);
-          console.log("MIDI In device selected: ", sessionStorage.getItem(e.target.name));
+          //console.log("MIDI In device selected: ", sessionStorage.getItem(e.target.name));
         }
         }>
         <option value="OFF">OFF</option>
@@ -34,7 +34,7 @@ const MIDIio = (props) => (
           if (ch == 0) {
             ch = "OFF";
           }
-          console.log("MIDI In channel selected: ", ch);
+          //console.log("MIDI In channel selected: ", ch);
         }
         }>
         <option value="-1">---choose a channel on which input is untransposed---</option>
@@ -49,8 +49,8 @@ const MIDIio = (props) => (
         onChange={(e) => {
           if ((e.target.value >= 0) && (e.target.value <= 127)) {
             props.onChange(e.target.name, parseInt(e.target.value));
-            // sessionStorage.setItem(e.target.name, e.target.value);
-            console.log("Degree 0 plays on MIDI Note: ", sessionStorage.getItem(e.target.name));
+            //sessionStorage.setItem(e.target.name, e.target.value);
+            //console.log("Degree 0 plays on MIDI Note: ", sessionStorage.getItem(e.target.name));
           };
         }
         } />

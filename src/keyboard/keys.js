@@ -79,7 +79,7 @@ class Keys {
         //console.log("(input) note_on", e.message.channel, e.note.number, e.note.rawAttack);
         this.midinoteOn(e);
         notes.played.unshift(e.note.number + (128 * (e.message.channel - 1)));
-        console.log("notes.played after noteon:", notes.played);
+       // console.log("notes.played after noteon:", notes.played);
       });
 
       this.midiin_data.addListener("noteoff", e => {
@@ -95,20 +95,23 @@ class Keys {
           let newarray = [];
           notes.played = newarray.concat(first_half, second_half);
         };
+        /*
         if (notes.played.length > 0) {
           console.log("notes.played after noteoff", notes.played);
         } else {
           console.log("All notes released!");
         };
+        */
       });
 
       this.midiin_data.addListener("controlchange", e => {
         if (e.message.dataBytes[0] == 64) {
-          console.log("Controller 64 (Sustain Pedal) Received");
           if (e.message.dataBytes[1] > 0) {
             this.sustainOn();
+            //console.log("Controller 64 (Sustain Pedal) On");
           } else {
             this.sustainOff();
+            //console.log("Controller 64 (Sustain Pedal) Off");
           };
         };
 
