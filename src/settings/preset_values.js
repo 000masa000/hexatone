@@ -1179,10 +1179,10 @@ export const presets = [
         "note_colors": [
           "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#e9ecc1", "#e6d7fe",
-          "#fffae5", "#ffffff", "#ddfe95", "#ffe5e5",
-          "#dbb3ff", "#ffd270", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
+          "#fffae5", "#ffffff", "#dbf6ff", "#ffe5e5",
+          "#dbb3ff", "#d8e3ce", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
           "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#e6d7fe", "#ffcba8",
-          "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#f3e7f1", "#e6d7fe", "#fffae5",
+          "#ffffff", "#dbf6ff", "#ffe5e5", "#fef5be", "#e9ecc1", "#e6d7fe", "#fffae5",
           "#c3ffad", "#ffffff", "#ffd0a3", "#ffef8a", "#ffe5e5"],                 
         "spectrum_colors": false,
         "rSteps": 6,
