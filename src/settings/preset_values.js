@@ -37,6 +37,7 @@ import scale_14_hs_odd_3_5 from 'scales/14-HS-odd-3+5.scl';
 import scale_12_hs_odd_3_7 from 'scales/12-HS-odd-3+7.scl';
 import scale_18_hs_odd_3_7_11 from 'scales/18-HS-odd-3+7+11.scl';
 import scale_20_hs_odd_3_5_13 from 'scales/20-HS-odd-3+5+13.scl';
+import scale_22_hs_odd_37to47 from 'scales/22-HS-odd-37to47.scl';
 import scale_40_hs_odd_13l from 'scales/40-HS-odd-13L.scl';
 import scale_55_hs_odd_19l from 'scales/55-HS-odd-19L.scl';
 import scale_81_hs_odd_47l from 'scales/81-HS-odd-47L.scl';
@@ -1176,12 +1177,12 @@ export const presets = [
           "121", "243", "245", "125", "63"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#90f9cd",
-          "#ffffff", "#f8c9c9", "#fef5be", "#f3e7f1", "#e6d7fe",
-          "#fffae5", "#ffffff", "#dbf6ff", "#ffe5e5",
-          "#dbb3ff", "#d8e3ce", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
-          "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#e6d7fe", "#f8ffeb",
-          "#ffffff", "#dbf6ff", "#ffe5e5", "#fef5be", "#f3e7f1", "#e6d7fe", "#fffae5",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#ffcba8", "#90f9cd",
+          "#ffffff", "#f8c9c9", "#fef5be", "#e9ecc1", "#e6d7fe",
+          "#fffae5", "#ffffff", "#ddfe95", "#ffe5e5",
+          "#dbb3ff", "#ffd270", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
+          "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#e6d7fe", "#ffcba8",
+          "#ffffff", "#ddfe95", "#ffe5e5", "#fef5be", "#f3e7f1", "#e6d7fe", "#fffae5",
           "#c3ffad", "#ffffff", "#ffd0a3", "#ffef8a", "#ffe5e5"],                 
         "spectrum_colors": false,
         "rSteps": 6,
@@ -1209,13 +1210,13 @@ export const presets = [
           "B", "C", "B", "C"],
         "key_labels": "note_names",
         "note_colors": [
-          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#f8ffeb", "#90f9cd",
+          "#ffffff", "#e9d7d3", "#dfffd6", "#fffae5", "#ffcba8", "#90f9cd",
           "#ffffff", "#f8c9c9", "#fef5be", "#e9ecc1", "#e6d7fe",
           "#fffae5", "#ffffff", "#dbf6ff", "#ffe5e5",
           "#dbb3ff", "#d8e3ce", "#dfffd6", "#fffae5", "#ebd0e0", "#ffe5e5",
-          "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#e6d7fe", "#f8ffeb",
-          "#ffffff", "#dbf6ff", "#ffe5e5", "#fef5be", "#e9ecc1", "#e6d7fe", "#fffae5", "#c3ffad",
-          "#ffffff", "#ffd0a3", "#ffef8a", "#ffe5e5"],                 
+          "#ffffff", "#e9d7d3", "#f8c9c9", "#dfffd6", "#fef5be", "#e6d7fe", "#ffcba8",
+          "#ffffff", "#dbf6ff", "#ffe5e5", "#fef5be", "#e9ecc1", "#e6d7fe", "#fffae5",
+          "#c3ffad", "#ffffff", "#ffd0a3", "#ffef8a", "#ffe5e5"],                 
         "spectrum_colors": false,
         "rSteps": 6,
         "urSteps": 5,
@@ -1332,6 +1333,39 @@ export const presets = [
         "reference_degree": 56,
         "midiin_degree0": 60,
         "short_description": "Odd Partial PC (47-limit)"
+      },
+      {
+        "name": "22-(37to47) < 256°",
+        "description": "22-tone Rational Intonation gamut, consisting of pitch classes derived from odd harmonic partials not exceeding 256° and comprising only products of primes <= 47. This set is a subset of the preceding pitches, including primes 37 through 47 and the pitch classes 1°, 3°, 9°, 27°, 7°, 21°, 63°. The high primes all have their 5 identities.",
+        "scale_import": scale_22_hs_odd_37to47,
+        "scale": parseScale(scale_22_hs_odd_37to47).scale,
+        "equivSteps": 22,
+        "note_names": [
+          "1",  "129", "141",
+          "9", "147", "37",
+          "41", "21", "43",
+          "185", "47", "3",
+          "49", "205", "215",
+          "27", "111", "7", "235",
+          "245", "123", "63"],                       
+        "key_labels": "note_names",
+        "note_colors": [
+          "#ffffff", "#c9a573", "#ffb8da",
+          "#ffffff", "#f8c9c9", "#cee3e2",
+          "#d39e92", "#ffe5e5", "#c9a573",
+          "#dfebdb", "#ffb8da", "#ffffff",
+          "#f8c9c9", "#e0b49e", "#c9a573",
+          "#ffffff", "#cee3e2", "#ffe5e5", "#f79cc5",
+          "#ffa8a8", "#d39e92", "#ffe5e5"],                 
+        "spectrum_colors": false,
+        "rSteps": 4,
+        "urSteps": 1,
+        "hexSize": 38,
+        "rotation": -16.102113751,       
+        "fundamental": 440,
+        "reference_degree": 15,
+        "midiin_degree0": 60,
+        "short_description": "Odd Partial PC (37to47)"
       },
       {
         "name": "53 < 256° isomorphic",
