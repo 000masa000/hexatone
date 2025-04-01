@@ -399,6 +399,9 @@ class Keys {
       bend = 0;
     };
     if (!velocity_played) {
+      velocity_played = this.settings.midi_velocity;
+    };
+    if (!velocity_played) {
       velocity_played = 72;
     };
     const [cents, pressed_interval, steps, equaves, equivSteps, cents_prev, cents_next] = this.hexCoordsToCents(coords);

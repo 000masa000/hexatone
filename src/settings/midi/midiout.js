@@ -54,19 +54,6 @@ const MidiOut = (props) => (
         {[...Array(16).keys()].map(i => <option value={i}>{i + 1}</option>)}
       </select>
     </label>
-    <label>
-      Velocity (touch input)
-      <input name="midi_velocity" type="number"
-        value={props.settings.midi_velocity}
-        step="1" min="0" max="127"
-        onChange={(e) => {
-          if (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 127) {
-            props.onChange(e.target.name, parseInt(e.target.value));
-            sessionStorage.setItem(e.target.name, parseInt(e.target.value));
-          };
-        }
-        } />
-    </label>
     
     <p>
       <em>MIDI Output is determined by the selected MIDI Mapping. In "Multichannel" each transposed cycle of the scale, up to a maximum of 128 degrees, is sent on a different MIDI channel, around the Central Output Channel. "All notes on selected channel" sends scale degrees as successive MIDI notes on one channel only. In either of these settings, the synth will need to load a global tuning map. To send a global tuning map based on the selected scala file and reference frequency, please choose from the options below.</em>
