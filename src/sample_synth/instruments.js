@@ -47,7 +47,7 @@ export const instruments = [
         name: "Reed (9 Harmonics)",
         gain: 0.58,
         attack: 0.096,
-        release: 0.012,
+        release: 0.016,
         loop: true,
         velocity: true
       }, {
@@ -55,7 +55,7 @@ export const instruments = [
         name: "Hammond (9 Harmonics)",
         gain: 0.66,
         attack: 0.001,
-        release: 0.001,
+        release: 0.016,
         loop: true,
         velocity: false
       }

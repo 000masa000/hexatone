@@ -26,6 +26,7 @@ export const create_sample_synth = async (fileName, fundamental, reference_degre
     };
     //console.log("reference_degree:", reference_degree);
     //console.log("offset_value:", offset);
+    
 
     return {
       makeHex: (coords, cents, velocity_played) => {
@@ -125,6 +126,7 @@ ActiveHex.prototype.noteOff = function () {
   var fadeout = this.audioContext.currentTime + this.sampleRelease;
   if (this.gainNode) {
     this.gainNode.gain.setTargetAtTime(0, this.audioContext.currentTime, this.sampleRelease);
+    //console.log("release:", this.sampleRelease);
   }
   if (this.source) {
     this.source.stop(fadeout + 6);
