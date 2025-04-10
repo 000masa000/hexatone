@@ -80,12 +80,10 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       if (mts[2] == 16384) {
         mts[2] = 16383;
       };
-      mts[3] = mts[2] / 128;
-      mts[2] = Math.floor(mts[3]);
-      mts[3] = Math.round(128 * (mts[3] - mts[2]));
-      if (mts[3] == 128) {
-        mts[3] = 127;
-      };
+      mts[3] = mts[2] & 127;
+      mts[2] = mts[2] & 16383;
+      mts[2] = mts[2] >> 7;
+      console.log([mts[1], mts[2], mts[3]]);
       
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
 
@@ -135,12 +133,9 @@ function MidiHex(coords, cents, steps, equaves, equivSteps, cents_prev, cents_ne
       if (mts[2] == 16384) {
         mts[2] = 16383;
       };
-      mts[3] = mts[2] / 128;
-      mts[2] = Math.floor(mts[3]);
-      mts[3] = Math.round(128 * (mts[3] - mts[2]));
-      if (mts[3] == 128) {
-        mts[3] = 127;
-      };
+      mts[3] = mts[2] & 127;
+      mts[2] = mts[2] & 16383;
+      mts[2] = mts[2] >> 7;
      
       tuningmap[mts[0]] = [mts[1], mts[2], mts[3]]; // not currently used
       

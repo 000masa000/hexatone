@@ -10,7 +10,7 @@ const Blurb = () => (
     </p>
     <p>
       MIDI version designed and programmed by <a href="https://www.plainsound.org" target="new">Marc&nbsp;Sabat</a>.<br />
-      Current version 2.6 (2024), released as Free/Libre and Open Source Software under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="new">GPL-3.0</a>.<br />
+      Current version 2.7 (2025), released as Free/Libre and Open Source Software under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="new">GPL-3.0</a>.<br />
       <a href="https://github.com/000masa000/hexatone" target="new">github.com/000masa000/hexatone</a>
     </p>
     <p>
