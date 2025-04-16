@@ -746,7 +746,7 @@ class Keys {
     // hexcoords = p and screenCoords = hexCenter
 
     context.fillStyle = getContrastYIQ(current_text_color);
-    context.font = "29pt Roboto HEJI2";
+    context.font = "29pt Plainsound Text";
     context.textAlign = "center";
     context.textBaseline = "middle";
 
@@ -784,7 +784,7 @@ class Keys {
       context.scale(scaleFactor, scaleFactor);
       context.translate(12, -30);
       context.fillStyle = getContrastYIQ_2(current_text_color);
-      context.font = "14pt Roboto HEJI2";
+      context.font = "14pt Plainsound Text";
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(equivMultiple, 0, 0);

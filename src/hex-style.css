@@ -1,18 +1,35 @@
 @font-face {
-    font-family: 'Roboto HEJI2';
-    src:  url("https://www.plainsound.org/fonts/RobotoCondensed-HEJI2.woff2") format("woff2"),
-          url("https://www.plainsound.org/fonts/RobotoCondensed-HEJI2.woff") format("woff"),
-          url("https://www.plainsound.org/fonts/RobotoCondensed-HEJI2.ttf") format("ttf");
+    font-family: 'Plainsound Text';
+    src:   
+        url("https://www.plainsound.org/fonts/PlainsoundText-Regular.otf") format("opentype");
+    font-weight: regular;
+    font-style: regular;
+}
+
+@font-face {
+    font-family: 'Plainsound Text';
+    src:    
+        url("https://www.plainsound.org/fonts/PlainsoundText-Italic.otf") format("opentype");
+    font-weight: regular;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plainsound Text';
+    src:
+        url("https://www.plainsound.org/fonts/PlainsoundText-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: regular;
 }
 
 body {
-	  background-image: url("Pattern3D_06.png");
+	background-image: url("Pattern3D_06.png");
     transition: transform .3s ease-in-out;
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed;
     overflow: hidden;
-    font-family: 'Roboto HEJI2', 'Roboto Condensed', 'Arial Nova Condensed', 'Arial Narrow', Helvetica, Arial, 'Open Sans', sans-serif;
+    font-family: 'Plainsound Text', 'Roboto Condensed', 'Arial Nova Condensed', 'Arial Narrow', Helvetica, Arial, 'Open Sans', sans-serif;
 }
 
 table {
